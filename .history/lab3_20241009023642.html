@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 2 - Advanced Features</title>
+    <title>Lab 3 - Responsive Design</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -602,20 +602,20 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 2 - Online Coding Platform</h2>
+        <h2 class="text-center mb-4">Lab 3 - Responsive Design</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
           <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
             <i class="bi bi-book"></i> Lab 1
           </a>
-          <a
-            href="lab2.html"
-            class="btn btn-secondary-custom lab2 lab-button active"
-          >
+          <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
             <i class="bi bi-book"></i> Lab 2
           </a>
-          <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
+          <a
+            href="lab3.html"
+            class="btn btn-success-custom lab3 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 3
           </a>
           <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
@@ -653,231 +653,151 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi bài tập, các em làm xong, bỏ vào thư mục mang tên
-                MaSV_HoTen rồi nén .zip gửi lại cho cô nhé.
+                Cô gửi yêu cầu lab3, thiết kế giao diện responsive cho trang web
+                như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
+                github dạng: <em>XXX.github.com/lab3.html</em>
               </p>
-              <h4>1. Authentication</h4>
+              <h4>Responsive Design Requirements:</h4>
               <ul>
                 <li>
-                  Students should authenticate before accessing the system.
-                </li>
-                <li>
-                  Required fields:
+                  <strong>Flexible Grid Layout:</strong>
                   <ul>
-                    <li>Username/Email</li>
-                    <li>Password</li>
+                    <li>
+                      Sử dụng lưới linh hoạt để đảm bảo bố cục thích ứng với các
+                      kích thước màn hình khác nhau.
+                    </li>
+                    <li>
+                      Các cột phải tự điều chỉnh kích thước dựa trên kích thước
+                      thiết bị.
+                    </li>
                   </ul>
                 </li>
                 <li>
-                  Features:
+                  <strong>Media Queries:</strong>
                   <ul>
-                    <li>Login button</li>
-                    <li>Forgot Password link</li>
-                    <li>Simple, clean, and secure login screen.</li>
+                    <li>
+                      Áp dụng các media queries để điều chỉnh CSS cho các kích
+                      thước màn hình khác nhau (ví dụ: điện thoại, máy tính
+                      bảng, máy tính để bàn).
+                    </li>
+                    <li>
+                      Đảm bảo các phần tử như navbar, hình ảnh, và văn bản hiển
+                      thị tốt trên mọi thiết bị.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Flexible Images and Media:</strong>
+                  <ul>
+                    <li>
+                      Hình ảnh và các media khác phải có khả năng co giãn để phù
+                      hợp với kích thước của container mà không bị mất chất
+                      lượng.
+                    </li>
+                    <li>
+                      Sử dụng thuộc tính CSS như `max-width: 100%;` và `height:
+                      auto;` cho hình ảnh.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Responsive Navigation:</strong>
+                  <ul>
+                    <li>
+                      Thiết kế thanh điều hướng (navbar) phải thích ứng tốt với
+                      các thiết bị di động.
+                    </li>
+                    <li>
+                      Sử dụng menu hamburger hoặc dropdown cho màn hình nhỏ.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Typography:</strong>
+                  <ul>
+                    <li>
+                      Sử dụng đơn vị kích thước font linh hoạt như `em`, `rem`,
+                      hoặc `%` để đảm bảo văn bản dễ đọc trên mọi thiết bị.
+                    </li>
+                    <li>
+                      Đảm bảo khoảng cách giữa các dòng và các phần tử văn bản
+                      phù hợp.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Touch-Friendly Elements:</strong>
+                  <ul>
+                    <li>
+                      Các nút bấm và liên kết phải đủ lớn và dễ dàng tương tác
+                      trên màn hình cảm ứng.
+                    </li>
+                    <li>
+                      Đảm bảo các phần tử không quá gần nhau để tránh việc nhấn
+                      nhầm.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Performance Optimization:</strong>
+                  <ul>
+                    <li>
+                      Tối ưu hóa hình ảnh và tài nguyên để tải nhanh trên các
+                      thiết bị di động với kết nối internet chậm.
+                    </li>
+                    <li>
+                      Sử dụng kỹ thuật lazy loading cho hình ảnh và các media
+                      khác.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Cross-Browser Compatibility:</strong>
+                  <ul>
+                    <li>
+                      Đảm bảo giao diện responsive hoạt động tốt trên các trình
+                      duyệt phổ biến như Chrome, Firefox, Safari, và Edge.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Accessibility:</strong>
+                  <ul>
+                    <li>
+                      Đảm bảo các yếu tố trên trang web dễ tiếp cận cho người
+                      dùng có khuyết tật, bao gồm sử dụng màu sắc đủ tương phản
+                      và hỗ trợ keyboard navigation.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Testing:</strong>
+                  <ul>
+                    <li>
+                      Thực hiện kiểm tra trên các thiết bị và trình duyệt khác
+                      nhau để đảm bảo tính nhất quán và hiệu suất.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Clean and Maintainable Code:</strong>
+                  <ul>
+                    <li>
+                      Viết mã CSS sạch sẽ và dễ bảo trì, sử dụng các kỹ thuật
+                      như Mobile-First hoặc Desktop-First.
+                    </li>
                   </ul>
                 </li>
               </ul>
-
-              <h4>2. Dashboard</h4>
+              <h4>Additional Considerations:</h4>
               <ul>
                 <li>
-                  After login, students should land on a dashboard that displays
-                  available exercises to choose from.
+                  Sử dụng các framework CSS như Bootstrap hoặc Tailwind CSS để
+                  hỗ trợ thiết kế responsive.
                 </li>
                 <li>
-                  Display exercises grouped by programming language (C, Python,
-                  Java).
-                  <ul>
-                    <li>
-                      Exercise attributes:
-                      <ul>
-                        <li>Exercise title</li>
-                        <li>Short description</li>
-                        <li>Difficulty level (Easy/Medium/Hard)</li>
-                        <li>Time limit (if any)</li>
-                        <li>Points or grades attached (optional)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>
-                      Allow students to filter exercises by programming
-                      language.
-                    </li>
-                    <li>To search for exercises based on keywords.</li>
-                    <li>
-                      Indicate whether an exercise has been completed, in
-                      progress, or not started.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>Select an exercise</li>
-                    <li>View exercise details</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>3. Coding Environment</h4>
-              <ul>
-                <li>
-                  Once an exercise is selected, students are taken to a coding
-                  environment to implement their solution.
-                </li>
-                <li>Display the exercise title and description at the top.</li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>Syntax highlighting for C, Python, Java</li>
-                    <li>Line numbers and auto-complete</li>
-                    <li>Language switcher (to select the language)</li>
-                    <li>
-                      Pre-loaded template (based on the selected language)
-                    </li>
-                    <li>
-                      Instructions and constraints provided for the exercise
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Test Cases:
-                  <ul>
-                    <li>
-                      Display predefined test cases with expected input/output
-                    </li>
-                    <li>
-                      Allow students to create and run their own test cases
-                      (optional)
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Buttons:
-                  <ul>
-                    <li>Run Code button to compile and run the code</li>
-                    <li>Clear Code button to reset the editor</li>
-                    <li>
-                      Submission button to submit the final solution for grading
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>Run the code (compile + execute)</li>
-                    <li>Submit the code</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>4. Submission and Results</h4>
-              <ul>
-                <li>
-                  After submission, students should see the results of their
-                  submission.
-                </li>
-                <li>
-                  Details:
-                  <ul>
-                    <li>
-                      Status (Success/Failed/Compilation Error/Time Limit
-                      Exceeded)
-                    </li>
-                    <li>
-                      Output: Show actual output versus expected output for each
-                      test case.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Test Case Details:
-                  <ul>
-                    <li>
-                      List all test cases with:
-                      <ul>
-                        <li>Input</li>
-                        <li>Expected output</li>
-                        <li>Actual output</li>
-                        <li>Status (Passed/Failed)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Scoring:
-                  <ul>
-                    <li>Show score based on test cases passed</li>
-                    <li>
-                      If there are multiple test cases, show how many passed
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Performance Metrics:
-                  <ul>
-                    <li>
-                      Display performance metrics like time taken and memory
-                      used (if applicable).
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>
-                      Try again button to return to the code editor for
-                      improvements
-                    </li>
-                    <li>Return to dashboard button</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>5. Additional Features</h4>
-              <ul>
-                <li>
-                  Show rankings based on student performance (optional, for
-                  competitive environments).
-                </li>
-                <li>
-                  Allow students to leave feedback on exercises or ask for help.
-                </li>
-                <li>
-                  Provide a hint button that can be used a limited number of
-                  times.
-                </li>
-                <li>
-                  Allow students to save their progress and return later to
-                  complete the exercise.
-                </li>
-              </ul>
-
-              <h4>6. General Requirements</h4>
-              <ul>
-                <li>
-                  Code execution should happen in isolated environments
-                  (containers or sandboxes) for security reasons.
-                </li>
-                <li>Limit execution time to prevent infinite loops.</li>
-                <li>
-                  Store previous attempts so students can review their
-                  submissions.
-                </li>
-                <li>
-                  Each screen should have a simple design with minimal
-                  distractions.
-                </li>
-                <li>
-                  Ensure the system is mobile-friendly so students can work from
-                  any device.
-                </li>
-                <li>
-                  Clearly communicate syntax and runtime errors to students.
+                  Kiểm tra trên các công cụ như Google Lighthouse để đánh giá và
+                  cải thiện hiệu suất và khả năng truy cập.
                 </li>
               </ul>
             </div>
@@ -890,13 +810,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="Lab2/img/paperLab2.jpg"
-                    alt="Design On Paper"
+                    src="assets/img/DesignPaperLab3.jpg"
+                    alt="Design On Paper Lab3"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="Lab2/img/paperLab2.jpg"
+                      href="assets/img/DesignPaperLab3.jpg"
                       download
                       class="download-btn"
                     >
@@ -909,20 +829,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="Lab2/img/screencapture-127-0-0-1-5500-Lab2-Html-index-html-2024-10-08-20_12_54.png"
-                    alt="Design On Figma"
+                    src="assets/img/DesignLab3.png"
+                    alt="Design On Figma Lab3"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="Lab2/img/screencapture-127-0-0-1-5500-Lab2-Html-index-html-2024-10-08-20_12_54.png"
+                      href="assets/img/DesignLab3.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link-lab2"
+                      href="https://www.figma.com/your-figma-link-lab3"
                       target="_blank"
                       class="view-btn"
                     >
@@ -938,14 +858,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab2/Html/index.html"
-                  title="advanced_features"
+                  src="Lab3/responsive_design.html"
+                  title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab2/Html/index.html" class="lab-button">
+                <a href="Lab3/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -954,179 +874,160 @@
         </div>
       </div>
     </main>
-    <div id="implement" class="tab-item">
-      <h3>Implement</h3>
-      <div class="iframe-container">
-        <iframe
-          src="Lab2/Html/index.html"
-          title="advanced_features"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <!-- Review Pages Button -->
-      <div class="button-group" style="margin-top: 20px">
-        <a
-          href="Lab2/Html/index.html"
-          class="btn btn-primary-custom lab9 lab-button"
-        >
-          <i class="bi bi-eye"></i> Review Pages
-        </a>
-      </div>
-    </div>
 
-   <!-- Footer -->
-   <footer id="footer" class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="row">
-          <!-- Giới Thiệu -->
-          <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up">
-            <h4>Giới Thiệu</h4>
-            <p>
-              Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
-              và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
-            </p>
-            <div class="social-links">
-              <a href="#" aria-label="Twitter"
-                ><i class="bi bi-twitter"></i
-              ></a>
-              <a
-                href="https://www.facebook.com/profile.php?id=100088292157574"
-                aria-label="Facebook"
-                ><i class="bi bi-facebook"></i
-              ></a>
-              <a href="#" aria-label="Instagram"
-                ><i class="bi bi-instagram"></i
-              ></a>
-              <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
-              <a href="#" aria-label="LinkedIn"
-                ><i class="bi bi-linkedin"></i
-              ></a>
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <!-- Giới Thiệu -->
+            <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up">
+              <h4>Giới Thiệu</h4>
+              <p>
+                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
+                và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="Twitter"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100088292157574"
+                  aria-label="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Liên Kết Nhanh -->
+            <div
+              class="col-lg-2 col-md-6 footer-links"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h4>Liên Kết Nhanh</h4>
+              <ul>
+                <li>
+                  <a href="index.html"
+                    ><i class="bi bi-chevron-right"></i> Trang Chủ</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html"
+                    ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
+                  >
+                </li>
+                <li>
+                  <a href="resume.html"
+                    ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
+                  >
+                </li>
+                <li>
+                  <a href="services.html"
+                    ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
+                  >
+                </li>
+                <li>
+                  <a href="portfolio.html"
+                    ><i class="bi bi-chevron-right"></i> Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="bi bi-chevron-right"></i> Liên Hệ</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Dịch Vụ -->
+            <div
+              class="col-lg-3 col-md-6 footer-services"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h4>Dịch Vụ</h4>
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Thông Tin Liên Hệ -->
+            <div
+              class="col-lg-4 col-md-6 footer-contact"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h4>Liên Hệ</h4>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:22130116@st.hcmuaf.edu.vn"
+                  >22130116@st.hcmuaf.edu.vn</a
+                ><br />
+                <strong>Điện Thoại:</strong>
+                <a href="tel:+1234567890">+1 234 567 890</a><br />
+                <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
+              </p>
+              <!-- Đăng Ký Newsletter -->
+              <form action="#" method="post" class="newsletter-form">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email của bạn"
+                  aria-label="Email của bạn"
+                  required
+                />
+                <button type="submit" aria-label="Đăng Ký">
+                  <i class="bi bi-send"></i>
+                </button>
+              </form>
             </div>
           </div>
+        </div>
 
-          <!-- Liên Kết Nhanh -->
-          <div
-            class="col-lg-2 col-md-6 footer-links"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <h4>Liên Kết Nhanh</h4>
-            <ul>
-              <li>
-                <a href="index.html"
-                  ><i class="bi bi-chevron-right"></i> Trang Chủ</a
-                >
-              </li>
-              <li>
-                <a href="about.html"
-                  ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
-                >
-              </li>
-              <li>
-                <a href="resume.html"
-                  ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
-                >
-              </li>
-              <li>
-                <a href="services.html"
-                  ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
-                >
-              </li>
-              <li>
-                <a href="portfolio.html"
-                  ><i class="bi bi-chevron-right"></i> Portfolio</a
-                >
-              </li>
-              <li>
-                <a href="contact.html"
-                  ><i class="bi bi-chevron-right"></i> Liên Hệ</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Dịch Vụ -->
-          <div
-            class="col-lg-3 col-md-6 footer-services"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <h4>Dịch Vụ</h4>
-            <ul>
-              <li>
-                <a href="#"
-                  ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
-                >
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
-              </li>
-              <li>
-                <a href="#"
-                  ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
-                >
-              </li>
-              <li>
-                <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Thông Tin Liên Hệ -->
-          <div
-            class="col-lg-4 col-md-6 footer-contact"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <h4>Liên Hệ</h4>
-            <p>
-              <strong>Email:</strong>
-              <a href="mailto:22130116@st.hcmuaf.edu.vn"
-                >22130116@st.hcmuaf.edu.vn</a
-              ><br />
-              <strong>Điện Thoại:</strong>
-              <a href="tel:+1234567890">+1 234 567 890</a><br />
-              <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
-            </p>
-            <!-- Đăng Ký Newsletter -->
-            <form action="#" method="post" class="newsletter-form">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email của bạn"
-                aria-label="Email của bạn"
-                required
-              />
-              <button type="submit" aria-label="Đăng Ký">
-                <i class="bi bi-send"></i>
-              </button>
-            </form>
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start">
+              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
+              Mọi Quyền
+            </div>
+            <div class="col-lg-6 footer-credits text-center text-lg-end">
+              Thiết Kế Bởi
+              <a href="https://www.facebook.com/profile.php?id=100088292157574"
+                >Nguyễn Lê Hoàng Khang</a
+              >
+            </div>
           </div>
         </div>
       </div>
-
-      <div class="footer-bottom">
-        <div class="row">
-          <div class="col-lg-6 text-center text-lg-start">
-            &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
-            Mọi Quyền
-          </div>
-          <div class="col-lg-6 footer-credits text-center text-lg-end">
-            Thiết Kế Bởi
-            <a href="https://www.facebook.com/profile.php?id=100088292157574"
-              >Nguyễn Lê Hoàng Khang</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
     <!-- Scroll Top -->
     <a
@@ -1152,18 +1053,20 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 2
+      // Hàm thay đổi tab trong Lab 3
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
         tabItems.forEach((item) => {
           item.style.display = "none";
+          item.classList.remove("active");
         });
 
         // Hiển thị tab được chọn
         const selectedTab = document.getElementById(tabId);
         if (selectedTab) {
           selectedTab.style.display = "block";
+          selectedTab.classList.add("active");
         }
 
         // Xóa class active khỏi tất cả các tab

@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard và Feedback</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================
+      Reset và Base Styles
+      ============================== */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        /* Color Palette */
+        --primary-color: #3498db; /* Màu xanh nước biển */
+        --secondary-color: #2c3e50;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --text-light-color: #7f8c8d;
+        --accent-color: #e74c3c;
+        --footer-bg: #34495e;
+        --light-red: #ff6666;
+        --success-color: #1e90ff; /* Thay màu xanh lá cây bằng màu xanh nước biển */
+        --transition-speed: 0.3s;
+        --border-radius: 8px;
+        /* Font Families */
+        --font-family: "Montserrat", sans-serif;
+        --heading-font: "Poppins", sans-serif;
+        --body-font: "Roboto", sans-serif;
+      }
+
+      body {
+        font-family: var(--body-font);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 80px; /* Adjust padding to match navbar height */
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--heading-font);
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      p {
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      /* ==============================
+      Navbar Styles
+      ============================== */
+      nav {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 15px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li {
+        display: inline-block;
+        position: relative; /* For pseudo-element */
+      }
+
+      /* Pseudo-element để tạo đường kẻ đỏ */
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: red; /* Màu đỏ cho đường kẻ */
+        transition: width var(--transition-speed) ease;
+      }
+
+      /* Mở rộng đường kẻ khi hover */
+      .nav-links li a:hover::after {
+        width: 100%; /* Mở rộng đường kẻ khi hover */
+      }
+
+      .nav-links li a:hover {
+        color: var(--primary-color);
+        background-color: transparent;
+        box-shadow: none;
+      }
+
+      /* Social Links in Navbar */
+      .nav-social a {
+        color: #fff;
+        font-size: 18px;
+        margin-left: 10px;
+        transition: color var(--transition-speed);
+      }
+
+      .nav-social a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Hamburger Menu Styles */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 25px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .hamburger .bar {
+        height: 3px;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+      }
+
+      /* Responsive Navbar */
+      @media (max-width: 768px) {
+        .nav-links {
+          flex-direction: column;
+          gap: 20px;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .nav-social {
+          justify-content: center;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+      }
+
+      /* ==============================
+      Leaderboard Styles
+      ============================== */
+      .leaderboard-section {
+        padding: 60px 20px;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("https://via.placeholder.com/1920x1080") no-repeat center center/cover;
+      }
+
+      .leaderboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 100px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-header {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: var(--success-color); /* Màu xanh nước biển */
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .leaderboard-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-item img.medal {
+        width: 40px;
+        height: 40px;
+      }
+
+      .player-info {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin-left: 15px;
+      }
+
+      .player-info img.avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--success-color); /* Màu xanh nước biển */
+        margin-right: 15px;
+      }
+
+      .player-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .player-name {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: var(--text-color);
+      }
+
+      .stars i {
+        color: #ffc107;
+        margin-right: 2px;
+      }
+
+      .score {
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      /* ==============================
+      Feedback Styles
+      ============================== */
+      .feedback-section {
+        padding: 60px 20px;
+        background-color: #f7f7f7;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        font-size: 36px;
+        color: var(--primary-color); /* Thay đổi màu thành xanh nước biển */
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .info-table,
+      .feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+      }
+
+      .info-table th,
+      .info-table td,
+      .feedback-table th,
+      .feedback-table td {
+        padding: 12px 15px;
+        text-align: left;
+        color: var(--text-color);
+      }
+
+      .info-table th,
+      .feedback-table th {
+        background-color: #f1f1f1;
+        color: var(--text-color);
+        font-weight: 600;
+        border: 1px solid #ddd;
+      }
+
+      .info-table td,
+      .feedback-table td {
+        border: 1px solid #ddd;
+        background-color: #fff;
+      }
+
+      .info-table .due-date {
+        color: var(--primary-color); /* Thay đổi màu thành xanh nước biển */
+        font-weight: 600;
+      }
+
+      .related-documents {
+        background-color: #f1f1f1;
+        color: var(--text-color);
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      .related-documents h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: var(--text-color);
+      }
+
+      .related-documents ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .related-documents li {
+        margin-bottom: 8px;
+      }
+
+      .related-documents ul li a,
+      .related-documents ul li span.blue-text {
+        color: var(--primary-color);
+        text-decoration: none;
+        position: relative;
+        transition: color var(--transition-speed);
+      }
+
+      .related-documents ul li a:hover,
+      .related-documents ul li span.blue-text:hover {
+        color: var(--accent-color);
+      }
+
+      .related-documents ul li a::after,
+      .related-documents ul li span.blue-text::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: -2px;
+        background-color: var(--accent-color);
+        transition: width var(--transition-speed) ease;
+      }
+
+      .related-documents ul li a:hover::after,
+      .related-documents ul li span.blue-text:hover::after {
+        width: 100%;
+      }
+
+      .checkbox {
+        text-align: center;
+      }
+
+      .checkbox input {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* Phần nhập phản hồi */
+      .feedback-form {
+        margin-top: 25px;
+      }
+
+      .feedback-form h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .feedback-form select,
+      .feedback-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-color);
+      }
+
+      .feedback-form select:focus,
+      .feedback-form textarea:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+      }
+
+      .feedback-form textarea {
+        resize: vertical;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+      }
+
+      .button-group button {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button-group button:first-child {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .button-group button:first-child:hover {
+        background-color: #2980b9;
+      }
+
+      .button-group .back-button {
+        background-color: #ccc;
+        color: var(--text-color);
+      }
+
+      .button-group .back-button:hover {
+        background-color: #b3b3b3;
+      }
+
+      /* ==============================
+      Footer Styles
+      ============================== */
+      footer {
+        background-color: var(--footer-bg);
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.8;
+        font-weight: normal;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer-section.contact a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-section.contact a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer-section .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-section .social-links a {
+        color: #ddd;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .footer-section .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 16px;
+        color: #bbb;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: box-shadow var(--transition-speed);
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter-form button {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .newsletter-form button:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+
+      /* ==============================
+      Back to Top Button Styles
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      .back-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ==============================
+      Responsive Adjustments
+      ============================== */
+      @media (max-width: 768px) {
+        /* Navbar Responsive */
+        .nav-links {
+          flex-direction: column;
+          gap: 20px;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .nav-social {
+          justify-content: center;
+        }
+
+        /* Leaderboard Responsive */
+        .leaderboard-container {
+          padding: 20px;
+        }
+
+        .leaderboard-header {
+          font-size: 28px;
+        }
+
+        .player-info {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 0;
+        }
+
+        .score {
+          margin-top: 10px;
+        }
+
+        /* Feedback Responsive */
+        .title {
+          font-size: 28px;
+        }
+
+        .container {
+          padding: 20px;
+        }
+
+        .info-table th,
+        .info-table td,
+        .feedback-table th,
+        .feedback-table td {
+          padding: 10px;
+        }
+
+        .related-documents {
+          padding: 10px 15px;
+        }
+
+        .feedback-form h3 {
+          font-size: 20px;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .button-group button {
+          width: 100%;
+        }
+
+        /* Footer Responsive */
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section {
+          margin: 20px 0;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section .social-links {
+          justify-content: center;
+        }
+
+        .newsletter-form input[type="email"],
+        .newsletter-form button {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+          alt="Python Logo"
+        />
+        <h1>Python Hub</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Phần leaderboard -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+
+        <!-- Mục 1 -->
+        <div class="leaderboard-item">
+          <img
+            alt="Gold medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/l0QQsOP6capBEZPJHuLNswGAe8m8G1xXKYW40ZFaJQfaNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Nguyễn Trọng Nhân</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2980</div>
+        </div>
+
+        <!-- Mục 2 -->
+        <div class="leaderboard-item">
+          <img
+            alt="Silver medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Lê Bá Khánh Duy</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2721</div>
+        </div>
+
+        <!-- Mục 3 -->
+        <div class="leaderboard-item">
+          <img
+            alt="Bronze medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player3.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Nguyễn Lê Hoàng Khang</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2579</div>
+        </div>
+
+        <!-- Mục 4 -->
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player4.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Võ Khắc Thiên Lộc</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">1874</div>
+        </div>
+
+        <!-- Mục 5 -->
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player5.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Võ Duy Khánh</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">1756</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần feedback -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">Feedback</div>
+        <table class="info-table">
+          <tr>
+            <th>Tên Chiến Dịch hoặc Dự Án:</th>
+            <td>Viết tiêu đề ở đây</td>
+            <th class="due-date">Hạn Chót:</th>
+            <td>MM/DD/YYYY</td>
+          </tr>
+          <tr>
+            <th>Người Yêu Cầu Feedback:</th>
+            <td>Thêm tên ở đây</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents">
+          <h4>Tài Liệu Liên Quan</h4>
+          <ul>
+            <li><a href="#">Liên kết đến bộ bài thuyết trình</a></li>
+            <li>
+              <a href="#">Liên kết đến bản ghi cuộc họp</a>
+              <span class="blue-text">và mật khẩu: 123456</span>
+            </li>
+            <li><a href="#">Đánh giá các liên kết khác cần feedback</a></li>
+          </ul>
+        </div>
+        <table class="feedback-table">
+          <tr>
+            <th>Tên</th>
+            <th>Liên Kết Tài Liệu và Số Trang</th>
+            <th>Phản Hồi</th>
+            <th>Đã Được Giải Quyết?</th>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td><a href="#">Tài liệu 1 - Trang 5</a></td>
+            <td>Vui lòng thêm phần giới thiệu chi tiết hơn.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Trần Thị B</td>
+            <td><a href="#">Tài liệu 2 - Trang 12</a></td>
+            <td>Phần kết luận chưa rõ ràng.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Lê Văn C</td>
+            <td><a href="#">Tài liệu 3 - Trang 8</a></td>
+            <td>Cần sửa lỗi chính tả.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Phạm Thị D</td>
+            <td><a href="#">Tài liệu 4 - Trang 20</a></td>
+            <td>Thêm ví dụ minh họa.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+        </table>
+
+        <!-- Phần nhập phản hồi -->
+        <div class="feedback-form">
+          <h3>Nhập Phản Hồi</h3>
+          <select>
+            <option value="">Chọn bài tập Python</option>
+            <option value="easy">Bài Tập Easy</option>
+            <option value="medium">Bài Tập Medium</option>
+            <option value="hard">Bài Tập Hard</option>
+          </select>
+          <textarea placeholder="Nhập phản hồi của bạn ở đây..."></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Đã Gửi Phản Hồi</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='python_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      /* Navbar Toggle Function */
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+
+      /* Feedback Submission Function */
+      function submitFeedback() {
+        const textarea = document.querySelector(".feedback-form textarea");
+        const feedback = textarea.value;
+        const selectedExercise = document.querySelector(
+          ".feedback-form select"
+        ).value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Vui lòng chọn bài tập và nhập phản hồi trước khi gửi.");
+          return;
+        }
+
+        // Xử lý việc gửi phản hồi (ví dụ: gọi API hoặc lưu trữ)
+        alert(
+          "Phản hồi của bạn đã được lưu cho " +
+            selectedExercise +
+            ": " +
+            feedback
+        );
+        textarea.value = ""; // Xóa nội dung textarea sau khi gửi
+        document.querySelector(".feedback-form select").selectedIndex = 0; // Đặt lại lựa chọn
+      }
+
+      /* Scroll to Top Function */
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      /* Back to Top Button Logic */
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
