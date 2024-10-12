@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Java</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <style>
+       /* ==============================
+         CSS Variables
+      ============================== */
+      :root {
+        /* Color Palette */
+        --primary-color: #3498db; /* Xanh nước biển */
+        --primary-color-darker: #2980b9; /* Xanh nước biển đậm hơn */
+        --secondary-color: #2c3e50; /* Xanh đậm */
+        --accent-color: #2980b9; /* Sử dụng màu xanh đậm làm màu accent */
+        --background-color: #f4f6f8; /* Màu nền nhạt */
+        --text-color: #2c3e50; /* Xanh đậm */
+        --text-light-color: #7f8c8d; /* Xám nhạt */
+        --footer-bg: #34495e; /* Xanh đậm hơn cho footer */
+
+        /* Typography */
+        --font-family: "Poppins", sans-serif;
+        --heading-font: "Poppins", sans-serif;
+
+        /* Transitions */
+        --transition-speed: 0.3s;
+
+        /* Other */
+        --border-radius: 8px;
+      }
+
+      /* ==============================
+         Reset and Base Styles
+      ============================== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 80px; /* Adjust padding to match navbar height */
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--heading-font);
+        color: inherit;
+        font-weight: normal;
+      }
+
+      p {
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      /* ==============================
+         Navbar Styles
+      ============================== */
+      nav {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 15px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 20px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li {
+        display: inline-block;
+        position: relative;
+      }
+
+      /* Pseudo-element để tạo đường kẻ xanh đậm */
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: var(--accent-color);
+        transition: width var(--transition-speed) ease;
+      }
+
+      /* Mở rộng đường kẻ khi hover */
+      .nav-links li a:hover::after {
+        width: 100%;
+      }
+
+      /* Các hiệu ứng hover hiện tại */
+      .nav-links li a:hover {
+        color: var(--primary-color-darker);
+        background-color: transparent;
+        box-shadow: none;
+      }
+
+      /* Social Links in Navbar */
+      .nav-social a {
+        color: #fff;
+        font-size: 18px;
+        margin-left: 10px;
+        transition: color var(--transition-speed);
+      }
+
+      .nav-social a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        transition: all 0.3s;
+      }
+
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          flex-direction: column;
+          gap: 20px;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-social {
+          justify-content: center;
+        }
+      }
+
+      /* ==============================
+         Header Section
+      ============================== */
+      header {
+        background-color: var(--secondary-color);
+        background-image: url("https://source.unsplash.com/1600x900/?java,code");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 200px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh;
+        position: relative;
+        z-index: 1;
+        border-radius: var(--border-radius);
+      }
+
+      /* Overlay to enhance text visibility */
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(44, 62, 80, 0.6);
+        z-index: -1;
+        border-radius: var(--border-radius);
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .header-content h1 {
+        font-family: var(--heading-font);
+        font-size: 48px;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .header-content p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #ffffff;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .header-content button {
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .header-content button:hover {
+        background-color: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==============================
+         Leaderboard Section
+      ============================== */
+      .leaderboard-section {
+        padding: 60px 20px;
+        background-color: var(--background-color);
+      }
+
+      .leaderboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: var(--border-radius);
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-header {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--primary-color);
+        padding: 15px;
+        border-radius: var(--border-radius);
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-controls {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+      }
+
+      .leaderboard-controls select {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .leaderboard-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        padding: 15px 20px;
+        border-radius: var(--border-radius);
+        margin-bottom: 15px;
+        box-shadow: var(--box-shadow);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .leaderboard-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-item img.medal {
+        width: 40px;
+        height: 40px;
+      }
+
+      .player-info {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin-left: 15px;
+      }
+
+      .player-info img.avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-color);
+        margin-right: 15px;
+      }
+
+      .player-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .player-name {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: var(--text-color);
+      }
+
+      .stars i {
+        color: #ffc107;
+        margin-right: 2px;
+      }
+
+      .score {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      /* ==============================
+         Feedback Section
+      ============================== */
+      .feedback-section {
+        padding: 60px 20px;
+        background-color: #f7f7f7;
+      }
+
+      .feedback-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .feedback-title {
+        font-size: 36px;
+        color: var(--primary-color);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .feedback-info-table,
+      .feedback-feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+      }
+
+      .feedback-info-table th,
+      .feedback-info-table td,
+      .feedback-feedback-table th,
+      .feedback-feedback-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+        color: var(--text-color);
+      }
+
+      .feedback-info-table th,
+      .feedback-feedback-table th {
+        background-color: #ecf0f1;
+        color: var(--text-color);
+        font-weight: 600;
+      }
+
+      .feedback-info-table td,
+      .feedback-feedback-table td {
+        background-color: #fff;
+      }
+
+      .feedback-info-table .due-date {
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .related-documents-feedback {
+        background-color: #ecf0f1;
+        color: var(--text-color);
+        padding: 15px 20px;
+        border-radius: var(--border-radius);
+        margin-bottom: 25px;
+      }
+
+      .related-documents-feedback h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .related-documents-feedback ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .related-documents-feedback li {
+        margin-bottom: 8px;
+      }
+
+      .related-documents-feedback ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        position: relative;
+        transition: color var(--transition-speed);
+      }
+
+      .related-documents-feedback ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      .related-documents-feedback ul li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: -2px;
+        background-color: var(--accent-color);
+        transition: width var(--transition-speed) ease;
+      }
+
+      .related-documents-feedback ul li a:hover::after {
+        width: 100%;
+      }
+
+      .checkbox-feedback {
+        text-align: center;
+      }
+
+      .checkbox-feedback input {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* Phần nhập phản hồi */
+      .feedback-form-feedback {
+        margin-top: 25px;
+      }
+
+      .feedback-form-feedback h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .feedback-form-feedback select,
+      .feedback-form-feedback textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        font-family: var(--font-family);
+        color: var(--text-color);
+      }
+
+      .feedback-form-feedback select:focus,
+      .feedback-form-feedback textarea:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+      }
+
+      .feedback-form-feedback textarea {
+        resize: vertical;
+      }
+
+      .button-group-feedback {
+        display: flex;
+        gap: 15px;
+      }
+
+      .button-group-feedback button {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed);
+      }
+
+      .button-group-feedback button:first-child {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+
+      .button-group-feedback button:first-child:hover {
+        background-color: var(--accent-color);
+      }
+
+      .button-group-feedback .back-button-feedback {
+        background-color: #ccc;
+        color: #333;
+      }
+
+      .button-group-feedback .back-button-feedback:hover {
+        background-color: #b3b3b3;
+      }
+
+      /* ==============================
+         Footer Styles
+      ============================== */
+      footer {
+        background-color: var(--footer-bg);
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.8;
+        font-weight: normal;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Social Links in Footer */
+      .footer-section .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-section .social-links a {
+        color: #ddd;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .footer-section .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      /* Newsletter Form */
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: box-shadow var(--transition-speed);
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter-form button {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .newsletter-form button:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+
+      /* Footer Bottom (Copyright) */
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 16px;
+        color: #bbb;
+      }
+
+      /* ==============================
+         Back to Top Button Styles
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      .back-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ==============================
+         Responsive Design
+      ============================== */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 20px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 20px;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-social {
+          justify-content: center;
+        }
+
+        /* Điều chỉnh Header cho di động */
+        header {
+          padding: 150px 20px 60px 20px;
+          min-height: 60vh;
+        }
+
+        .header-content h1 {
+          font-size: 28px;
+        }
+
+        .header-content p {
+          font-size: 16px;
+        }
+
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section {
+          margin: 20px 0;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section .social-links {
+          justify-content: center;
+        }
+
+        .newsletter-form input[type="email"],
+        .newsletter-form button {
+          max-width: 100%;
+        }
+
+        .leaderboard-container,
+        .feedback-container {
+          padding: 20px;
+        }
+
+        .leaderboard-header {
+          font-size: 28px;
+        }
+
+        .player-info {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 0;
+        }
+
+        .score {
+          margin-top: 10px;
+        }
+
+        .feedback-title {
+          font-size: 28px;
+        }
+
+        .feedback-info-table th,
+        .feedback-info-table td,
+        .feedback-feedback-table th,
+        .feedback-feedback-table td {
+          padding: 10px;
+        }
+
+        .related-documents-feedback {
+          padding: 10px 15px;
+        }
+
+        .feedback-form-feedback h3 {
+          font-size: 20px;
+        }
+
+        .button-group-feedback {
+          flex-direction: column;
+        }
+
+        .button-group-feedback button {
+          width: 100%;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .hamburger {
+          display: none;
+        }
+      }
+
+      body {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div
+      class="back-to-top"
+      onclick="scrollToTop();"
+      aria-label="Back to Top"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+          alt="Java Logo"
+        />
+        <h1>Learn Java</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking2.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-content">
+        <h1>Welcome to Learn Java</h1>
+        <p>
+          Start your journey in Java programming with interactive tutorials and projects.
+        </p>
+        <button onclick="scrollToLeaderboard()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+        <div class="leaderboard-controls">
+          <select id="sortOptions" onchange="sortLeaderboard()">
+            <option value="desc">Sắp xếp theo điểm giảm dần</option>
+            <option value="asc">Sắp xếp theo điểm tăng dần</option>
+          </select>
+        </div>
+        <div id="leaderboardList">
+          <!-- Leaderboard items giữ nguyên như trong mã HTML của bạn -->
+          <div class="leaderboard-item">
+            <img
+              alt="Gold medal"
+              height="30"
+              src="https://storage.googleapis.com/a1aa/image/l0QQsOP6capBEZPJHuLNswGAe8m8G1xXKYW40ZFaJQfaNTkTA.jpg"
+              width="30"
+              class="medal"
+            />
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Nguyễn Trần Ngọc Hân</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">2980</div>
+          </div>
+          <div class="leaderboard-item">
+            <img
+              alt="Silver medal"
+              height="30"
+              src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+              width="30"
+              class="medal"
+            />
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Nguyễn Hoài Khương</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">2721</div>
+          </div>
+          <div class="leaderboard-item">
+            <img
+              alt="Bronze medal"
+              height="30"
+              src="https://storage.googleapis.com/a1aa/image/kqNrh2AR4pKkAtA4PNmffegoT74MNyYxi4LZT14FYxg6amInA.jpg"
+              width="30"
+              class="medal"
+            />
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Phạm Quang Trọng</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">2579</div>
+          </div>
+          <div class="leaderboard-item">
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Trần Quốc Hưng</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">1874</div>
+          </div>
+          <div class="leaderboard-item">
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Thiều Nhật Hào</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">1756</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section">
+      <div class="feedback-container">
+        <div class="feedback-title">Feedback</div>
+        <table class="feedback-info-table">
+          <tr>
+            <th>Tên Chiến Dịch hoặc Dự Án:</th>
+            <td>Viết tiêu đề ở đây</td>
+            <th class="due-date">Hạn Chót:</th>
+            <td>MM/DD/YYYY</td>
+          </tr>
+          <tr>
+            <th>Người Yêu Cầu Feedback:</th>
+            <td>Thêm tên ở đây</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents-feedback">
+          <h4>Tài Liệu Liên Quan</h4>
+          <ul>
+            <li><a href="#">Liên kết đến bộ bài thuyết trình</a></li>
+            <li>
+              <a href="#">Liên kết đến bản ghi cuộc họp</a> và mật khẩu: 123456
+            </li>
+            <li><a href="#">Thêm các liên kết khác cần feedback</a></li>
+          </ul>
+        </div>
+        <table class="feedback-feedback-table" id="feedbackTable">
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Liên Kết Tài Liệu và Số Trang</th>
+              <th>Phản Hồi</th>
+              <th>Đã Được Giải Quyết?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Feedback entries sẽ được thêm vào đây bằng JavaScript -->
+          </tbody>
+        </table>
+
+        <!-- Phần nhập phản hồi -->
+        <div class="feedback-form-feedback">
+          <h3>Nhập Phản Hồi</h3>
+          <select id="exerciseSelect">
+            <option value="">Chọn bài tập Java</option>
+            <option value="Easy">Bài Tập Easy</option>
+            <option value="Medium">Bài Tập Medium</option>
+            <option value="Hard">Bài Tập Hard</option>
+          </select>
+          <textarea
+            id="feedbackText"
+            placeholder="Nhập phản hồi của bạn ở đây..."
+          ></textarea>
+          <div class="button-group-feedback">
+            <button onclick="submitFeedback()">Gửi Phản Hồi</button>
+            <button
+              class="back-button-feedback"
+              onclick="window.location.href='java_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Hamburger Menu Toggle
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+
+      // Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Function to scroll to leaderboard
+      function scrollToLeaderboard() {
+        const leaderboardSection = document.querySelector(".leaderboard-section");
+        if (leaderboardSection) {
+          leaderboardSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      // Function to sort leaderboard
+      function sortLeaderboard() {
+        const sortOption = document.getElementById("sortOptions").value;
+        const leaderboardList = document.getElementById("leaderboardList");
+        const items = Array.from(
+          leaderboardList.getElementsByClassName("leaderboard-item")
+        );
+
+        items.sort((a, b) => {
+          const scoreA = parseInt(a.querySelector(".score").textContent);
+          const scoreB = parseInt(b.querySelector(".score").textContent);
+          if (sortOption === "asc") {
+            return scoreA - scoreB;
+          } else {
+            return scoreB - scoreA;
+          }
+        });
+
+        // Clear existing items
+        leaderboardList.innerHTML = "";
+
+        // Append sorted items
+        items.forEach((item) => leaderboardList.appendChild(item));
+      }
+
+      // Feedback Functionality
+      let feedbackData =
+        JSON.parse(localStorage.getItem("feedbackData")) || [];
+
+      // Hàm tạo các dòng trong Feedback table
+      function createFeedbackRow(entry, index) {
+        const tr = document.createElement("tr");
+
+        const nameTd = document.createElement("td");
+        nameTd.textContent = entry.name;
+
+        const linkTd = document.createElement("td");
+        const link = document.createElement("a");
+        link.href = entry.link;
+        link.textContent = entry.linkText;
+        linkTd.appendChild(link);
+
+        const feedbackTd = document.createElement("td");
+        feedbackTd.textContent = entry.feedback;
+
+        const addressedTd = document.createElement("td");
+        addressedTd.className = "checkbox-feedback";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = entry.addressed;
+        checkbox.onchange = () => toggleAddressed(index);
+        addressedTd.appendChild(checkbox);
+
+        tr.appendChild(nameTd);
+        tr.appendChild(linkTd);
+        tr.appendChild(feedbackTd);
+        tr.appendChild(addressedTd);
+
+        return tr;
+      }
+
+      // Hiển thị Feedback
+      function displayFeedback() {
+        const feedbackTableBody = document.querySelector("#feedbackTable tbody");
+        feedbackTableBody.innerHTML = "";
+        feedbackData.forEach((entry, index) => {
+          feedbackTableBody.appendChild(createFeedbackRow(entry, index));
+        });
+      }
+
+      // Thêm Feedback mới
+      function submitFeedback() {
+        const textarea = document.getElementById("feedbackText");
+        const feedback = textarea.value;
+        const select = document.getElementById("exerciseSelect");
+        const selectedExercise = select.value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Vui lòng chọn bài tập và nhập phản hồi trước khi gửi.");
+          return;
+        }
+
+        const newFeedback = {
+          name: "Người Dùng", // Bạn có thể thay đổi thành tên người dùng thực tế
+          link: "#",
+          linkText: `Bài tập ${selectedExercise}`,
+          feedback: feedback,
+          addressed: false,
+        };
+
+        feedbackData.push(newFeedback);
+        localStorage.setItem("feedbackData", JSON.stringify(feedbackData));
+        displayFeedback();
+
+        alert(
+          "Phản hồi của bạn đã được lưu cho " +
+            selectedExercise +
+            ": " +
+            feedback
+        );
+        textarea.value = ""; // Xóa nội dung textarea sau khi gửi
+        select.selectedIndex = 0; // Đặt lại lựa chọn
+      }
+
+      // Đánh dấu phản hồi đã được giải quyết
+      function toggleAddressed(index) {
+        feedbackData[index].addressed = !feedbackData[index].addressed;
+        localStorage.setItem("feedbackData", JSON.stringify(feedbackData));
+        displayFeedback();
+      }
+
+      // Khởi tạo Feedback khi tải trang
+      window.onload = function () {
+        displayFeedback();
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Programming</title>
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <style>
+      /* ==============================
+      Reset and Base Styles
+      ============================== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Color Palette */
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --text-light-color: #7f8c8d;
+        --accent-color: #e74c3c;
+        --footer-bg: #34495e;
+
+        /* Typography */
+        --font-family: "Montserrat", sans-serif;
+        --heading-font: "Poppins", sans-serif;
+
+        /* Transitions */
+        --transition-speed: 0.3s;
+
+        /* Other */
+        --border-radius: 8px;
+        --light-red: #ff6666; /* Định nghĩa màu đỏ nhạt */
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 80px; /* Adjust padding to match navbar height */
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--heading-font);
+        color: inherit;
+        font-weight: normal;
+      }
+
+      p {
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      /* ==============================
+      Navbar Styles
+      ============================== */
+      nav {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 15px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 20px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li {
+        display: inline-block;
+        position: relative; /* For pseudo-element */
+      }
+
+      /* Pseudo-element để tạo đường kẻ đỏ */
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: red; /* Màu đỏ cho đường kẻ */
+        transition: width var(--transition-speed) ease;
+      }
+
+      /* Mở rộng đường kẻ khi hover */
+      .nav-links li a:hover::after {
+        width: 100%; /* Mở rộng đường kẻ khi hover */
+      }
+
+      /* Các hiệu ứng hover hiện tại (bỏ box-shadow và background-color) */
+      .nav-links li a:hover {
+        color: var(--primary-color);
+        background-color: transparent; /* Loại bỏ màu nền */
+        box-shadow: none; /* Bỏ hiệu ứng bóng đổ */
+      }
+
+      /* Social Links in Navbar */
+      .nav-social a {
+        color: #fff;
+        font-size: 18px;
+        margin-left: 10px;
+        transition: color var(--transition-speed);
+      }
+
+      .nav-social a:hover {
+        color: var(--accent-color);
+      }
+
+      /* ==============================
+      Header Section
+      ============================== */
+      header {
+        background-color: var(--secondary-color);
+        background-image: url("https://source.unsplash.com/1600x900/?python,code");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 200px 20px; /* Tăng padding để Header dài hơn */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh; /* Tăng min-height để Header chiếm ít nhất 70% viewport */
+        position: relative;
+        z-index: 1; /* Ensure header is above other elements */
+      }
+
+      /* Overlay to enhance text visibility */
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(44, 62, 80, 0.6); /* Semi-transparent overlay */
+        z-index: -1; /* Place behind header content */
+        border-radius: var(--border-radius);
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .header-content h1 {
+        font-family: var(--heading-font);
+        font-size: 48px;
+        color: #ffffff; /* Đổi màu chữ thành trắng */
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ để tăng độ tương phản */
+      }
+
+      .header-content p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #ffffff; /* Đổi màu chữ thành trắng */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ */
+      }
+
+      .header-content button {
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .header-content button:hover {
+        background-color: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==============================
+      Difficulty Selection Buttons
+      ============================== */
+      .difficulty-selector {
+        margin: 50px auto 50px auto; /* Giảm margin-top để gần navbar hơn */
+        text-align: center;
+      }
+
+      .difficulty-button {
+        padding: 15px 30px;
+        background: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0 20px;
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .difficulty-button:hover {
+        background: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==============================
+      Problem Section
+      ============================== */
+      .ProblemSet {
+        max-width: 800px;
+        margin: 40px auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        display: none;
+      }
+
+      .ProblemSet.active {
+        display: block;
+      }
+
+      .ProblemHeader {
+        font-size: 32px;
+        font-family: var(--heading-font);
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Difficulty {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        background-color: #ecf0f1;
+        padding: 15px;
+        border-radius: var(--border-radius);
+        margin-bottom: 20px;
+      }
+
+      .Difficulty li {
+        font-size: 16px;
+        color: var(--text-color);
+      }
+
+      .ProblemStatement {
+        font-size: 20px;
+        color: var(--text-light-color);
+        margin-bottom: 20px;
+      }
+
+      .Example,
+      .Constraints {
+        margin-bottom: 15px;
+      }
+
+      .Example p,
+      .Constraints li {
+        font-size: 16px;
+        color: var(--text-color);
+      }
+
+      .Constraints {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 30px 0;
+      }
+
+      /* ==============================
+      Embedded Python IDE
+      ============================== */
+      .editor-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: var(--secondary-color);
+        border-radius: 8px;
+        color: #ecf0f1;
+      }
+
+      .editor-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      .controls button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--primary-color);
+        color: #fff;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .controls button:hover {
+        background-color: var(--accent-color);
+      }
+
+      .output {
+        margin-top: 20px;
+        background-color: #34495e;
+        padding: 15px;
+        border-radius: 4px;
+        min-height: 100px;
+        color: #ecf0f1;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+
+      /* ==============================
+      Footer Styles
+      ============================== */
+      footer {
+        background-color: var(--footer-bg);
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.8;
+        font-weight: normal;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--light-red);
+      }
+
+      .footer-section.contact a {
+        color: #1e90ff; /* DodgerBlue */
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-section.contact a:hover {
+        color: var(--light-red);
+      }
+
+      .footer-section .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-section .social-links a {
+        color: #ddd;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .footer-section .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 16px;
+        color: #bbb;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: box-shadow var(--transition-speed);
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter-form button {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .newsletter-form button:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+
+      /* ==============================
+      Back to Top Button
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      .back-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ==============================
+      Responsive Design
+      ============================== */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 20px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 20px;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .nav-social {
+          justify-content: center;
+        }
+
+        .difficulty-button {
+          margin: 10px 5px;
+        }
+
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section {
+          margin: 20px 0;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section .social-links {
+          justify-content: center;
+        }
+
+        .newsletter-form input[type="email"],
+        .newsletter-form button {
+          max-width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+          display: block;
+          cursor: pointer;
+          font-size: 24px;
+        }
+
+        .hamburger.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active .bar:nth-child(1) {
+          transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active .bar:nth-child(3) {
+          transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Điều chỉnh Header cho di động */
+        header {
+          padding: 700px 40px; /* Giảm padding để phù hợp với màn hình nhỏ */
+          min-height: 100vh; /* Giảm min-height cho di động */
+        }
+
+        .header-content h1 {
+          font-size: 36px; /* Giảm font-size cho di động */
+        }
+
+        .header-content p {
+          font-size: 18px; /* Giảm font-size cho di động */
+        }
+
+        .difficulty-selector {
+          margin: 30px auto 30px auto; /* Giảm margin cho di động */
+        }
+      }
+
+      @media (min-width: 769px) {
+        .hamburger {
+          display: none;
+        }
+      }
+      body {
+        padding-top: 5px; /* Tăng padding để đảm bảo Header không bị che */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+          alt="Python Logo"
+        />
+        <h1>Python Hub</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>Learn Python Programming</h1>
+        <p>
+          Explore Python tutorials and challenges to enhance your coding skills!
+        </p>
+        <button onclick="scrollToContent()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Difficulty Selection Buttons -->
+    <div class="difficulty-selector">
+      <button class="difficulty-button" onclick="showProblem('easy')">
+        Easy
+      </button>
+      <button class="difficulty-button" onclick="showProblem('medium')">
+        Medium
+      </button>
+      <button class="difficulty-button" onclick="showProblem('hard')">
+        Hard
+      </button>
+    </div>
+
+    <!-- Easy Problem -->
+    <section id="easy" class="ProblemSet">
+      <h2 class="ProblemHeader">Fibonacci Sequence</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong> Easy</strong></li>
+        <li>Accuracy: <strong> 75%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Write a Python program that generates the first n Fibonacci numbers,
+        where n is provided by the user.
+      </p>
+      <hr />
+      <h4>Examples:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> 5</p>
+        <p><strong>Output:</strong> [0, 1, 1, 2, 3]</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 10</p>
+        <p><strong>Output:</strong> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ n ≤ 10<sup>4</sup></li>
+      </ul>
+    </section>
+
+    <!-- Medium Problem -->
+    <section id="medium" class="ProblemSet">
+      <h2 class="ProblemHeader">Check Prime Numbers</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong> Medium</strong></li>
+        <li>Accuracy: <strong> 55%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Write a Python program to check if a given number is prime. The program
+        should return True if the number is prime, and False otherwise.
+      </p>
+      <hr />
+      <h4>Examples:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> 29</p>
+        <p><strong>Output:</strong> True</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 15</p>
+        <p><strong>Output:</strong> False</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ n ≤ 10<sup>6</sup></li>
+      </ul>
+    </section>
+
+    <!-- Hard Problem -->
+    <section id="hard" class="ProblemSet">
+      <h2 class="ProblemHeader">Find the Nth Prime Number</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong> Hard</strong></li>
+        <li>Accuracy: <strong> 35%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Write a Python program to find the Nth prime number, where N is provided
+        by the user.
+      </p>
+      <hr />
+      <h4>Examples:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> 10</p>
+        <p><strong>Output:</strong> 29</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 5</p>
+        <p><strong>Output:</strong> 11</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ N ≤ 10<sup>5</sup></li>
+      </ul>
+    </section>
+
+    <!-- Embedded Python IDE (Trinket Embed) -->
+    <div class="editor-container">
+      <h2>Chỉnh sửa mã của bạn</h2>
+      <iframe
+        src="https://trinket.io/embed/python/47c704ccc556"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginwidth="0"
+        marginheight="0"
+        allowfullscreen
+      ></iframe>
+      <div class="controls">
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="clearCode()">Clear Code</button>
+        <button onclick="submitCode()">Submit</button>
+      </div>
+      <div class="output" id="output-result">Kết quả sẽ hiển thị ở đây...</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      function showProblem(difficulty) {
+        // Hide all problem sets
+        document.querySelectorAll(".ProblemSet").forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // Show the selected problem set
+        document.getElementById(difficulty).classList.add("active");
+      }
+
+      // Automatically show the 'Easy' problem when the page loads
+      window.onload = function () {
+        showProblem("easy");
+      };
+
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      function scrollToContent() {
+        window.scrollTo({
+          top: document.querySelector(".difficulty-selector").offsetTop - 70,
+          behavior: "smooth",
+        });
+      }
+
+      // Hàm Clear Code
+      function clearCode() {
+        const iframe = document.querySelector(".editor-container iframe");
+        // Reload iframe để clear code
+        iframe.src = iframe.src;
+        document.getElementById("output-result").textContent =
+          "Kết quả sẽ hiển thị ở đây...";
+      }
+
+      // Hàm Run Code
+      function runCode() {
+        // Với Trinket, Run Code được tích hợp trong iframe, bạn không thể kích hoạt từ parent
+        // Do đó, nút Run Code sẽ hiển thị thông báo hướng dẫn người dùng chạy mã trực tiếp trong iframe
+        alert("Vui lòng nhấn nút Run trong IDE để chạy mã.");
+      }
+
+      // Hàm Submit Code (Cần Backend để xử lý)
+      function submitCode() {
+        // Đây là nơi bạn có thể thêm logic để nộp mã, ví dụ:
+        // Lấy mã từ Trinket (có thể thông qua API nếu Trinket hỗ trợ)
+        // Gửi mã đến backend để đánh giá và nhận điểm
+        alert("Tính năng Submit Code cần được tích hợp với backend.");
+      }
+
+      // Nút Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

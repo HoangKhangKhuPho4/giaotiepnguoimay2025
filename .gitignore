@@ -1,0 +1,20 @@
+# Loại bỏ các tệp và thư mục hệ thống
+.bash_history
+.cache/
+.eclipse/
+.gitconfig
+.vscode/
+.p2/
+AppData/
+Contacts/
+Documents/
+Downloads/
+Favorites/
+Links/
+Music/
+Pictures/
+Videos/
+NTUSER.DAT*
+ntuser.dat.*
+desktop.ini
+*.lnk

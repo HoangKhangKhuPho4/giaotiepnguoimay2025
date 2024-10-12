@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login HoangKhang</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Login HoangKhang</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap py-5">
+              <div
+                class="img d-flex align-items-center justify-content-center"
+                style="background-image: url(../assets/img/Profile.png)"
+              ></div>
+              <h3 class="text-center mb-0">Welcome</h3>
+              <p class="text-center">
+                Sign in by entering the information below
+              </p>
+              <form action="#" class="login-form">
+                <div class="form-group">
+                  <div
+                    class="icon d-flex align-items-center justify-content-center"
+                  >
+                    <span class="fa fa-user"></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Username"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <div
+                    class="icon d-flex align-items-center justify-content-center"
+                  >
+                    <span class="fa fa-lock"></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="form-group d-md-flex">
+                  <div class="w-100 text-md-right">
+                    <a href="#">Forgot Password</a>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button
+                    type="submit"
+                    class="btn form-control btn-primary rounded submit px-3"
+                  >
+                    Get Started
+                  </button>
+                </div>
+              </form>
+              <div class="w-100 text-center mt-4 text">
+                <p class="mb-0">Don't have an account?</p>
+                <a href="#">Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      // Chờ cho trang tải xong
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
+        const loginButton = document.getElementById("loginButton");
+
+        // Xử lý sự kiện khi nhấn nút đăng nhập
+        loginButton.addEventListener("click", async function (event) {
+          event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+          // Lấy giá trị từ các trường nhập liệu
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          // Kiểm tra xem các trường nhập liệu có để trống không
+          if (!username || !password) {
+            alert("Vui lòng điền đầy đủ tên đăng nhập và mật khẩu.");
+            return;
+          }
+
+          // Kiểm tra độ dài tên đăng nhập và mật khẩu
+          if (username.length < 3) {
+            alert("Tên đăng nhập phải có ít nhất 3 ký tự.");
+            return;
+          }
+
+          if (password.length < 6) {
+            alert("Mật khẩu phải có ít nhất 6 ký tự.");
+            return;
+          }
+
+          // Thực hiện xác thực thông tin (có thể thay thế bằng API thực tế)
+          try {
+            const response = await fetch(
+              "http://localhost:5000/api/users/login",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+              }
+            );
+
+            const data = await response.json();
+
+            if (response.ok) {
+              // Đăng nhập thành công
+              alert(data.message);
+              // Lưu ID người dùng và token vào localStorage
+              localStorage.setItem("currentUserId", data.user._id);
+              localStorage.setItem("authToken", data.token);
+              // Chuyển hướng đến trang chính
+              window.location.href = "dashboard.html"; // Thay đổi thành trang bạn muốn điều hướng
+            } else {
+              // Thông báo lỗi
+              alert(data.message || "Đã xảy ra lỗi. Vui lòng thử lại.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert(
+              "Đã xảy ra lỗi khi đăng nhập. Vui lòng kiểm tra kết nối và thử lại."
+            );
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
+        const loginUsernameInput = document.getElementById("loginUsername");
+        const loginPasswordInput = document.getElementById("loginPassword");
+        const loginButton = document.querySelector(
+          ".modal-footer .btn-primary"
+        );
+
+        // Xử lý sự kiện khi nhấn nút đăng nhập
+        loginButton.addEventListener("click", async function (event) {
+          event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+          // Lấy giá trị từ các trường nhập liệu
+          const username = loginUsernameInput.value.trim();
+          const password = loginPasswordInput.value.trim();
+
+          // Kiểm tra xem các trường nhập liệu có để trống không
+          if (!username || !password) {
+            alert("Vui lòng điền đầy đủ tên đăng nhập và mật khẩu.");
+            return;
+          }
+
+          // Kiểm tra độ dài tên đăng nhập và mật khẩu
+          if (username.length < 3) {
+            alert("Tên đăng nhập phải có ít nhất 3 ký tự.");
+            return;
+          }
+
+          if (password.length < 6) {
+            alert("Mật khẩu phải có ít nhất 6 ký tự.");
+            return;
+          }
+
+          // Thực hiện xác thực thông tin
+          try {
+            const response = await fetch(
+              "http://localhost:5000/api/users/login",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password }),
+              }
+            );
+
+            const data = await response.json();
+
+            if (response.ok) {
+              // Đăng nhập thành công
+              alert(data.message);
+              // Lưu ID người dùng và token vào localStorage
+              localStorage.setItem("currentUserId", data.user._id);
+              localStorage.setItem("authToken", data.token);
+              // Chuyển hướng đến trang cụ thể
+              window.location.href = "dashboard.html"; // Thay đổi thành trang bạn muốn điều hướng
+            } else {
+              // Thông báo lỗi
+              alert(data.message || "Đã xảy ra lỗi. Vui lòng thử lại.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert(
+              "Đã xảy ra lỗi khi đăng nhập. Vui lòng kiểm tra kết nối và thử lại."
+            );
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

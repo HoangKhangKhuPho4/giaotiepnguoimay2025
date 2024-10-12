@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard và Feedback</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* ==============================
+      Reset và Base Styles
+      ============================== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --footer-bg: #34495e;
+        --light-red: #ff6666;
+        --font-family: "Montserrat", sans-serif;
+        --transition-speed: 0.3s;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        padding-top: 80px;
+        scroll-behavior: smooth;
+      }
+
+      /* ==============================
+      Navbar Styles
+      ============================== */
+      nav {
+        background-color: var(--secondary-color);
+        padding: 15px 60px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-logo img {
+        height: 40px;
+        margin-right: 10px;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        font-weight: 600;
+        color: white;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        position: relative;
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: red;
+        left: 0;
+        bottom: -2px;
+        transition: width 0.3s;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* ==============================
+      Leaderboard Styles
+      ============================== */
+      .leaderboard-section {
+        background-color: #ecf0f1;
+        padding: 60px 20px;
+      }
+
+      .leaderboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 12px;
+        padding: 30px;
+      }
+
+      .leaderboard-header {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 30px;
+      }
+
+      .leaderboard-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .leaderboard-item:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .player-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .player-info img.avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+      }
+
+      .player-name {
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .score {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+      }
+
+      /* ==============================
+      Feedback Styles
+      ============================== */
+      .feedback-section {
+        background-color: #f7f7f7;
+        padding: 60px 20px;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+      }
+
+      .title {
+        font-size: 36px;
+        color: var(--accent-color);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .related-documents {
+        background-color: #d4a373;
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      .related-documents ul li a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .related-documents ul li a:hover {
+        color: #ff6666;
+      }
+
+      .feedback-form h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #4caf50;
+      }
+
+      .button-group button {
+        background-color: #4caf50;
+        color: white;
+      }
+
+      /* ==============================
+      Back to Top Button Styles
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+      }
+
+      /* ==============================
+      Responsive Adjustments
+      ============================== */
+      @media (max-width: 768px) {
+        .nav-links {
+          flex-direction: column;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .leaderboard-header {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+          alt="Python Logo"
+        />
+        <h1>Python Hub</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+      </ul>
+    </nav>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+              class="avatar"
+              alt="Player avatar"
+            />
+            <div class="player-name">Nguyễn Trọng Nhân</div>
+          </div>
+          <div class="score">2980</div>
+        </div>
+        <!-- More leaderboard items -->
+      </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">Feedback</div>
+        <div class="related-documents">
+          <h4>Tài Liệu Liên Quan</h4>
+          <ul>
+            <li><a href="#">Liên kết đến bộ bài thuyết trình</a></li>
+            <li>
+              <a href="#">Liên kết đến bản ghi cuộc họp</a> và mật khẩu: 123456
+            </li>
+            <li><a href="#">Đánh giá các liên kết khác cần feedback</a></li>
+          </ul>
+        </div>
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+          <h3>Nhập Phản Hồi</h3>
+          <select>
+            <option value="">Chọn bài tập Python</option>
+            <option value="easy">Bài Tập Easy</option>
+            <option value="medium">Bài Tập Medium</option>
+            <option value="hard">Bài Tập Hard</option>
+          </select>
+          <textarea placeholder="Nhập phản hồi của bạn ở đây..."></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Đã Gửi Phản Hồi</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='python_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      /* Feedback Submission Function */
+      function submitFeedback() {
+        const textarea = document.querySelector(".feedback-form textarea");
+        const feedback = textarea.value;
+        const selectedExercise = document.querySelector(
+          ".feedback-form select"
+        ).value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Vui lòng chọn bài tập và nhập phản hồi trước khi gửi.");
+          return;
+        }
+
+        alert(
+          "Phản hồi của bạn đã được lưu cho " +
+            selectedExercise +
+            ": " +
+            feedback
+        );
+        textarea.value = ""; // Clear textarea after submission
+        document.querySelector(".feedback-form select").selectedIndex = 0; // Reset selection
+      }
+
+      /* Scroll to Top Function */
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      /* Back to Top Button Logic */
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

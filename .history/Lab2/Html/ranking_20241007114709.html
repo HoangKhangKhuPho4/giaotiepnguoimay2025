@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard và Feedback</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset và cơ bản */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Leaderboard Styles */
+      .leaderboard-section {
+        padding: 60px 20px;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("../img/bgRanking.png") no-repeat center center/cover;
+      }
+
+      .leaderboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-header {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: #ffffff;
+        background-color: #4caf50;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #ffffff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .leaderboard-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-item img.medal {
+        width: 40px;
+        height: 40px;
+      }
+
+      .player-info {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin-left: 15px;
+      }
+
+      .player-info img.avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #4caf50;
+        margin-right: 15px;
+      }
+
+      .player-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .player-name {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      .stars i {
+        color: #ffc107;
+        margin-right: 2px;
+      }
+
+      .score {
+        background-color: #2196f3;
+        color: #fff;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      /* Feedback Styles */
+      .feedback-section {
+        padding: 60px 20px;
+        background-color: #f7f7f7;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        font-size: 36px;
+        color: #e63946;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .info-table,
+      .feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+      }
+
+      .info-table th,
+      .info-table td,
+      .feedback-table th,
+      .feedback-table td {
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      .info-table th,
+      .feedback-table th {
+        background-color: #f1f1f1;
+        color: #6a994e;
+        font-weight: 600;
+        border: 1px solid #ddd;
+      }
+
+      .info-table td,
+      .feedback-table td {
+        border: 1px solid #ddd;
+        background-color: #fff;
+      }
+
+      .info-table .due-date {
+        color: #e63946;
+        font-weight: 600;
+      }
+
+      .related-documents {
+        background-color: #d4a373;
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      .related-documents h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .related-documents ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .related-documents li {
+        margin-bottom: 8px;
+      }
+
+      .checkbox {
+        text-align: center;
+      }
+
+      .checkbox input {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* Phần nhập phản hồi */
+      .feedback-form {
+        margin-top: 25px;
+      }
+
+      .feedback-form h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: #4caf50;
+        font-weight: 600;
+      }
+
+      .feedback-form select,
+      .feedback-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .feedback-form select:focus,
+      .feedback-form textarea:focus {
+        border-color: #4caf50;
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+      }
+
+      .feedback-form textarea {
+        resize: vertical;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+      }
+
+      .button-group button {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button-group button:first-child {
+        background-color: #4caf50;
+        color: #fff;
+      }
+
+      .button-group button:first-child:hover {
+        background-color: #45a049;
+      }
+
+      .button-group .back-button {
+        background-color: #ccc;
+        color: #333;
+      }
+
+      .button-group .back-button:hover {
+        background-color: #b3b3b3;
+      }
+
+      /* Back to Top Button Styles */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: #4caf50;
+        color: #fff;
+        padding: 12px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: #45a049;
+        transform: scale(1.1);
+      }
+
+      .back-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .leaderboard-container {
+          padding: 20px;
+        }
+
+        .leaderboard-header {
+          font-size: 28px;
+        }
+
+        .player-info {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 0;
+        }
+
+        .score {
+          margin-top: 10px;
+        }
+
+        .title {
+          font-size: 28px;
+        }
+
+        .container {
+          padding: 20px;
+        }
+
+        .info-table th,
+        .info-table td,
+        .feedback-table th,
+        .feedback-table td {
+          padding: 10px;
+        }
+
+        .related-documents {
+          padding: 10px 15px;
+        }
+
+        .feedback-form h3 {
+          font-size: 20px;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .button-group button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Phần leaderboard -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+        <div class="leaderboard-item">
+          <img
+            alt="Gold medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/l0QQsOP6capBEZPJHuLNswGAe8m8G1xXKYW40ZFaJQfaNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Nguyễn Trọng Nhân</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2980</div>
+        </div>
+        <div class="leaderboard-item">
+          <img
+            alt="Silver medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Lê Bá Khánh Duy</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2721</div>
+        </div>
+        <div class="leaderboard-item">
+          <img
+            alt="Bronze medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/kqNrh2AR4pKkAtA4PNmffegoT74MNyYxi4LZT14FYxg6amInA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Nguyễn Lê Hoàng Khang</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2579</div>
+        </div>
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Võ Khắc Thiên Lộc</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">1874</div>
+        </div>
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Võ Duy Khánh</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">1756</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần feedback -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">Feedback</div>
+        <table class="info-table">
+          <tr>
+            <th>Tên Chiến Dịch hoặc Dự Án:</th>
+            <td>Viết tiêu đề ở đây</td>
+            <th class="due-date">Hạn Chót:</th>
+            <td>MM/DD/YYYY</td>
+          </tr>
+          <tr>
+            <th>Người Yêu Cầu Feedback:</th>
+            <td>Thêm tên ở đây</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents">
+          <h4>Tài Liệu Liên Quan</h4>
+          <ul>
+            <li><a href="#">Liên kết đến bộ bài thuyết trình</a></li>
+            <li>
+              <a href="#">Liên kết đến bản ghi cuộc họp</a> và mật khẩu: 123456
+            </li>
+            <li><a href="#">Đểm các liên kết khác cần feedback</a></li>
+          </ul>
+        </div>
+        <table class="feedback-table">
+          <tr>
+            <th>Tên</th>
+            <th>Liên Kết Tài Liệu và Số Trang</th>
+            <th>Phản Hồi</th>
+            <th>Đã Được Giải Quyết?</th>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td><a href="#">Tài liệu 1 - Trang 5</a></td>
+            <td>Vui lòng thêm phần giới thiệu chi tiết hơn.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Trần Thị B</td>
+            <td><a href="#">Tài liệu 2 - Trang 12</a></td>
+            <td>Phần kết luận chưa rõ ràng.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Lê Văn C</td>
+            <td><a href="#">Tài liệu 3 - Trang 8</a></td>
+            <td>Cần sửa lỗi chính tả.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Phạm Thị D</td>
+            <td><a href="#">Tài liệu 4 - Trang 20</a></td>
+            <td>Thêm ví dụ minh họa.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+        </table>
+
+        <!-- Phần nhập phản hồi -->
+        <div class="feedback-form">
+          <h3>Nhập Phản Hồi</h3>
+          <select>
+            <option value="">Chọn bài tập Python</option>
+            <option value="easy">Bài Tập Easy</option>
+            <option value="medium">Bài Tập Medium</option>
+            <option value="hard">Bài Tập Hard</option>
+          </select>
+          <textarea placeholder="Nhập phản hồi của bạn ở đây..."></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Đã Gửi Phản Hồi</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='python_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <script>
+      function submitFeedback() {
+        const textarea = document.querySelector(".feedback-form textarea");
+        const feedback = textarea.value;
+        const selectedExercise = document.querySelector(
+          ".feedback-form select"
+        ).value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Vui lòng chọn bài tập và nhập phản hồi trước khi gửi.");
+          return;
+        }
+
+        // Ở đây bạn có thể xử lý việc gửi phản hồi (ví dụ: gọi API hoặc lưu trữ)
+        alert(
+          "Phản hồi của bạn đã được lưu cho " +
+            selectedExercise +
+            ": " +
+            feedback
+        );
+        textarea.value = ""; // Xóa nội dung textarea sau khi gửi
+        document.querySelector(".feedback-form select").selectedIndex = 0; // Đặt lại lựa chọn
+      }
+
+      // Function to scroll to top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

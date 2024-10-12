@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>Contact Form</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: url("../img/contact.png") no-repeat center center fixed;
+        background-size: cover;
+        background-blend-mode: overlay;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 60%;
+        max-width: 800px;
+        display: flex;
+        padding: 40px;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .image {
+        width: 40%;
+      }
+      .image img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .form {
+        width: 50%;
+      }
+      .form h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+      .form input,
+      .form textarea {
+        width: 100%;
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .form input[type="text"],
+      .form input[type="email"] {
+        height: 50px;
+      }
+      .form textarea {
+        height: 100px;
+        resize: none;
+      }
+      .form button {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #6c63ff;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .form button:hover {
+        background-color: #5a54d1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="image">
+        <img
+          alt="Illustration of an envelope with abstract shapes around it"
+          height="400"
+          src="https://storage.googleapis.com/a1aa/image/KLZtGtfDk6U6U6UKyNQlCCci7eeWgtcxjYw9w0bWdxkjcaJnA.jpg"
+          width="400"
+        />
+      </div>
+      <div class="form">
+        <h2>Get in touch</h2>
+        <input
+          placeholder=" Name"
+          style="font-family: Arial, FontAwesome"
+          type="text"
+        />
+        <input
+          placeholder=" Email"
+          style="font-family: Arial, FontAwesome"
+          type="email"
+        />
+        <textarea placeholder="Message"></textarea>
+        <button>Send</button>
+      </div>
+    </div>
+
+    <script src="../Js/main.js"></script>
+  </body>
+</html>

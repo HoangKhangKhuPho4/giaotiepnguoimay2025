@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search in a Rotated Array</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <style>
+      /* ==============================
+         CSS Variables
+      ============================== */
+      :root {
+        /* Color Palette */
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --text-light-color: #7f8c8d;
+        --footer-bg: #34495e;
+
+        /* Typography */
+        --font-family: "Poppins", sans-serif;
+        --heading-font: "Poppins", sans-serif;
+
+        /* Transitions */
+        --transition-speed: 0.3s;
+
+        /* Other */
+        --border-radius: 8px;
+      }
+
+      /* ==============================
+         Reset and Base Styles
+      ============================== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 80px; /* Adjust padding to match navbar height */
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--heading-font);
+        color: inherit;
+        font-weight: normal;
+      }
+
+      p {
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      /* ==============================
+         Navbar Styles
+      ============================== */
+      nav {
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 15px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        margin-right: 20px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .nav-links li {
+        display: inline-block;
+        position: relative; /* For pseudo-element */
+      }
+
+      /* Pseudo-element để tạo đường kẻ đỏ */
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: red; /* Màu đỏ cho đường kẻ */
+        transition: width var(--transition-speed) ease;
+      }
+
+      /* Mở rộng đường kẻ khi hover */
+      .nav-links li a:hover::after {
+        width: 100%; /* Mở rộng đường kẻ khi hover */
+      }
+
+      /* Các hiệu ứng hover hiện tại (bỏ box-shadow và background-color) */
+      .nav-links li a:hover {
+        color: var(--primary-color);
+        background-color: transparent; /* Loại bỏ màu nền */
+        box-shadow: none; /* Bỏ hiệu ứng bóng đổ */
+      }
+
+      /* Social Links in Navbar */
+      .nav-social a {
+        color: #fff;
+        font-size: 18px;
+        margin-left: 10px;
+        transition: color var(--transition-speed);
+      }
+
+      .nav-social a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Hamburger Menu */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+      }
+
+      .hamburger .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        transition: all 0.3s;
+      }
+
+      .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* ==============================
+         Header Section
+      ============================== */
+      header {
+        background-color: var(--secondary-color);
+        background-image: url("https://source.unsplash.com/1600x900/?algorithm,code");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 200px 20px; /* Tăng padding để Header dài hơn */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 70vh; /* Tăng min-height để Header chiếm ít nhất 70% viewport */
+        position: relative;
+        z-index: 1; /* Ensure header is above other elements */
+        border-radius: var(--border-radius);
+      }
+
+      /* Overlay to enhance text visibility */
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(44, 62, 80, 0.6); /* Semi-transparent overlay */
+        z-index: -1; /* Place behind header content */
+        border-radius: var(--border-radius);
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .header-content h1 {
+        font-family: var(--heading-font);
+        font-size: 48px;
+        color: #ffffff; /* Đổi màu chữ thành trắng */
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ để tăng độ tương phản */
+      }
+
+      .header-content p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #ffffff; /* Đổi màu chữ thành trắng */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ */
+      }
+
+      .header-content button {
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .header-content button:hover {
+        background-color: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==============================
+         Difficulty Selection Buttons
+      ============================== */
+      .difficulty-selector {
+        margin: 50px auto 50px auto; /* Giảm margin-top để gần navbar hơn */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .difficulty-button {
+        padding: 15px 30px;
+        background: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed), transform var(--transition-speed);
+      }
+
+      .difficulty-button:hover {
+        background: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+      }
+
+      /* ==============================
+         Problem Sections
+      ============================== */
+      .ProblemSet {
+        max-width: 900px;
+        margin: 0 auto 40px auto;
+        background-color: #fff;
+        border-radius: var(--border-radius);
+        padding: 30px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        display: none; /* Hide all sections initially */
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .ProblemSet.active {
+        display: block;
+      }
+
+      .ProblemHeader {
+        font-size: 28px;
+        font-weight: bold;
+        color: var(--secondary-color);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .Difficulty {
+        display: flex;
+        justify-content: space-between;
+        font-size: 16px;
+        margin-bottom: 20px;
+        background-color: #ecf0f1;
+        padding: 10px;
+        border-radius: var(--border-radius);
+      }
+
+      .Difficulty li {
+        list-style: none;
+        font-weight: 500;
+      }
+
+      .ProblemStatement {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-light-color);
+        margin-bottom: 20px;
+      }
+
+      hr.ProblemSections {
+        border: none;
+        height: 1px;
+        background-color: #ecf0f1;
+        margin: 20px 0;
+      }
+
+      .Example {
+        background-color: #ecf0f1;
+        padding: 15px;
+        border-radius: var(--border-radius);
+        margin-bottom: 20px;
+      }
+
+      .Example p {
+        font-size: 16px;
+        color: var(--secondary-color);
+      }
+
+      .Constraints {
+        font-size: 16px;
+        color: var(--text-color);
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .Constraints li {
+        margin-bottom: 10px;
+        padding-left: 15px;
+        position: relative;
+      }
+
+      .Constraints li:before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: var(--primary-color);
+      }
+
+      /* ==============================
+         Embedded IDE Styling
+      ============================== */
+      .editor-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #2c3e50;
+        border-radius: var(--border-radius);
+        color: #ecf0f1;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .editor-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #fff;
+      }
+
+      .editor-container iframe {
+        width: 100%;
+        height: 800px; /* Increased height */
+        border: none;
+        margin: 20px 0;
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      .controls button {
+        padding: 10px 25px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--primary-color);
+        color: #fff;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        font-size: 16px;
+      }
+
+      .controls button:hover {
+        background-color: var(--accent-color);
+        transform: translateY(-2px);
+      }
+
+      .controls button:active {
+        background-color: #2471a3;
+        transform: translateY(0);
+      }
+
+      .output {
+        margin-top: 20px;
+        background-color: #34495e;
+        padding: 15px;
+        border-radius: var(--border-radius);
+        min-height: 100px;
+        color: #ecf0f1;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border: 1px solid #ddd;
+      }
+
+      /* ==============================
+         Footer Styles
+      ============================== */
+      footer {
+        background-color: var(--footer-bg);
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.8;
+        font-weight: normal; /* Ensure text is not bold */
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color var(--transition-speed);
+        font-weight: normal; /* Ensure links are not bold */
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Social Links in Footer */
+      .footer-section .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-section .social-links a {
+        color: #ddd;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .footer-section .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      /* Newsletter Form */
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: box-shadow var(--transition-speed);
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter-form button {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .newsletter-form button:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+
+      /* Footer Bottom (Copyright) */
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 16px;
+        color: #bbb;
+      }
+
+      /* ==============================
+         Back to Top Button
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      .back-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ==============================
+         Responsive Design
+      ============================== */
+      @media (max-width: 768px) {
+        nav {
+          padding: 15px 20px;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 20px;
+          position: fixed;
+          top: 60px;
+          right: -100%;
+          width: 250px;
+          height: 100vh;
+          background-color: var(--secondary-color);
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.open {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .nav-social {
+          justify-content: center;
+        }
+
+        .difficulty-selector {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .difficulty-button {
+          width: 100%;
+        }
+
+        .hamburger {
+          display: flex;
+        }
+
+        /* Điều chỉnh Header cho di động */
+        header {
+          padding: 150px 20px 60px 20px; /* Giảm padding để phù hợp với màn hình nhỏ */
+          min-height: 60vh; /* Giảm min-height cho di động */
+        }
+
+        .header-content h1 {
+          font-size: 28px; /* Giảm font-size cho di động */
+        }
+
+        .header-content p {
+          font-size: 16px; /* Giảm font-size cho di động */
+        }
+
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section {
+          margin: 20px 0;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section .social-links {
+          justify-content: center;
+        }
+
+        .newsletter-form input[type="email"],
+        .newsletter-form button {
+          max-width: 100%;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .hamburger {
+          display: none;
+        }
+      }
+
+      /* ==============================
+         Fade-in Animation
+      ============================== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+          alt="Java Logo"
+        />
+        <h1>Learn Java</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking2.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-content">
+        <h1>Search in a Rotated Array</h1>
+        <p>
+          Enhance your algorithm skills by solving challenges related to rotated
+          arrays.
+        </p>
+        <button onclick="scrollToExercises()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Difficulty Selection Buttons -->
+    <div class="difficulty-selector">
+      <button class="difficulty-button" onclick="showProblem('easy')">
+        Easy
+      </button>
+      <button class="difficulty-button" onclick="showProblem('medium')">
+        Medium
+      </button>
+      <button class="difficulty-button" onclick="showProblem('hard')">
+        Hard
+      </button>
+    </div>
+
+    <!-- Easy Problem -->
+    <section id="easy" class="ProblemSet active">
+      <h2 class="ProblemHeader">Easy Problem: Find Minimum in Rotated Array</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Easy</strong></li>
+        <li>Accuracy: <strong>50%</strong></li>
+      </ul>
+      <hr class="ProblemSections" />
+      <p class="ProblemStatement">
+        Given a sorted array that has been rotated, find the minimum element.
+        The array does not contain duplicates.
+      </p>
+      <hr class="ProblemSections" />
+
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [3,4,5,1,2]</p>
+        <p><strong>Output:</strong> 1</p>
+      </div>
+    </section>
+
+    <!-- Medium Problem -->
+    <section id="medium" class="ProblemSet">
+      <h2 class="ProblemHeader">Medium Problem: Search in Rotated Array</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Medium</strong></li>
+        <li>Accuracy: <strong>35.5%</strong></li>
+      </ul>
+      <hr class="ProblemSections" />
+      <p class="ProblemStatement">
+        There is an integer array nums sorted in ascending order (with distinct
+        values) that is rotated at an unknown pivot. Find the target in this
+        array using a binary search algorithm.
+      </p>
+      <hr class="ProblemSections" />
+
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0</p>
+        <p><strong>Output:</strong> 4</p>
+      </div>
+    </section>
+
+    <!-- Hard Problem -->
+    <section id="hard" class="ProblemSet">
+      <h2 class="ProblemHeader">Hard Problem: Find Kth Smallest Element</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Hard</strong></li>
+        <li>Accuracy: <strong>25%</strong></li>
+      </ul>
+      <hr class="ProblemSections" />
+      <p class="ProblemStatement">
+        Given a sorted array that is rotated, write an algorithm to find the
+        k-th smallest element in the array with O(log n) complexity.
+      </p>
+      <hr class="ProblemSections" />
+
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], k = 3</p>
+        <p><strong>Output:</strong> 2</p>
+      </div>
+    </section>
+
+    <!-- Embedded IDE Section -->
+    <div class="editor-container">
+      <h2>Edit Your Code</h2>
+      <iframe
+        src="https://www.online-ide.com/xFBUeQcXRi"
+        title="Java IDE"
+      ></iframe>
+      <div class="controls">
+        <button onclick="runCode()" class="btn btn-primary">Run Code</button>
+        <button onclick="clearCode()" class="btn btn-secondary">
+          Clear Code
+        </button>
+        <button onclick="submitCode()" class="btn btn-success">Submit</button>
+      </div>
+      <div class="output" id="output-result">
+        Results will be displayed here...
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Function to show the problem based on difficulty level
+      function showProblem(difficulty) {
+        // Hide all problem sets
+        document.querySelectorAll(".ProblemSet").forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // Show the selected problem set
+        const selected = document.getElementById(difficulty);
+        if (selected) {
+          selected.classList.add("active");
+          // Scroll to the selected problem
+          selected.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Reset IDE iframe for new problem
+        const ideIframe = document.querySelector(".editor-container iframe");
+        ideIframe.src = ideIframe.src;
+        document.getElementById("output-result").textContent =
+          "Results will be displayed here...";
+      }
+
+      // Automatically show the 'Easy' problem when the page loads
+      window.onload = function () {
+        showProblem("easy");
+      };
+
+      // Function to clear the IDE code
+      function clearCode() {
+        const ideIframe = document.querySelector(".editor-container iframe");
+        ideIframe.src = ideIframe.src; // Reload iframe to clear code
+        document.getElementById("output-result").textContent =
+          "Results will be displayed here...";
+      }
+
+      // Function to run the code
+      function runCode() {
+        // If the embedded IDE supports API calls, integrate here
+        // Currently, prompt user to run within the iframe
+        alert(
+          "Please click the Run button within the IDE to execute your code."
+        );
+      }
+
+      // Function to submit the code (Requires backend integration)
+      function submitCode() {
+        // Placeholder for submitting code to backend
+        alert("Submit Code feature needs to be integrated with the backend.");
+      }
+
+      // Function to scroll to exercises
+      function scrollToExercises() {
+        const exercisesSection = document.querySelector(".difficulty-selector");
+        exercisesSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Hamburger Menu Toggle
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      // Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
