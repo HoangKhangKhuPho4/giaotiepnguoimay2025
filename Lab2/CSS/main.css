@@ -1,0 +1,248 @@
+/* ==============================
+  Footer Styles
+============================== */
+footer {
+  background-color: var(--footer-bg);
+  color: #fff;
+  padding: 60px 20px;
+  font-family: var(--font-family);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  border-radius: 2px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.8;
+  font-weight: normal; /* Đảm bảo chữ không in đậm */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+  font-weight: normal; /* Đảm bảo liên kết không in đậm */
+}
+
+.footer-section ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* ==============================
+    Social Links trong Footer
+  ============================== */
+.footer-section .social-links {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-section .social-links a {
+  color: #ddd;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.footer-section .social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  transition: box-shadow var(--transition-speed);
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form button {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  width: 100%;
+  max-width: 300px;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* ==============================
+    Footer Bottom (Phần Bản Quyền)
+  ============================== */
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #bbb;
+}
+
+/* ==============================
+    Responsive Design cho Footer
+  ============================== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section .social-links {
+    justify-content: center;
+  }
+
+  .newsletter-form input[type="email"],
+  .newsletter-form button {
+    max-width: 100%;
+  }
+}
+
+/* ==============================
+    Additional Enhancements cho Footer
+  ============================== */
+/* Đảm bảo rằng button và input trong form không có border khi được focus */
+button:focus,
+input:focus,
+textarea:focus {
+  border: none !important; /* Loại bỏ border khi focus */
+  outline: none !important; /* Loại bỏ outline khi focus */
+  box-shadow: none !important; /* Loại bỏ box-shadow khi focus */
+}
+
+/* ==============================
+    Các Biến CSS Sử Dụng trong Footer
+  ============================== */
+:root {
+  /* Các biến khác */
+  --footer-bg: #34495e; /* Màu nền cho footer */
+  --accent-color: #e74c3c; /* Màu nhấn cho các yếu tố tương tác */
+  --transition-speed: 0.3s; /* Tốc độ chuyển đổi */
+  --border-radius: 8px; /* Đường viền cong */
+  --font-family: "Montserrat", sans-serif; /* Font chữ cho footer */
+  --primary-color: #3498db; /* Màu chính */
+}
+
+/* ==============================
+    Hover Effects cho Liên Kết trong Footer
+  ============================== */
+.footer-section ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* ==============================
+    Styling Các Tiêu Đề trong Footer
+  ============================== */
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  border-radius: 2px;
+}
+
+/* ==============================
+    Các Cải Tiến Bổ Sung cho Newsletter và Social Links
+  ============================== */
+.footer-section .social-links a {
+  color: #ddd;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.footer-section .social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* ==============================
+    Các Cải Tiến Bổ Sung Khác
+  ============================== */
+/* Đảm bảo rằng button và input không có border khi được focus */
+button:focus,
+input:focus,
+textarea:focus {
+  border: none !important; /* Loại bỏ border khi focus */
+}

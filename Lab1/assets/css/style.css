@@ -1,0 +1,159 @@
+body {
+  background-color: #f8fafc;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.sidebar {
+  background-color: #f1f5f9;
+  padding: 25px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.sidebar h4 {
+  margin-bottom: 30px;
+  font-size: 18px;
+  color: #334155;
+}
+.sidebar .nav-link {
+  color: #334155;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+  background-color: #e2e8f0;
+}
+.sidebar .nav-link .icon {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.content {
+  padding: 40px 20px;
+}
+h2 {
+  color: #1e293b;
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: 500;
+}
+label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #475569;
+}
+input.form-control {
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  padding: 10px;
+  font-size: 14px;
+}
+.btn {
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  padding: 10px 15px;
+}
+.btn-primary {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-primary:hover {
+  background-color: #2563eb;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.btn-outline-primary {
+  border-color: #3b82f6;
+  color: #3b82f6;
+  background-color: transparent;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.btn-outline-primary:hover {
+  background-color: #3b82f6;
+  color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-danger {
+  border-radius: 8px;
+  font-size: 14px;
+}
+.btn-secondary {
+  border-radius: 8px;
+  font-size: 14px;
+}
+.profile-picture img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.upload-buttons {
+  display: flex;
+  gap: 10px;
+}
+.upload-buttons .btn {
+  flex: none;
+}
+.upload-section input[type="file"],
+.upload-section input[type="url"] {
+  width: auto;
+}
+.card {
+  background-color: #f1f5f9;
+  border: none;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.card .badge {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+.input-group-text {
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+}
+small {
+  color: #94a3b8;
+  font-size: 12px;
+}
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Shadow for better visibility */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  /* Transition for smooth hover effect */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.back-to-top:hover {
+  background-color: #2563eb; /* Darker blue on hover */
+  transform: translateY(-5px);
+}
+.back-to-top i {
+  font-size: 1.5rem;
+}
+/* Custom styles for toggle buttons */
+.input-group .btn {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
