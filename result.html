@@ -2,24 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Website cá nhân</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-
-    <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon" />
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index - Personal Bootstrap Template</title>
+    <meta
+      name="description"
+      content="Showcase of teamwork results and progress"
     />
+    <meta name="keywords" content="Teamwork, Results, Development" />
 
-    <!-- Vendor CSS Files -->
+    <!-- Bootstrap CSS -->
     <link
       href="assets/vendor/bootstrap/css/bootstrap.min.css"
       rel="stylesheet"
@@ -34,17 +25,81 @@
       href="assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
-
-    <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Hero Section Background */
+      #hero {
+        background-image: url("assets/img/cvat.png"); /* Retaining your existing background */
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        min-height: 80vh; /* Ensure enough height for content */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Content Overlay */
+      .content-overlay {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* Light transparent background */
+        padding: 40px;
+        border-radius: 10px;
+        max-width: 1200px;
+        width: 100%;
+        margin-top: 50px; /* Move content down slightly */
+      }
+
+      /* Section Heading */
+      h2 {
+        color: #e60023;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      /* Sub-section Headings */
+      h3 {
+        color: #333;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      /* Horizontal line under headings */
+      hr {
+        border: 1px solid #e60023;
+        width: 50px;
+        margin: 0 auto 20px auto;
+      }
+
+      /* Paragraph and List Styling */
+      p,
+      li {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #555;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        #hero {
+          min-height: 100vh;
+          padding: 20px;
+        }
+      }
+    </style>
   </head>
 
   <body class="index-page">
@@ -79,76 +134,82 @@
     </header>
 
     <main class="main">
-      <!-- Hero Section -->
-      <section id="hero" class="hero section dark-background">
-        <img src="assets/img/cvat.png" alt="" data-aos="fade-in" />
-
-        <div class="container" data-aos="zoom-out" data-aos-delay="100">
-          <h2>Nguyễn Lê Hoàng Khang</h2>
-          <p>
-            I'm
-            <span
-              class="typed"
-              data-typed-items="Designer, Developer, Freelancer, Photographer"
-              >Photographer</span
-            ><span class="typed-cursor typed-cursor--blink"></span>
-          </p>
-          <div class="social-links">
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-      </section>
-      <!-- /Hero Section -->
-
-      <!-- Video Introduction Section -->
-      <section
-        id="video-intro"
-        class="video-intro section-padding"
-        data-aos="fade-up"
-      >
-        <div class="container">
-          <div class="section-title text-center">
-            <h2>Giới Thiệu Bằng Video</h2>
-            <p>
-              Khám phá thêm về bản thân và các dự án của tôi qua video dưới đây.
-            </p>
-          </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-              <div
-                class="video-container"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/-8rzYXL0vvo?si=17feh5Hve0-wDn3K"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-                <div class="overlay">
-                  <i class="bi bi-play-circle-fill"></i>
-                </div>
-              </div>
-              <div class="cta-buttons text-center mt-4">
-                <a href="portfolio.html" class="btn btn-primary me-2"
-                  >Xem Portfolio</a
-                >
-                <a href="contact.html" class="btn btn-secondary">Liên Hệ Tôi</a>
-              </div>
+      <!-- Hero Section with Teamwork Result Content -->
+      <section id="hero">
+        <div class="content-overlay">
+          <h2 class="section-title">My Results</h2>
+          <div class="row">
+            <!-- Knowledge Section -->
+            <div class="col-md-4">
+              <h3 class="sub-title">Knowledge Gained</h3>
+              <hr />
+              <p>
+                <strong>- Acquired new technical skills</strong>, including
+                proficiency in HTML, CSS, JavaScript, and web storage solutions.
+              </p>
+              <p>
+                - Developed the ability to design and structure websites with a
+                focus on <em>functionality</em> and <em>user experience</em>.
+              </p>
+              <p>
+                - Gained foundational knowledge in
+                <strong>UI and UX design</strong>, enabling the creation of
+                intuitive and visually appealing interfaces.
+              </p>
+              <p>- Successfully implemented several basic web applications.</p>
+            </div>
+            <!-- Teamwork Skills Section -->
+            <div class="col-md-4">
+              <h3 class="sub-title">Team Collaboration Skills</h3>
+              <hr />
+              <p>
+                - Contributed to <strong>brainstorming, discussion</strong>, and
+                collective learning in a collaborative environment.
+              </p>
+              <p>
+                - Demonstrated mutual respect and support among team members.
+              </p>
+              <ul>
+                <li>
+                  Web Group: Completed <strong>100%</strong>, Contribution
+                  level: <strong>20%</strong>
+                </li>
+                <li>
+                  Web Project: Completed <strong>100%</strong>, Contribution
+                  level: <strong>20%</strong>
+                </li>
+              </ul>
+              <p>
+                - Fostered a positive group dynamic, enhancing project outcomes.
+              </p>
+            </div>
+            <!-- Challenges Faced Section -->
+            <div class="col-md-4">
+              <h3 class="sub-title">Challenges Encountered</h3>
+              <hr />
+              <p>
+                - Encountered areas for improvement in understanding complex
+                concepts.
+              </p>
+              <p>
+                - Faced difficulties in efficiently utilizing CSS, JavaScript,
+                and HTML together for more advanced web development.
+              </p>
+              <p>
+                - Struggled with <strong>layout design</strong> and structuring
+                web elements to meet user interface standards.
+              </p>
+              <p>
+                - Identified opportunities for growth in teamwork, particularly
+                in balancing roles and responsibilities within a group project
+                setting.
+              </p>
             </div>
           </div>
         </div>
       </section>
-
-      <!-- /Video Introduction Section -->
     </main>
 
-    <!-- Footer Section -->
     <footer id="footer" class="footer">
       <div class="container">
         <div class="footer-content">

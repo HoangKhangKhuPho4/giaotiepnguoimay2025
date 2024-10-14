@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Website cá nhân</title>
+    <title>Resume - IT Student</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
       rel="stylesheet"
     />
 
@@ -38,16 +38,47 @@
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
-    <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Custom CSS for Scroll-to-Top Button -->
+    <style>
+      /* Scroll Top Button */
+      .scroll-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        width: 50px;
+        height: 50px;
+        background-color: var(
+          --accent-color,
+          #007bff
+        ); /* Sử dụng biến màu hoặc màu mặc định */
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s, visibility 0.4s, background-color 0.3s;
+        z-index: 1000;
+      }
+
+      .scroll-top.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .scroll-top:hover {
+        background-color: #0056b3; /* Màu nền khi hover */
+      }
+
+      .scroll-top i {
+        font-size: 24px;
+      }
+    </style>
   </head>
 
-  <body class="index-page">
+  <body class="resume-page">
     <header id="header" class="header d-flex align-items-center fixed-top">
       <div
         class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
@@ -79,76 +110,123 @@
     </header>
 
     <main class="main">
-      <!-- Hero Section -->
-      <section id="hero" class="hero section dark-background">
-        <img src="assets/img/cvat.png" alt="" data-aos="fade-in" />
-
-        <div class="container" data-aos="zoom-out" data-aos-delay="100">
-          <h2>Nguyễn Lê Hoàng Khang</h2>
-          <p>
-            I'm
-            <span
-              class="typed"
-              data-typed-items="Designer, Developer, Freelancer, Photographer"
-              >Photographer</span
-            ><span class="typed-cursor typed-cursor--blink"></span>
-          </p>
-          <div class="social-links">
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+        <div class="heading">
+          <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1>Resume</h1>
+                <p class="mb-0">
+                  A third-year IT student passionate about software development,
+                  web technologies, and problem-solving through programming.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-      <!-- /Hero Section -->
-
-      <!-- Video Introduction Section -->
-      <section
-        id="video-intro"
-        class="video-intro section-padding"
-        data-aos="fade-up"
-      >
-        <div class="container">
-          <div class="section-title text-center">
-            <h2>Giới Thiệu Bằng Video</h2>
-            <p>
-              Khám phá thêm về bản thân và các dự án của tôi qua video dưới đây.
-            </p>
+        <nav class="breadcrumbs">
+          <div class="container">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li class="current">Resume</li>
+            </ol>
           </div>
-          <div class="row justify-content-center">
-            <div class="col-lg-8 col-md-10">
-              <div
-                class="video-container"
-                data-aos="zoom-in"
-                data-aos-delay="200"
-              >
-                <iframe
-                  src="https://www.youtube.com/embed/-8rzYXL0vvo?si=17feh5Hve0-wDn3K"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-                <div class="overlay">
-                  <i class="bi bi-play-circle-fill"></i>
-                </div>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <!-- Resume Section -->
+      <section id="resume" class="resume section">
+        <div class="container">
+          <div class="row">
+            <!-- Summary and Education -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+              <h3 class="resume-title">Summary</h3>
+
+              <div class="resume-item pb-0">
+                <h4>Nguyen Le Hoang Khang</h4>
+                <p>
+                  <em>
+                    A third-year IT student with a strong foundation in software
+                    development, algorithms, and web technologies. Eager to
+                    apply theoretical knowledge in real-world projects.
+                  </em>
+                </p>
+                <ul>
+                  <li>Ninh Thuan, Vietnam</li>
+                  <li>(+84) 123 456 789</li>
+                  <li>22130116@st.hcmuaf.edu.vn</li>
+                </ul>
               </div>
-              <div class="cta-buttons text-center mt-4">
-                <a href="portfolio.html" class="btn btn-primary me-2"
-                  >Xem Portfolio</a
-                >
-                <a href="contact.html" class="btn btn-secondary">Liên Hệ Tôi</a>
+              <!-- End Resume Item -->
+
+              <h3 class="resume-title">Education</h3>
+              <div class="resume-item">
+                <h4>Bachelor of Information Technology</h4>
+                <h5>2021 - Present</h5>
+                <p>
+                  <em
+                    >University of Agricultural and Forestry, Ho Chi Minh
+                    City</em
+                  >
+                </p>
+                <p>
+                  Key subjects: Data Structures and Algorithms, Object-Oriented
+                  Programming, Web Development, Database Management, and
+                  Software Engineering.
+                </p>
               </div>
+              <!-- End Resume Item -->
+            </div>
+
+            <!-- Professional Experience -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+              <h3 class="resume-title">Professional Experience</h3>
+              <div class="resume-item">
+                <h4>Intern Web Developer</h4>
+                <h5>June 2023 - August 2023</h5>
+                <p><em>FPT Software, Hanoi</em></p>
+                <ul>
+                  <li>
+                    Collaborated on front-end development using HTML, CSS,
+                    JavaScript, and React.js to build responsive web pages.
+                  </li>
+                  <li>
+                    Assisted in debugging and improving the performance of
+                    existing websites.
+                  </li>
+                  <li>
+                    Worked closely with the design and backend teams to
+                    implement new features.
+                  </li>
+                </ul>
+              </div>
+              <!-- End Resume Item -->
+
+              <div class="resume-item">
+                <h4>Freelance Software Developer</h4>
+                <h5>2022 - Present</h5>
+                <ul>
+                  <li>
+                    Developed custom web applications for small businesses using
+                    modern web technologies like React, Node.js, and MongoDB.
+                  </li>
+                  <li>
+                    Provided ongoing technical support and software updates for
+                    clients.
+                  </li>
+                </ul>
+              </div>
+              <!-- End Resume Item -->
             </div>
           </div>
         </div>
       </section>
 
-      <!-- /Video Introduction Section -->
+      <!-- /Resume Section -->
     </main>
 
-    <!-- Footer Section -->
     <footer id="footer" class="footer">
       <div class="container">
         <div class="footer-content">
@@ -315,17 +393,36 @@
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
     <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
     <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
     <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Custom JS for Scroll-to-Top Button -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollTopBtn = document.getElementById("scroll-top");
+
+        // Hiển thị nút khi cuộn xuống 100px
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            scrollTopBtn.classList.add("show");
+          } else {
+            scrollTopBtn.classList.remove("show");
+          }
+        });
+
+        // Cuộn mượt về đầu trang khi nhấp vào nút
+        scrollTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
   </body>
 </html>

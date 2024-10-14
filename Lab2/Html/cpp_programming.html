@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++ Programming Practice</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- External CSS (Consider moving all styles to this file for better maintenance) -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+
+    <!-- Internal CSS -->
+    <style>
+      /* ==============================
+         CSS Variables
+      ============================== */
+      :root {
+        /* Color Palette */
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --accent-color: #e74c3c;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --text-light-color: #7f8c8d;
+        --footer-bg: #34495e;
+
+        /* Typography */
+        --font-family: "Montserrat", sans-serif;
+        --heading-font: "Poppins", sans-serif;
+
+        /* Transitions */
+        --transition-speed: 0.3s;
+
+        /* Other */
+        --border-radius: 8px;
+      }
+
+      /* ==============================
+      Reset và Base Styles
+      ============================== */
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding-top: 80px; /* Adjust padding to match navbar height */
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--heading-font);
+        color: inherit;
+        font-weight: normal;
+      }
+
+      p {
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      /* ==============================
+      Navbar Styles
+      ============================== */
+      nav {
+        background-color: var(--secondary-color);
+        color: #3498db; /* Change text color to blue */
+        padding: 15px 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        font-weight: 600;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 40px;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      .nav-links li a {
+        color: #3498db; /* Change text color to blue */
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 12px;
+        transition: color var(--transition-speed),
+          background-color var(--transition-speed);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        font-weight: 500;
+        position: relative; /* For pseudo-element */
+      }
+
+      /* Pseudo-element để tạo đường kẻ đỏ */
+      .nav-links li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: 0;
+        background-color: red; /* Màu đỏ cho đường kẻ */
+        transition: width var(--transition-speed) ease;
+      }
+
+      /* Mở rộng đường kẻ khi hover */
+      .nav-links li a:hover::after {
+        width: 100%; /* Mở rộng đường kẻ khi hover */
+      }
+
+      /* Các hiệu ứng hover hiện tại (bỏ box-shadow và background-color) */
+      .nav-links li a:hover {
+        color: var(--primary-color);
+        background-color: transparent; /* Loại bỏ màu nền */
+        box-shadow: none; /* Bỏ hiệu ứng bóng đổ */
+      }
+
+      /* Phone Number Styling */
+      .phone-number a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #fff;
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .phone-number a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Social Links Styling */
+      .nav-social a {
+        color: #fff;
+        margin-left: 10px;
+        font-size: 18px;
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .nav-social a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      /* ==============================
+      Responsive Navbar Styles
+      ============================== */
+      .menu-toggle {
+        display: none;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 24px;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: var(--secondary-color);
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          padding: 20px;
+          border-radius: var(--border-radius);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          width: 250px;
+        }
+
+        .nav-links.open {
+          display: flex;
+        }
+
+        .nav-links li a {
+          padding: 10px 15px;
+        }
+
+        /* Show phone number in mobile menu */
+        .nav-links .phone-number {
+          display: block;
+          margin-top: 10px;
+          text-align: center;
+        }
+
+        /* Show social links in mobile menu */
+        .nav-links .nav-social {
+          display: flex;
+          justify-content: center;
+          margin-top: 10px;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+      }
+
+      /* ==============================
+      Back to Top Button
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      .back-to-top svg {
+        width: 24px;
+        height: 24px;
+      }
+
+      /* ==============================
+      Header Styling
+      ============================== */
+      header {
+        background-image: linear-gradient(
+            to bottom,
+            rgba(44, 62, 80, 0.7),
+            rgba(44, 62, 80, 0.9)
+          ),
+          url("https://source.unsplash.com/1600x900/?cpp,code");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+        padding: 150px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        position: relative;
+        margin-top: 60px; /* To avoid overlap with navbar */
+        border-radius: var(--border-radius);
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(44, 62, 80, 0.6);
+        z-index: 1;
+        border-radius: var(--border-radius);
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        text-align: center;
+      }
+
+      .header-content h1 {
+        font-family: var(--heading-font);
+        font-size: 48px;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .header-content p {
+        font-size: 20px;
+        margin-bottom: 30px;
+        color: #ffffff; /* Đổi màu chữ thành trắng */
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ để tăng độ tương phản */
+      }
+
+      .header-content button {
+        padding: 12px 30px;
+        background-color: var(--primary-color);
+        border: none;
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: background var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      .header-content button:hover {
+        background-color: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==============================
+      Difficulty Selection Buttons
+      ============================== */
+      .difficulty-selector {
+        margin: 100px auto 50px auto;
+        text-align: center;
+        max-width: 800px;
+      }
+
+      .difficulty-button {
+        padding: 15px 30px;
+        background: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background var(--transition-speed),
+          box-shadow var(--transition-speed);
+        margin: 0 20px;
+      }
+
+      .difficulty-button:hover {
+        background: var(--accent-color);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      /* ==============================
+      Problem Section Styling
+      ============================== */
+      .ProblemSet {
+        max-width: 900px;
+        margin: 100px auto 40px auto; /* Added top margin to avoid overlap with navbar */
+        padding: 30px;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        display: none;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .ProblemSet.active {
+        display: block;
+      }
+
+      .ProblemHeader {
+        font-size: 28px;
+        font-family: var(--heading-font);
+        margin-bottom: 20px;
+        color: var(--secondary-color);
+      }
+
+      .Difficulty {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        background-color: #ecf0f1;
+        padding: 10px;
+        border-radius: var(--border-radius);
+        margin-bottom: 20px;
+      }
+
+      .ProblemStatement {
+        font-size: 18px;
+        color: var(--text-light-color);
+        margin-bottom: 20px;
+      }
+
+      hr.ProblemSections {
+        border: none;
+        height: 1px;
+        background-color: #ecf0f1;
+        margin: 20px 0;
+      }
+
+      .Example {
+        background-color: #f9f9f9;
+        padding: 10px;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+      }
+
+      .Example p {
+        font-size: 16px;
+        color: var(--secondary-color);
+      }
+
+      .Constraints {
+        list-style: disc inside;
+        color: var(--text-light-color);
+      }
+
+      /* ==============================
+      Embedded JDoodle IDE Styling
+      ============================== */
+      .editor-container {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #2c3e50;
+        border-radius: var(--border-radius);
+        color: #ecf0f1;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      .editor-container h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .editor-container iframe {
+        width: 100%;
+        height: 800px; /* Increased height */
+        border: none;
+        margin: 20px 0;
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .controls {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0;
+        flex-wrap: wrap;
+      }
+
+      .controls button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        background-color: #3498db;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        font-size: 16px;
+      }
+
+      .controls button:hover {
+        background-color: #2980b9;
+      }
+
+      .output {
+        margin-top: 20px;
+        background-color: #34495e;
+        padding: 15px;
+        border-radius: 4px;
+        min-height: 100px;
+        color: #ecf0f1;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        border: 1px solid #ddd;
+      }
+
+      /* ==============================
+      Footer Styling
+      ============================== */
+      footer {
+        background-color: var(--footer-bg);
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.8;
+        font-weight: normal; /* Ensure text is not bold */
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color var(--transition-speed);
+        font-weight: normal; /* Ensure links are not bold */
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      /* Social Links in Footer */
+      .footer-section .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-section .social-links a {
+        color: #ddd;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
+      }
+
+      .footer-section .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      /* Newsletter Form */
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: box-shadow var(--transition-speed);
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter-form button {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .newsletter-form button:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+
+      /* ==============================
+      Fade-in Animation
+      ============================== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ==============================
+      Navbar khi cuộn trang
+      ============================== */
+      nav.scrolled {
+        background-color: rgba(
+          44,
+          62,
+          80,
+          0.95
+        ); /* Màu nền thay đổi khi cuộn */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ */
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
+      }
+
+      body {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
+          alt="C++ Logo"
+        />
+        <span>Learn C++</span>
+      </div>
+      <button
+        class="menu-toggle"
+        onclick="toggleMenu()"
+        aria-label="Toggle navigation menu"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking4.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>C++ Programming Practice</h1>
+        <p>
+          Enhance your C++ skills with interactive exercises and coding
+          challenges!
+        </p>
+        <button onclick="scrollToContent()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Difficulty Selection Buttons -->
+      <section class="difficulty-selector" id="difficulty-selector">
+        <button class="difficulty-button" onclick="loadExercise('easy')">
+          Easy
+        </button>
+        <button class="difficulty-button" onclick="loadExercise('medium')">
+          Medium
+        </button>
+        <button class="difficulty-button" onclick="loadExercise('hard')">
+          Hard
+        </button>
+      </section>
+
+      <!-- Problem Sections -->
+      <section id="easy" class="ProblemSet active">
+        <h2 class="ProblemHeader">Sum of Two Numbers</h2>
+        <ul class="Difficulty">
+          <li>Difficulty: <strong> Easy</strong></li>
+          <li>Accuracy: <strong> 75%</strong></li>
+        </ul>
+        <hr class="ProblemSections" />
+        <p class="ProblemStatement">
+          Write a C++ program that takes two integers as input and outputs their
+          sum.
+        </p>
+        <hr class="ProblemSections" />
+        <h4>Example:</h4>
+        <div class="Example">
+          <p><strong>Input:</strong> 3 5</p>
+          <p><strong>Output:</strong> 8</p>
+        </div>
+        <hr />
+        <h4>Constraints:</h4>
+        <ul class="Constraints">
+          <li>-10<sup>9</sup> ≤ a, b ≤ 10<sup>9</sup></li>
+        </ul>
+      </section>
+
+      <section id="medium" class="ProblemSet">
+        <h2 class="ProblemHeader">Check for Prime Numbers</h2>
+        <ul class="Difficulty">
+          <li>Difficulty: <strong> Medium</strong></li>
+          <li>Accuracy: <strong> 55%</strong></li>
+        </ul>
+        <hr class="ProblemSections" />
+        <p class="ProblemStatement">
+          Write a C++ program to check whether a number is prime or not.
+        </p>
+        <hr class="ProblemSections" />
+        <h4>Examples:</h4>
+        <div class="Example">
+          <p><strong>Input:</strong> 17</p>
+          <p><strong>Output:</strong> Prime</p>
+        </div>
+        <div class="Example">
+          <p><strong>Input:</strong> 18</p>
+          <p><strong>Output:</strong> Not Prime</p>
+        </div>
+        <hr />
+        <h4>Constraints:</h4>
+        <ul class="Constraints">
+          <li>1 ≤ n ≤ 10<sup>6</sup></li>
+        </ul>
+      </section>
+
+      <section id="hard" class="ProblemSet">
+        <h2 class="ProblemHeader">Find the Nth Prime Number</h2>
+        <ul class="Difficulty">
+          <li>Difficulty: <strong> Hard</strong></li>
+          <li>Accuracy: <strong> 35%</strong></li>
+        </ul>
+        <hr class="ProblemSections" />
+        <p class="ProblemStatement">
+          Write a C++ program to find the Nth prime number. The program should
+          take an integer N as input and output the Nth prime number.
+        </p>
+        <hr class="ProblemSections" />
+        <h4>Examples:</h4>
+        <div class="Example">
+          <p><strong>Input:</strong> 10</p>
+          <p><strong>Output:</strong> 29</p>
+        </div>
+        <div class="Example">
+          <p><strong>Input:</strong> 5</p>
+          <p><strong>Output:</strong> 11</p>
+        </div>
+        <hr />
+        <h4>Constraints:</h4>
+        <ul class="Constraints">
+          <li>1 ≤ N ≤ 10<sup>5</sup></li>
+        </ul>
+      </section>
+
+      <!-- Embedded C++ IDE (JDoodle Embed) -->
+      <div class="editor-container">
+        <h2>Chỉnh sửa mã của bạn</h2>
+        <iframe
+          src="https://www.online-ide.com/xFBUeQcXRi"
+          title="C++ IDE"
+        ></iframe>
+
+        <div class="controls">
+          <button onclick="runCode()">Run Code</button>
+          <button onclick="clearCode()">Clear Code</button>
+          <button onclick="submitCode()">Submit</button>
+        </div>
+        <div class="output" id="output-result">
+          Kết quả sẽ hiển thị ở đây...
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Function to change exercise content based on difficulty level
+      function loadExercise(difficulty) {
+        // Hide all problem sets
+        document.querySelectorAll(".ProblemSet").forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // Show the selected problem set
+        const selectedSection = document.getElementById(difficulty);
+        if (selectedSection) {
+          selectedSection.classList.add("active");
+          // Scroll to the selected problem
+          selectedSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Reset the embedded IDE to default or specific code
+        const jdoodleIframe = document.querySelector(
+          ".editor-container iframe"
+        );
+        jdoodleIframe.src = jdoodleIframe.src; // Reload iframe to reset code
+        document.getElementById("output-result").textContent =
+          "Kết quả sẽ hiển thị ở đây...";
+      }
+
+      // Automatically show the 'Easy' problem when the page loads
+      window.onload = function () {
+        loadExercise("easy");
+      };
+
+      // Toggle Navbar for Mobile View
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("open");
+        const hamburger = document.querySelector(".menu-toggle");
+        hamburger.classList.toggle("active");
+      }
+
+      // Scroll to Content
+      function scrollToContent() {
+        const selector = document.querySelector(".difficulty-selector");
+        window.scrollTo({
+          top: selector.offsetTop - 70, // Adjust to avoid overlapping with navbar
+          behavior: "smooth",
+        });
+      }
+
+      // Clear Code Function
+      function clearCode() {
+        const jdoodleIframe = document.querySelector(
+          ".editor-container iframe"
+        );
+        jdoodleIframe.src = jdoodleIframe.src; // Reload iframe to clear code
+        document.getElementById("output-result").textContent =
+          "Kết quả sẽ hiển thị ở đây...";
+      }
+
+      // Run Code Function
+      function runCode() {
+        // JDoodle Embedded IDE handles run internally. Inform the user to run code within the iframe.
+        alert("Vui lòng nhấn nút Run trong IDE để chạy mã.");
+      }
+
+      // Submit Code Function (Requires Backend Integration)
+      function submitCode() {
+        // Placeholder for code submission logic
+        alert("Tính năng Submit Code cần được tích hợp với backend.");
+      }
+
+      // Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        // Add or remove 'scrolled' class for Navbar
+        const navbar = document.querySelector("nav");
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".menu-toggle");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
