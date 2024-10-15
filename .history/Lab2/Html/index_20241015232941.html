@@ -1747,7 +1747,7 @@ function submitCode() {
     const language = 'python';
 
     if (code) {
-      fetch('https://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
+      fetch('http://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

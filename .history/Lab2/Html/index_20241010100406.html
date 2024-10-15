@@ -1282,7 +1282,7 @@ button:focus, input:focus, textarea:focus {
         width="24"
         height="24"
         fill="currentColor"
-        xmlns="https://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M12 4l-8 8h5v8h6v-8h5z" />
       </svg>
@@ -1300,7 +1300,7 @@ button:focus, input:focus, textarea:focus {
 <form class="search-bar" action="/search" method="GET" autocomplete="off">
   <div class="search-container">
     <!-- SVG Icon -->
-    <svg class="search-icon" aria-hidden="true" xmlns="https://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
       <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
     </svg>
     <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
@@ -1747,7 +1747,7 @@ function submitCode() {
     const language = 'python';
 
     if (code) {
-      fetch('https://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
+      fetch('http://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
