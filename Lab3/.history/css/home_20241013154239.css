@@ -1,0 +1,382 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+:root {
+  --background-color: #1a1a1a; /* Dark background */
+  --text-color: #e0e0e0; /* Light grey text */
+  --accent-color: #4CAF50; /* Green for text and logo */
+  --hover-color: #d94f5c; /* Red for hover effects */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  padding: 16px 20px;
+  z-index: 1000;
+  display: flex;
+  background-color: var(--background-color); /* Navbar background */
+}
+
+header .logo {
+  font-family: 'Otomanopee One', sans-serif;
+  color: var(--accent-color); /* Logo color */
+  letter-spacing: 1.4px;
+  margin-left: 40px;
+  margin-bottom: 16px;
+  margin-top: 8px;
+  padding: 0px 24px;
+  border: solid 2px var(--accent-color); /* Match logo color */
+  box-shadow: 9px 5px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  cursor: pointer;
+}
+
+header nav {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 440px;
+}
+
+header nav a {
+  padding: 8px 8px;
+  text-decoration: none;
+  font-family: "Varela Round", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: var(--text-color); /* Light grey for links */
+}
+
+header nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  color: var(--hover-color); /* Red on hover */
+}
+
+header .separator {
+  position: absolute;
+  top: 85%;
+  left: 0%;
+  width: 100%;
+  height: 15%;
+  background-color: #002B3F; /* Optional - can remain the same */
+}
+
+main {
+  margin-top: 80px; /* Ensure enough space for the fixed header */
+}
+
+.himg-div {
+  display: flex;
+  flex-direction: column; /* Stack text vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  background-color: #002B3F; /* Background color */
+  height: 420px; /* Set height */
+  position: relative; /* Position relative for absolute child elements */
+}
+
+.text-container {
+  text-align: center; /* Center text */
+  margin-bottom: 20px; /* Add space below text */
+}
+
+.himg-p1,
+.himg-p2 {
+  color: #fff; /* White color for primary text */
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: bold;
+  margin: 0; /* Remove default margins */
+}
+
+.himg-p2 {
+  color: var(--accent-color); /* Use accent color for the second line */
+}
+
+.himg-div img {
+  width: 440px; /* Set a fixed width for the image */
+  height: auto; /* Allow height to adjust to maintain aspect ratio */
+  position: absolute; /* Position image absolutely to center it */
+  bottom: 20px; /* Position it 20px from the bottom */
+  left: 50%; /* Center it horizontally */
+  transform: translateX(-50%); /* Offset by half its width for true centering */
+  filter: opacity(0.9);
+}
+
+.container-outermost {
+  padding: 50px 0;
+}
+
+.container-1 {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 50px;
+}
+
+.container-1 h4 {
+  color: var(--accent-color); /* Use accent color */
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.container-1-1 {
+  padding: 10px 20px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  padding: 10px 80px;
+  width: 100%;
+  justify-content: center;
+  grid-gap: 8% 1%;
+}
+
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-sizing: border-box;
+  padding: 16px;
+  font-size: 16px;
+  color: #414141;
+  text-align: center;
+}
+
+.grid-item img {
+  display: block;
+  width: 80%;
+  height: 70%;
+  padding: 8px;
+  border-radius: 20%;
+  margin: auto;
+  border: 5px solid #d1d1d1;
+}
+
+.grid-item p {
+  padding: 8px 0;
+  color: #414141;
+  font-weight: 500;
+}
+
+.container-outermost .container-2 {
+  display: inline-block;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 12%;
+}
+
+.container-2 h4 {
+  color: var(--accent-color); /* Use accent color */
+  text-align: center;
+  font-weight: 500;
+  font-family: sans-serif;
+  font-size: 32px;
+}
+
+.container-2 p {
+  color: rgba(0, 0, 0, 0.788);
+}
+
+.container-2 .testimonial1,
+.container-2 .testimonial2 {
+  width: 40%;
+  height: 290px;
+  margin-top: 4%;
+  padding: 2%;
+  background-color: rgba(194, 197, 229, 0.137);
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+}
+
+.container-2 .testimonial1 {
+  float: left;
+  margin-left: 8%;
+}
+
+.container-2 .testimonial2 {
+  float: right;
+  margin-right: 8%;
+}
+
+.container-2 .testinomial-img-name {
+  display: block;
+  width: 50%;
+  float: left;
+  margin-top: 4px;
+}
+
+.testinomial-img-name img {
+  width: 40%;
+  padding: 8px;
+  border-radius: 50%;
+  margin: 2% 0;
+  margin-right: 4%;
+  float: left;
+}
+
+.testinomial-img-name .p1 {
+  color: #2f3f50;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 16%;
+}
+
+.testinomial-img-name .p2 {
+  color: #2f3f50;
+  font-size: 14px;
+}
+
+footer {
+  background-color: var(--background-color); /* Dark background for elegance */
+  color: var(--text-color); /* Light grey text for readability */
+  padding: 40px 20px; /* Adequate padding for spaciousness */
+  text-align: center; /* Centered text alignment */
+}
+
+.footer-container {
+  max-width: 1200px; /* Restrict the width for better layout */
+  margin: 0 auto; /* Center the footer container */
+  display: flex; /* Use flexbox for layout */
+  flex-wrap: wrap; /* Allow wrapping for responsiveness */
+  justify-content: space-between; /* Space between columns */
+}
+
+.footer-brand {
+  width: 100%; /* Full width for brand section */
+  margin-bottom: 20px; /* Space below the brand section */
+}
+
+.footer-brand h2 {
+  font-size: 2.5rem; /* Larger font size for brand name */
+  margin-bottom: 10px; /* Space below brand name */
+  text-transform: uppercase; /* Uppercase for emphasis */
+  letter-spacing: 1px; /* Letter spacing for elegance */
+}
+
+.footer-brand p {
+  font-size: 1.1rem; /* Font size for description */
+  margin-bottom: 20px; /* Space below description */
+}
+
+.footer-links {
+  display: flex; /* Flexbox for link sections */
+  justify-content: space-between; /* Space between sections */
+  width: 100%; /* Full width for links section */
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.footer-section {
+  flex: 1; /* Each section takes equal space */
+  margin: 0 10px; /* Margin on sides */
+  min-width: 150px; /* Minimum width to avoid collapsing */
+  max-width: 200px; /* Maximum width for larger screens */
+  text-align: left; /* Left-align text in each section */
+}
+
+.footer-section h4 {
+  color: var(--accent-color); /* Accent color for section headers */
+}
+
+.footer-section ul {
+  list-style: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+}
+
+.footer-section ul li {
+  margin: 5px 0; /* Space between list items */
+}
+
+.footer-section ul li a {
+  color: var(--text-color); /* Light grey links */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Transition for hover */
+}
+
+.footer-section ul li a:hover {
+  color: var(--hover-color); /* Change color on hover */
+}
+
+.footer-bottom {
+  text-align: center; /* Center the bottom content */
+  margin-top: 20px; /* Space above bottom section */
+}
+
+.footer-legal {
+  margin-bottom: 10px; /* Space below legal links */
+}
+
+.footer-legal a {
+  color: var(--text-color); /* Light grey */
+  margin: 0 10px; /* Margin for spacing */
+  text-decoration: none; /* Remove underline */
+}
+
+.footer-legal a:hover {
+  color: var(--hover-color); /* Change color on hover */
+}
+
+.contact-info {
+  flex: 1; /* Make contact-info section take equal space */
+  margin: 0 10px; /* Margin on sides */
+  text-align: left; /* Left-align text in contact section */
+}
+
+.contact-info h4 {
+  margin-bottom: 10px; /* Space below heading */
+}
+
+.contact-info p {
+  margin: 5px 0; /* Space between paragraphs */
+}
+
+.social-media {
+  margin-top: 10px; /* Space above social media icons */
+}
+
+.social-media h4 {
+  margin-bottom: 10px; /* Space below heading */
+}
+
+.social-media a {
+  color: var(--text-color); /* Icon color */
+  margin: 0 10px; /* Margin for spacing */
+  font-size: 24px; /* Icon size */
+  transition: color 0.3s; /* Transition for hover */
+}
+
+.social-media a:hover {
+  color: var(--hover-color); /* Change color on hover */
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+  .footer-section,
+  .contact-info {
+    flex: 1 1 100%; /* Stack sections on small screens */
+    margin: 10px 0; /* Space between stacked sections */
+  }
+
+  .himg-div {
+    height: auto; /* Allow height to adjust for smaller screens */
+  }
+}

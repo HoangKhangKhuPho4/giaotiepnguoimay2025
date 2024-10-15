@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks - FuturLearn</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GTVSqp6RT/T6i9W0qfKPT1Yd0RTcI9V6IZN/0Q7V7gBI2flr0LdxGE6oOc9aZlXf" crossorigin="anonymous">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkSs0v4LLanw2CkMGhZUl0BTkYH7i7K6HhFw0iJF3eKFOoDqkLdB5yU5UyLgpwQA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/tasks.css">
+  
+  <style>
+    /* Custom Styles */
+    body {
+      background-color: #f8f9fa;
+    }
+
+    header {
+      background-color: #343a40;
+      padding: 20px 0;
+    }
+
+    header .logo {
+      color: #ffffff;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: #ffffff;
+      margin: 0 15px;
+      font-size: 1.1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffc107;
+    }
+
+    nav a.active {
+      color: #ffc107;
+      font-weight: bold;
+      background-color: #495057;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin-top: 50px;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #343a40;
+    }
+
+    #box {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid #28a745;
+      border-radius: 50px;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    #box:focus {
+      border-color: #218838;
+      outline: none;
+      box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+    }
+
+    .add-task {
+      width: 100%;
+      padding: 15px;
+      background-color: #28a745;
+      border: none;
+      color: #ffffff;
+      font-size: 1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .add-task:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    #list_item {
+      list-style: none;
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    #list_item li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #f1f1f1;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    #list_item li.completed {
+      text-decoration: line-through;
+      background-color: #d4edda;
+      color: #155724;
+    }
+
+    #list_item li:hover {
+      background-color: #e2e6ea;
+      transform: scale(1.01);
+    }
+
+    .task-actions button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      margin-left: 10px;
+      font-size: 1.2rem;
+      color: #343a40;
+      transition: color 0.3s;
+    }
+
+    .task-actions button:hover {
+      color: #dc3545;
+    }
+
+    footer {
+      background-color: #343a40;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    .footer-text {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 576px) {
+      .container {
+        padding: 20px;
+      }
+
+      .add-task {
+        padding: 10px;
+      }
+
+      #box {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <a class="navbar-brand logo" href="../pages/home.html">FuturLearn</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/courses.html">All Courses</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link active" href="../pages/tasks.html">To-Do</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../pages/account.html">My Account</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Log out</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <h2>Task Manager</h2>
+      <form class="form-inline justify-content-center">
+        <div class="form-group mb-2 mr-2" style="width: 70%;">
+          <input type="text" class="form-control" id="box" placeholder="Nhập nhiệm vụ của bạn..." required>
+        </div>
+        <button type="button" class="btn add-task mb-2" onclick="add_item()">
+          <i class="fas fa-plus"></i> Thêm
+        </button>
+      </form>
+      <ul id="list_item">
+        <!-- Nhiệm vụ sẽ được thêm vào đây -->
+      </ul>
+    </div>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p class="footer-text">Happy Learning with FuturLearn</p>
+    <p class="footer-text">Make a part of your journey with us. Enroll now!</p>
+    <hr>
+    <p class="footer-text"><small>&copy; 2024 FuturLearn. All rights reserved.</small></p>
+  </footer>
+  
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdExSwIWAnz5/zhObFJIGG6Qb8kKaqK6iQqk6iWHt4FZ6S/AfYKMVd94UTP7ld" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2LcVZHT1O5g6wXJ2Ej3iGkD9qB3dV3MHL6Ho5K0s6C" crossorigin="anonymous"></script>
+  
+  <!-- Custom JS -->
+  <script src="../js/account.js"></script>
+  
+  <script>
+    // Đảm bảo rằng mã JavaScript sẽ chạy sau khi DOM đã tải hoàn chỉnh
+    document.addEventListener('DOMContentLoaded', (event) => {
+      loadTasks();
+    });
+
+    // Thêm nhiệm vụ mới
+    function add_item() {
+      const taskInput = document.getElementById('box');
+      const taskText = taskInput.value.trim();
+      if (taskText === "") {
+        alert("Vui lòng nhập nhiệm vụ của bạn.");
+        return;
+      }
+
+      const taskList = document.getElementById('list_item');
+
+      // Tạo phần tử li mới
+      const li = document.createElement('li');
+
+      // Tạo checkbox để đánh dấu hoàn thành
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'mr-3';
+      checkbox.onclick = function() {
+        if (this.checked) {
+          li.classList.add('completed');
+        } else {
+          li.classList.remove('completed');
+        }
+        saveTasks();
+      };
+
+      // Tạo span để hiển thị nhiệm vụ
+      const span = document.createElement('span');
+      span.textContent = taskText;
+
+      // Tạo nút xóa
+      const deleteBtn = document.createElement('button');
+      deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+      deleteBtn.onclick = function() {
+        li.remove();
+        saveTasks();
+      };
+
+      // Thêm các phần tử vào li
+      li.appendChild(checkbox);
+      li.appendChild(span);
+      li.appendChild(deleteBtn);
+
+      // Thêm li vào danh sách
+      taskList.appendChild(li);
+
+      // Làm sạch input
+      taskInput.value = "";
+
+      // Lưu danh sách nhiệm vụ
+      saveTasks();
+    }
+
+    // Lưu nhiệm vụ vào localStorage
+    function saveTasks() {
+      const tasks = [];
+      const listItems = document.querySelectorAll('#list_item li');
+      listItems.forEach(item => {
+        const task = {
+          text: item.querySelector('span').textContent,
+          completed: item.querySelector('input[type="checkbox"]').checked
+        };
+        tasks.push(task);
+      });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    // Tải nhiệm vụ từ localStorage
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks'));
+      if (tasks) {
+        tasks.forEach(task => {
+          const taskList = document.getElementById('list_item');
+
+          // Tạo phần tử li mới
+          const li = document.createElement('li');
+
+          // Tạo checkbox để đánh dấu hoàn thành
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.className = 'mr-3';
+          checkbox.checked = task.completed;
+          checkbox.onclick = function() {
+            if (this.checked) {
+              li.classList.add('completed');
+            } else {
+              li.classList.remove('completed');
+            }
+            saveTasks();
+          };
+
+          // Tạo span để hiển thị nhiệm vụ
+          const span = document.createElement('span');
+          span.textContent = task.text;
+
+          // Tạo nút xóa
+          const deleteBtn = document.createElement('button');
+          deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+          deleteBtn.onclick = function() {
+            li.remove();
+            saveTasks();
+          };
+
+          // Thêm các phần tử vào li
+          li.appendChild(checkbox);
+          li.appendChild(span);
+          li.appendChild(deleteBtn);
+
+          // Thêm li vào danh sách
+          taskList.appendChild(li);
+
+          // Nếu nhiệm vụ đã hoàn thành, thêm lớp 'completed'
+          if (task.completed) {
+            li.classList.add('completed');
+          }
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>

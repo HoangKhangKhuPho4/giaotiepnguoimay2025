@@ -1,0 +1,571 @@
+<html>
+ <head>
+  <title>
+   My Profile
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .header {
+            background-color: #fff;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+        .header .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .header .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header .nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+        .header .nav a:hover {
+            color: #007bff;
+        }
+        .header .profile {
+            display: flex;
+            align-items: center;
+        }
+        .header .profile img {
+            height: 40px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #e9ecef;
+            padding: 20px;
+        }
+        .sidebar .profile-card {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .sidebar .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .sidebar .profile-card h3 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .sidebar .profile-card p {
+            margin: 5px 0;
+            color: #888;
+        }
+        .sidebar .profile-card button {
+            background-color: #ff4b5c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .sidebar .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar .menu li {
+            margin-bottom: 10px;
+        }
+        .sidebar .menu li a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar .menu li a:hover {
+            background-color: #f1f1f1;
+        }
+        .sidebar .menu li a i {
+            margin-right: 10px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .content .breadcrumb {
+            margin-bottom: 20px;
+        }
+        .content .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 5px;
+        }
+        .content .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        .content .breadcrumb span {
+            color: #888;
+        }
+        .content .profile-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .content .profile-info h2 {
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: 500;
+        }
+        .content .profile-info .info {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .content .profile-info .info div {
+            width: 50%;
+            margin-bottom: 10px;
+        }
+        .content .profile-info .info div span {
+            font-weight: 500;
+        }
+        .content .profile-info .bio {
+            margin-top: 20px;
+        }
+        .footer {
+            background-color: #fff;
+            padding: 20px;
+            border-top: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer .left,
+        .footer .right {
+            display: flex;
+            align-items: center;
+        }
+        .footer .left img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .footer .left p {
+            margin: 0;
+            color: #888;
+        }
+        .footer .right {
+            display: flex;
+            align-items: center;
+        }
+        .footer .right .column {
+            margin-right: 30px;
+        }
+        .footer .right .column h4 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .footer .right .column a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .footer .right .column a:hover {
+            text-decoration: underline;
+        }
+        .footer .newsletter {
+            display: flex;
+            align-items: center;
+        }
+        .footer .newsletter input {
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .footer .newsletter button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .footer .contact {
+            display: flex;
+            align-items: center;
+        }
+        .footer .contact div {
+            margin-right: 20px;
+        }
+        .footer .contact div i {
+            color: #007bff;
+            margin-right: 5px;
+        }
+        .footer .contact div span {
+            color: #888;
+        }
+        .footer .copyright {
+            text-align: center;
+            color: #888;
+            margin-top: 20px;
+        }
+  </style>
+ </head>
+ <body>
+  
+  <div class="header">
+   <div class="nav">
+    <div class="logo">
+     <img alt="Dreams LMS Logo" height="40" src="https://storage.googleapis.com/a1aa/image/BbNYsMb8SL5NHx3y9o87eJGPf9EkUBnDeS5ffaMGTvWzi81cC.jpg" width="40"/>
+     <h1>
+      Dreams LMS
+     </h1>
+    </div>
+    <div class="menu">
+     <a href="#">
+      Home
+     </a>
+     <a href="#">
+      Instructor
+     </a>
+     <a href="#">
+      Student
+     </a>
+     <a href="#">
+      Pages
+     </a>
+     <a href="#">
+      Blog
+     </a>
+    </div>
+    <div class="profile">
+     <img alt="User Profile Picture" height="40" src="https://storage.googleapis.com/a1aa/image/1x5AZZdbgu65Dhg9APSb3nr8FHbeT9A7cD8MhDUNJYfXkvmTA.jpg" width="40"/>
+    </div>
+   </div>
+  </div>
+  <div class="container">
+   <div class="sidebar">
+    <div class="profile-card">
+     <img alt="Eugene Andre Profile Picture" height="100" src="https://storage.googleapis.com/a1aa/image/tjGgOCW9vApHH9zMf0QPXI8u2y0t9GejosWDiHe2rERoIfaOB.jpg" width="100"/>
+     <h3>
+      Eugene Andre
+     </h3>
+     <p>
+      Instructor
+     </p>
+     <button>
+      Add New Course
+     </button>
+    </div>
+    <ul class="menu">
+     <li>
+      <a href="#">
+       <i class="fas fa-tachometer-alt">
+       </i>
+       Dashboard
+      </a>
+     </li>
+     <li>
+      <a href="#" style="color: #ff4b5c;">
+       <i class="fas fa-user">
+       </i>
+       My Profile
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-book">
+       </i>
+       Enrolled Courses
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-heart">
+       </i>
+       Wishlist
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-star">
+       </i>
+       Reviews
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-question-circle">
+       </i>
+       My Quiz Attempts
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-history">
+       </i>
+       Order History
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-comments">
+       </i>
+       Question &amp; Answer
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-user-friends">
+       </i>
+       Referrals
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-envelope">
+       </i>
+       Messages
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-bell">
+       </i>
+       Notifications
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-ticket-alt">
+       </i>
+       Support Tickets
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-book-open">
+       </i>
+       My Courses
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-bullhorn">
+       </i>
+       Announcements
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-money-bill-wave">
+       </i>
+       Withdrawals
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-clipboard-list">
+       </i>
+       Quiz Attempts
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-tasks">
+       </i>
+       Assignments
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-dollar-sign">
+       </i>
+       Earnings
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-cog">
+       </i>
+       Settings
+      </a>
+     </li>
+     <li>
+      <a href="#">
+       <i class="fas fa-sign-out-alt">
+       </i>
+       Logout
+      </a>
+     </li>
+    </ul>
+   </div>
+   <div class="content">
+    <div class="breadcrumb">
+     <a href="#">
+      Home
+     </a>
+     <span>
+      /
+     </span>
+     <a href="#">
+      My Profile
+     </a>
+    </div>
+    <div class="profile-info">
+     <h2>
+      My Profile
+     </h2>
+     <div class="info">
+      <div>
+       <span>
+        First Name:
+       </span>
+       Eugene
+      </div>
+      <div>
+       <span>
+        Last Name:
+       </span>
+       Andre
+      </div>
+      <div>
+       <span>
+        Registerion Date:
+       </span>
+       January 16, 2024, 11:15 AM
+      </div>
+      <div>
+       <span>
+        User Name:
+       </span>
+       instructordemo
+      </div>
+      <div>
+       <span>
+        Email:
+       </span>
+       instructordemo@example.com
+      </div>
+      <div>
+       <span>
+        Phone Number:
+       </span>
+       89104-71829
+      </div>
+     </div>
+     <div class="bio">
+      <p>
+       Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. Some quick example text to build on the card title and bulk the card's content. Motlin gives you platform. As a highly skilled and successful product development and design specialist with more than 4 Years of My experience lies in successfully conceptualizing, designing, and modifying consumer products specific to interior design and home furnishings.
+      </p>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer">
+   <div class="left">
+    <img alt="Dreams LMS Logo" height="40" src="https://storage.googleapis.com/a1aa/image/BbNYsMb8SL5NHx3y9o87eJGPf9EkUBnDeS5ffaMGTvWzi81cC.jpg" width="40"/>
+    <p>
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut consequat mauris
+    </p>
+   </div>
+   <div class="right">
+    <div class="column">
+     <h4>
+      For Instructor
+     </h4>
+     <a href="#">
+      Profile
+     </a>
+     <a href="#">
+      Login
+     </a>
+     <a href="#">
+      Register
+     </a>
+     <a href="#">
+      Instructor
+     </a>
+     <a href="#">
+      Dashboard
+     </a>
+    </div>
+    <div class="column">
+     <h4>
+      For Student
+     </h4>
+     <a href="#">
+      Profile
+     </a>
+     <a href="#">
+      Login
+     </a>
+     <a href="#">
+      Register
+     </a>
+     <a href="#">
+      Student
+     </a>
+     <a href="#">
+      Dashboard
+     </a>
+    </div>
+    <div class="newsletter">
+     <input placeholder="Enter your email address" type="email"/>
+     <button>
+      Subscribe
+     </button>
+    </div>
+    <div class="contact">
+     <div>
+      <i class="fas fa-map-marker-alt">
+      </i>
+      <span>
+       3556 Beech Street, San Francisco, California, CA 94108
+      </span>
+     </div>
+     <div>
+      <i class="fas fa-envelope">
+      </i>
+      <span>
+       dreamslms@example.com
+      </span>
+     </div>
+     <div>
+      <i class="fas fa-phone">
+      </i>
+      <span>
+       +19 123-456-7890
+      </span>
+     </div>
+    </div>
+   </div>
+  </div>
+  <div class="footer">
+   <div class="copyright">
+    © 2024 DreamsLMS. All rights reserved.
+   </div>
+  </div>
+ </body>
+</html>

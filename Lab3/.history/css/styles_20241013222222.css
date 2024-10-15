@@ -1,0 +1,387 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* Global Selector */
+*{
+    /* Allow padding and border to be included in element's total width and height */
+    box-sizing: border-box;
+}
+
+section, main{
+    overflow-x: hidden;
+}
+
+/* CSS Variables */
+:root{
+    --font: "Roboto", sans-serif;
+    --bgGradient: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 18%, rgba(0,212,255,1) 100%);
+}
+
+/**********************************************/
+
+/* Start Main */
+
+/* Start Section 1 */
+.section-1{
+    padding: 20vmin 0;
+}
+.section-1 .row .col-md-6 .featureImg img{
+    width: 100%;
+    border-radius: 0.2em;
+}
+.section-1 .row .col-md-6 .panel h1 {
+    padding-top: 9vmin;
+    font-size: 2.1em;
+    font-weight: bold;
+    color: #090979;
+}
+.section-1 .row .col-md-6 .panel p {
+    font-size: 1.1em;
+    color: #09097992;
+}
+/* End Section 1 */
+/**********************************************/
+
+/* Start Section 2 */
+.section-2 .cover{
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+    width: 100%;
+    height: 55vmin;
+    position: relative;
+}
+.section-2 .cover .content{
+    /* background: rgba(0, 0, 0, 0.7);
+    height: 100%;
+    width: 100%; */
+    padding-top: 19vmin;
+}
+.section-2 .cover .content > h1{
+    font-size: 6vmin;
+    color: whitesmoke;
+}
+.cover .content > p{
+    font-size: 2vmin;
+    color: #e5e5e5;
+}
+.numbers {
+    margin-top: -15vmin;
+}
+.numbers .rectangle{
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    background: white;
+    width: 15rem;
+    height: 9rem;
+    padding-top: 3.5vmin;
+    margin: 1rem;
+    border-radius: .5em;
+    box-shadow: -18px 19px 17px -4px rgba(0,0,0,0.75);
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    transition: 0.7s ease;
+}
+.numbers .rectangle:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.numbers .rectangle h1{
+    font-size: 2.5rem;
+    color: #000851;
+}
+.numbers .rectangle p{
+    font-size: 1.3rem;
+    color: #000851;
+    font-weight: 500;
+    padding: 0 !important;
+}
+/* Purchase */
+.purchase{
+    margin-bottom: 5rem;
+}
+.purchase > h1{
+    padding-top: 15vmin;
+    padding-bottom: 0.1em;
+}
+.purchase > p{
+    font-size: 3vmin;
+    padding-bottom: 10vmin;
+    font-weight: bold;
+}
+.purchase span{
+    color: #090979;
+}
+.purchase .cards .card{
+    width: 22rem;
+    margin: 3vmin;
+    transition: 0.7s ease;
+}
+.purchase .cards .card:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.cards div{
+    padding: 0;
+    margin: 0;
+}
+.cards .title{
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    padding: 1.4rem 2.5rem;
+    font-size: 2vmin;
+}
+.card .card-text{
+    padding: 2.5rem 3rem;
+    color: #0047ac;
+}
+.card-body .pricing{
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    border-top-right-radius: 170px;
+    border-top-left-radius: 170px;
+}
+.card-body .pricing > h1{
+    font-size: 5vmin;
+    padding: 1em 0.5em;
+}
+.card-body .pricing .btn{
+    background: #00d4ff;
+    border: 0;
+    font-weight: bold;
+}
+.card-body .pricing .btn:hover{
+    cursor: pointer;
+    background: rgb(52, 58, 64);
+}   
+/* End Section 2 */
+/**********************************************/
+
+/* Start Section 3 */
+.section-3{
+    height: 50vmin;
+    margin-top: 15vmin;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+}
+.section-3 .col-md-12>h1{
+    color: white;
+    padding: 2em 0 0.5em 0;
+    font-size: 6vmin;
+}
+.section-3 .desktop{
+    background: white;
+    display: inline-block;
+    border-radius: 3em;
+    padding: 2vmin 4.5vmin;
+    margin: 1min;
+    width: 20rem;
+    transition: 0.7s ease;
+}
+.desktop h3{
+    font-size: 4vmin;
+}
+.desktop p{
+    font-size: 2vmin;
+}
+.desktop:hover{
+    cursor: pointer;
+    background: rgb(52, 58, 64);
+    color: white;
+    transform: scale(1.1);
+}
+/* End Section 3 */
+/**********************************************/
+
+/* Start Section 4 */
+.section-4 .container h1{
+    font-size: 6vmin;
+    padding-top: 14vmin;
+}
+.section-4 .team{
+    padding: 0 4vmin 10vmin 4vmin;
+}
+.section-4 .card{
+    width: 25rem;
+    margin-top: 10vmin;
+    transition: 0.7s ease;
+}
+.section-4 .card:hover{
+    transform: scale(.9);
+}
+.section-4 .card img{
+    width: 100%;
+    justify-content: center;
+    margin: auto;
+}
+.section-4 .team h3{
+    border-left: 5px solid #00d2ff;
+    padding-left: 1rem;
+}
+.section-4 .team .card p{
+    color: rgba(43, 80, 116, 0.79);
+}
+.section-4 .team .card >a{
+    font-size: 1.5em;
+}
+.section-4 .team .card a i{
+    width: 1.5rem;
+    font-size: 1.3em;
+    color: black;
+}
+.section-4 .team a i:hover{
+    color: #0047ac !important;
+}
+.section-4 .team .text-black-50{
+    color: #0047ac !important;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+/* End Section 4 */
+/**********************************************/
+
+/* End Main */
+/**********************************************/
+
+/* Start Courses Section */
+
+
+
+.courses-header .header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s;
+}
+
+.courses-header .course-title {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.courses-header .course-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.courses-header .cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff7e5f; /* Highlight button color */
+    color: #fff;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.courses-header .cta-button:hover {
+    background-color: #feb47b; /* Hover color */
+    transform: translateY(-3px);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Container Outer Styling */
+.container-outer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #fff; /* White background for Courses section */
+}
+
+/* Course Card Styling */
+.course {
+    background-color: #f9f9f9; /* Light background for course cards */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-name {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+.course iframe {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.course-desc {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    background-color: #fff;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.course-desc h3 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.course-desc p {
+    color: #555;
+    text-align: justify;
+    margin: 0;
+}
+
+.course-complete-butt {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+.course-complete-butt .mycheckbox {
+    width: 16px;
+    height: 16px;
+}
+
+
+
+  
+
+
+    .container-outer {
+        padding: 20px 10px;
+    }
+
+    .course {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .course-desc {
+        max-height: none;
+        overflow: visible;
+    }
+
+/* End Courses Section */

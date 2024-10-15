@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Materials - FuturLearn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.svg" />
+    <link rel="stylesheet" href="../css/home.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!-- PDF.js for PDF Previews -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+
+    <style>
+        /* Căn giữa thanh tìm kiếm và giới hạn chiều rộng */
+        .page-content .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        /* Tùy chỉnh Input Group để không có viền trùng lặp */
+        .search-box .input-group-prepend .search-icon {
+            background-color: #ffffff;
+            border: none;
+            padding: 0 10px;
+        }
+
+        /* Căn chỉnh biểu tượng tìm kiếm */
+        .search-icon i {
+            color: #28a745;
+            font-size: 1rem;
+        }
+
+        /* Tùy chỉnh input field */
+        .search-input {
+            height: 50px;
+            border: 2px solid #28a745;
+            border-left: none;
+            border-radius: 50px;
+            padding-left: 15px;
+            font-size: 1rem;
+        }
+
+        /* Tùy chỉnh thanh tìm kiếm khi focus */
+        .search-input:focus {
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
+            background-color: #ffffff;
+        }
+
+        /* Tùy chỉnh hộp gợi ý */
+        .suggestion-box {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            font-size: 0.9rem;
+            padding: 5px 0;
+        }
+
+        /* Hiệu ứng hiển thị hộp gợi ý */
+        .suggestion-box.show {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Tùy chỉnh các mục gợi ý */
+        .suggestion-item {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .suggestion-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Điều chỉnh giao diện nút tìm kiếm nếu có */
+        .search-container .input-group-append button {
+            display: none;
+        }
+
+        /* Các phần khác trong CSS của bạn */
+        /* ... (Các đoạn CSS khác từ mã của bạn) ... */
+
+        /* Đảm bảo input[type="file"] bị ẩn và chỉ có label hiển thị */
+        .custom-file-container input[type="file"] {
+            display: none;
+        }
+
+        /* Tùy chỉnh label như một nút */
+        .custom-file-label {
+            background-color: #28a745;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: 2px solid transparent;
+            margin-right: 10px;
+        }
+
+        .custom-file-label:hover {
+            background-color: #218838;
+            color: #ffc107;
+        }
+
+        /* Hiển thị tên file đã chọn */
+        .selected-file-name {
+            font-size: 1rem;
+            color: #333;
+            margin-left: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header remains unchanged -->
+    <header>
+        <h1 class='logo'>FuturLearn</h1>
+        <nav>
+            <a href="../pages/home.html">Home</a>
+            <a href="../pages/courses.html"> All Courses</a>
+            <a href="../pages/tasks.html">To-Do</a>
+            <a href="../pages/account.html">My Account</a>
+            <a href="../index.html">Log out</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-5 page-content">
+        <h2 class="text-center mb-4 text-danger">Course Materials</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="input-group search-box">
+                <div class="input-group-prepend">
+                    <span class="input-group-text search-icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+                <input type="text" class="form-control search-input" placeholder="Search documents..." id="searchInput" aria-label="Search documents">
+            </div>
+            <div class="suggestion-box" id="suggestionBox">
+                <!-- Suggestions will be populated here dynamically -->
+            </div>
+        </div>
+
+        <!-- Enhanced Tabs as Square Blocks -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="d-flex justify-content-center flex-wrap">
+                    <!-- Lectures Tab -->
+                    <a class="tab-block active" id="lectures-tab" data-toggle="tab" href="#lectures" role="tab" aria-controls="lectures" aria-selected="true">
+                        <i class="fas fa-book fa-3x mb-3"></i>
+                        <span>Lectures</span>
+                    </a>
+                    <!-- Assignments Tab -->
+                    <a class="tab-block" id="assignments-tab" data-toggle="tab" href="#assignments" role="tab" aria-controls="assignments" aria-selected="false">
+                        <i class="fas fa-file-alt fa-3x mb-3"></i>
+                        <span>Assignments</span>
+                    </a>
+                    <!-- Exams Tab -->
+                    <a class="tab-block" id="exams-tab" data-toggle="tab" href="#exams" role="tab" aria-controls="exams" aria-selected="false">
+                        <i class="fas fa-pencil-alt fa-3x mb-3"></i>
+                        <span>Exams</span>
+                    </a>
+                    <!-- Resources Tab -->
+                    <a class="tab-block" id="resources-tab" data-toggle="tab" href="#resources" role="tab" aria-controls="resources" aria-selected="false">
+                        <i class="fas fa-archive fa-3x mb-3"></i>
+                        <span>Resources</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="materialTabsContent">
+            <!-- Lectures Tab Content -->
+            <!-- ... (Nội dung các tab khác) ... -->
+        </div>
+
+        <!-- Document Preview Modal -->
+        <!-- ... (Nội dung modal) ... -->
+
+        <!-- Upload Modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadModalTitle">Upload Document</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Document Name -->
+                            <div class="form-group">
+                                <label for="documentName">Document Name</label>
+                                <input type="text" class="form-control" id="documentName" name="documentName" placeholder="Enter document name" required>
+                            </div>
+                            <!-- Document Type -->
+                            <div class="form-group">
+                                <label for="documentType">Document Type</label>
+                                <select class="form-control" id="documentType" name="documentType" required>
+                                    <option value="">Select Type</option>
+                                    <option value="Lecture">Lecture</option>
+                                    <option value="Assignment">Assignment</option>
+                                    <option value="Exam">Exam</option>
+                                    <option value="Resource">Resource</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Modal Footer -->
+                        <div class="modal-footer">
+                            <!-- Nút Choose File -->
+                            <div class="form-group custom-file-container">
+                                <!-- Nhãn tùy chỉnh -->
+                                <label class="custom-file-label" for="documentFile">Choose File</label>
+                                <!-- Nút input[type="file"] đã được ẩn đi -->
+                                <input type="file" id="documentFile" name="documentFile" accept=".pdf,.docx">
+                                <!-- Hiển thị tên file đã chọn -->
+                                <span class="selected-file-name">No file chosen</span>
+                            </div>
+
+                            <!-- Nút Upload và Close -->
+                            <div class="button-container">
+                                <button type="submit" class="btn btn-success">Upload</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- End Main Content -->
+
+    <footer>
+        <!-- ... (Nội dung footer) ... -->
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JS for Search and Preview Functionality -->
+    <script>
+        $(document).ready(function(){
+            // Initialize tooltips
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Search functionality
+            $('#searchButton').click(function(){
+                var searchTerm = $('#searchInput').val().toLowerCase();
+                if(searchTerm.trim() !== ""){
+                    // Iterate over each table and filter rows
+                    $('.table-hover').each(function(){
+                        $(this).find('tbody tr').each(function(){
+                            var rowText = $(this).text().toLowerCase();
+                            if(rowText.indexOf(searchTerm) !== -1){
+                                $(this).show();
+                            } else {
+                                $(this).hide();
+                            }
+                        });
+                    });
+                } else {
+                    // Show all rows if search term is empty
+                    $('.table-hover tbody tr').show();
+                }
+            });
+
+            // Trigger search on Enter key
+            $('#searchInput').keypress(function(e){
+                if(e.which == 13){
+                    $('#searchButton').click();
+                }
+            });
+
+            // Pre-fill document type in upload modal based on button clicked
+            $('.upload-btn').click(function(){
+                var docType = $(this).data('type');
+                $('#documentType').val(docType);
+            });
+
+            // Preview functionality
+            $('.preview-btn').click(function(){
+                var docUrl = $(this).data('url');
+                $('#documentPreview').attr('src', docUrl);
+                $('#downloadLink').attr('href', docUrl);
+                $('#previewModal').modal('show');
+            });
+
+            // Handle form submission for uploads
+            $('#uploadForm').submit(function(e){
+                e.preventDefault();
+                // Get form data
+                var docName = $('#documentName').val();
+                var docType = $('#documentType').val();
+                var docFile = $('#documentFile')[0].files[0];
+
+                if(docName && docType && docFile){
+                    // Create a new table row based on the document type
+                    var newRow = '<tr>' +
+                        '<td>' + docName + '</td>' +
+                        '<td>' + new Date().toLocaleDateString('vi-VN') + '</td>' +
+                        '<td class="text-center">' +
+                            '<button class="btn btn-info btn-sm preview-btn" data-url="' + URL.createObjectURL(docFile) + '" title="Preview" data-toggle="tooltip" data-placement="top" data-original-title="Preview">' +
+                                '<i class="fas fa-eye"></i>' +
+                            '</button>' +
+                            '<a href="' + URL.createObjectURL(docFile) + '" class="btn btn-danger btn-sm ml-2" download="' + docFile.name + '" title="Download" data-toggle="tooltip" data-placement="top" data-original-title="Download">' +
+                                '<i class="fas fa-download"></i>' +
+                            '</a>' +
+                            '<button class="btn btn-success btn-sm upload-btn ml-2" data-type="' + docType + '" data-toggle="modal" data-target="#uploadModal" title="Upload" data-original-title="Upload">' +
+                                '<i class="fas fa-upload"></i>' +
+                            '</button>' +
+                        '</td>' +
+                    '</tr>';
+
+                    // Append the new row to the appropriate table
+                    if(docType === 'Lecture'){
+                        $('#lecturesTable tbody').append(newRow);
+                        // Switch to Lectures tab
+                        $('#lectures-tab').tab('show');
+                    } else if(docType === 'Assignment'){
+                        $('#assignmentsTable tbody').append(newRow);
+                        // Switch to Assignments tab
+                        $('#assignments-tab').tab('show');
+                    } else if(docType === 'Exam'){
+                        $('#examsTable tbody').append(newRow);
+                        // Switch to Exams tab
+                        $('#exams-tab').tab('show');
+                    } else if(docType === 'Resource'){
+                        $('#resourcesTable tbody').append(newRow);
+                        // Switch to Resources tab
+                        $('#resources-tab').tab('show');
+                    }
+
+                    // Reset the form and close the modal
+                    $('#uploadForm')[0].reset();
+                    $('#uploadModal').modal('hide');
+
+                    // Re-initialize tooltips for dynamically added buttons
+                    $('[data-toggle="tooltip"]').tooltip();
+
+                    // Optionally, display a success message
+                    alert("Document uploaded successfully!");
+                } else {
+                    alert("Please fill in all fields and select a file.");
+                }
+            });
+
+            // Ensure hover effects remain after switching tabs
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // Remove active class from all tab blocks
+                $('.tab-block').removeClass('active');
+                // Add active class to the clicked tab block
+                $(e.target).addClass('active');
+            });
+
+            // Delegate event for dynamically added preview buttons
+            $(document).on('click', '.preview-btn', function(){
+                var docUrl = $(this).data('url');
+                $('#documentPreview').attr('src', docUrl);
+                $('#downloadLink').attr('href', docUrl);
+                $('#previewModal').modal('show');
+            });
+
+            // Delegate event for dynamically added upload buttons
+            $(document).on('click', '.upload-btn', function(){
+                var docType = $(this).data('type');
+                $('#documentType').val(docType);
+            });
+        });
+
+        // Cập nhật tên file khi người dùng chọn file
+        document.getElementById('documentFile').addEventListener('change', function() {
+            var fileName = this.files[0].name;
+            document.querySelector('.selected-file-name').textContent = fileName;
+        });
+
+        // Cải thiện hộp gợi ý
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("searchInput");
+            const suggestionBox = document.getElementById("suggestionBox");
+
+            const suggestions = [
+                "Introduction to HTML5",
+                "CSS3 Fundamentals",
+                "JavaScript Basics",
+                "Assignment 1: Building a Simple Webpage",
+                "Responsive Design Guide",
+                "Midterm Exam Review",
+                "Final Exam Overview",
+                "HTML5 Cheat Sheet",
+                "CSS3 Flexbox Guide",
+                "JavaScript Reference"
+            ];
+
+            searchInput.addEventListener("input", function () {
+                const query = searchInput.value.toLowerCase();
+                suggestionBox.innerHTML = "";
+
+                if (query) {
+                    const filteredSuggestions = suggestions.filter(function (suggestion) {
+                        return suggestion.toLowerCase().includes(query);
+                    });
+
+                    if (filteredSuggestions.length > 0) {
+                        filteredSuggestions.forEach(function (suggestion) {
+                            const suggestionItem = document.createElement("div");
+                            suggestionItem.classList.add("suggestion-item");
+                            suggestionItem.textContent = suggestion;
+                            suggestionItem.addEventListener("click", function () {
+                                searchInput.value = suggestion;
+                                suggestionBox.classList.remove("show");
+                            });
+                            suggestionBox.appendChild(suggestionItem);
+                        });
+                        suggestionBox.classList.add("show");
+                    } else {
+                        suggestionBox.classList.remove("show");
+                    }
+                } else {
+                    suggestionBox.classList.remove("show");
+                }
+            });
+
+            document.addEventListener("click", function (e) {
+                if (!searchInput.contains(e.target) && !suggestionBox.contains(e.target)) {
+                    suggestionBox.classList.remove("show");
+                }
+            });
+        });
+    </script>
+  
+</body>
+</html>

@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Materials - FuturLearn</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/logo.svg" />
+    <!-- Font Awesome CDN -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- DataTables Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap4.min.css">
+    <!-- PDF.js for PDF Previews -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+
+    <style>
+        /* Embedded styles for Main Content */
+
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: hsl(0, 0%, 100%); /* Trắng nền */
+            color: hsl(0, 0%, 0%); /* Đen văn bản */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Divider Custom Styling */
+        .divider-custom {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .divider-custom-line {
+            flex: 1;
+            height: 2px;
+            background-color: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+        }
+
+        .divider-custom-icon {
+            margin: 0 15px;
+            color: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            font-size: 1.5rem;
+        }
+
+        /* Enhanced Tabs Styling as Square Blocks */
+        .d-flex.justify-content-center.flex-wrap {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .tab-block {
+            width: 180px;
+            height: 180px;
+            background: hsl(0, 0%, 100%); /* Trắng nền */
+            border: 2px solid hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            border-radius: 10px; /* Góc bo tròn nhẹ */
+            margin: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: hsl(0, 0%, 0%); /* Đen văn bản */
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .tab-block i {
+            color: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .tab-block span {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Apply hover effects only to non-active tabs */
+        .tab-block:not(.active):hover {
+            background: hsl(120, 60%, 80%); /* Xanh lá cây nhạt sáng hơn */
+            color: hsl(0, 0%, 100%); /* Trắng văn bản trên hover */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02); /* Tăng kích thước nhẹ */
+        }
+
+        /* Active Tab Styling */
+        .tab-block.active {
+            background: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            color: hsl(0, 0%, 100%); /* Trắng văn bản */
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px); /* Nhún nhẹ lên trên */
+        }
+
+        .tab-block.active i {
+            color: hsl(0, 0%, 100%); /* Trắng biểu tượng cho tab active */
+        }
+
+        /* Table Styling */
+        .table-hover tbody tr:hover {
+            background-color: hsl(0, 0%, 95%); /* Xám nhạt khi hover */
+        }
+
+        .table-responsive {
+            max-height: 800px; /* Tăng chiều cao tối đa cho nội dung mở rộng */
+            overflow-y: auto;
+        }
+
+        .table thead th {
+            background-color: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            color: hsl(0, 0%, 100%); /* Trắng văn bản */
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+
+        /* DataTables Styling Overrides */
+        table.dataTable thead th, table.dataTable thead td {
+            padding: 10px 18px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table.dataTable.no-footer {
+            border-bottom: 1px solid #ddd;
+        }
+
+        /* Buttons Styling */
+        .btn-primary, .btn-info, .btn-success {
+            background-color: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            border: none;
+            color: hsl(0, 0%, 100%);
+            padding: 6px 12px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover, .btn-info:hover, .btn-success:hover {
+            background-color: hsl(120, 60%, 60%); /* Xanh lá cây nhạt đậm hơn khi hover */
+            transform: translateY(-2px); /* Nhún nhẹ khi hover */
+        }
+
+        .btn-danger {
+            background-color: hsl(0, 0%, 0%); /* Đen cho nút download */
+            border: none;
+            color: hsl(0, 0%, 100%);
+            padding: 6px 12px;
+            font-size: 0.9rem;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: hsl(0, 0%, 20%); /* Xanh đen đậm hơn khi hover */
+            transform: translateY(-2px); /* Nhún nhẹ khi hover */
+        }
+
+        /* Modal Styling */
+        .modal-content {
+            border-radius: 10px;
+        }
+
+        .modal-header {
+            background-color: hsl(120, 60%, 70%); /* Xanh lá cây nhạt */
+            color: hsl(0, 0%, 100%); /* Trắng văn bản */
+            border-bottom: none;
+        }
+
+        .modal-footer {
+            border-top: none;
+        }
+
+        .modal-title {
+            font-weight: bold;
+        }
+
+        .close {
+            color: hsl(0, 0%, 100%); /* Trắng nút đóng */
+            opacity: 1;
+        }
+
+        .close:hover {
+            color: hsl(0, 0%, 0%); /* Đen khi hover */
+        }
+
+        /* Upload Button Icon */
+        .upload-btn i {
+            margin-right: 5px;
+        }
+
+        /* Document Preview Modal Styling */
+        #previewModal .modal-body {
+            padding: 0;
+            position: relative;
+        }
+
+        #documentPreview {
+            border-radius: 0 0 10px 10px;
+        }
+
+        /* Loading Spinner Styling */
+        #loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        /* Search Bar Styling */
+        #searchInput {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        #searchButton {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        /* Title Styling */
+        .text-danger {
+            color: hsl(0, 0%, 0%) !important; /* Đen */
+        }
+
+        /* Tooltip Styling */
+        [data-tooltip="true"] {
+            cursor: pointer;
+        }
+
+        /* Toast Notification Styling */
+        #toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1055;
+        }
+
+        .toast {
+            opacity: 1;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .divider-custom-line {
+                height: 1px;
+            }
+
+            .divider-custom-icon {
+                font-size: 1rem;
+            }
+
+            /* Responsive Tabs */
+            .d-flex.justify-content-center.flex-wrap {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tab-block {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .modal-dialog {
+                max-width: 90%;
+            }
+
+            #documentPreview {
+                height: 60vh;
+            }
+
+            /* DataTables Responsive */
+            table.dataTable thead th, table.dataTable thead td {
+                padding: 8px 10px;
+            }
+
+            .btn {
+                padding: 5px 10px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Increased Main Content Area */
+        main.container {
+            max-width: 1600px; /* Tăng từ 1400px lên 1600px */
+        }
+
+        /* Focus States for Accessibility */
+        .tab-block:focus, .btn:focus, .close:focus, .form-control:focus, .form-control-file:focus {
+            outline: 3px solid hsl(120, 60%, 50%);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../assets/logo.svg" alt="FuturLearn Logo" width="40" height="40">
+                FuturLearn
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Add navigation items if needed -->
+        </nav>
+    </header>
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    <main class="container mt-5">
+        <h2 class="text-center mb-4 text-danger">Course Materials</h2> <!-- Tiêu đề màu đen -->
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star" aria-hidden="true"></i></div> <!-- Biểu tượng màu xanh lá cây nhạt -->
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm tài liệu..." id="searchInput" aria-label="Tìm kiếm tài liệu">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="searchButton" title="Tìm kiếm" data-tooltip="true" data-placement="top" aria-label="Tìm kiếm">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enhanced Tabs as Square Blocks -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="d-flex justify-content-center flex-wrap">
+                    <!-- Lectures Tab -->
+                    <a class="tab-block active" id="lectures-tab" data-toggle="tab" href="#lectures" role="tab" aria-controls="lectures" aria-selected="true" aria-label="Bài giảng">
+                        <i class="fas fa-book fa-2x mb-2" aria-hidden="true"></i>
+                        <span>Bài giảng</span>
+                    </a>
+                    <!-- Assignments Tab -->
+                    <a class="tab-block" id="assignments-tab" data-toggle="tab" href="#assignments" role="tab" aria-controls="assignments" aria-selected="false" aria-label="Bài tập">
+                        <i class="fas fa-file-alt fa-2x mb-2" aria-hidden="true"></i>
+                        <span>Bài tập</span>
+                    </a>
+                    <!-- Exams Tab -->
+                    <a class="tab-block" id="exams-tab" data-toggle="tab" href="#exams" role="tab" aria-controls="exams" aria-selected="false" aria-label="Kỳ thi">
+                        <i class="fas fa-pencil-alt fa-2x mb-2" aria-hidden="true"></i>
+                        <span>Kỳ thi</span>
+                    </a>
+                    <!-- Resources Tab -->
+                    <a class="tab-block" id="resources-tab" data-toggle="tab" href="#resources" role="tab" aria-controls="resources" aria-selected="false" aria-label="Tài nguyên">
+                        <i class="fas fa-archive fa-2x mb-2" aria-hidden="true"></i>
+                        <span>Tài nguyên</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content mt-4" id="materialTabsContent">
+            <!-- Lectures Tab Content -->
+            <div class="tab-pane fade show active" id="lectures" role="tabpanel" aria-labelledby="lectures-tab">
+                <div class="mt-4">
+                    <h4 class="text-danger"><i class="fas fa-book" aria-hidden="true"></i> Bài giảng</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="lecturesTable">
+                            <thead>
+                                <tr>
+                                    <th>Tên tài liệu</th>
+                                    <th>Ngày tải lên</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample Lecture Documents -->
+                                <tr>
+                                    <td>Giới thiệu về HTML5</td>
+                                    <td>01/01/2024</td>
+                                    <td>
+                                        <button class="btn btn-info btn-sm preview-btn" data-url="../downloads/html5_intro.pdf" title="Xem trước" data-tooltip="true" data-placement="top" aria-label="Xem trước">
+                                            <i class="fas fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="../downloads/html5_intro.pdf" class="btn btn-danger btn-sm" download title="Tải xuống" data-tooltip="true" data-placement="top" aria-label="Tải xuống">
+                                            <i class="fas fa-download" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các tài liệu bài giảng khác tại đây -->
+                                <!-- Lặp lại khi cần -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Assignments Tab Content -->
+            <div class="tab-pane fade" id="assignments" role="tabpanel" aria-labelledby="assignments-tab">
+                <div class="mt-4">
+                    <h4 class="text-danger"><i class="fas fa-file-alt" aria-hidden="true"></i> Bài tập</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="assignmentsTable">
+                            <thead>
+                                <tr>
+                                    <th>Tên bài tập</th>
+                                    <th>Ngày hết hạn</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample Assignment Documents -->
+                                <tr>
+                                    <td>Bài tập 1: Xây dựng trang web đơn giản</td>
+                                    <td>15/01/2024</td>
+                                    <td>
+                                        <button class="btn btn-info btn-sm preview-btn" data-url="../downloads/assignment1.pdf" title="Xem trước" data-tooltip="true" data-placement="top" aria-label="Xem trước">
+                                            <i class="fas fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="../downloads/assignment1.pdf" class="btn btn-danger btn-sm" download title="Tải xuống" data-tooltip="true" data-placement="top" aria-label="Tải xuống">
+                                            <i class="fas fa-download" aria-hidden="true"></i>
+                                        </a>
+                                        <button class="btn btn-primary btn-sm upload-btn ml-2" data-type="Assignment" data-toggle="modal" data-target="#uploadModal" title="Tải lên" data-tooltip="true" data-placement="top" aria-label="Tải lên">
+                                            <i class="fas fa-upload" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các tài liệu bài tập khác tại đây -->
+                                <!-- Lặp lại khi cần -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Exams Tab Content -->
+            <div class="tab-pane fade" id="exams" role="tabpanel" aria-labelledby="exams-tab">
+                <div class="mt-4">
+                    <h4 class="text-danger"><i class="fas fa-pencil-alt" aria-hidden="true"></i> Kỳ thi</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="examsTable">
+                            <thead>
+                                <tr>
+                                    <th>Tên kỳ thi</th>
+                                    <th>Ngày thi</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample Exam Documents -->
+                                <tr>
+                                    <td>Kỳ thi giữa kỳ</td>
+                                    <td>30/01/2024</td>
+                                    <td>
+                                        <button class="btn btn-info btn-sm preview-btn" data-url="../downloads/midterm_exam.pdf" title="Xem trước" data-tooltip="true" data-placement="top" aria-label="Xem trước">
+                                            <i class="fas fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="../downloads/midterm_exam.pdf" class="btn btn-danger btn-sm" download title="Tải xuống" data-tooltip="true" data-placement="top" aria-label="Tải xuống">
+                                            <i class="fas fa-download" aria-hidden="true"></i>
+                                        </a>
+                                        <button class="btn btn-primary btn-sm upload-btn ml-2" data-type="Exam" data-toggle="modal" data-target="#uploadModal" title="Tải lên" data-tooltip="true" data-placement="top" aria-label="Tải lên">
+                                            <i class="fas fa-upload" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các tài liệu kỳ thi khác tại đây -->
+                                <!-- Lặp lại khi cần -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources Tab Content -->
+            <div class="tab-pane fade" id="resources" role="tabpanel" aria-labelledby="resources-tab">
+                <div class="mt-4">
+                    <h4 class="text-danger"><i class="fas fa-archive" aria-hidden="true"></i> Tài nguyên</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="resourcesTable">
+                            <thead>
+                                <tr>
+                                    <th>Tên tài nguyên</th>
+                                    <th>Loại</th>
+                                    <th>Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample Resource Documents -->
+                                <tr>
+                                    <td>Cheat Sheet HTML5</td>
+                                    <td>Cheat Sheet</td>
+                                    <td>
+                                        <button class="btn btn-info btn-sm preview-btn" data-url="../downloads/html5_cheatsheet.pdf" title="Xem trước" data-tooltip="true" data-placement="top" aria-label="Xem trước">
+                                            <i class="fas fa-eye" aria-hidden="true"></i>
+                                        </button>
+                                        <a href="../downloads/html5_cheatsheet.pdf" class="btn btn-danger btn-sm" download title="Tải xuống" data-tooltip="true" data-placement="top" aria-label="Tải xuống">
+                                            <i class="fas fa-download" aria-hidden="true"></i>
+                                        </a>
+                                        <button class="btn btn-primary btn-sm upload-btn ml-2" data-type="Resource" data-toggle="modal" data-target="#uploadModal" title="Tải lên" data-tooltip="true" data-placement="top" aria-label="Tải lên">
+                                            <i class="fas fa-upload" aria-hidden="true"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các tài liệu tài nguyên khác tại đây -->
+                                <!-- Lặp lại khi cần -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Preview Modal -->
+        <div class="modal fade" id="previewModal" tabindex="-1" role="dialog" aria-labelledby="previewModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document"> <!-- Increased size -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="previewModalTitle">Xem trước tài liệu</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body p-0">
+                        <div id="loader">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                        <iframe src="" id="documentPreview" style="width: 100%; height: 80vh;" frameborder="0"></iframe>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" id="downloadLink" class="btn btn-danger" download target="_blank" title="Tải xuống" data-tooltip="true" data-placement="top" aria-label="Tải xuống">
+                            <i class="fas fa-download" aria-hidden="true"></i> Tải xuống
+                        </a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Đóng">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form action="../upload.php" method="post" enctype="multipart/form-data" id="uploadForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadModalTitle">Tải lên tài liệu</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="documentName">Tên tài liệu</label>
+                                <input type="text" class="form-control" id="documentName" name="documentName" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="documentType">Loại tài liệu</label>
+                                <select class="form-control" id="documentType" name="documentType" required aria-required="true">
+                                    <option value="">Chọn loại</option>
+                                    <option value="Lecture">Bài giảng</option>
+                                    <option value="Assignment">Bài tập</option>
+                                    <option value="Exam">Kỳ thi</option>
+                                    <option value="Resource">Tài nguyên</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="documentFile">Chọn tập tin</label>
+                                <input type="file" class="form-control-file" id="documentFile" name="documentFile" accept=".pdf" required aria-required="true">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" title="Tải lên" data-tooltip="true" data-placement="top" aria-label="Tải lên">Tải lên</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Đóng">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toast Notifications -->
+        <div id="toast-container" aria-live="polite" aria-atomic="true">
+            <!-- Toasts sẽ được thêm động bởi JavaScript -->
+        </div>
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start border-top mt-5">
+        <div class="text-center p-3">
+            © 2024 FuturLearn. All rights reserved.
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+    ></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Custom JS for Search, Preview, and Upload Functionality -->
+    <script>
+        $(document).ready(function(){
+            // Initialize tooltips for elements with data-tooltip="true"
+            $('[data-tooltip="true"]').tooltip();
+
+            // Initialize DataTables for each table with Bootstrap 4 styling
+            $('#lecturesTable').DataTable({
+                "paging": true,
+                "searching": false,
+                "info": false,
+                "lengthChange": false,
+                "language": {
+                    "paginate": {
+                        "previous": "Trước",
+                        "next": "Tiếp theo"
+                    },
+                    "emptyTable": "Không có dữ liệu",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                    "infoEmpty": "",
+                    "infoFiltered": ""
+                },
+                "dom": '<"top"f>rt<"bottom"lp><"clear">' // Cấu hình giao diện DataTables
+            });
+            $('#assignmentsTable').DataTable({
+                "paging": true,
+                "searching": false,
+                "info": false,
+                "lengthChange": false,
+                "language": {
+                    "paginate": {
+                        "previous": "Trước",
+                        "next": "Tiếp theo"
+                    },
+                    "emptyTable": "Không có dữ liệu",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                    "infoEmpty": "",
+                    "infoFiltered": ""
+                },
+                "dom": '<"top"f>rt<"bottom"lp><"clear">'
+            });
+            $('#examsTable').DataTable({
+                "paging": true,
+                "searching": false,
+                "info": false,
+                "lengthChange": false,
+                "language": {
+                    "paginate": {
+                        "previous": "Trước",
+                        "next": "Tiếp theo"
+                    },
+                    "emptyTable": "Không có dữ liệu",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                    "infoEmpty": "",
+                    "infoFiltered": ""
+                },
+                "dom": '<"top"f>rt<"bottom"lp><"clear">'
+            });
+            $('#resourcesTable').DataTable({
+                "paging": true,
+                "searching": false,
+                "info": false,
+                "lengthChange": false,
+                "language": {
+                    "paginate": {
+                        "previous": "Trước",
+                        "next": "Tiếp theo"
+                    },
+                    "emptyTable": "Không có dữ liệu",
+                    "zeroRecords": "Không tìm thấy kết quả",
+                    "infoEmpty": "",
+                    "infoFiltered": ""
+                },
+                "dom": '<"top"f>rt<"bottom"lp><"clear">'
+            });
+
+            // Search functionality
+            $('#searchButton').click(function(){
+                var searchTerm = $('#searchInput').val().toLowerCase();
+                if(searchTerm.trim() !== ""){
+                    // Iterate over each table and filter rows
+                    $('.table-hover').each(function(){
+                        var table = $(this).DataTable();
+                        table.search(searchTerm).draw();
+                    });
+                } else {
+                    // Clear all searches
+                    $('.table-hover').each(function(){
+                        var table = $(this).DataTable();
+                        table.search('').draw();
+                    });
+                }
+            });
+
+            // Trigger search on Enter key
+            $('#searchInput').keypress(function(e){
+                if(e.which == 13){
+                    $('#searchButton').click();
+                }
+            });
+
+            // Pre-fill document type in upload modal based on button clicked
+            $('.upload-btn').click(function(){
+                var docType = $(this).data('type');
+                $('#documentType').val(docType);
+            });
+
+            // Preview functionality with loader
+            $('.preview-btn').click(function(){
+                var docUrl = $(this).data('url');
+                $('#loader').show();
+                $('#documentPreview').attr('src', docUrl).on('load', function(){
+                    $('#loader').hide();
+                }).on('error', function(){
+                    $('#loader').hide();
+                    showToast('Không thể tải tài liệu!', 'error');
+                });
+                $('#downloadLink').attr('href', docUrl);
+                $('#previewModal').modal('show');
+            });
+
+            // Handle form submission for uploads
+            $('#uploadForm').submit(function(e){
+                e.preventDefault();
+                var form = $(this);
+                var formData = new FormData(this);
+
+                // Disable the upload button to prevent multiple submissions
+                form.find('button[type="submit"]').prop('disabled', true);
+
+                // Simulate AJAX upload
+                $.ajax({
+                    url: '../upload.php', // Thay đổi URL xử lý upload thực tế
+                    type: 'POST',
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    success: function(response){
+                        try {
+                            var data = JSON.parse(response);
+                            if(data.success){
+                                // Thêm dòng mới vào bảng tương ứng
+                                var tableId = '';
+                                switch(data.data.type){
+                                    case 'Lecture':
+                                        tableId = '#lecturesTable';
+                                        break;
+                                    case 'Assignment':
+                                        tableId = '#assignmentsTable';
+                                        break;
+                                    case 'Exam':
+                                        tableId = '#examsTable';
+                                        break;
+                                    case 'Resource':
+                                        tableId = '#resourcesTable';
+                                        break;
+                                    default:
+                                        tableId = '#resourcesTable';
+                                }
+                                var table = $(tableId).DataTable();
+                                var actionButtons = `
+                                    <button class="btn btn-info btn-sm preview-btn" data-url="${data.url}" title="Xem trước" data-tooltip="true" data-placement="top" aria-label="Xem trước">
+                                        <i class="fas fa-eye" aria-hidden="true"></i>
+                                    </button>
+                                    <a href="${data.url}" class="btn btn-danger btn-sm" download title="Tải xuống" data-tooltip="true" data-placement="top" aria-label="Tải xuống">
+                                        <i class="fas fa-download" aria-hidden="true"></i>
+                                    </a>
+                                    ${data.data.type !== 'Lecture' && data.data.type !== 'Exam' ? 
+                                        `<button class="btn btn-primary btn-sm upload-btn ml-2" data-type="${data.data.type}" data-toggle="modal" data-target="#uploadModal" title="Tải lên" data-tooltip="true" data-placement="top" aria-label="Tải lên">
+                                            <i class="fas fa-upload" aria-hidden="true"></i>
+                                        </button>` : ''}
+                                `;
+                                table.row.add([
+                                    data.data.name,
+                                    data.data.date,
+                                    actionButtons
+                                ]).draw(false);
+                                // Reinitialize tooltips for new elements
+                                $('[data-tooltip="true"]').tooltip();
+                                // Close the modal
+                                $('#uploadModal').modal('hide');
+                                // Reset the form
+                                form[0].reset();
+                                // Show success toast
+                                showToast('Tải lên thành công!', 'success');
+                            } else {
+                                // Show error toast
+                                showToast(data.message || 'Tải lên thất bại!', 'error');
+                            }
+                        } catch (error) {
+                            // Show error toast
+                            showToast('Có lỗi xảy ra khi tải lên!', 'error');
+                        }
+                    },
+                    error: function(){
+                        // Show error toast
+                        showToast('Có lỗi xảy ra khi tải lên!', 'error');
+                    },
+                    complete: function(){
+                        // Re-enable the upload button
+                        form.find('button[type="submit"]').prop('disabled', false);
+                    }
+                });
+            });
+
+            // Function to show toast notifications
+            function showToast(message, type) {
+                var toastId = 'toast' + Date.now();
+                var bgClass = type === 'success' ? 'bg-success' : 'bg-danger';
+                var headerText = type === 'success' ? 'Thành công' : 'Lỗi';
+                var toastHtml = `
+                    <div class="toast" id="${toastId}" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+                        <div class="toast-header ${bgClass} text-white">
+                            <strong class="mr-auto">${headerText}</strong>
+                            <small class="text-white-50">Vừa rồi</small>
+                            <button type="button" class="ml-2 mb-1 close text-white" data-dismiss="toast" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="toast-body">
+                            ${message}
+                        </div>
+                    </div>
+                `;
+                $('#toast-container').append(toastHtml);
+                $('#' + toastId).toast('show');
+                // Remove the toast element after it's hidden
+                $('#' + toastId).on('hidden.bs.toast', function () {
+                    $(this).remove();
+                });
+            }
+
+            // Ensure hover effects remain after switching tabs
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                // Remove active class from all tab blocks
+                $('.tab-block').removeClass('active');
+                // Add active class to the clicked tab block
+                $(e.target).addClass('active');
+            });
+          
+        </script>
+</body>
+</html>

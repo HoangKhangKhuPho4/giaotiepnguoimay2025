@@ -1,0 +1,169 @@
+<html>
+<head>
+    <title>Form Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .container h2 {
+            color: #8cc63f;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="password"],
+        .form-group input[type="email"],
+        .form-group select {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ccc;
+        }
+        .form-group.inline {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-group.inline input[type="text"] {
+            width: calc(33% - 10px);
+        }
+        .form-group.inline .gender input[type="button"] {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .form-group.inline .gender input[type="button"].active {
+            background-color: #8cc63f;
+            color: #fff;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .payment-methods input[type="button"] {
+            width: 48%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            cursor: pointer;
+        }
+        .payment-methods input[type="button"].active {
+            background-color: #8cc63f;
+            color: #fff;
+        }
+        .terms {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .terms input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .terms label {
+            color: #8cc63f;
+        }
+        .terms p {
+            margin: 0;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Account</h2>
+        <div class="form-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Full Name">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email Address">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password">
+        </div>
+        <h2>Date of Birth</h2>
+        <div class="form-group inline">
+            <input type="text" placeholder="DD">
+            <input type="text" placeholder="MM">
+            <input type="text" placeholder="YYYY">
+        </div>
+        <h2>Gender</h2>
+        <div class="form-group inline gender">
+            <input type="button" value="Male" class="active">
+            <input type="button" value="Female">
+        </div>
+        <h2>Payment Details</h2>
+        <div class="payment-methods">
+            <input type="button" value="Credit Card" class="active">
+            <input type="button" value="Paypal">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-credit-card"></i>
+            <input type="text" placeholder="Card Number">
+        </div>
+        <div class="form-group">
+            <i class="fas fa-lock"></i>
+            <input type="text" placeholder="Card CVC">
+            <select>
+                <option>01 Jan</option>
+                <option>02 Feb</option>
+                <option>03 Mar</option>
+                <option>04 Apr</option>
+                <option>05 May</option>
+                <option>06 Jun</option>
+                <option>07 Jul</option>
+                <option>08 Aug</option>
+                <option>09 Sep</option>
+                <option>10 Oct</option>
+                <option>11 Nov</option>
+                <option>12 Dec</option>
+            </select>
+            <select>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+            </select>
+        </div>
+        <div class="terms">
+            <input type="checkbox">
+            <label>I accept the terms and conditions for signing up to this service, and hereby confirm I have read the privacy policy.</label>
+        </div>
+    </div>
+</body>
+</html>

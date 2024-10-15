@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - FuturLearn</title>
+  <link rel="stylesheet" href="../css/courses.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p8AqLJjvYRh9dfJNzCjXQyw0cKDGc2Q/9O+a6z7D6T0NVG0EHTHFrCZx27J9DRw1G1HPzXG2aaS5Mw6I6o1Dpg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap Theme -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!-- Core theme CSS -->
+  <link href="../css/styles.css" rel="stylesheet" />
+  <link href="../css/styles-courses.css" rel="stylesheet" />
+  <link href="../css/mobile-style.css" rel="stylesheet" />
+  <!-- To support HTML5 in old browsers -->
+  <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+      <![endif]-->
+  <!-- Custom Inline CSS for Main Content -->
+  <style>
+    /* Ensure the main container has adequate top padding */
+    .container.co {
+      padding-top: 80px; /* Adjust based on fixed header height if reintroduced */
+      padding-bottom: 40px; /* Space before potential footer */
+    }
+
+    /* Style the course cards */
+    .course {
+      margin-bottom: 30px;
+    }
+
+    .course .card {
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .course .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      width: 50%;
+      margin: 20px auto 0;
+      display: block;
+    }
+
+    .card-body p {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .justify-content-center a {
+      color: #ffc107; /* Star color */
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .justify-content-center a:hover {
+      color: #ff9800;
+    }
+
+    /* Responsive iframe */
+    .course iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+    }
+
+    @media (min-width: 576px) {
+      .course iframe {
+        height: 250px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .course iframe {
+        height: 300px;
+      }
+    }
+
+    /* Checkbox styling */
+    .course-complete-butt {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .mycheckbox {
+      transform: scale(1.5);
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .course-complete-butt label {
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .course-complete-butt label:hover {
+      color: #007BFF;
+    }
+
+    /* Divider Custom Styles */
+    .divider-custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .divider-custom-line {
+      flex: 1;
+      height: 1px;
+      background-color: #ddd;
+    }
+
+    .divider-custom-icon {
+      margin: 0 15px;
+      color: #ffc107;
+      font-size: 1.5rem;
+    }
+
+    /* Optional: Add any additional custom styles here */
+  </style>
+</head>
+
+<body>
+  <!-- Start Main-->
+  <div class="container co">
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-4">
+      Courses
+    </h2>
+    <div class="divider-custom mb-5">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+      <div class="divider-custom-line"></div>
+    </div>
+    <div class="row">
+      <!-- Course 1 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel1">
+        <div class="card">
+          <img src="../assets/images/html-svgrepo-com.svg" class="card-img-top" alt="HTML5 Course" />
+          <div class="card-body">
+            <p>HTML5 Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 2 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel2">
+        <div class="card">
+          <img src="../assets/images/css-3-svgrepo-com.svg" class="card-img-top" alt="CSS3 Course" />
+          <div class="card-body">
+            <p>CSS3 Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 3 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel3">
+        <div class="card">
+          <img src="../assets/images/javascript-svgrepo-com.svg" class="card-img-top" alt="JavaScript Course" />
+          <div class="card-body">
+            <p>JavaScript Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 4 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel4">
+        <div class="card">
+          <img src="../assets/images/cpp-svgrepo-com.svg" class="card-img-top" alt="C++ Course" />
+          <div class="card-body">
+            <p>C++ Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 5 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel5">
+        <div class="card">
+          <img src="../assets/images/csharp-svgrepo-com.svg" class="card-img-top" alt="C# Course" />
+          <div class="card-body">
+            <p>C# Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 6 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel6">
+        <div class="card">
+          <img src="../assets/images/python-svgrepo-com.svg" class="card-img-top" alt="Python Course" />
+          <div class="card-body">
+            <p>Python Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 7 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel7">
+        <div class="card">
+          <img src="../assets/images/java-svgrepo-com.svg" class="card-img-top" alt="Java Course" />
+          <div class="card-body">
+            <p>Java Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 8 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel8">
+        <div class="card">
+          <img src="../assets/images/kotlin-1-logo-svgrepo-com.svg" class="card-img-top" alt="Kotlin Course" />
+          <div class="card-body">
+            <p>Kotlin Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 9 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel9">
+        <div class="card">
+          <img src="../assets/images/dart-svgrepo-com.svg" class="card-img-top" alt="Dart Course" />
+          <div class="card-body">
+            <p>Dart Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 10 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel10">
+        <div class="card">
+          <img src="../assets/images/php-svgrepo-com.svg" class="card-img-top" alt="PHP Course" />
+          <div class="card-body">
+            <p>PHP Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 11 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel11">
+        <div class="card">
+          <img src="../assets/images/swift-svgrepo-com.svg" class="card-img-top" alt="Swift Course" />
+          <div class="card-body">
+            <p>Swift Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 12 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel12">
+        <div class="card">
+          <img src="../assets/images/flutter-svgrepo-com.svg" class="card-img-top" alt="Flutter Course" />
+          <div class="card-body">
+            <p>Flutter Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 13 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel13">
+        <div class="card">
+          <img src="../assets/images/dotnet-svgrepo-com.svg" class="card-img-top" alt=".Net Course" />
+          <div class="card-body">
+            <p>.Net Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 14 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel14">
+        <div class="card">
+          <img src="../assets/images/angular-svgrepo-com.svg" class="card-img-top" alt="Angular Course" />
+          <div class="card-body">
+            <p>Angular Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Course 15 -->
+      <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel15">
+        <div class="card">
+          <img src="../assets/images/android-svgrepo-com.svg" class="card-img-top" alt="Android Course" />
+          <div class="card-body">
+            <p>Android Course</p>
+          </div>
+          <div class="justify-content-center">
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star"></i></a>
+            <a href="#"><i class="fas fa-star-half-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Main-->
+  <!--------------------------------------------------------------->
+
+  <!-- Courses Modals -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="couseModel1" tabindex="-1" role="dialog" aria-labelledby="couseModel1Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel1Title">Web Development (Basic)</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/html-svgrepo-com.svg" height="200px" alt="Web Development Course">
+          <p class="text-left">
+            Do you realize that the only functionality of a web application that the user directly interacts with is
+            through the web page? Implement it poorly and, to the user, the server-side becomes irrelevant! Today’s user
+            expects a lot out of the web page: it has to load fast, expose the desired service, and be comfortable to
+            view on all devices: from desktop computers to tablets and mobile phones.<br><br>
+            In this course, we will learn the basic tools that every web page coder needs to know. We will start from
+            the ground up by learning how to implement modern web pages with HTML and CSS. We will then advance to
+            learning how to code our pages such that its components rearrange and resize themselves automatically based
+            on the size of the user’s screen. You’ll be able to code up a web page that will be just as useful on a
+            mobile phone as on a desktop computer. No “pinch and zoom” required!
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 2 -->
+  <div class="modal fade" id="couseModel2" tabindex="-1" role="dialog" aria-labelledby="couseModel2Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel2Title">UI Design Specialization</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/css-3-svgrepo-com.svg" height="200px" alt="UI Design Specialization">
+          <p class="text-left">
+            In this Specialization, you will learn industry-standard theory and methods for developing successful user
+            interfaces (UIs). Upon completing this Specialization, you will have fluency with the user research,
+            prototyping and evaluation techniques necessary for creating intuitive interfaces that facilitate good user
+            experiences. You will also have demonstrated this fluency through an in-depth Capstone Project that can be
+            shown to prospective employers in the fast-growing field of UI design.<br><br>
+            Concepts and techniques covered include structured approaches for helping you understand your user base and
+            their needs (e.g. contextual inquiry and design psychology), widely-employed prototyping and design methods
+            (e.g. low-fidelity and paper prototyping), and robust techniques for helping you evaluate your design
+            choices (e.g. heuristic evaluation and user studies). By the end of the Specialization, you will be
+            comfortable applying these concepts and techniques to design an interface for a wide variety of users from
+            around the world.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 3 -->
+  <div class="modal fade" id="couseModel3" tabindex="-1" role="dialog" aria-labelledby="couseModel3Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel3Title">Node JS</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/javascript-svgrepo-com.svg" height="200px" alt="Node JS Course">
+          <p class="text-left">
+            This course deals with all things server-side. We base the entire course around the NodeJS platform. We
+            start with a brief overview of the Web protocols: HTTP and HTTPS. We examine NodeJS and NodeJS modules:
+            Express for building web servers.<br><br>
+            Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8
+            engine and executes JavaScript code outside a web browser. Node.js is an open source server
+            environment. Node.js is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X,
+            etc.). Node.js uses JavaScript on the server. Node.js uses asynchronous programming! Node.js runs
+            single-threaded, non-blocking, asynchronously programming, which is very memory efficient. Node.js can
+            generate dynamic page content. Node.js can create, open, read, write, delete, and close files on the
+            server. Node.js can collect form data. Node.js can add, delete, modify data in your database. Node.js files
+            contain tasks that will be executed on certain events. A typical event is someone trying to access a port
+            on the server. Node.js files must be initiated on the server before having any effect. Node.js files have
+            extension ".js"
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 4 -->
+  <div class="modal fade" id="couseModel4" tabindex="-1" role="dialog" aria-labelledby="couseModel4Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel4Title">JavaScript Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/javascript-svgrepo-com.svg" height="200px" alt="JavaScript Course">
+          <p class="text-left">
+            JavaScript, often abbreviated as JS, is a programming language that is one of the core
+            technologies of the World Wide Web, alongside HTML and CSS. Over 97% of websites use JavaScript on the
+            client side for web page behavior, often incorporating third-party libraries.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 5 -->
+  <div class="modal fade" id="couseModel5" tabindex="-1" role="dialog" aria-labelledby="couseModel5Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel5Title">C++ Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/cpp-svgrepo-com.svg" height="200px" alt="C++ Course">
+          <p class="text-left">
+            C++ is a general-purpose programming language created by Danish computer scientist Bjarne
+            Stroustrup as an extension of the C programming language, or "C with Classes". The language has expanded
+            significantly over time, and modern C++ now has object-oriented, generic, and functional features in
+            addition to facilities for low-level memory manipulation.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 6 -->
+  <div class="modal fade" id="couseModel6" tabindex="-1" role="dialog" aria-labelledby="couseModel6Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel6Title">C# Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/csharp-svgrepo-com.svg" height="200px" alt="C# Course">
+          <p class="text-left">
+            C# is a general-purpose, multi-paradigm programming language. C# encompasses static
+            typing, strong typing, lexically scoped, imperative, declarative, functional, generic, object-oriented
+            (class-based), and component-oriented programming disciplines.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 7 -->
+  <div class="modal fade" id="couseModel7" tabindex="-1" role="dialog" aria-labelledby="couseModel7Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel7Title">Python Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/python-svgrepo-com.svg" height="200px" alt="Python Course">
+          <p class="text-left">
+            Python is a high-level, interpreted, general-purpose programming language. Its design
+            philosophy emphasizes code readability with the use of significant indentation. Python is dynamically-typed
+            and garbage-collected. It supports multiple programming paradigms, including structured (particularly
+            procedural), object-oriented, and functional programming.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 8 -->
+  <div class="modal fade" id="couseModel8" tabindex="-1" role="dialog" aria-labelledby="couseModel8Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel8Title">Java Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/java-svgrepo-com.svg" height="200px" alt="Java Course">
+          <p class="text-left">
+            Java is a high-level, class-based, object-oriented programming language that is designed
+            to have as few implementation dependencies as possible. It is a general-purpose programming language
+            intended to let programmers write once, run anywhere (WORA), meaning that compiled Java code can run on all
+            platforms that support Java without the need to recompile.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 9 -->
+  <div class="modal fade" id="couseModel9" tabindex="-1" role="dialog" aria-labelledby="couseModel9Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel9Title">Kotlin Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/kotlin-1-logo-svgrepo-com.svg" height="200px" alt="Kotlin Course">
+          <p class="text-left">
+            Kotlin is a cross-platform, statically typed, general-purpose programming language with
+            type inference. Kotlin is designed to interoperate fully with Java, and the JVM version of Kotlin's standard
+            library depends on the Java Class Library, but type inference allows its syntax to be more concise.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 10 -->
+  <div class="modal fade" id="couseModel10" tabindex="-1" role="dialog" aria-labelledby="couseModel10Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel10Title">Dart Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/dart-svgrepo-com.svg" height="200px" alt="Dart Course">
+          <p class="text-left">
+            Dart is a programming language designed for client development, such as for the web and
+            mobile apps. It is developed by Google and can also be used to build server and desktop applications. It is
+            an object-oriented, class-based, garbage-collected language with C-style syntax. It can compile to
+            either native code or JavaScript, and supports interfaces, mixins, abstract classes, reified generics, and
+            type inference.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 11 -->
+  <div class="modal fade" id="couseModel11" tabindex="-1" role="dialog" aria-labelledby="couseModel11Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel11Title">PHP Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/php-svgrepo-com.svg" height="200px" alt="PHP Course">
+          <p class="text-left">
+            PHP is a general-purpose scripting language geared toward web development. It was
+            originally created by Danish-Canadian programmer Rasmus Lerdorf in 1994. The PHP reference implementation is
+            now produced by The PHP Group. PHP originally stood for Personal Home Page, but it now stands for the
+            recursive initialism PHP: Hypertext Preprocessor.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 12 -->
+  <div class="modal fade" id="couseModel12" tabindex="-1" role="dialog" aria-labelledby="couseModel12Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel12Title">Swift Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/swift-svgrepo-com.svg" height="200px" alt="Swift Course">
+          <p class="text-left">
+            Swift is a general-purpose, multi-paradigm, compiled programming language developed by
+            Apple Inc. and the open-source community. First released in 2014, Swift was developed as a replacement for
+            Apple's earlier programming language Objective-C, as Objective-C had been largely unchanged since the early
+            1980s and lacked modern language features.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 13 -->
+  <div class="modal fade" id="couseModel13" tabindex="-1" role="dialog" aria-labelledby="couseModel13Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel13Title">Flutter Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/flutter-svgrepo-com.svg" height="200px" alt="Flutter Course">
+          <p class="text-left">
+            Flutter is an open-source UI software development kit created by Google. It is used to
+            develop cross-platform applications for Android, iOS, Linux, macOS, Windows, Google Fuchsia, and the web
+            from a single codebase.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 14 -->
+  <div class="modal fade" id="couseModel14" tabindex="-1" role="dialog" aria-labelledby="couseModel14Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel14Title">.Net Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/dotnet-svgrepo-com.svg" height="200px" alt=".Net Course">
+          <p class="text-left">
+            The .NET Framework (pronounced as "dot net") is a proprietary software framework
+            developed by Microsoft that runs primarily on Microsoft Windows. It was the predominant implementation of
+            the Common Language Infrastructure (CLI) until being superseded by the cross-platform .NET project. It
+            includes a large class library called Framework Class Library (FCL) and provides language interoperability
+            (each language can use code written in other languages) across several programming languages.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 15 -->
+  <div class="modal fade" id="couseModel15" tabindex="-1" role="dialog" aria-labelledby="couseModel15Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel15Title">Angular Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/angular-svgrepo-com.svg" height="200px" alt="Angular Course">
+          <p class="text-left">
+            Angular (commonly referred to as "Angular 2+" or "Angular CLI") is a TypeScript-based
+            free and open-source web application framework led by the Angular Team at Google and by a community of
+            individuals and corporations. Angular is a complete rewrite from the same team that built AngularJS. Angular
+            is used as the frontend of the MEAN stack, consisting of MongoDB database, Express.js web application server
+            framework, Angular itself (or AngularJS), and Node.js server runtime environment.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 16 -->
+  <div class="modal fade" id="couseModel16" tabindex="-1" role="dialog" aria-labelledby="couseModel16Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel16Title">Android Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/android-svgrepo-com.svg" height="200px" alt="Android Course">
+          <p class="text-left">
+            The version history of the Android mobile operating system began with the public release
+            of the Android beta on November 5, 2007. The first commercial version, Android 1.0, was released on
+            September 23, 2008. Android is continually developed by Google and the Open Handset Alliance (OHA), and it
+            has seen several updates to its base operating system since the initial release.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+
+  <!-- JQuery and Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

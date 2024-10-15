@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - Dreams LMS</title>
+    <!-- Font Awesome CDN cho icon -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/home.css">
+    <style>
+
+
+     
+
+        /* Main Container */
+        .container {
+            display: flex;
+            flex: 1;
+            padding: 100px 20px 20px 20px; /* Padding top để tránh bị header che */
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #fff;
+            border-right: 1px solid #e9ecef;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+        }
+
+        .sidebar .profile-card {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border: 3px solid #4CAF50;
+            transition: transform 0.3s;
+        }
+
+        .sidebar .profile-card img:hover {
+            transform: scale(1.05);
+        }
+
+        .sidebar .profile-card h3 {
+            margin: 0;
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .sidebar .profile-card p {
+            margin: 5px 0;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .sidebar .profile-card button {
+            background-color: #ff5a5f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sidebar .profile-card button:hover {
+            background-color: #e04350;
+        }
+
+        .sidebar .menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar .menu li {
+            margin: 10px 0;
+        }
+
+        .sidebar .menu li a {
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+            position: relative;
+        }
+
+        .sidebar .menu li a i {
+            margin-right: 10px;
+            font-size: 16px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar .menu li a.active,
+        .sidebar .menu li a:hover {
+            background-color: #ff5a5f;
+            color: #fff;
+        }
+
+        /* Thêm hình đại diện kế bên "Log out" */
+        .sidebar .menu li.logout {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar .menu li.logout a {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .sidebar .menu li.logout .logout-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-left: 10px;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .sidebar .menu li.logout .logout-avatar:hover {
+            transform: scale(1.05);
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        .breadcrumb {
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .breadcrumb a {
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 5px;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #888;
+            margin-right: 5px;
+        }
+
+        .profile-info {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .profile-info h2 {
+            margin-top: 0;
+            font-size: 28px;
+            font-weight: 500;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-info .info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .profile-info .info-item {
+            flex: 1 1 45%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-info .info-item span {
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .profile-info .info-item input,
+        .profile-info .info-item textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            background-color: #f9f9f9;
+            resize: none;
+        }
+
+        .profile-info .info-item input:focus,
+        .profile-info .info-item textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #fff;
+        }
+
+        .profile-info .bio {
+            margin-top: 20px;
+        }
+
+        .profile-info .bio span {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .profile-info .bio textarea {
+            width: 100%;
+            height: 150px;
+            resize: vertical;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+            background-color: #f9f9f9;
+        }
+
+        .profile-info .bio textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            background-color: #fff;
+        }
+
+        /* Nút hành động */
+        .profile-info .actions {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .profile-info .actions button {
+            margin-left: 10px;
+            padding: 10px 25px;
+            font-size: 14px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #editBtn {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        #editBtn:hover {
+            background-color: #0056b3;
+        }
+
+        #saveBtn {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        #saveBtn:hover {
+            background-color: #218838;
+        }
+
+        #cancelBtn {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        #cancelBtn:hover {
+            background-color: #c82333;
+        }
+
+        /* Thông báo */
+        .notification {
+            position: fixed;
+            top: 80px; /* Đặt dưới header fixed */
+            right: 20px;
+            background-color: #28a745;
+            color: #fff;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .notification.show {
+            opacity: 1;
+        }
+
+        .notification .close-btn {
+            cursor: pointer;
+            font-size: 20px;
+            margin-left: 15px;
+        }
+
+     
+        .newsletter input {
+            padding: 10px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .social-media a {
+            color: #555;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #007bff;
+        }
+
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #e9ecef;
+                padding: 15px;
+            }
+
+            .sidebar .profile-card img {
+                width: 80px;
+                height: 80px;
+            }
+
+            .sidebar .profile-card h3 {
+                font-size: 18px;
+            }
+
+            .sidebar .profile-card button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .sidebar .menu li a {
+                font-size: 14px;
+                padding: 8px;
+            }
+
+            .content {
+                padding: 20px 15px;
+            }
+
+            .profile-info {
+                padding: 20px;
+            }
+
+            .profile-info h2 {
+                font-size: 24px;
+            }
+
+            .profile-info .info-item {
+                flex: 1 1 100%;
+            }
+
+            .profile-info .actions button {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
+
+            .footer-brand, .footer-section, .newsletter, .contact-info {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar .profile-card img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .sidebar .profile-card h3 {
+                font-size: 16px;
+            }
+
+            .sidebar .profile-card button {
+                padding: 6px 12px;
+                font-size: 10px;
+            }
+
+            .sidebar .menu li a {
+                font-size: 12px;
+                padding: 6px;
+            }
+
+            .content {
+                padding: 15px 10px;
+            }
+
+            .profile-info {
+                padding: 15px;
+            }
+
+            .profile-info h2 {
+                font-size: 22px;
+            }
+
+            .profile-info .actions button {
+                padding: 6px 12px;
+                font-size: 10px;
+            }
+
+            .notification {
+                top: 5px;
+                right: 5px;
+                padding: 8px 12px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav">
+            <div class="logo">
+                <img alt="Dreams LMS Logo" src="https://placehold.co/40x40" />
+                <h1>FuturLearn</h1>
+            </div>
+            <nav>
+                <a href="../pages/home.html">Home</a>
+                <a href="../pages/courses.html"> All Courses</a>
+                <a href="../pages/tasks.html">To-Do</a>
+                <a href="../pages/account.html">My Account</a>
+                <a href="../index.html">Log out</a>
+            </nav>
+            <div class="profile">
+                <img alt="Profile Picture" src="https://placehold.co/40x40" />
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-card">
+                <img alt="Eugene Andre" src="https://placehold.co/100x100" />
+                <h3>Eugene Andre</h3>
+                <p>Instructor</p>
+                <button id="addCourseBtn">
+                    <i class="fas fa-plus"></i> Add New Course
+                </button>
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a class="active" href="#">
+                        <i class="fas fa-user"></i>
+                        My Profile
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-book"></i>
+                        Enrolled Courses
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-heart"></i>
+                        Wishlist
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-star"></i>
+                        Reviews
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question-circle"></i>
+                        My Quiz Attempts
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-history"></i>
+                        Order History
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-comments"></i>
+                        Question &amp; Answer
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user-friends"></i>
+                        Referrals
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-envelope"></i>
+                        Messages
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-bell"></i>
+                        Notifications
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-ticket-alt"></i>
+                        Support Tickets
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-book-open"></i>
+                        My Courses
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-bullhorn"></i>
+                        Announcements
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-money-bill-wave"></i>
+                        Withdrawals
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-clipboard-list"></i>
+                        Quiz Attempts
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-tasks"></i>
+                        Assignments
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-dollar-sign"></i>
+                        Earnings
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        Settings
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                        <img src="https://placehold.co/40x40" alt="User Avatar" class="logout-avatar">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Content -->
+        <div class="content">
+            <div class="breadcrumb">
+                <a href="#">Home</a>
+                <span>/</span>
+                <a class="active" href="#">My Profile</a>
+            </div>
+            <div class="profile-info" id="profileInfo">
+                <h2>My Profile</h2>
+                <div class="actions">
+                    <button id="editBtn">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button id="saveBtn" style="display: none;">
+                        <i class="fas fa-save"></i> Save
+                    </button>
+                    <button id="cancelBtn" style="display: none;">
+                        <i class="fas fa-times"></i> Cancel
+                    </button>
+                </div>
+                <form id="profileForm">
+                    <div class="info">
+                        <div class="info-item">
+                            <span>First Name</span>
+                            <input type="text" id="firstName" name="firstName" value="Eugene" disabled>
+                        </div>
+                        <div class="info-item">
+                            <span>Last Name</span>
+                            <input type="text" id="lastName" name="lastName" value="Andre" disabled>
+                        </div>
+                        <div class="info-item">
+                            <span>Registration Date</span>
+                            <input type="text" id="registrationDate" name="registrationDate" value="January 16, 2024, 11:15 AM" disabled>
+                        </div>
+                        <div class="info-item">
+                            <span>Username</span>
+                            <input type="text" id="username" name="username" value="instructordemo" disabled>
+                        </div>
+                        <div class="info-item">
+                            <span>Email</span>
+                            <input type="email" id="email" name="email" value="instructordemo@example.com" disabled>
+                        </div>
+                        <div class="info-item">
+                            <span>Phone Number</span>
+                            <input type="text" id="phone" name="phone" value="89104-71829" disabled>
+                        </div>
+                    </div>
+                    <div class="bio">
+                        <span>Bio</span>
+                        <textarea id="bio" name="bio" disabled>Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. Some quick example text to build on the card title and bulk the card's content. Motlin gives you platform. As a highly skilled and successful product development and design specialist with more than 4 Years of My experience lies in successfully conceptualizing, designing, and modifying consumer products specific to interior design and home furnishings.</textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span>Profile updated successfully!</span>
+        <span class="close-btn">&times;</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>FuturLearn</h2>
+                <p>Empowering students through knowledge. Join us to share and access valuable learning resources!</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Study Resources</h4>
+                    <ul>
+                        <li><a href="#">Lecture Notes</a></li>
+                        <li><a href="#">Assignments</a></li>
+                        <li><a href="#">Reference Materials</a></li>
+                        <li><a href="#">Exam Prep</a></li>
+                        <li><a href="#">Study Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Student Testimonials</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h4>Contact Us</h4>
+                    <p>Email: support@futurlearn.com</p>
+                    <p>Phone: +1 (123) 456-7890</p>
+                    <h4>Follow Us</h4>
+                    <div class="social-media">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+                <p>If you would like to share learning materials, please upload your documents directly to the designated course folders on the platform for easy access by students and faculty.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const editBtn = document.getElementById('editBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            const profileForm = document.getElementById('profileForm');
+            const profileInfo = document.getElementById('profileInfo');
+
+            // Các trường nhập liệu
+            const firstName = document.getElementById('firstName');
+            const lastName = document.getElementById('lastName');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const bio = document.getElementById('bio');
+
+            let originalData = {};
+
+            // Lưu trữ dữ liệu ban đầu khi nhấn Edit
+            editBtn.addEventListener('click', function () {
+                profileInfo.classList.add('editable');
+                profileForm.querySelectorAll('input, textarea').forEach(input => input.disabled = false);
+                saveBtn.style.display = 'inline-block';
+                cancelBtn.style.display = 'inline-block';
+                editBtn.style.display = 'none';
+
+                // Lưu trữ dữ liệu ban đầu
+                originalData = {
+                    firstName: firstName.value,
+                    lastName: lastName.value,
+                    email: email.value,
+                    phone: phone.value,
+                    bio: bio.value
+                };
+            });
+
+            // Hủy bỏ chỉnh sửa
+            cancelBtn.addEventListener('click', function () {
+                profileInfo.classList.remove('editable');
+                profileForm.querySelectorAll('input, textarea').forEach(input => input.disabled = true);
+                saveBtn.style.display = 'none';
+                cancelBtn.style.display = 'none';
+                editBtn.style.display = 'inline-block';
+
+                // Khôi phục dữ liệu ban đầu
+                firstName.value = originalData.firstName;
+                lastName.value = originalData.lastName;
+                email.value = originalData.email;
+                phone.value = originalData.phone;
+                bio.value = originalData.bio;
+            });
+
+            // Lưu thông tin đã chỉnh sửa
+            saveBtn.addEventListener('click', function () {
+                // Kiểm tra tính hợp lệ
+                if (firstName.value.trim() === '' || lastName.value.trim() === '' || email.value.trim() === '' || phone.value.trim() === '') {
+                    alert('Vui lòng điền đầy đủ thông tin.');
+                    return;
+                }
+
+                // Kiểm tra định dạng email
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email.value)) {
+                    alert('Vui lòng nhập email hợp lệ.');
+                    return;
+                }
+
+                // Kiểm tra định dạng số điện thoại (ví dụ chỉ số)
+                const phonePattern = /^[0-9\-+()\s]{7,15}$/;
+                if (!phonePattern.test(phone.value)) {
+                    alert('Vui lòng nhập số điện thoại hợp lệ.');
+                    return;
+                }
+
+                // Ở đây bạn có thể thêm mã để gửi dữ liệu đến server thông qua AJAX hoặc Fetch API
+
+                // Sau khi lưu thành công
+                profileInfo.classList.remove('editable');
+                profileForm.querySelectorAll('input, textarea').forEach(input => input.disabled = true);
+                saveBtn.style.display = 'none';
+                cancelBtn.style.display = 'none';
+                editBtn.style.display = 'inline-block';
+
+                // Hiển thị thông báo
+                const notification = document.getElementById('notification');
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            });
+
+            // Xử lý đóng thông báo
+            document.querySelector('.notification .close-btn').addEventListener('click', function () {
+                this.parentElement.classList.remove('show');
+            });
+
+            // Xử lý Add New Course button (Tùy chọn)
+            const addCourseBtn = document.getElementById('addCourseBtn');
+            addCourseBtn.addEventListener('click', function () {
+                alert('Chức năng thêm khóa học chưa được triển khai.');
+            });
+
+            // Thêm avatar kế bên "Log out" trong sidebar
+            const logoutMenuItem = document.querySelector('.sidebar .menu li.logout a');
+            if (logoutMenuItem) {
+                // Create avatar image
+                const avatarImg = document.createElement('img');
+                avatarImg.src = "https://placehold.co/40x40"; // Thay đổi URL ảnh thật của bạn
+                avatarImg.alt = "User Avatar";
+                avatarImg.classList.add('logout-avatar');
+
+                // Append avatar image next to "Log out" text
+                logoutMenuItem.appendChild(avatarImg);
+            }
+        });
+    </script>
+</body>
+</html>

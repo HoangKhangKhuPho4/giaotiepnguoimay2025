@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Course Materials - FuturLearn</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/logo.svg" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="../css/font-awesome.min.css" />
+    <link rel="stylesheet" href="../css/all.min.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <!-- Custom CSS -->
+    <link href="../css/styles.css" rel="stylesheet" />
+    <link href="../css/styles-courses.css" rel="stylesheet" />
+    <link href="../css/mobile-style.css" rel="stylesheet" />
+    <link href="../css/home.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center py-3">
+                <h1 class="logo">FuturLearn</h1>
+                <nav>
+                    <a href="../pages/home.html" class="nav-link">Home</a>
+                    <a href="../pages/courses.html" class="nav-link">All Courses</a>
+                    <a href="../pages/tasks.html" class="nav-link">To-Do</a>
+                    <a href="../pages/account.html" class="nav-link">My Account</a>
+                    <a href="../index.html" class="nav-link">Log out</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- Main Content -->
+    <main class="container mt-5">
+        <h2 class="text-center mb-4">HTML5 Course Materials</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-3">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Tìm kiếm tài liệu..." id="searchInput">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="searchButton">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabs for Categories -->
+        <ul class="nav nav-tabs mt-4" id="materialTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="lectures-tab" data-toggle="tab" href="#lectures" role="tab" aria-controls="lectures" aria-selected="true">
+                    <i class="fas fa-book"></i> Bài Giảng
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="assignments-tab" data-toggle="tab" href="#assignments" role="tab" aria-controls="assignments" aria-selected="false">
+                    <i class="fas fa-file-alt"></i> Bài Tập
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="exams-tab" data-toggle="tab" href="#exams" role="tab" aria-controls="exams" aria-selected="false">
+                    <i class="fas fa-pencil-alt"></i> Thử Nghiệm
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="resources-tab" data-toggle="tab" href="#resources" role="tab" aria-controls="resources" aria-selected="false">
+                    <i class="fas fa-archive"></i> Tài Nguyên
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content" id="materialTabsContent">
+            <!-- Bài Giảng Tab -->
+            <div class="tab-pane fade show active" id="lectures" role="tabpanel" aria-labelledby="lectures-tab">
+                <div class="mt-4">
+                    <h4><i class="fas fa-book"></i> Bài Giảng</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="lecturesTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Tên Tài Liệu</th>
+                                    <th>Ngày Tải Lên</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Introduction to HTML5</td>
+                                    <td>01/01/2024</td>
+                                    <td>
+                                        <a href="../downloads/html5_intro.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HTML5 Semantics</td>
+                                    <td>08/01/2024</td>
+                                    <td>
+                                        <a href="../downloads/html5_semantics.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các hàng tương tự cho các tài liệu khác -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bài Tập Tab -->
+            <div class="tab-pane fade" id="assignments" role="tabpanel" aria-labelledby="assignments-tab">
+                <div class="mt-4">
+                    <h4><i class="fas fa-file-alt"></i> Bài Tập</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="assignmentsTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Tên Bài Tập</th>
+                                    <th>Ngày Hạn Nộp</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Assignment 1: Building a Simple Webpage</td>
+                                    <td>15/01/2024</td>
+                                    <td>
+                                        <a href="../downloads/assignment1.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <button class="btn btn-success btn-sm ml-2 upload-btn" data-type="Bai Tap" data-toggle="modal" data-target="#uploadModal">
+                                            <i class="fas fa-upload"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Assignment 2: Advanced HTML5 Features</td>
+                                    <td>22/01/2024</td>
+                                    <td>
+                                        <a href="../downloads/assignment2.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <button class="btn btn-success btn-sm ml-2 upload-btn" data-type="Bai Tap" data-toggle="modal" data-target="#uploadModal">
+                                            <i class="fas fa-upload"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các hàng tương tự cho các bài tập khác -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thử Nghiệm Tab -->
+            <div class="tab-pane fade" id="exams" role="tabpanel" aria-labelledby="exams-tab">
+                <div class="mt-4">
+                    <h4><i class="fas fa-pencil-alt"></i> Thử Nghiệm</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="examsTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Tên Thử Nghiệm</th>
+                                    <th>Ngày Thực Hiện</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Midterm Exam</td>
+                                    <td>30/01/2024</td>
+                                    <td>
+                                        <a href="../downloads/midterm_exam.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <button class="btn btn-success btn-sm ml-2 upload-btn" data-type="Thu Nghiem" data-toggle="modal" data-target="#uploadModal">
+                                            <i class="fas fa-upload"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Final Exam</td>
+                                    <td>15/02/2024</td>
+                                    <td>
+                                        <a href="../downloads/final_exam.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <button class="btn btn-success btn-sm ml-2 upload-btn" data-type="Thu Nghiem" data-toggle="modal" data-target="#uploadModal">
+                                            <i class="fas fa-upload"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các hàng tương tự cho các thử nghiệm khác -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tài Nguyên Tab -->
+            <div class="tab-pane fade" id="resources" role="tabpanel" aria-labelledby="resources-tab">
+                <div class="mt-4">
+                    <h4><i class="fas fa-archive"></i> Tài Nguyên</h4>
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="resourcesTable">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Tên Tài Nguyên</th>
+                                    <th>Loại</th>
+                                    <th>Hành Động</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>HTML5 Cheat Sheet</td>
+                                    <td>Cheat Sheet</td>
+                                    <td>
+                                        <a href="../downloads/html5_cheatsheet.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <button class="btn btn-success btn-sm ml-2 upload-btn" data-type="Tai Nguyen" data-toggle="modal" data-target="#uploadModal">
+                                            <i class="fas fa-upload"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Best Practices in HTML5</td>
+                                    <td>Guidelines</td>
+                                    <td>
+                                        <a href="../downloads/html5_best_practices.pdf" class="btn btn-primary btn-sm" download title="Tải Xuống">
+                                            <i class="fas fa-download"></i>
+                                        </a>
+                                        <button class="btn btn-success btn-sm ml-2 upload-btn" data-type="Tai Nguyen" data-toggle="modal" data-target="#uploadModal">
+                                            <i class="fas fa-upload"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- Thêm các hàng tương tự cho các tài nguyên khác -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" role="dialog" aria-labelledby="uploadModalTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="uploadModalTitle">Tải Lên Tài Liệu</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="documentName">Tên Tài Liệu</label>
+                                <input type="text" class="form-control" id="documentName" name="documentName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="documentType">Loại Tài Liệu</label>
+                                <select class="form-control" id="documentType" name="documentType" required>
+                                    <option value="">Chọn Loại</option>
+                                    <option value="Bai Giang">Bài Giảng</option>
+                                    <option value="Bai Tap">Bài Tập</option>
+                                    <option value="Thu Nghiem">Thử Nghiệm</option>
+                                    <option value="Tai Nguyen">Tài Nguyên</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="documentFile">Chọn File</label>
+                                <input type="file" class="form-control-file" id="documentFile" name="documentFile" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Tải Lên</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button to Open Upload Modal (Optional if using buttons in tables) -->
+        <!--
+        <div class="text-center mt-4">
+            <button class="btn btn-primary" data-toggle="modal" data-target="#uploadModal">
+                <i class="fas fa-upload"></i> Tải Lên Tài Liệu
+            </button>
+        </div>
+        -->
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>FuturLearn</h2>
+                <p>
+                    Empowering students through knowledge. Join us to share and access
+                    valuable learning resources!
+                </p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Study Resources</h4>
+                    <ul>
+                        <li><a href="#">Lecture Notes</a></li>
+                        <li><a href="#">Assignments</a></li>
+                        <li><a href="#">Reference Materials</a></li>
+                        <li><a href="#">Exam Prep</a></li>
+                        <li><a href="#">Study Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Student Testimonials</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h4>Contact Us</h4>
+                    <p>Email: support@futurlearn.com</p>
+                    <p>Phone: +1 (123) 456-7890</p>
+                    <h4>Follow Us</h4>
+                    <div class="social-media">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+                <p>
+                    If you would like to share learning materials, please upload your
+                    documents directly to the designated course folders on the platform
+                    for easy access by students and faculty.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"
+    ></script>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/script.js"></script>
+
+    <!-- Custom JS for Search Functionality -->
+    <script>
+        $(document).ready(function(){
+            // Search functionality
+            $('#searchButton').click(function(){
+                var searchTerm = $('#searchInput').val().toLowerCase();
+                // Iterate over each table and filter rows
+                $('.table-hover').each(function(){
+                    $(this).find('tbody tr').each(function(){
+                        var rowText = $(this).text().toLowerCase();
+                        if(rowText.indexOf(searchTerm) !== -1){
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                });
+            });
+
+            // Optionally, trigger search on Enter key
+            $('#searchInput').keypress(function(e){
+                if(e.which == 13){
+                    $('#searchButton').click();
+                }
+            });
+
+            // Pre-fill document type in upload modal based on button clicked
+            $('.upload-btn').click(function(){
+                var docType = $(this).data('type');
+                $('#documentType').val(docType);
+            });
+        });
+    </script>
+</body>
+</html>

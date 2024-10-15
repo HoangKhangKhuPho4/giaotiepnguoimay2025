@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - FuturLearn</title>
+  
+  <!-- Link to External CSS Files -->
+  <link rel="stylesheet" href="../css/courses.css">
+  <link rel="stylesheet" href="../css/home.css">
+  
+  <!-- Google Fonts (Optional for Enhanced Typography) -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome CDN for Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p6eQwRztxQkKJXG7zQkP29NnD9gFtX2E6P2UR6r93b9P1+/hgkTCVFHBRZlZ/n6m5xS3PnW1ZVQANX3D7a9aBg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Inline CSS for Courses Section -->
+  <style>
+    /* Apply Google Font */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4; /* Background color for the entire page */
+    }
+
+    /* Courses Header Section */
+    .courses-header {
+      background-color: #000; /* Màu nền đen */
+      color: #fff; /* Màu chữ trắng */
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .courses-header .header-content {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeIn 1s forwards;
+      animation-delay: 0.5s;
+    }
+
+    .courses-header .course-title {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    .courses-header .course-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .courses-header .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ff7e5f; /* Màu nút nổi bật */
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .courses-header .cta-button:hover {
+      background-color: #feb47b; /* Màu hover của nút */
+      transform: translateY(-3px);
+    }
+
+    /* Fade-in Animation */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+/* Container Outer Styling */
+.container-outer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #fff; /* Nền trắng cho phần khóa học */
+}
+
+
+/* Course Card Styling */
+.course {
+  background-color: #f9f9f9; /* Nền nhẹ cho thẻ khóa học */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  height: 600px; /* Đặt chiều cao cố định cho tất cả các thẻ khóa học */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Đảm bảo các phần tử bên trong được dàn đều */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.course:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+/* Styling for the Course Name */
+.course-name {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+/* Course Iframe Styling */
+.course iframe {
+  width: 100%;
+  height: 180px; /* Đặt chiều cao cố định cho iframe để các thẻ có chiều cao hình ảnh đồng đều */
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+/* Course Description Styling */
+.course-desc {
+  flex-grow: 1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+  background-color: #fff;
+  overflow-y: auto;
+  max-height: 180px; /* Đặt chiều cao cố định để giữ tất cả các phần mô tả đồng đều */
+}
+
+.course-desc h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.course-desc p {
+  color: #555;
+  text-align: justify;
+  margin: 0;
+}
+
+
+
+/* Ensure all course cards and completed buttons are aligned */
+.course-complete-butt {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px; /* Đặt chiều cao cố định cho phần này để mọi thẻ có cùng vị trí của nút checkbox */
+}
+
+.course-complete-butt .mycheckbox {
+  width: 16px;
+  height: 16px;
+}
+
+  /* Responsive Design */
+@media (max-width: 768px) {
+  .courses-header .course-title {
+    font-size: 2.5rem;
+  }
+
+      .courses-header .course-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .courses-header .cta-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+
+  .container-outer {
+    padding: 20px 10px;
+  }
+
+  .course {
+    width: 100%;
+    max-width: 500px;
+    height: auto; /* Để chiều cao tự động trên thiết bị nhỏ */
+  }
+
+  .course-desc {
+    max-height: none;
+    overflow: visible;
+  }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1 class="logo">FuturLearn</h1>
+    <nav>
+      <a href="../pages/home.html">Home</a>
+      <a href="../pages/courses.html"> All Courses</a>
+      <a href="../pages/CourseMaterials.html">Course Materials</a>
+      <a href="../pages/tasks.html">To-Do</a>
+      <a href="../pages/account.html">My Account</a>
+      <a href="../index.html">Log out</a>
+    </nav>
+  </header>
+  
+  <!-- Enhanced Courses Header Section with Black Background -->
+  <section class="courses-header">
+    <div class="header-content">
+      <h2 class="course-title">Courses</h2>
+      <p class="course-subtitle">Ambition accepted. Learn the latest skills to reach your professional goals.</p>
+      <a href="#courses" class="cta-button">
+        Explore Courses <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </section>
+  
+  <main>
+    <div class="container-outer" id="courses">
+      <!-- Course 1 -->
+      <div class="course">
+        <p class="course-name">Web Development (Basic)</p>
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PLWKjhJtqVAbnSe1qUNMG7AbPmjIG54u88"
+          title="Web Development (Basic) Course"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <div class="course-desc">
+          <h3>About this course</h3>
+          <p>Do you realize that the only functionality of a web application that the user directly interacts with is
+            through the web page? Implement it poorly and, to the user, the server-side becomes irrelevant! Today’s user
+            expects a lot out of the web page: it has to load fast, expose the desired service, and be comfortable to
+            view on all devices: from desktop computers to tablets and mobile phones.<br><br>
+            In this course, we will learn the basic tools that every web page coder needs to know. We will start from
+            the ground up by learning how to implement modern web pages with HTML and CSS. We will then advance to
+            learning how to code our pages such that its components rearrange and resize themselves automatically based
+            on the size of the user’s screen. You’ll be able to code up a web page that will be just as useful on a
+            mobile phone as on a desktop computer. No “pinch and zoom” required!</p>
+        </div>
+        <p class="course-complete-butt">
+          <input type="checkbox" name="Course-status" value="Completed" class="mycheckbox"> Completed
+        </p>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="course">
+        <p class="course-name">UI Design Specialization</p>
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PLjwm_8O3suyPkIphVrJaebR2qE8jylWBQ"
+          title="UI Design Specialization Course"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <div class="course-desc">
+          <h3>About this course</h3>
+          <p>In this Specialization, you will learn industry-standard theory and methods for developing successful user
+            interfaces (UIs). Upon completing this Specialization, you will have fluency with the user research,
+            prototyping and evaluation techniques necessary for creating intuitive interfaces that facilitate good user
+            experiences. You will also have demonstrated this fluency through an in-depth Capstone Project that can be
+            shown to prospective employers in the fast-growing field of UI design.<br><br>
+            Concepts and techniques covered include structured approaches for helping you understand your user base and
+            their needs (e.g. contextual inquiry and design psychology), widely-employed prototyping and design methods
+            (e.g. low-fidelity and paper prototyping), and robust techniques for helping you evaluate your design
+            choices (e.g. heuristic evaluation and user studies). By the end of the Specialization, you will be
+            comfortable applying these concepts and techniques to design an interface for a wide variety of users from
+            around the world.</p>
+        </div>
+        <p class="course-complete-butt">
+          <input type="checkbox" name="Course-status" value="Completed" class="mycheckbox"> Completed
+        </p>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="course">
+        <p class="course-name">Node JS</p>
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PL4cUxeGkcC9gcy9lrvMJ75z9maRw4byYp"
+          title="Node JS Course"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <div class="course-desc">
+          <h3>About this course</h3>
+          <p>This course deals with all things server-side. We base the entire course around the NodeJS platform. We
+            start with a brief overview of the Web protocols: HTTP and HTTPS. We examine NodeJS and NodeJS modules:
+            Express for building web servers.<br><br>
+            Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8
+            engine and executes JavaScript code outside a web browser. Node.js is an open source server
+            environment. Node.js is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X,
+            etc.). Node.js uses JavaScript on the server. Node.js uses asynchronous programming! Node.js runs
+            single-threaded, non-blocking, asynchronously programming, which is very memory efficient.Node.js can
+            generate dynamic page content. Node.js can create, open, read, write, delete, and close files on the
+            server. Node.js can collect form data. Node.js can add, delete, modify data in your database. Node.js files
+            contain tasks that will be executed on certain events. A typical event is someone trying to access a port
+            on the server. Node.js files must be initiated on the server before having any effect. Node.js files have
+            extension ".js"</p>
+        </div>
+        <p class="course-complete-butt">
+          <input type="checkbox" name="Course-status" value="Completed" class="mycheckbox"> Completed
+        </p>
+      </div>
+
+      <!-- Course 4 -->
+      <div class="course">
+        <p class="course-name">JavaScript Course</p>
+        <iframe
+          src="https://www.youtube.com/embed/videoseries?list=PLRAV69dS1uWSxUIk5o3vQY2-_VKsOpXLD"
+          title="JavaScript Course"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+        <div class="course-desc">
+          <h3>About this course</h3>
+          <p>This course introduces the programming language JavaScript and shows the websites that include the type of
+            interactions students will eventually be able to develop. Learners will understand the importance of how
+            JavaScript was developed and why such history impacts the way JavaScript is currently written and in future
+            releases.<br><br>
+            Learners will write their first scripts, have their HTML and CSS skills assessed, create variables and
+            arrays and assign values to them. If student’s skills are lacking, resources and recommendations are
+            provided to improve these skills. There is ample opportunity for students to practice these first, core
+            skills.</p>
+        </div>
+        <p class="course-complete-butt">
+          <input type="checkbox" name="Course-status" value="Completed" class="mycheckbox"> Completed
+        </p>
+      </div>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>FuturLearn</h2>
+        <p>Empowering students through knowledge. Join us to share and access valuable learning resources!</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Study Resources</h4>
+          <ul>
+            <li><a href="#">Lecture Notes</a></li>
+            <li><a href="#">Assignments</a></li>
+            <li><a href="#">Reference Materials</a></li>
+            <li><a href="#">Exam Prep</a></li>
+            <li><a href="#">Study Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Meet the Team</a></li>
+            <li><a href="#">Student Testimonials</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Policies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact-info">
+          <h4>Contact Us</h4>
+          <p>Email: support@futurlearn.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+          <h4>Follow Us</h4>
+          <div class="social-media">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Code of Conduct</a>
+        </div>
+        <p>If you would like to share learning materials, please upload your documents directly to the designated course folders on the platform for easy access by students and faculty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+ 
+<script>
+  // Smooth scrolling function
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // Enable smooth scrolling
+    });
+  }
+
+  // Show or hide the button based on scroll position
+  window.onscroll = function() {
+    const button = document.querySelector('.back-to-top');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      button.style.display = 'block';
+    } else {
+      button.style.display = 'none';
+    }
+  };
+</script>
+</body>
+
+</html>

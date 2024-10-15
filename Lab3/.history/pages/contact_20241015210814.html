@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            position: relative;
+        }
+        .container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            position: absolute;
+            bottom: -18px;
+            left: 0;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .submit-btn:hover {
+            background-color: #555;
+        }
+        .success-message {
+            color: green;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm" novalidate>
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" placeholder="Enter Your Name" required>
+                <div class="error-message" id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="Enter Your Email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter Phone Number">
+                <div class="error-message" id="phoneError"></div>
+            </div>
+            <div class="form-group">
+                <label for="services">Needed Services *</label>
+                <select id="services" name="services" required>
+                    <option value="">Please choose</option>
+                    <option value="Service 1">Service 1</option>
+                    <option value="Service 2">Service 2</option>
+                    <option value="Service 3">Service 3</option>
+                </select>
+                <div class="error-message" id="servicesError"></div>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Your message here..."></textarea>
+                <div class="error-message" id="messageError"></div>
+            </div>
+            <button type="submit" class="submit-btn">Submit →</button>
+            <div class="success-message" id="successMessage">Your message has been sent successfully!</div>
+        </form>
+    </div>
+
+    <script>
+        // Wait for the DOM to fully load
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactForm = document.getElementById('contactForm');
+            const successMessage = document.getElementById('successMessage');
+
+            // Helper function to show error messages
+            function showError(inputId, message) {
+                const errorElement = document.getElementById(inputId + 'Error');
+                errorElement.textContent = message;
+            }
+
+            // Helper function to clear error messages
+            function clearError(inputId) {
+                const errorElement = document.getElementById(inputId + 'Error');
+                errorElement.textContent = '';
+            }
+
+            // Validation functions
+            function validateName() {
+                const name = document.getElementById('name').value.trim();
+                if (name === '') {
+                    showError('name', 'Full Name is required.');
+                    return false;
+                }
+                clearError('name');
+                return true;
+            }
+
+            function validateEmail() {
+                const email = document.getElementById('email').value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (email === '') {
+                    showError('email', 'Email is required.');
+                    return false;
+                } else if (!emailRegex.test(email)) {
+                    showError('email', 'Please enter a valid email address.');
+                    return false;
+                }
+                clearError('email');
+                return true;
+            }
+
+            function validatePhone() {
+                const phone = document.getElementById('phone').value.trim();
+                if (phone === '') {
+                    clearError('phone');
+                    return true; // Phone is optional
+                }
+                const phoneRegex = /^\+?[0-9]{7,15}$/;
+                if (!phoneRegex.test(phone)) {
+                    showError('phone', 'Please enter a valid phone number.');
+                    return false;
+                }
+                clearError('phone');
+                return true;
+            }
+
+            function validateServices() {
+                const services = document.getElementById('services').value;
+                if (services === '') {
+                    showError('services', 'Please select a service.');
+                    return false;
+                }
+                clearError('services');
+                return true;
+            }
+
+            function validateMessage() {
+                const message = document.getElementById('message').value.trim();
+                // Optionally, you can add validations for the message
+                clearError('message');
+                return true;
+            }
+
+            // Comprehensive validation on form submission
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault(); // Prevent default form submission
+
+                // Perform all validations
+                const isNameValid = validateName();
+                const isEmailValid = validateEmail();
+                const isPhoneValid = validatePhone();
+                const isServicesValid = validateServices();
+                const isMessageValid = validateMessage();
+
+                // If all validations pass
+                if (isNameValid && isEmailValid && isPhoneValid && isServicesValid && isMessageValid) {
+                    // Simulate form submission (e.g., send data to server)
+                    // Here, we'll just display a success message
+                    successMessage.style.display = 'block';
+                    // Optionally, reset the form
+                    contactForm.reset();
+
+                    // Hide success message after 5 seconds
+                    setTimeout(function () {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    successMessage.style.display = 'none';
+                }
+            });
+
+            // Real-time validation as the user types or changes input
+            document.getElementById('name').addEventListener('input', validateName);
+            document.getElementById('email').addEventListener('input', validateEmail);
+            document.getElementById('phone').addEventListener('input', validatePhone);
+            document.getElementById('services').addEventListener('change', validateServices);
+            document.getElementById('message').addEventListener('input', validateMessage);
+        });
+    </script>
+</body>
+</html>

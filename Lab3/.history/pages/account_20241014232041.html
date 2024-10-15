@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Account - FuturLearn</title>
+  <link rel="stylesheet" href="../css/account.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-pJH9JKP4fhPg4uXcSmaH3rTVvAiVjQ+4qYhoA6RGNAmP1a3yD8rXNq20G/B0vprB7hGxL6gBykS+Ur9jY4hS5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+    @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+    :root {
+      --background-color: #f9f9f9;
+      --card-background: #ffffff;
+      --text-color: #333333;
+      --accent-color: #4CAF50;
+      --hover-color: #d94f5c;
+      --border-color: #e0e0e0;
+      --input-border-color: #cccccc;
+      --button-color: #4CAF50;
+      --button-hover-color: #45a049;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--background-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Outer Container */
+    .outer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-top: 120px; /* Đảm bảo khoảng cách với header */
+      padding: 20px;
+      flex: 1;
+    }
+
+    /* Img Container */
+    .img-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin-bottom: 30px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid var(--accent-color);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .img-container img:hover {
+      transform: scale(1.05);
+      border-color: var(--hover-color);
+    }
+
+    .img-container input[type="file"] {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .img-container input[type="file"]:hover {
+      background-color: var(--hover-color);
+    }
+
+    /* Detail Container */
+    .detail-container {
+      width: 100%;
+      max-width: 500px;
+      background-color: var(--card-background);
+      padding: 30px 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s;
+    }
+
+    .detail-container:hover {
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .detail-container h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: var(--text-color);
+      font-family: 'Otomanopee One', sans-serif;
+      font-size: 28px;
+    }
+
+    .detail-container form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .detail-container label {
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    .detail-container input {
+      padding: 12px 15px;
+      font-size: 16px;
+      border: 1px solid var(--input-border-color);
+      border-radius: 5px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+
+    .detail-container input:focus {
+      border-color: var(--accent-color);
+      outline: none;
+    }
+
+    .update-butt {
+      font-size: 18px;
+      font-family: "Varela Round", sans-serif;
+      font-weight: 500;
+      color: #fff;
+      background-color: var(--button-color);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 12px;
+      transition: background-color 0.3s, transform 0.3s;
+      align-self: flex-end;
+    }
+
+    .update-butt:hover {
+      background-color: var(--button-hover-color);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .outer-container {
+        margin-top: 140px; /* Tăng margin-top cho màn hình nhỏ */
+      }
+
+      .img-container {
+        width: 150px;
+        height: 150px;
+      }
+
+      .detail-container {
+        padding: 25px 30px;
+      }
+
+      .detail-container h2 {
+        font-size: 24px;
+      }
+
+      .detail-container input {
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+
+      .update-butt {
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .outer-container {
+        margin-top: 160px; /* Tăng margin-top cho màn hình nhỏ hơn */
+      }
+
+      .img-container {
+        width: 120px;
+        height: 120px;
+      }
+
+      .detail-container {
+        padding: 20px 20px;
+      }
+
+      .detail-container h2 {
+        font-size: 20px;
+      }
+
+      .detail-container input {
+        padding: 8px 10px;
+        font-size: 14px;
+      }
+
+      .update-butt {
+        width: 100%;
+        align-self: center;
+        padding: 10px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="../pages/home.html" style="text-decoration: none;">
+      <h1 class='logo'>FuturLearn</h1>
+    </a>
+    <nav>
+      <a href="../pages/home.html">Home</a>
+      <a href="../pages/courses.html">All Courses</a>
+      <a href="../pages/tasks.html">To-Do</a>
+      <a href="../pages/account.html" class="active">My Account</a>
+      <a href="../index.html">Log out</a>
+    </nav>
+    <div class="separator"></div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="outer-container">
+      <div class="img-container">
+        <img id="profileImage" src="../background/user1.png" alt="Profile Image" />
+        <input id="imageUpload" type="file" name="profile_photo" accept="image/*" capture title="Change Profile Picture">
+      </div>
+      <div class="detail-container">
+        <h2>My Account</h2>
+        <form>
+          <label for="firstName">First Name:</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Gaurav" required>
+
+          <label for="lastName">Last Name:</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Sharma" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="xyz@gmail.com" required>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="********" required>
+
+          <button type="submit" class="update-butt">Update Profile</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>FuturLearn</h2>
+        <p>Empowering students through knowledge. Join us to share and access valuable learning resources!</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Study Resources</h4>
+          <ul>
+            <li><a href="#">Lecture Notes</a></li>
+            <li><a href="#">Assignments</a></li>
+            <li><a href="#">Reference Materials</a></li>
+            <li><a href="#">Exam Prep</a></li>
+            <li><a href="#">Study Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Meet the Team</a></li>
+            <li><a href="#">Student Testimonials</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Policies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact-info">
+          <h4>Contact Us</h4>
+          <p>Email: support@futurlearn.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+          <h4>Follow Us</h4>
+          <div class="social-media">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Code of Conduct</a>
+        </div>
+        <p>If you would like to share learning materials, please upload your documents directly to the designated course folders on the platform for easy access by students and faculty.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script type="text/javascript" src="../js/account.js"></script>
+</body>
+
+</html>

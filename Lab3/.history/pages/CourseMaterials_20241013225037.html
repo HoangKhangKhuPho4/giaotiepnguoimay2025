@@ -1,0 +1,76 @@
+/* styles-courses.css */
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff; /* White background */
+    color: #333333; /* Dark text for readability */
+}
+
+/* Header Styling */
+header {
+    background-color: #ffffff; /* White background */
+    color: #ffffff; /* Text initially white, overridden for links */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header nav a {
+    color: #ffffff; /* White text for navigation links */
+    margin-left: 20px;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #28a745; /* Green on hover */
+}
+
+/* Override header background and text colors */
+header {
+    background-color: #ffffff; /* White background */
+}
+
+header nav a {
+    color: #333333; /* Dark text */
+}
+
+header nav a:hover {
+    color: #28a745; /* Green on hover */
+}
+
+/* Divider Custom Styling */
+.divider-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.divider-custom-line {
+    flex: 1;
+    height: 2px;
+    background-color: #dc3545; /* Red lines */
+}
+
+.divider-custom-icon {
+    margin: 0 15px;
+    color: #28a745; /* Green star */
+    font-size: 1.5rem;
+}
+
+/* Tabs Styling */
+.nav-tabs .nav-link {
+    font-size: 1.1rem;
+    color: #333333; /* Dark text */
+    border: none;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.nav-tabs .nav-link.active {
+    color: #ffffff; /*

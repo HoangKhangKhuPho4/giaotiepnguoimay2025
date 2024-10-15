@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/home.css"> <!-- Đảm bảo đường dẫn đúng tới home.css -->
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        @import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+        /* Biến CSS */
+        :root {
+            --background-color: #1a1a1a; /* Dark background */
+            --text-color: #e0e0e0; /* Light grey text */
+            --accent-color: #4CAF50; /* Green for text and logo */
+            --hover-color: #d94f5c; /* Red for hover effects */
+        }
+
+        /* Tổng quát */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            top: 0;
+            width: 100%;
+            overflow: hidden;
+            position: fixed;
+            padding: 16px 20px;
+            z-index: 1000;
+            display: flex;
+            background-color: #000; /* Navbar background */
+            justify-content: space-between; /* Space between logo and nav items */
+            align-items: center; /* Center items vertically */
+        }
+
+        header .logo {
+            font-family: 'Otomanopee One', sans-serif;
+            color: var(--accent-color); /* Logo color */
+            letter-spacing: 1.4px;
+            margin-left: 20px; /* Adjusted margin for better spacing */
+            font-size: 1.8rem; /* Adjusted logo size */
+        }
+
+        nav {
+            display: flex; /* Use flexbox for nav items */
+            align-items: center; /* Center items vertically */
+        }
+
+        nav a {
+            position: relative; /* Required for the pseudo-element */
+            padding: 8px 10px; /* Increased padding for better spacing */
+            text-decoration: none;
+            font-family: "Varela Round", sans-serif;
+            font-weight: bold;
+            font-size: 16px;
+            color: var(--text-color); /* Light grey for links */
+            margin: 0 5px; /* Equal margin between nav items */
+            background-color: transparent; /* Ensure no background */
+            border: none; /* Remove any border */
+            transition: color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        nav a::after {
+            content: ""; /* Creates a pseudo-element */
+            position: absolute; /* Positions it relative to the anchor */
+            left: 50%; /* Start from the middle */
+            bottom: -5px; /* Position below the text */
+            width: 0; /* Initial width */
+            height: 2px; /* Height of the underline */
+            background-color: var(--hover-color); /* Red underline color */
+            transition: width 0.3s ease, left 0.3s ease; /* Smooth transition */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Expand to full width on hover */
+            left: 0; /* Align to the left */
+        }
+
+        nav a:hover {
+            color: var(--hover-color); /* Change color on hover */
+        }
+
+      
+
+        /* Container To-Do List */
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            margin: 100px auto 40px auto; /* Tăng margin-top từ 80px lên 100px */
+            flex: 1;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        .input-group {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .input-group button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .input-group button:hover {
+            background-color: #218838;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .todo-item:hover {
+            background-color: #f9f9f9;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .todo-item .text {
+            flex: 1;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .todo-item.done .text {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .actions button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: #fff;
+        }
+
+        .actions .delete-btn {
+            background-color: #dc3545;
+        }
+
+        .actions .delete-btn:hover {
+            background-color: #c82333;
+        }
+
+        .actions .edit-btn {
+            color: #212529;
+        }
+
+    
+
+        /* Footer */
+        footer {
+            background-color: var(--background-color); /* Dark background for elegance */
+            color: var(--text-color); /* Light grey text for readability */
+            padding: 40px 20px; /* Adequate padding for spaciousness */
+            text-align: center; /* Centered text alignment */
+        }
+
+        .footer-container {
+            max-width: 1200px; /* Restrict the width for better layout */
+            margin: 0 auto; /* Center the footer container */
+            display: flex; /* Use flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
+            justify-content: space-between; /* Space between columns */
+        }
+
+        .footer-brand {
+            width: 100%; /* Full width for brand section */
+            margin-bottom: 20px; /* Space below the brand section */
+        }
+
+        .footer-brand h2 {
+            font-size: 2.5rem; /* Larger font size for brand name */
+            margin-bottom: 10px; /* Space below brand name */
+            text-transform: uppercase; /* Uppercase for emphasis */
+            letter-spacing: 1px; /* Letter spacing for elegance */
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem; /* Font size for description */
+            margin-bottom: 20px; /* Space below description */
+        }
+
+        .footer-links {
+            display: flex; /* Flexbox for link sections */
+            justify-content: space-between; /* Space between sections */
+            width: 100%; /* Full width for links section */
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+
+        .footer-section {
+            flex: 1; /* Each section takes equal space */
+            margin: 0 10px; /* Margin on sides */
+            min-width: 150px; /* Minimum width to avoid collapsing */
+            max-width: 200px; /* Maximum width for larger screens */
+            text-align: left; /* Left-align text in each section */
+        }
+
+        .footer-section h4 {
+            color: var(--accent-color); /* Accent color for section headers */
+        }
+
+        .footer-section ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+        }
+
+        .footer-section ul li {
+            margin: 5px 0; /* Space between list items */
+        }
+
+        .footer-section ul li a {
+            color: var(--text-color); /* Light grey links */
+            text-decoration: none; /* Remove underline */
+            transition: color 0.3s; /* Transition for hover */
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--hover-color); /* Change color on hover */
+        }
+
+        .footer-bottom {
+            text-align: center; /* Center the bottom content */
+            margin-top: 20px; /* Space above bottom section */
+        }
+
+        .footer-legal {
+            margin-bottom: 10px; /* Space below legal links */
+        }
+
+        .footer-legal a {
+            color: var(--text-color); /* Light grey */
+            margin: 0 10px; /* Margin for spacing */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .footer-legal a:hover {
+            color: var(--hover-color); /* Change color on hover */
+        }
+
+        .contact-info {
+            flex: 1; /* Make contact-info section take equal space */
+            margin: 0 10px; /* Margin on sides */
+            text-align: left; /* Left-align text in contact section */
+        }
+
+        .contact-info h4 {
+            margin-bottom: 10px; /* Space below heading */
+        }
+
+        .contact-info p {
+            margin: 5px 0; /* Space between paragraphs */
+        }
+
+        .social-media {
+            margin-top: 10px; /* Space above social media icons */
+        }
+
+        .social-media h4 {
+            margin-bottom: 10px; /* Space below heading */
+        }
+
+        .social-media a {
+            color: var(--text-color); /* Icon color */
+            margin: 0 10px; /* Margin for spacing */
+            font-size: 24px; /* Icon size */
+            transition: color 0.3s; /* Transition for hover */
+        }
+
+        .social-media a:hover {
+            color: var(--hover-color); /* Change color on hover */
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed; /* Fixed position to stay in the same place */
+            bottom: 30px; /* Distance from the bottom */
+            right: 30px; /* Distance from the right */
+            width: 50px; /* Width of the button */
+            height: 50px; /* Height of the button */
+            background-color: var(--accent-color); /* Match the accent color */
+            color: #fff; /* White icon color */
+            border-radius: 50%; /* Circular shape */
+            display: flex; /* Center the icon */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            text-decoration: none; /* Remove underline */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: background-color 0.3s; /* Smooth background color change */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+
+        .back-to-top:hover {
+            background-color: var(--hover-color); /* Change color on hover */
+        }
+
+        .back-to-top i {
+            font-size: 24px; /* Icon size */
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .container {
+                width: 95%;
+                margin: 120px auto 40px auto; /* Tăng margin-top cho màn hình nhỏ */
+            }
+
+            .input-group {
+                flex-direction: column;
+            }
+
+            .input-group input,
+            .input-group button {
+                width: 100%;
+                border-radius: 5px;
+            }
+
+            .input-group button {
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+
+            .actions button {
+                padding: 5px;
+                font-size: 12px;
+            }
+
+            .footer-section,
+            .contact-info {
+                flex: 1 1 100%; /* Stack sections on small screens */
+                margin: 10px 0; /* Space between stacked sections */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h1 class='logo'><i class="fas fa-check-square me-2"></i>FuturLearn</h1>
+        <nav>
+            <a href="../pages/home.html">Home</a>
+            <a href="../pages/courses.html">All Courses</a>
+            <a href="../pages/tasks.html" class="active">To-Do</a>
+            <a href="../pages/account.html">My Account</a>
+            <a href="../index.html">Log out</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>To Do List</h1>
+        <div class="input-group">
+            <input type="text" placeholder="Add a new task..." id="newTaskInput">
+            <button id="addTaskBtn"><i class="fas fa-plus"></i> Add</button>
+        </div>
+        <div id="todoList">
+            <div class="todo-item">
+                <div>
+                    <input type="checkbox">
+                    <span class="text">CodeHim Code & Scripts</span>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            </div>
+            <div class="todo-item">
+                <div>
+                    <input type="checkbox">
+                    <span class="text">Free Bootstrap 5 Snippets</span>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            </div>
+            <div class="todo-item">
+                <div>
+                    <input type="checkbox">
+                    <span class="text">HTML5 & CSS3</span>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            </div>
+            <div class="todo-item">
+                <div>
+                    <input type="checkbox">
+                    <span class="text">jQuery & JavaScript Plugins</span>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            </div>
+            <div class="todo-item done">
+                <div>
+                    <input type="checkbox" checked>
+                    <span class="text">This is done</span>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>FuturLearn</h2>
+                <p>Empowering students through knowledge. Join us to share and access valuable learning resources!</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Study Resources</h4>
+                    <ul>
+                        <li><a href="#">Lecture Notes</a></li>
+                        <li><a href="#">Assignments</a></li>
+                        <li><a href="#">Reference Materials</a></li>
+                        <li><a href="#">Exam Prep</a></li>
+                        <li><a href="#">Study Guides</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About Us</h4>
+                    <ul>
+                        <li><a href="#">Our Mission</a></li>
+                        <li><a href="#">Meet the Team</a></li>
+                        <li><a href="#">Student Testimonials</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Feedback</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Login</a></li>
+                        <li><a href="#">Register</a></li>
+                        <li><a href="#">Events</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Policies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact-info">
+                    <h4>Contact Us</h4>
+                    <p>Email: support@futurlearn.com</p>
+                    <p>Phone: +1 (123) 456-7890</p>
+                    <h4>Follow Us</h4>
+                    <div class="social-media">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Code of Conduct</a>
+                </div>
+                <p>If you would like to share learning materials, please upload your documents directly to the designated course folders on the platform for easy access by students and faculty.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+  </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Lấy các phần tử cần thiết
+        const addTaskBtn = document.getElementById('addTaskBtn');
+        const newTaskInput = document.getElementById('newTaskInput');
+        const todoList = document.getElementById('todoList');
+
+        // Thêm nhiệm vụ mới khi nhấn nút Add
+        addTaskBtn.addEventListener('click', () => {
+            const taskText = newTaskInput.value.trim();
+            if (taskText === "") {
+                alert("Vui lòng nhập nhiệm vụ của bạn.");
+                return;
+            }
+
+            // Tạo phần tử nhiệm vụ mới
+            const todoItem = document.createElement('div');
+            todoItem.className = 'todo-item';
+
+            todoItem.innerHTML = `
+                <div>
+                    <input type="checkbox">
+                    <span class="text">${taskText}</span>
+                </div>
+                <div class="actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                    <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                </div>
+            `;
+
+            // Thêm nhiệm vụ vào danh sách
+            todoList.appendChild(todoItem);
+
+            // Làm sạch input
+            newTaskInput.value = "";
+
+            // Lưu danh sách nhiệm vụ
+            saveTasks();
+        });
+
+        // Xử lý sự kiện cho các nút Edit và Delete và Checkbox
+        todoList.addEventListener('click', (e) => {
+            if (e.target.closest('.delete-btn')) {
+                const todoItem = e.target.closest('.todo-item');
+                todoItem.remove();
+                saveTasks();
+            }
+
+            if (e.target.closest('.edit-btn')) {
+                const todoItem = e.target.closest('.todo-item');
+                const textSpan = todoItem.querySelector('.text');
+                const currentText = textSpan.textContent;
+                const newText = prompt("Chỉnh sửa nhiệm vụ:", currentText);
+                if (newText !== null && newText.trim() !== "") {
+                    textSpan.textContent = newText.trim();
+                    saveTasks();
+                }
+            }
+
+            if (e.target.closest('input[type="checkbox"]')) {
+                const todoItem = e.target.closest('.todo-item');
+                if (e.target.checked) {
+                    todoItem.classList.add('done');
+                } else {
+                    todoItem.classList.remove('done');
+                }
+                saveTasks();
+            }
+        });
+
+        // Lưu danh sách nhiệm vụ vào localStorage
+        function saveTasks() {
+            const tasks = [];
+            document.querySelectorAll('.todo-item').forEach(item => {
+                const task = {
+                    text: item.querySelector('.text').textContent,
+                    done: item.classList.contains('done')
+                };
+                tasks.push(task);
+            });
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+        }
+
+        // Tải danh sách nhiệm vụ từ localStorage
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem('tasks'));
+            if (tasks) {
+                tasks.forEach(task => {
+                    const todoItem = document.createElement('div');
+                    todoItem.className = 'todo-item';
+                    if (task.done) {
+                        todoItem.classList.add('done');
+                    }
+
+                    todoItem.innerHTML = `
+                        <div>
+                            <input type="checkbox" ${task.done ? 'checked' : ''}>
+                            <span class="text">${task.text}</span>
+                        </div>
+                        <div class="actions">
+                            <button class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+                        </div>
+                    `;
+                    todoList.appendChild(todoItem);
+                });
+            }
+        }
+
+        // Tải nhiệm vụ khi trang được tải
+        document.addEventListener('DOMContentLoaded', loadTasks);
+    </script>
+</body>
+
+</html>

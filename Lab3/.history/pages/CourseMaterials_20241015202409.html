@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Course Materials - FuturLearn</title>
+    <link rel="stylesheet" href="../css/home.css" />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkSs0v4LLanw2CkMGhZUl0BTkYH7i7K6HhFw0iJF3eKFOoDqkLdB5yU5UyLgpwQA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/logo.svg" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+
+    <!-- PDF.js for PDF Previews -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+
+    <style>
+      /* Căn giữa thanh tìm kiếm và giới hạn chiều rộng */
+      .search-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto 20px;
+      }
+
+      /* Biểu tượng kính lúp nằm bên trong thanh tìm kiếm */
+      .search-container .search-icon {
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        color: #28a745;
+        font-size: 1.2rem;
+        pointer-events: none; /* Đảm bảo biểu tượng không chặn thao tác với input */
+      }
+
+      /* Tùy chỉnh input field */
+      .search-input {
+        width: 100%;
+        height: 50px;
+        border: 2px solid #28a745;
+        border-radius: 50px;
+        padding: 0 15px 0 45px; /* Padding trái để tạo không gian cho biểu tượng */
+        font-size: 1rem;
+        transition: box-shadow 0.3s, background-color 0.3s;
+      }
+
+      /* Tùy chỉnh thanh tìm kiếm khi focus */
+      .search-input:focus {
+        box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
+        background-color: #ffffff;
+        outline: none;
+      }
+
+      /* Tùy chỉnh hộp gợi ý */
+      .suggestion-box {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 0 0 15px 15px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-height: 250px;
+        overflow-y: auto;
+        z-index: 1000;
+        display: none;
+        font-size: 0.9rem;
+        padding: 5px 0;
+      }
+
+      /* Hiệu ứng hiển thị hộp gợi ý */
+      .suggestion-box.show {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Tùy chỉnh các mục gợi ý */
+      .suggestion-item {
+        padding: 8px 15px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .suggestion-item:hover {
+        background-color: #f1f1f1;
+      }
+
+      /* Các phần khác trong CSS của bạn */
+      .page-content {
+        margin-top: 100px;
+      }
+
+      .page-content h2 {
+        color: #d94f5c; /* Màu tiêu đề chính */
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+      }
+
+      .page-content .divider-custom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 20px 0;
+      }
+
+      .page-content .divider-custom-line {
+        flex: 1;
+        height: 2px;
+        background-color: #28a745; /* Màu xanh lá cây cho divider */
+      }
+
+      .page-content .divider-custom-icon {
+        margin: 0 15px;
+        color: #28a745; /* Màu xanh lá cây cho biểu tượng */
+        font-size: 1.5rem;
+      }
+
+      /* CSS cho các tab */
+      .page-content .d-flex.justify-content-center.flex-wrap {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .page-content .tab-block {
+        width: 220px;
+        height: 220px;
+        background: #e0e0e0;
+        border: 2px solid #28a745;
+        border-radius: 15px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #333;
+        text-decoration: none;
+        transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        position: relative;
+      }
+
+      .page-content .tab-block i {
+        color: #28a745;
+        margin-bottom: 15px;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      .page-content .tab-block span {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      .page-content .tab-block:not(.active):hover {
+        background: linear-gradient(135deg, #28a745 0%, #5cd65c 100%);
+        color: #fff;
+        box-shadow: 0 8px 12px rgba(0, 128, 0, 0.2);
+        transform: scale(1.07);
+      }
+
+      .page-content .tab-block.active {
+        background: linear-gradient(135deg, #28a745 0%, #5cd65c 100%);
+        color: #fff;
+        box-shadow: 0 8px 12px rgba(0, 128, 0, 0.4);
+      }
+
+      .page-content .tab-block.active i {
+        color: #fff;
+      }
+
+      /* CSS cho bảng */
+      .page-content .table-hover tbody tr {
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .page-content .table-hover tbody tr:hover {
+        background-color: #d4f5d4;
+        transform: scale(1.02);
+      }
+
+      .page-content .table-responsive {
+        max-height: 800px;
+        overflow-y: auto;
+      }
+
+      .page-content .table thead th {
+        background-color: #28a745;
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        text-align: center;
+        padding: 15px;
+      }
+
+      .page-content .table tbody td {
+        padding: 12px;
+        vertical-align: middle;
+        border: 1px solid #ccc;
+      }
+
+      .page-content .table tbody tr:nth-child(odd) {
+        background-color: #f9f9f9;
+      }
+
+      .page-content .table tbody tr:nth-child(even) {
+        background-color: #ffffff;
+      }
+
+      /* CSS cho nút */
+      .page-content .btn-info,
+      .page-content .btn-danger,
+      .page-content .btn-success {
+        background-color: #28a745 !important;
+        color: #fff !important;
+        border: none;
+        transition: background-color 0.3s, transform 0.3s, color 0.3s;
+      }
+
+      .page-content .btn-info:hover,
+      .page-content .btn-danger:hover,
+      .page-content .btn-success:hover {
+        background-color: #218838 !important;
+        color: #ffc107 !important;
+        transform: scale(1.1);
+        box-shadow: 0 8px 15px rgba(0, 128, 0, 0.4);
+      }
+
+      /* Đảm bảo nội dung không bị che bởi header */
+      body,
+      main.page-content {
+        margin-top: 120px; /* Khoảng cách lớn hơn header */
+      }
+
+      /* Hoặc bạn có thể sử dụng padding-top cho toàn bộ body */
+      body {
+        padding-top: 80px; /* Giúp tất cả các nội dung được đẩy xuống */
+      }
+
+      /* Điều chỉnh chiều rộng và chiều cao của Document Preview */
+      #documentPreview {
+        width: 100%; /* Đảm bảo iframe chiếm toàn bộ chiều rộng */
+        height: 90vh; /* Tăng chiều cao lên 90% chiều cao màn hình */
+        border-radius: 0 0 15px 15px; /* Giữ lại bo góc nếu cần */
+      }
+      /* Điều chỉnh modal dialog để mở rộng toàn bộ màn hình */
+      #previewModal .modal-dialog {
+        max-width: 100%; /* Đảm bảo modal chiếm toàn bộ chiều rộng màn hình */
+        width: 100%; /* Đặt modal rộng 100% */
+        height: 100vh; /* Chiều cao modal chiếm toàn bộ chiều cao màn hình */
+        margin: 0; /* Bỏ khoảng cách xung quanh modal */
+        padding: 0;
+      }
+
+      #previewModal .modal-content {
+        height: 100vh; /* Đặt chiều cao modal 100% */
+        width: 100%; /* Đặt chiều rộng modal 100% */
+      }
+      #previewModal .modal-body {
+        padding: 0; /* Bỏ padding để iframe chiếm toàn bộ diện tích */
+        height: 100%; /* Đảm bảo chiều cao modal không bị giới hạn */
+      }
+      @media (max-width: 768px) {
+        #documentPreview {
+          height: 80vh; /* Giảm chiều cao trên thiết bị nhỏ */
+        }
+
+        #previewModal .modal-dialog {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+        }
+
+        #previewModal .modal-content {
+          height: 90vh; /* Điều chỉnh cho di động */
+        }
+      }
+
+      .modal-content {
+        border-radius: 10px;
+        animation: fadeInUp 0.5s ease;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-header {
+        background-color: #28a745;
+        color: white;
+        border-bottom: none;
+      }
+
+      .modal-footer {
+        border-top: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+      }
+
+      .modal-title {
+        font-weight: 600;
+      }
+
+      #documentFile {
+        margin-top: 10px;
+      }
+
+      .close {
+  color: #fff; /* Biểu tượng màu trắng */
+  background-color: #000; /* Nền màu đen đậm */
+  border: 2px solid #fff; /* Đường viền trắng */
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: #f00; /* Khi hover, chuyển thành màu đỏ */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+      /* Đảm bảo input[type="file"] bị ẩn và chỉ có label hiển thị */
+      .custom-file-container input[type="file"] {
+        display: none;
+      }
+
+      /* Tùy chỉnh label như một nút */
+      .custom-file-label {
+        background-color: #28a745;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        border: 2px solid transparent;
+        margin-right: 10px;
+      }
+
+      .custom-file-label:hover {
+        background-color: #218838;
+        color: #ffc107;
+      }
+
+      /* Hiển thị tên file đã chọn */
+      .selected-file-name {
+        font-size: 1rem;
+        color: #333;
+        margin-left: 10px;
+        font-style: italic;
+      }
+
+      /* Nút Upload và Close trong Modal */
+      .button-container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .close i {
+  color: #fff; /* Màu của biểu tượng */
+  font-size: 2rem; /* Tăng kích thước của biểu tượng */
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1 class="logo">FuturLearn</h1>
+      <nav>
+        <a href="../pages/home.html">Home</a>
+        <a href="../pages/courses.html"> All Courses</a>
+        <a href="../pages/CourseMaterials.html">Course Materials</a>
+        <a href="../pages/tasks.html">To-Do</a>
+        <a href="../pages/account.html">My Account</a>
+        <a href="../index.html">Log out</a>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mt-5 page-content">
+      <h2 class="text-center mb-4 text-danger">Course Materials</h2>
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+        <div class="divider-custom-line"></div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <!-- Biểu tượng kính lúp -->
+        <input
+          type="text"
+          class="form-control search-input"
+          placeholder="Search documents..."
+          id="searchInput"
+          aria-label="Search documents"
+        />
+        <div class="suggestion-box" id="suggestionBox">
+          <!-- Suggestions will be populated here dynamically -->
+        </div>
+      </div>
+
+      <!-- Enhanced Tabs as Square Blocks -->
+      <div class="row mt-5">
+        <div class="col-12">
+          <div class="d-flex justify-content-center flex-wrap">
+            <!-- Lectures Tab -->
+            <a
+              class="tab-block active"
+              id="lectures-tab"
+              data-toggle="tab"
+              href="#lectures"
+              role="tab"
+              aria-controls="lectures"
+              aria-selected="true"
+            >
+              <i class="fas fa-book fa-3x mb-3"></i>
+              <span>Lectures</span>
+            </a>
+            <!-- Assignments Tab -->
+            <a
+              class="tab-block"
+              id="assignments-tab"
+              data-toggle="tab"
+              href="#assignments"
+              role="tab"
+              aria-controls="assignments"
+              aria-selected="false"
+            >
+              <i class="fas fa-file-alt fa-3x mb-3"></i>
+              <span>Assignments</span>
+            </a>
+            <!-- Exams Tab -->
+            <a
+              class="tab-block"
+              id="exams-tab"
+              data-toggle="tab"
+              href="#exams"
+              role="tab"
+              aria-controls="exams"
+              aria-selected="false"
+            >
+              <i class="fas fa-pencil-alt fa-3x mb-3"></i>
+              <span>Exams</span>
+            </a>
+            <!-- Resources Tab -->
+            <a
+              class="tab-block"
+              id="resources-tab"
+              data-toggle="tab"
+              href="#resources"
+              role="tab"
+              aria-controls="resources"
+              aria-selected="false"
+            >
+              <i class="fas fa-archive fa-3x mb-3"></i>
+              <span>Resources</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content -->
+      <div class="tab-content mt-4" id="materialTabsContent">
+        <!-- Lectures Tab Content -->
+        <div
+          class="tab-pane fade show active"
+          id="lectures"
+          role="tabpanel"
+          aria-labelledby="lectures-tab"
+        >
+          <div class="mt-4">
+            <h4 class="text-danger"><i class="fas fa-book"></i> Lectures</h4>
+            <div class="table-responsive">
+              <table class="table table-hover" id="lecturesTable">
+                <thead>
+                  <tr>
+                    <th>Document Name</th>
+                    <th>Upload Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Sample Lecture Documents -->
+                  <tr>
+                    <td>Introduction to HTML5</td>
+                    <td>01/01/2024</td>
+                    <td class="text-center">
+                      <!-- Preview Button with Icon -->
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://www.jeroenhartsuiker.nl/documents/INT108%20Introduction%20to%20HTML5.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/INT108 Introduction to HTML5.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>CSS3 Fundamentals</td>
+                    <td>05/01/2024</td>
+                    <td class="text-center">
+                      <!-- Preview Button with Icon -->
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://digilib.stekom.ac.id/assets/dokumen/ebook/feb_37d416dac79e1ac59be9d798f8badfd98e8cb48b_1652344592.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/feb_37d416dac79e1ac59be9d798f8badfd98e8cb48b_1652344592.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>JavaScript Basics</td>
+                    <td>10/01/2024</td>
+                    <td class="text-center">
+                      <!-- Preview Button with Icon -->
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://autotelicum.github.io/Smooth-CoffeeScript/literate/js-intro.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/js-intro.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Thêm nhiều tài liệu hơn nếu cần -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Assignments Tab Content -->
+        <div
+          class="tab-pane fade"
+          id="assignments"
+          role="tabpanel"
+          aria-labelledby="assignments-tab"
+        >
+          <div class="mt-4">
+            <h4 class="text-danger">
+              <i class="fas fa-file-alt"></i> Assignments
+            </h4>
+            <div class="table-responsive">
+              <table class="table table-hover" id="assignmentsTable">
+                <thead>
+                  <tr>
+                    <th>Assignment Name</th>
+                    <th>Due Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Sample Assignment Documents -->
+                  <tr>
+                    <td>Assignment 1: Building a Simple Webpage</td>
+                    <td>15/01/2024</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://assets.digitalocean.com/books/how-to-build-a-website-with-html.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/how-to-build-a-website-with-html.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Assignment 2: Responsive Design</td>
+                    <td>22/01/2024</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://www.websitearchitecture.co.uk/resources/design-for-web-content/Class%2009%20-%20Responsive%20Web%20Design.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/Class 09 - Responsive Web Design.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Assignment 3: JavaScript Functions</td>
+                    <td>29/01/2024</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://www.cs.uct.ac.za/mit_notes/web_programming/pdfs/chp14.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/chp14.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Thêm nhiều tài liệu hơn nếu cần -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exams Tab Content -->
+        <div
+          class="tab-pane fade"
+          id="exams"
+          role="tabpanel"
+          aria-labelledby="exams-tab"
+        >
+          <div class="mt-4">
+            <h4 class="text-danger"><i class="fas fa-pencil-alt"></i> Exams</h4>
+            <div class="table-responsive">
+              <table class="table table-hover" id="examsTable">
+                <thead>
+                  <tr>
+                    <th>Exam Name</th>
+                    <th>Exam Date</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Sample Exam Documents -->
+                  <tr>
+                    <td>Midterm Exam</td>
+                    <td>30/01/2024</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://ppawar.github.io/Spring2020/CSE102-S20/review/CSE102_Review_Answer_Key.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/CSE102_Review_Answer_Key.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Final Exam</td>
+                    <td>15/02/2024</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://kenrichardson.weebly.com/uploads/1/3/4/6/13469886/practice_final_exam.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/practice_final_exam.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Quiz 1</td>
+                    <td>10/01/2024</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://www.srisaradacollege.ac.in/pdf/QUIZ%202017-18.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <!-- Download Button with Icon -->
+                      <a
+                        href="../downloads/QUIZ 2017-18.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Thêm nhiều tài liệu hơn nếu cần -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Resources Tab Content -->
+        <div
+          class="tab-pane fade"
+          id="resources"
+          role="tabpanel"
+          aria-labelledby="resources-tab"
+        >
+          <div class="mt-4">
+            <h4 class="text-danger">
+              <i class="fas fa-archive"></i> Resources
+            </h4>
+            <div class="table-responsive">
+              <table class="table table-hover" id="resourcesTable">
+                <thead>
+                  <tr>
+                    <th>Resource Name</th>
+                    <th>Type</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Sample Resource Documents -->
+                  <tr>
+                    <td>HTML5 Cheat Sheet</td>
+                    <td>Cheat Sheet</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://johndecember.com/html/spec/HTML5-Cheat-Sheet.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <a
+                        href="../downloads/HTML5-Cheat-Sheet.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>CSS3 Flexbox Guide</td>
+                    <td>Guide</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://ohansemmanuel.github.io/assets/pdf/understanding-flexbox.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <a
+                        href="../downloads/understanding-flexbox.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>JavaScript Reference</td>
+                    <td>Reference</td>
+                    <td class="text-center">
+                      <button
+                        class="btn btn-info btn-sm preview-btn"
+                        data-url="https://docs.oracle.com/cd/E19957-01/816-6408-10/816-6408-10.pdf"
+                        title="Preview"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Preview"
+                      >
+                        <i class="fas fa-eye"></i> Preview
+                      </button>
+
+                      <a
+                        href="../downloads/816-6408-10.pdf"
+                        class="btn btn-danger btn-sm ml-2"
+                        download
+                        title="Download"
+                        data-toggle="tooltip"
+                        data-placement="top"
+                        data-original-title="Download"
+                      >
+                        <i class="fas fa-download"></i> Download
+                      </a>
+                      <!-- Upload Button with Icon -->
+                      <button
+                        class="btn btn-success btn-sm upload-btn ml-2"
+                        data-toggle="modal"
+                        data-target="#uploadModal"
+                        title="Upload"
+                        data-original-title="Upload"
+                      >
+                        <i class="fas fa-upload"></i> Upload
+                      </button>
+                    </td>
+                  </tr>
+                  <!-- Thêm nhiều tài liệu hơn nếu cần -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Document Preview Modal -->
+      <div
+        class="modal fade"
+        id="previewModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="previewModalTitle"
+        aria-hidden="true"
+      >
+        <div
+          class="modal-dialog modal-xl modal-dialog-centered"
+          role="document"
+        >
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="previewModalTitle">
+                Document Preview
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <i class="fas fa-times"></i>
+              </button>
+              
+            </div>
+            <div class="modal-body p-0">
+              <iframe src="" id="documentPreview" frameborder="0"></iframe>
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="prevPage" class="btn btn-info">
+                Trang trước
+              </button>
+              <button type="button" id="nextPage" class="btn btn-info">
+                Trang tiếp theo
+              </button>
+              <span
+                >Trang: <span id="pageNum"></span> / <span id="pageCount"></span
+              ></span>
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Đóng
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload Modal -->
+      <div
+        class="modal fade"
+        id="uploadModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="uploadModalTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <form id="uploadForm" enctype="multipart/form-data">
+              <div class="modal-header">
+                <h5 class="modal-title" id="uploadModalTitle">
+                  Upload Document
+                </h5>
+                <button
+                  type="button"
+                  class="close"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <!-- Document Name -->
+                <div class="form-group">
+                  <label for="documentName">Document Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="documentName"
+                    name="documentName"
+                    placeholder="Enter document name"
+                    required
+                  />
+                </div>
+                <!-- Document Type -->
+                <div class="form-group">
+                  <label for="documentType">Document Type</label>
+                  <select
+                    class="form-control"
+                    id="documentType"
+                    name="documentType"
+                    required
+                  >
+                    <option value="">Select Type</option>
+                    <option value="Lecture">Lecture</option>
+                    <option value="Assignment">Assignment</option>
+                    <option value="Exam">Exam</option>
+                    <option value="Resource">Resource</option>
+                  </select>
+                </div>
+              </div>
+              <!-- Modal Footer -->
+              <div class="modal-footer">
+                <!-- Nút Choose File -->
+                <div class="form-group custom-file-container">
+                  <!-- Nhãn tùy chỉnh -->
+                  <label class="custom-file-label" for="documentFile"
+                    >Choose File</label
+                  >
+                  <!-- Nút input[type="file"] đã được ẩn đi -->
+                  <input
+                    type="file"
+                    id="documentFile"
+                    name="documentFile"
+                    accept=".pdf,.docx"
+                  />
+                  <!-- Hiển thị tên file đã chọn -->
+                  <span class="selected-file-name">No file chosen</span>
+                </div>
+
+                <!-- Nút Upload và Close -->
+                <div class="button-container">
+                  <button type="submit" class="btn btn-success">Upload</button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- End Main Content -->
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h2>FuturLearn</h2>
+          <p>
+            Empowering students through knowledge. Join us to share and access
+            valuable learning resources!
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Study Resources</h4>
+            <ul>
+              <li><a href="#">Lecture Notes</a></li>
+              <li><a href="#">Assignments</a></li>
+              <li><a href="#">Reference Materials</a></li>
+              <li><a href="#">Exam Prep</a></li>
+              <li><a href="#">Study Guides</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="#">Our Mission</a></li>
+              <li><a href="#">Meet the Team</a></li>
+              <li><a href="#">Student Testimonials</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Live Chat</a></li>
+              <li><a href="#">Resources</a></li>
+              <li><a href="#">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Policies</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: support@futurlearn.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <h4>Follow Us</h4>
+            <div class="social-media">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Pinterest"
+                ><i class="fab fa-pinterest"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Code of Conduct</a>
+          </div>
+          <p>
+            If you would like to share learning materials, please upload your
+            documents directly to the designated course folders on the platform
+            for easy access by students and faculty.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Custom JS for Search and Preview Functionality -->
+    <script>
+      $(document).ready(function () {
+        // Initialize tooltips
+        $('[data-toggle="tooltip"]').tooltip();
+
+        // Search functionality
+        $("#searchInput").on("input", function () {
+          var searchTerm = $(this).val().toLowerCase();
+          if (searchTerm.trim() !== "") {
+            // Iterate over each table and filter rows
+            $(".table-hover").each(function () {
+              $(this)
+                .find("tbody tr")
+                .each(function () {
+                  var rowText = $(this).text().toLowerCase();
+                  if (rowText.indexOf(searchTerm) !== -1) {
+                    $(this).show();
+                  } else {
+                    $(this).hide();
+                  }
+                });
+            });
+          } else {
+            // Show all rows if search term is empty
+            $(".table-hover tbody tr").show();
+          }
+
+          // Handle suggestion box visibility
+          if (searchTerm.trim() !== "") {
+            $(".suggestion-box").addClass("show");
+          } else {
+            $(".suggestion-box").removeClass("show");
+          }
+        });
+
+        // Trigger search on Enter key
+        $("#searchInput").keypress(function (e) {
+          if (e.which == 13) {
+            e.preventDefault(); // Ngăn chặn hành vi mặc định khi nhấn Enter
+            var searchTerm = $(this).val().toLowerCase();
+            if (searchTerm.trim() !== "") {
+              // Iterate over each table and filter rows
+              $(".table-hover").each(function () {
+                $(this)
+                  .find("tbody tr")
+                  .each(function () {
+                    var rowText = $(this).text().toLowerCase();
+                    if (rowText.indexOf(searchTerm) !== -1) {
+                      $(this).show();
+                    } else {
+                      $(this).hide();
+                    }
+                  });
+              });
+            } else {
+              // Show all rows if search term is empty
+              $(".table-hover tbody tr").show();
+            }
+          }
+        });
+
+        // Pre-fill document type in upload modal based on button clicked
+        $(".upload-btn").click(function () {
+          var docType = $(this).data("type");
+          $("#documentType").val(docType);
+        });
+
+        // Preview functionality
+        $(".preview-btn").click(function () {
+          var docUrl = $(this).data("url");
+          $("#documentPreview").attr("src", docUrl);
+          $("#previewModal").modal("show");
+        });
+
+        // Handle form submission for uploads
+        $("#uploadForm").submit(function (e) {
+          e.preventDefault();
+          // Get form data
+          var docName = $("#documentName").val();
+          var docType = $("#documentType").val();
+          var docFile = $("#documentFile")[0].files[0];
+
+          if (docName && docType && docFile) {
+            // Create a new table row based on the document type
+            var newRow =
+              "<tr>" +
+              "<td>" +
+              docName +
+              "</td>" +
+              "<td>" +
+              new Date().toLocaleDateString("vi-VN") +
+              "</td>" +
+              '<td class="text-center">' +
+              '<button class="btn btn-info btn-sm preview-btn" data-url="' +
+              URL.createObjectURL(docFile) +
+              '" title="Preview" data-toggle="tooltip" data-placement="top" data-original-title="Preview">' +
+              '<i class="fas fa-eye"></i> Preview' +
+              "</button>" +
+              '<a href="' +
+              URL.createObjectURL(docFile) +
+              '" class="btn btn-danger btn-sm ml-2" download="' +
+              docFile.name +
+              '" title="Download" data-toggle="tooltip" data-placement="top" data-original-title="Download">' +
+              '<i class="fas fa-download"></i> Download' +
+              "</a>" +
+              '<button class="btn btn-success btn-sm upload-btn ml-2" data-type="' +
+              docType +
+              '" data-toggle="modal" data-target="#uploadModal" title="Upload" data-original-title="Upload">' +
+              '<i class="fas fa-upload"></i> Upload' +
+              "</button>" +
+              "</td>" +
+              "</tr>";
+
+            // Append the new row to the appropriate table
+            if (docType === "Lecture") {
+              $("#lecturesTable tbody").append(newRow);
+              // Switch to Lectures tab
+              $("#lectures-tab").tab("show");
+            } else if (docType === "Assignment") {
+              $("#assignmentsTable tbody").append(newRow);
+              // Switch to Assignments tab
+              $("#assignments-tab").tab("show");
+            } else if (docType === "Exam") {
+              $("#examsTable tbody").append(newRow);
+              // Switch to Exams tab
+              $("#exams-tab").tab("show");
+            } else if (docType === "Resource") {
+              $("#resourcesTable tbody").append(newRow);
+              // Switch to Resources tab
+              $("#resources-tab").tab("show");
+            }
+
+            // Reset the form and close the modal
+            $("#uploadForm")[0].reset();
+            $("#uploadModal").modal("hide");
+
+            // Re-initialize tooltips for dynamically added buttons
+            $('[data-toggle="tooltip"]').tooltip();
+
+            // Optionally, display a success message
+            alert("Document uploaded successfully!");
+          } else {
+            alert("Please fill in all fields and select a file.");
+          }
+        });
+
+        // Ensure hover effects remain after switching tabs
+        $('a[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+          // Remove active class from all tab blocks
+          $(".tab-block").removeClass("active");
+          // Add active class to the clicked tab block
+          $(e.target).addClass("active");
+        });
+
+        // Delegate event for dynamically added preview buttons
+        $(document).on("click", ".preview-btn", function () {
+          var docUrl = $(this).data("url");
+          $("#documentPreview").attr("src", docUrl);
+          $("#previewModal").modal("show");
+        });
+
+        // Delegate event for dynamically added upload buttons
+        $(document).on("click", ".upload-btn", function () {
+          var docType = $(this).data("type");
+          $("#documentType").val(docType);
+        });
+      });
+
+      // Cập nhật tên file khi người dùng chọn file
+      document
+        .getElementById("documentFile")
+        .addEventListener("change", function () {
+          var fileName = this.files[0].name;
+          document.querySelector(".selected-file-name").textContent = fileName;
+        });
+
+      // Cải thiện hộp gợi ý
+      document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchInput");
+        const suggestionBox = document.getElementById("suggestionBox");
+
+        const suggestions = [
+          "Introduction to HTML5",
+          "CSS3 Fundamentals",
+          "JavaScript Basics",
+          "Assignment 1: Building a Simple Webpage",
+          "Responsive Design Guide",
+          "Midterm Exam Review",
+          "Final Exam Overview",
+          "HTML5 Cheat Sheet",
+          "CSS3 Flexbox Guide",
+          "JavaScript Reference",
+        ];
+
+        searchInput.addEventListener("input", function () {
+          const query = searchInput.value.toLowerCase();
+          suggestionBox.innerHTML = "";
+
+          if (query) {
+            const filteredSuggestions = suggestions.filter(function (
+              suggestion
+            ) {
+              return suggestion.toLowerCase().includes(query);
+            });
+
+            if (filteredSuggestions.length > 0) {
+              filteredSuggestions.forEach(function (suggestion) {
+                const suggestionItem = document.createElement("div");
+                suggestionItem.classList.add("suggestion-item");
+                suggestionItem.textContent = suggestion;
+                suggestionItem.addEventListener("click", function () {
+                  searchInput.value = suggestion;
+                  suggestionBox.classList.remove("show");
+                  // Trigger search after selecting a suggestion
+                  $(".table-hover").each(function () {
+                    $(this)
+                      .find("tbody tr")
+                      .each(function () {
+                        var rowText = $(this).text().toLowerCase();
+                        if (rowText.indexOf(suggestion.toLowerCase()) !== -1) {
+                          $(this).show();
+                        } else {
+                          $(this).hide();
+                        }
+                      });
+                  });
+                });
+                suggestionBox.appendChild(suggestionItem);
+              });
+              suggestionBox.classList.add("show");
+            } else {
+              suggestionBox.classList.remove("show");
+            }
+          } else {
+            suggestionBox.classList.remove("show");
+          }
+        });
+
+        document.addEventListener("click", function (e) {
+          if (
+            !searchInput.contains(e.target) &&
+            !suggestionBox.contains(e.target)
+          ) {
+            suggestionBox.classList.remove("show");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

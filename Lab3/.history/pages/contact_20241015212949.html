@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        /* Thêm hình nền */
+        background-image: url("../assets/images/1-20.jpg"); /* Thay bằng đường dẫn hình ảnh đúng */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.9
+        ); /* Sử dụng màu nền mờ để tăng độ tương phản */
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        position: relative;
+      }
+      .container h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+        position: relative;
+      }
+      .form-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #333;
+      }
+      .form-group input[type="text"],
+      .form-group input[type="email"],
+      .form-group input[type="tel"],
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 14px;
+      }
+      .form-group textarea {
+        height: 100px;
+        resize: vertical;
+      }
+      .error-message {
+        color: red;
+        font-size: 0.85em;
+        position: absolute;
+        bottom: -18px;
+        left: 0;
+      }
+      .form-group.error input,
+      .form-group.error select,
+      .form-group.error textarea {
+        border-color: red;
+        background-color: #ffe6e6;
+      }
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+      .submit-btn:disabled {
+        background-color: #777;
+        cursor: not-allowed;
+      }
+      .submit-btn:hover:not(:disabled) {
+        background-color: #555;
+      }
+      .success-message {
+        color: green;
+        text-align: center;
+        margin-top: 20px;
+        display: none;
+      }
+    </style>
+    <!-- Thêm EmailJS SDK -->
+    <script
+      type="text/javascript"
+      src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("your_user_id"); // Thay "your_user_id" bằng User ID thực tế từ EmailJS
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form id="contactForm" novalidate>
+        <div class="form-group" id="nameGroup">
+          <label for="name">Full Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="from_name"
+            placeholder="Enter Your Name"
+            required
+            maxlength="100"
+            aria-describedby="nameError"
+            aria-invalid="false"
+          />
+          <div class="error-message" id="nameError" aria-live="polite"></div>
+        </div>
+        <div class="form-group" id="emailGroup">
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="reply_to"
+            placeholder="Enter Your Email"
+            required
+            maxlength="100"
+            aria-describedby="emailError"
+            aria-invalid="false"
+          />
+          <div class="error-message" id="emailError" aria-live="polite"></div>
+        </div>
+        <div class="form-group" id="phoneGroup">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter Phone Number"
+            maxlength="15"
+            aria-describedby="phoneError"
+            aria-invalid="false"
+          />
+          <div class="error-message" id="phoneError" aria-live="polite"></div>
+        </div>
+        <div class="form-group" id="servicesGroup">
+          <label for="services">Needed Services *</label>
+          <select
+            id="services"
+            name="services"
+            required
+            aria-describedby="servicesError"
+            aria-invalid="false"
+          >
+            <option value="">Please choose</option>
+            <option value="Service 1">Service 1</option>
+            <option value="Service 2">Service 2</option>
+            <option value="Service 3">Service 3</option>
+          </select>
+          <div
+            class="error-message"
+            id="servicesError"
+            aria-live="polite"
+          ></div>
+        </div>
+        <div class="form-group" id="messageGroup">
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your message here..."
+            maxlength="1000"
+            aria-describedby="messageError"
+            aria-invalid="false"
+          ></textarea>
+          <div class="error-message" id="messageError" aria-live="polite"></div>
+        </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Submit →
+        </button>
+        <div class="success-message" id="successMessage">
+          Your message has been sent successfully!
+        </div>
+      </form>
+    </div>
+
+    <script>
+      // Đợi cho đến khi DOM được tải đầy đủ
+      document.addEventListener("DOMContentLoaded", function () {
+        const contactForm = document.getElementById("contactForm");
+        const successMessage = document.getElementById("successMessage");
+        const submitBtn = document.getElementById("submitBtn");
+
+        // Hàm để escape HTML, ngăn chặn XSS
+        function escapeHTML(str) {
+          return str.replace(/[&<>"'`=\/]/g, function (s) {
+            return {
+              "&": "&amp;",
+              "<": "&lt;",
+              ">": "&gt;",
+              '"': "&quot;",
+              "'": "&#39;",
+              "/": "&#x2F;",
+              "`": "&#x60;",
+              "=": "&#x3D;",
+            }[s];
+          });
+        }
+
+        // Hàm hiển thị thông báo lỗi
+        function showError(inputId, message) {
+          const errorElement = document.getElementById(inputId + "Error");
+          const inputElement = document.getElementById(inputId);
+          const formGroup = document.getElementById(inputId + "Group");
+          errorElement.textContent = message;
+          inputElement.setAttribute("aria-invalid", "true");
+          formGroup.classList.add("error");
+        }
+
+        // Hàm xóa thông báo lỗi
+        function clearError(inputId) {
+          const errorElement = document.getElementById(inputId + "Error");
+          const inputElement = document.getElementById(inputId);
+          const formGroup = document.getElementById(inputId + "Group");
+          errorElement.textContent = "";
+          inputElement.setAttribute("aria-invalid", "false");
+          formGroup.classList.remove("error");
+        }
+
+        // Hàm kiểm tra tên đầy đủ
+        function validateName() {
+          const name = document.getElementById("name").value.trim();
+          if (name === "") {
+            showError("name", "Full Name is required.");
+            return false;
+          }
+          if (name.length > 100) {
+            showError("name", "Full Name must be less than 100 characters.");
+            return false;
+          }
+          // Kiểm tra xem tên chỉ chứa chữ cái và một số ký tự đặc biệt hợp lệ
+          const nameRegex = /^[A-Za-zÀ-ỹ\s.'-]{2,100}$/;
+          if (!nameRegex.test(name)) {
+            showError("name", "Full Name contains invalid characters.");
+            return false;
+          }
+          clearError("name");
+          return true;
+        }
+
+        // Hàm kiểm tra email
+        function validateEmail() {
+          const email = document.getElementById("email").value.trim();
+          // RFC 5322 Official Standard regex
+          const emailRegex =
+            /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
+          if (email === "") {
+            showError("email", "Email is required.");
+            return false;
+          } else if (!emailRegex.test(email)) {
+            showError("email", "Please enter a valid email address.");
+            return false;
+          }
+          if (email.length > 100) {
+            showError("email", "Email must be less than 100 characters.");
+            return false;
+          }
+          clearError("email");
+          return true;
+        }
+
+        // Hàm kiểm tra số điện thoại
+        function validatePhone() {
+          const phone = document.getElementById("phone").value.trim();
+          if (phone === "") {
+            clearError("phone");
+            return true; // Phone is optional
+          }
+          // Regex số điện thoại quốc tế cho phép +, dấu cách, dấu gạch ngang và dấu ngoặc đơn
+          const phoneRegex = /^\+?[\d\s\-()]{7,15}$/;
+          if (!phoneRegex.test(phone)) {
+            showError("phone", "Please enter a valid phone number.");
+            return false;
+          }
+          if (phone.length > 15) {
+            showError("phone", "Phone number must be less than 15 characters.");
+            return false;
+          }
+          clearError("phone");
+          return true;
+        }
+
+        // Hàm kiểm tra dịch vụ cần thiết
+        function validateServices() {
+          const services = document.getElementById("services").value;
+          if (services === "") {
+            showError("services", "Please select a service.");
+            return false;
+          }
+          clearError("services");
+          return true;
+        }
+
+        // Hàm kiểm tra tin nhắn
+        function validateMessage() {
+          const message = document.getElementById("message").value.trim();
+          if (message.length > 1000) {
+            showError("message", "Message must be less than 1000 characters.");
+            return false;
+          }
+          // Kiểm tra xem tin nhắn có chứa các ký tự không hợp lệ
+          // (Có thể mở rộng nếu cần)
+          clearError("message");
+          return true;
+        }
+
+        // Hàm kiểm tra toàn bộ form
+        function validateForm() {
+          const isNameValid = validateName();
+          const isEmailValid = validateEmail();
+          const isPhoneValid = validatePhone();
+          const isServicesValid = validateServices();
+          const isMessageValid = validateMessage();
+          return (
+            isNameValid &&
+            isEmailValid &&
+            isPhoneValid &&
+            isServicesValid &&
+            isMessageValid
+          );
+        }
+
+        // Hàm xử lý gửi form
+        contactForm.addEventListener("submit", function (e) {
+          e.preventDefault(); // Ngăn chặn gửi form mặc định
+
+          // Disable nút submit để ngăn chặn gửi nhiều lần
+          submitBtn.disabled = true;
+
+          if (validateForm()) {
+            // Thu thập dữ liệu form
+            const formData = {
+              from_name: escapeHTML(
+                document.getElementById("name").value.trim()
+              ),
+              reply_to: escapeHTML(
+                document.getElementById("email").value.trim()
+              ),
+              phone: escapeHTML(document.getElementById("phone").value.trim()),
+              services: escapeHTML(document.getElementById("services").value),
+              message: escapeHTML(
+                document.getElementById("message").value.trim()
+              ),
+            };
+
+            // Gửi email qua EmailJS
+            emailjs
+              .send("your_service_id", "your_template_id", formData)
+              .then(
+                function (response) {
+                  console.log("SUCCESS!", response.status, response.text);
+                  successMessage.textContent =
+                    "Your message has been sent successfully!";
+                  successMessage.style.display = "block";
+                  contactForm.reset();
+                  // Xóa tất cả thông báo lỗi
+                  ["name", "email", "phone", "services", "message"].forEach(
+                    function (id) {
+                      clearError(id);
+                    }
+                  );
+                },
+                function (error) {
+                  console.log("FAILED...", error);
+                  successMessage.textContent =
+                    "There was an error sending your message. Please try again later.";
+                  successMessage.style.color = "red";
+                  successMessage.style.display = "block";
+                }
+              )
+              .finally(() => {
+                // Ẩn thông báo sau 5 giây
+                setTimeout(function () {
+                  successMessage.style.display = "none";
+                  successMessage.style.color = "green";
+                }, 5000);
+                // Re-enable nút submit
+                submitBtn.disabled = false;
+              });
+          } else {
+            // Nếu form không hợp lệ, hiển thị thông báo lỗi
+            successMessage.style.display = "none";
+            submitBtn.disabled = false;
+          }
+        });
+
+        // Thêm các sự kiện kiểm tra theo thời gian thực
+        document.getElementById("name").addEventListener("input", validateName);
+        document
+          .getElementById("email")
+          .addEventListener("input", validateEmail);
+        document
+          .getElementById("phone")
+          .addEventListener("input", validatePhone);
+        document
+          .getElementById("services")
+          .addEventListener("change", validateServices);
+        document
+          .getElementById("message")
+          .addEventListener("input", validateMessage);
+      });
+    </script>
+  </body>
+</html>

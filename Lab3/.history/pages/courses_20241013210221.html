@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - FuturLearn</title>
+  <!-- Liên kết CSS tùy chỉnh -->
+  <link rel="stylesheet" href="../css/courses.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <!-- Font Awesome cho biểu tượng -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-p8AqLJjvYRh9dfJNzCjXQyw0cKDGc2Q/9O+a6z7D6T0NVG0EHTHFrCZx27J9DRw1G1HPzXG2aaS5Mw6I6o1Dpg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="../css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <!-- Các CSS bổ sung khác -->
+  <link href="../css/styles.css" rel="stylesheet" />
+  <link href="../css/styles-courses.css" rel="stylesheet" />
+  <link href="../css/mobile-style.css" rel="stylesheet" />
+  <!-- Hỗ trợ HTML5 cho các trình duyệt cũ -->
+  <!--[if lt IE 9]>
+        <script src="js/html5shiv.min.js"></script>
+      <![endif]-->
+  <!-- CSS tùy chỉnh cho nội dung chính -->
+  <style>
+    /* Đảm bảo container chính có đủ khoảng cách trên và dưới */
+    .container-outer {
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+
+    /* Kiểu dáng các card khóa học */
+    .course {
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    .course .card {
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .course .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-img-top {
+      width: 50%;
+      margin: 20px auto 0;
+      display: block;
+    }
+
+    .card-body p {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .justify-content-center a {
+      color: #ffc107; /* Màu vàng cho sao */
+      text-decoration: none;
+      font-size: 1.2rem;
+    }
+
+    .justify-content-center a:hover {
+      color: #ff9800;
+    }
+
+    /* Iframe đáp ứng */
+    .course iframe {
+      width: 100%;
+      height: 200px;
+      border-radius: 8px;
+    }
+
+    @media (min-width: 576px) {
+      .course iframe {
+        height: 250px;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .course iframe {
+        height: 300px;
+      }
+    }
+
+    /* Kiểu dáng checkbox hoàn thành */
+    .course-complete-butt {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .mycheckbox {
+      transform: scale(1.5);
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .course-complete-butt label {
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .course-complete-butt label:hover {
+      color: #007BFF;
+    }
+
+    /* Kiểu dáng divider */
+    .divider-custom {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .divider-custom-line {
+      flex: 1;
+      height: 1px;
+      background-color: #ddd;
+    }
+
+    .divider-custom-icon {
+      margin: 0 15px;
+      color: #ffc107;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Start Header-->
+  <header>
+    <h1 class='logo'>FuturLearn</h1>
+    <nav>
+      <a href="../pages/home.html">Home</a>
+      <a href="../pages/courses.html">All Courses</a>
+      <a href="../pages/tasks.html">To-Do</a>
+      <a href="../pages/account.html">My Account</a>
+      <a href="../index.html">Log out</a>
+    </nav>
+  </header>
+  <!-- End Header-->
+
+  <!-- Start Main-->
+  <main>
+    <div class="head">
+      <p class="p1">Courses</p>
+      <p class="p2">Ambition accepted. Learn the latest skills to reach your professional goals.</p>
+    </div>
+
+    <div class="container-outer">
+      <div class="row">
+        <!-- Course 1 -->
+        <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel1">
+          <div class="card">
+            <img src="../assets/images/html-svgrepo-com.svg" class="card-img-top" alt="Web Development (Basic)">
+            <div class="card-body">
+              <p>Web Development (Basic)</p>
+            </div>
+            <div class="justify-content-center">
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star-half-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 2 -->
+        <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel2">
+          <div class="card">
+            <img src="../assets/images/css-3-svgrepo-com.svg" class="card-img-top" alt="UI Design Specialization">
+            <div class="card-body">
+              <p>UI Design Specialization</p>
+            </div>
+            <div class="justify-content-center">
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star-half-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel3">
+          <div class="card">
+            <img src="../assets/images/javascript-svgrepo-com.svg" class="card-img-top" alt="Node JS">
+            <div class="card-body">
+              <p>Node JS</p>
+            </div>
+            <div class="justify-content-center">
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star-half-alt"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 4 -->
+        <div class="col-md-6 col-lg-4 course" data-toggle="modal" data-target="#couseModel4">
+          <div class="card">
+            <img src="../assets/images/javascript-svgrepo-com.svg" class="card-img-top" alt="JavaScript Course">
+            <div class="card-body">
+              <p>JavaScript Course</p>
+            </div>
+            <div class="justify-content-center">
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star"></i></a>
+              <a href="#"><i class="fas fa-star-half-alt"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- End Main-->
+
+  <!-- Start Footer-->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-brand">
+        <h2>FuturLearn</h2>
+        <p>Empowering students through knowledge. Join us to share and access valuable learning resources!</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h4>Study Resources</h4>
+          <ul>
+            <li><a href="#">Lecture Notes</a></li>
+            <li><a href="#">Assignments</a></li>
+            <li><a href="#">Reference Materials</a></li>
+            <li><a href="#">Exam Prep</a></li>
+            <li><a href="#">Study Guides</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Mission</a></li>
+            <li><a href="#">Meet the Team</a></li>
+            <li><a href="#">Student Testimonials</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Live Chat</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Feedback</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Policies</a></li>
+          </ul>
+        </div>
+        <div class="footer-section contact-info">
+          <h4>Contact Us</h4>
+          <p>Email: support@futurlearn.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+          <h4>Follow Us</h4>
+          <div class="social-media">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Code of Conduct</a>
+        </div>
+        <p>If you would like to share learning materials, please upload your documents directly to the designated course folders on the platform for easy access by students and faculty.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer-->
+
+  <!-- Courses Modals -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="couseModel1" tabindex="-1" role="dialog" aria-labelledby="couseModel1Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel1Title">Web Development (Basic)</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/html-svgrepo-com.svg" height="200px" alt="Web Development (Basic)">
+          <p class="text-left">
+            Do you realize that the only functionality of a web application that the user directly interacts with is
+            through the web page? Implement it poorly and, to the user, the server-side becomes irrelevant! Today’s user
+            expects a lot out of the web page: it has to load fast, expose the desired service, and be comfortable to
+            view on all devices: from desktop computers to tablets and mobile phones.<br><br>
+            In this course, we will learn the basic tools that every web page coder needs to know. We will start from
+            the ground up by learning how to implement modern web pages with HTML and CSS. We will then advance to
+            learning how to code our pages such that its components rearrange and resize themselves automatically based
+            on the size of the user’s screen. You’ll be able to code up a web page that will be just as useful on a
+            mobile phone as on a desktop computer. No “pinch and zoom” required!
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 2 -->
+  <div class="modal fade" id="couseModel2" tabindex="-1" role="dialog" aria-labelledby="couseModel2Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel2Title">UI Design Specialization</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/css-3-svgrepo-com.svg" height="200px" alt="UI Design Specialization">
+          <p class="text-left">
+            In this Specialization, you will learn industry-standard theory and methods for developing successful user
+            interfaces (UIs). Upon completing this Specialization, you will have fluency with the user research,
+            prototyping and evaluation techniques necessary for creating intuitive interfaces that facilitate good user
+            experiences. You will also have demonstrated this fluency through an in-depth Capstone Project that can be
+            shown to prospective employers in the fast-growing field of UI design.<br><br>
+            Concepts and techniques covered include structured approaches for helping you understand your user base and
+            their needs (e.g. contextual inquiry and design psychology), widely-employed prototyping and design methods
+            (e.g. low-fidelity and paper prototyping), and robust techniques for helping you evaluate your design
+            choices (e.g. heuristic evaluation and user studies). By the end of the Specialization, you will be
+            comfortable applying these concepts and techniques to design an interface for a wide variety of users from
+            around the world.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 3 -->
+  <div class="modal fade" id="couseModel3" tabindex="-1" role="dialog" aria-labelledby="couseModel3Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel3Title">Node JS</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/javascript-svgrepo-com.svg" height="200px" alt="Node JS">
+          <p class="text-left">
+            This course deals with all things server-side. We base the entire course around the NodeJS platform. We
+            start with a brief overview of the Web protocols: HTTP and HTTPS. We examine NodeJS and NodeJS modules:
+            Express for building web servers.<br><br>
+            Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8
+            engine and executes JavaScript code outside a web browser. Node.js is an open source server
+            environment. Node.js is free. Node.js runs on various platforms (Windows, Linux, Unix, Mac OS X,
+            etc.). Node.js uses JavaScript on the server. Node.js uses asynchronous programming! Node.js runs
+            single-threaded, non-blocking, asynchronously programming, which is very memory efficient. Node.js can
+            generate dynamic page content. Node.js can create, open, read, write, delete, and close files on the
+            server. Node.js can collect form data. Node.js can add, delete, modify data in your database. Node.js files
+            contain tasks that will be executed on certain events. A typical event is someone trying to access a port
+            on the server. Node.js files must be initiated on the server before having any effect. Node.js files have
+            extension ".js"
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+  <!-- Modal 4 -->
+  <div class="modal fade" id="couseModel4" tabindex="-1" role="dialog" aria-labelledby="couseModel4Title"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="couseModel4Title">JavaScript Course</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="../assets/images/javascript-svgrepo-com.svg" height="200px" alt="JavaScript Course">
+          <p class="text-left">
+            JavaScript, often abbreviated as JS, is a programming language that is one of the core
+            technologies of the World Wide Web, alongside HTML and CSS. Over 97% of websites use JavaScript on the
+            client side for web page behavior, often incorporating third-party libraries.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--------------------------------------------------------------->
+
+  <!-- JQuery và Bootstrap JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+/* Thêm hình đại diện kế bên "Log out" */
+.sidebar .menu li.logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar .menu li.logout a {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .menu li.logout .logout-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 10px;
+    border: 2px solid #fff;
+}
+
+/* Điều chỉnh avatar trong sidebar menu cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .sidebar .menu li.logout .logout-avatar {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Điều chỉnh avatar trong sidebar menu cho màn hình nhỏ */
+    .sidebar .menu li.logout .logout-avatar {
+        width: 30px;
+        height: 30px;
+    }
+}

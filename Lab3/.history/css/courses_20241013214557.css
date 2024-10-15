@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+:root {
+  --logocolor: #4267B2;
+}
+
+
+.container-outer {
+  width: 100%;
+  /* border: solid 1px green; */
+  margin-top: 12%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.container-outer .course {
+  /* border: solid 2px grey; */
+  display: block;
+  margin: 0 8%;
+  margin-bottom: 4%;
+  height: 500px;
+}
+
+.container-outer .course-name {
+  font-size: 20px;
+  margin: 12px 0 8px 32px;
+  color: rgba(0, 0, 0, 0.829);
+  font-weight: 600;
+}
+
+.course iframe {
+  display: block;
+  float: left;
+  margin-left: 2%;
+  border: solid 12px lightgray;
+}
+
+.course .course-desc {
+  display: block;
+  float: right;
+  width: 35%;
+  height: 83%;
+  border: solid 2px lightgrey;
+  padding: 2%;
+  margin-right: 2%;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.course .course-desc h3 {
+  color: rgba(0, 0, 0, 0.700);
+}
+
+.course .course-desc p {
+  color: rgba(0, 0, 0, 0.600);
+  text-align: justify;
+  margin: 4% 0%;
+  padding: 2%;
+  padding-left: 0;
+}
+
+.course .course-complete-butt {
+  display: block;
+  color: blue;
+  font-size: 20px;
+  margin-right: 2%;
+  margin-top: 4px;
+  float: right;
+}
+
+.course .course-complete-butt .mycheckbox {
+  width: 16px;
+  height: 16px;
+}
+

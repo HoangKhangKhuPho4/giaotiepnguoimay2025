@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks - FuturLearn</title>
+  <link rel="stylesheet" href="../css/tasks.css">
+
+  <!-- Font Awesome CDN cho các biểu tượng -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2DkSs0v4LLanw2CkMGhZUl0BTkYH7i7K6HhFw0iJF3eKFOoDqkLdB5yU5UyLgpwQA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <!-- Header (Không được thay đổi) -->
+  <header>
+    <h1 class='logo'>FuturLearn</h1>
+    <nav>
+      <a href="../pages/home.html">Home</a>
+      <a href="../pages/courses.html"> All Courses</a>
+      <a href="../pages/tasks.html" style="font-weight: bolder; background-color:lightgrey ;">To-Do</a>
+      <a href="../pages/account.html">My Account</a>
+      <a href="../index.html">Log out</a>
+    </nav>
+    <div class="separator"></div>
+  </header>
+
+  <!-- Main Content (Được cập nhật) -->
+  <main>
+    <div class="container">
+      <h2>Task Manager</h2>
+      <br /><br />
+      <div>
+        <form class="task-form">
+          <div class="input-group">
+            <input type="text" placeholder="Nhập nhiệm vụ của bạn..." id="box" required />
+            <div class="input-group-append">
+              <button type="button" onclick="add_item()" class="add-task">
+                <i class="fas fa-plus"></i> Thêm
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div>
+        <ul id="list_item">
+          <!-- Nhiệm vụ sẽ được thêm vào đây -->
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer (Không được thay đổi) -->
+  <footer>
+    <p class="p1"> Happy Learning with FuturLearn </p>
+    <p class="p2"> Make a part of your journey with us. Enroll now ! </p>
+    <hr>
+    <p class="p3"><small>Copyright &copy; 2021 Gaurav Sharma</small></p>
+  </footer>
+
+  <!-- Bootstrap JS và dependencies (Nếu cần) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdExSwIWAnz5/zhObFJIGG6Qb8kKaqK6iQqk6iWHt4FZ6S/AfYKMVd94UTP7ld" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2LcVZHT1O5g6wXJ2Ej3iGkD9qB3dV3MHL6Ho5K0s6C" crossorigin="anonymous"></script>
+
+  <!-- Custom JS (Cập nhật) -->
+  <script src="../js/account.js"></script>
+
+  <!-- JavaScript nâng cao để quản lý nhiệm vụ -->
+  <script>
+    // Đảm bảo rằng mã JavaScript sẽ chạy sau khi DOM đã tải hoàn chỉnh
+    document.addEventListener('DOMContentLoaded', (event) => {
+      loadTasks();
+    });
+
+    // Thêm nhiệm vụ mới
+    function add_item() {
+      const taskInput = document.getElementById('box');
+      const taskText = taskInput.value.trim();
+      if (taskText === "") {
+        alert("Vui lòng nhập nhiệm vụ của bạn.");
+        return;
+      }
+
+      const taskList = document.getElementById('list_item');
+
+      // Tạo phần tử li mới
+      const li = document.createElement('li');
+      li.className = 'task-item';
+
+      // Tạo checkbox để đánh dấu hoàn thành
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'task-checkbox';
+      checkbox.onclick = function () {
+        if (this.checked) {
+          li.classList.add('completed');
+        } else {
+          li.classList.remove('completed');
+        }
+        saveTasks();
+      };
+
+      // Tạo span để hiển thị nhiệm vụ
+      const span = document.createElement('span');
+      span.className = 'task-text';
+      span.textContent = taskText;
+
+      // Tạo nút xóa
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'delete-task';
+      deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+      deleteBtn.onclick = function () {
+        li.remove();
+        saveTasks();
+      };
+
+      // Thêm các phần tử vào li
+      li.appendChild(checkbox);
+      li.appendChild(span);
+      li.appendChild(deleteBtn);
+
+      // Thêm li vào danh sách
+      taskList.appendChild(li);
+
+      // Làm sạch input
+      taskInput.value = "";
+
+      // Lưu danh sách nhiệm vụ
+      saveTasks();
+    }
+
+    // Lưu nhiệm vụ vào localStorage
+    function saveTasks() {
+      const tasks = [];
+      const listItems = document.querySelectorAll('#list_item li');
+      listItems.forEach(item => {
+        const task = {
+          text: item.querySelector('.task-text').textContent,
+          completed: item.querySelector('.task-checkbox').checked
+        };
+        tasks.push(task);
+      });
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    // Tải nhiệm vụ từ localStorage
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem('tasks'));
+      if (tasks) {
+        tasks.forEach(task => {
+          const taskList = document.getElementById('list_item');
+
+          // Tạo phần tử li mới
+          const li = document.createElement('li');
+          li.className = 'task-item';
+          if (task.completed) {
+            li.classList.add('completed');
+          }
+
+          // Tạo checkbox để đánh dấu hoàn thành
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.className = 'task-checkbox';
+          checkbox.checked = task.completed;
+          checkbox.onclick = function () {
+            if (this.checked) {
+              li.classList.add('completed');
+            } else {
+              li.classList.remove('completed');
+            }
+            saveTasks();
+          };
+
+          // Tạo span để hiển thị nhiệm vụ
+          const span = document.createElement('span');
+          span.className = 'task-text';
+          span.textContent = task.text;
+
+          // Tạo nút xóa
+          const deleteBtn = document.createElement('button');
+          deleteBtn.className = 'delete-task';
+          deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+          deleteBtn.onclick = function () {
+            li.remove();
+            saveTasks();
+          };
+
+          // Thêm các phần tử vào li
+          li.appendChild(checkbox);
+          li.appendChild(span);
+          li.appendChild(deleteBtn);
+
+          // Thêm li vào danh sách
+          taskList.appendChild(li);
+        });
+      }
+    }
+  </script>
+</body>
+
+</html>

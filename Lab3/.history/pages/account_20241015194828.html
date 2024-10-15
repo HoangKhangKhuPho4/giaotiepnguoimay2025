@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Dreams LMS</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Otomanopee+One&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="../assets/logo.svg" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/home.css">
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      /* Style cho phần header */
+      header {
+        top: 0;
+        width: 100%;
+        overflow: hidden;
+        position: fixed;
+        padding: 12px 20px; /* Tăng padding để làm header to hơn */
+        z-index: 1000;
+        display: flex;
+        background-color: #000; /* Navbar background */
+        justify-content: space-between; /* Space between logo and nav items */
+        align-items: center; /* Center items vertically */
+        height: auto; /* Đảm bảo chiều cao header tự động điều chỉnh */
+        box-sizing: border-box;
+      }
+
+      /* Style cho phần logo */
+      header .logo {
+        font-family: "Otomanopee One", sans-serif;
+        color: #4caf50; /* Logo color */
+        letter-spacing: 1.4px;
+        margin-left: 15px; /* Giảm margin để cân đối với kích thước header mới */
+        font-size: 1.3rem; /* Giảm kích thước logo để phù hợp hơn */
+      }
+
+      /* Style cho phần navigation */
+      header nav {
+        display: flex; /* Use flexbox for nav items */
+        align-items: center; /* Center items vertically */
+        flex-grow: 1; /* Dùng flex-grow để nav chiếm không gian */
+        justify-content: center; /* Canh giữa các liên kết nav */
+      }
+
+      /* Style cho các liên kết nav */
+      header nav a {
+        position: relative;
+        padding: 6px 12px; /* Tăng padding để liên kết nhìn nổi bật hơn */
+        text-decoration: none;
+        font-family: "Varela Round", sans-serif;
+        font-weight: bold;
+        font-size: 15px; /* Giảm một chút kích thước chữ để phù hợp với phần logo */
+        color: #e0e0e0; /* Light grey for links */
+        margin: 0 6px; /* Equal margin between nav items */
+        background-color: transparent; /* Ensure no background */
+        border: none; /* Remove any border */
+        transition: color 0.3s; /* Smooth transition for hover effect */
+      }
+
+      header nav a:hover {
+        color: #d94f5c; /* Change color on hover */
+      }
+
+      header nav a::after {
+        content: ""; /* Creates a pseudo-element */
+        position: absolute;
+        left: 50%;
+        bottom: -4px; /* Adjusted for increased spacing */
+        width: 0;
+        height: 2px;
+        background-color: #d94f5c; /* Red underline color */
+        transition: width 0.3s ease, left 0.3s ease;
+      }
+
+      header nav a:hover::after {
+        width: 100%; /* Expand to full width on hover */
+        left: 0; /* Align to the left */
+      }
+
+      /* Style cho phần avatar trong thanh menu */
+      header .profile {
+        display: flex;
+        align-items: center;
+        margin-right: 15px; /* Giảm margin để phù hợp với header mới */
+      }
+
+      header .profile img {
+        height: 35px; /* Tăng một chút chiều cao avatar để phù hợp với header */
+        width: 35px; /* Tăng một chút chiều rộng avatar */
+        border-radius: 50%; /* Avatar bo tròn */
+        object-fit: cover; /* Giữ tỷ lệ hình ảnh */
+        cursor: pointer; /* Biểu tượng con trỏ */
+        transition: transform 0.3s; /* Hiệu ứng phóng to nhẹ khi hover */
+      }
+
+      header .profile img:hover {
+        transform: scale(1.1);
+      }
+
+      /* Dịch container và sidebar xuống dưới một chút so với navbar */
+      .container {
+        display: flex;
+        flex: 1;
+        padding: 20px;
+        padding-top: 100px; /* Thêm khoảng cách để không bị header che khuất */
+      }
+
+      .sidebar {
+        width: 250px;
+        background-color: #fff;
+        border-right: 1px solid #e9ecef;
+        padding: 20px;
+        padding-top: 50px; /* Khoảng cách phía trên để dịch xuống dưới header */
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+        flex-shrink: 0;
+      }
+
+      .sidebar .profile-card {
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      .sidebar .profile-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit: cover;
+        border: 3px solid #4caf50;
+        transition: transform 0.3s;
+      }
+
+      .sidebar .profile-card img:hover {
+        transform: scale(1.05);
+      }
+
+      .sidebar .profile-card h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 500;
+        color: #333;
+      }
+
+      .sidebar .profile-card p {
+        margin: 5px 0;
+        color: #888;
+        font-size: 14px;
+      }
+
+      .sidebar .profile-card button {
+        background-color: #ff5a5f;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sidebar .profile-card button:hover {
+        background-color: #e04350;
+      }
+
+      .sidebar .menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar .menu li {
+        margin: 10px 0;
+      }
+
+      .sidebar .menu li a {
+        color: #333;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+        position: relative;
+      }
+
+      .sidebar .menu li a i {
+        margin-right: 10px;
+        font-size: 16px;
+        width: 20px;
+        text-align: center;
+      }
+
+      .sidebar .menu li a.active,
+      .sidebar .menu li a:hover {
+        background-color: #ff5a5f;
+        color: #fff;
+      }
+
+      .content {
+        flex: 1;
+        padding: 30px;
+        overflow-y: auto;
+      }
+
+      .breadcrumb {
+        margin-bottom: 20px;
+        font-size: 14px;
+      }
+
+      .breadcrumb a {
+        color: #007bff;
+        text-decoration: none;
+        margin-right: 5px;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
+
+      .breadcrumb span {
+        color: #888;
+        margin-right: 5px;
+      }
+
+      .profile-info {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        position: relative;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .profile-info h2 {
+        margin-top: 0;
+        font-size: 28px;
+        font-weight: 500;
+        color: #333;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .profile-info .info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .profile-info .info-item {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .profile-info .info-item span {
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .profile-info .info-item input,
+      .profile-info .info-item textarea {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+        background-color: #f9f9f9;
+        resize: none;
+      }
+
+      .profile-info .info-item input:focus,
+      .profile-info .info-item textarea:focus {
+        border-color: #007bff;
+        outline: none;
+        background-color: #fff;
+      }
+
+      .profile-info .bio {
+        margin-top: 20px;
+      }
+
+      .profile-info .bio span {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #555;
+        font-size: 14px;
+      }
+
+      .profile-info .bio textarea {
+        width: 100%;
+        height: 150px;
+        resize: vertical;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        transition: border-color 0.3s;
+        background-color: #f9f9f9;
+      }
+
+      .profile-info .bio textarea:focus {
+        border-color: #007bff;
+        outline: none;
+        background-color: #fff;
+      }
+
+      /* Nút hành động */
+      .profile-info .actions {
+        margin-top: 30px;
+        text-align: right;
+      }
+
+      .profile-info .actions button {
+        margin-left: 10px;
+        padding: 10px 25px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #editBtn {
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      #editBtn:hover {
+        background-color: #0056b3;
+      }
+
+      #saveBtn {
+        background-color: #28a745;
+        color: #fff;
+      }
+
+      #saveBtn:hover {
+        background-color: #218838;
+      }
+
+      #cancelBtn {
+        background-color: #dc3545;
+        color: #fff;
+      }
+
+      #cancelBtn:hover {
+        background-color: #c82333;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+     /* Thay đổi cho Dark Mode */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff; /* Đảm bảo màu chữ là màu trắng để dễ đọc trên nền tối */
+}
+        .dark-mode header,
+        .dark-mode .sidebar,
+        .dark-mode .profile-info,
+        .dark-mode .content {
+            background-color: #333333;
+            color: #f0f0f0;
+        }
+        .dark-mode a {
+            color: #4a90e2;
+        }
+        .dark-mode input,
+        .dark-mode textarea {
+            background-color: #444444;
+            color: #ffffff;
+            border-color: #888888;
+        }
+        .dark-mode header nav a:hover {
+            color: #ff5c5c;
+        }
+
+        .dark-mode-toggle {
+  font-size: 24px;
+  color: #ffffff;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-right: 10px; /* Thêm khoảng cách giữa biểu tượng Dark Mode và avatar */
+  transition: transform 0.3s;
+}
+
+        .dark-mode-toggle:hover {
+            transform: scale(1.1);
+        }
+    </style>
+  </head>
+  <body>
+
+    
+    <header class="header">
+      <div class="logo">
+        <h1>FuturLearn</h1>
+      </div>
+      <nav class="nav">
+        <a href="../pages/home.html">Home</a>
+        <a href="../pages/courses.html">All Courses</a>
+        <a href="../pages/tasks.html">To-Do</a>
+        <a href="../pages/account.html">My Account</a>
+        <a href="../index.html">Log out</a>
+      </nav>
+      <div class="profile">
+        <i
+          id="darkModeToggle"
+          class="fas fa-moon dark-mode-toggle"
+          title="Toggle Dark Mode"
+        ></i>
+        <img src="../assets/images/aboutLab3.png" alt="User Avatar" />
+      </div>
+    </header>
+    
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <div class="profile-card">
+          <img
+            alt="Hoang Khang Nguyen Le"
+            src="../assets/images/aboutLab3.png"
+          />
+          <h3>Hoang Khang Nguyen Le</h3>
+          <p>Instructor</p>
+          <button id="addCourseBtn">
+            <i class="fas fa-plus"></i> Add New Course
+          </button>
+        </div>
+        <ul class="menu">
+          <li>
+            <a href="#">
+              <i class="fas fa-tachometer-alt"></i>
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a class="active" href="#">
+              <i class="fas fa-user"></i>
+              My Profile
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-book"></i>
+              Enrolled Courses
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-heart"></i>
+              Wishlist
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-star"></i>
+              Reviews
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-question-circle"></i>
+              My Quiz Attempts
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-history"></i>
+              Order History
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-comments"></i>
+              Question &amp; Answer
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-user-friends"></i>
+              Referrals
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-envelope"></i>
+              Messages
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-bell"></i>
+              Notifications
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-ticket-alt"></i>
+              Support Tickets
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-book-open"></i>
+              My Courses
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-bullhorn"></i>
+              Announcements
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-money-bill-wave"></i>
+              Withdrawals
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-clipboard-list"></i>
+              Quiz Attempts
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-tasks"></i>
+              Assignments
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-dollar-sign"></i>
+              Earnings
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-cog"></i>
+              Settings
+            </a>
+          </li>
+          <li class="logout">
+            <a href="../index.html">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content">
+        <div class="breadcrumb">
+            <a href="#">Home</a> <span>/</span> <a class="active" href="#">My Profile</a>
+        </div>
+        <div class="profile-info" id="profileInfo">
+            <h2>My Profile</h2>
+            <div class="actions">
+                <button id="editBtn"><i class="fas fa-edit"></i> Edit</button>
+                <button id="saveBtn" style="display: none;"><i class="fas fa-save"></i> Save</button>
+                <button id="cancelBtn" style="display: none;"><i class="fas fa-times"></i> Cancel</button>
+            </div>
+            <form id="profileForm">
+                <div class="info">
+                    <div class="info-item"><span>First Name</span><input type="text" id="firstName" name="firstName" value="Hoang Khang" disabled></div>
+                    <div class="info-item"><span>Last Name</span><input type="text" id="lastName" name="lastName" value="Nguyen Le" disabled></div>
+                    <div class="info-item"><span>Registration Date</span><input type="date" id="registrationDate" name="registrationDate" value="2024-01-16" disabled></div>
+                    <div class="info-item"><span>Username</span><input type="text" id="username" name="username" value="hoangkhang.nguyenle" disabled></div>
+                    <div class="info-item"><span>Email</span><input type="email" id="email" name="email" value="khang.nguyenle@yahoo.com" disabled></div>
+                    <div class="info-item"><span>Phone Number</span><input type="tel" id="phone" name="phone" value="89104-71829" disabled></div>
+                </div>
+                <div class="bio">
+                    <span>Bio</span>
+                    <textarea id="bio" name="bio" disabled>Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. Some quick example text to build on the card title and bulk the card's content. Motlin gives you platform. As a highly skilled and successful product development and design specialist with more than 4 Years of My experience lies in successfully conceptualizing, designing, and modifying consumer products specific to interior design and home furnishings.</textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-brand">
+          <h2>FuturLearn</h2>
+          <p>
+            Empowering students through knowledge. Join us to share and access
+            valuable learning resources!
+          </p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4>Study Resources</h4>
+            <ul>
+              <li><a href="#">Lecture Notes</a></li>
+              <li><a href="#">Assignments</a></li>
+              <li><a href="#">Reference Materials</a></li>
+              <li><a href="#">Exam Prep</a></li>
+              <li><a href="#">Study Guides</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>About Us</h4>
+            <ul>
+              <li><a href="#">Our Mission</a></li>
+              <li><a href="#">Meet the Team</a></li>
+              <li><a href="#">Student Testimonials</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">FAQs</a></li>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Live Chat</a></li>
+              <li><a href="#">Resources</a></li>
+              <li><a href="#">Feedback</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="#">Login</a></li>
+              <li><a href="#">Register</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Policies</a></li>
+            </ul>
+          </div>
+          <div class="footer-section contact-info">
+            <h4>Contact Us</h4>
+            <p>Email: support@futurlearn.com</p>
+            <p>Phone: +1 (123) 456-7890</p>
+            <h4>Follow Us</h4>
+            <div class="social-media">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="Pinterest"
+                ><i class="fab fa-pinterest"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Code of Conduct</a>
+          </div>
+          <p>
+            If you would like to share learning materials, please upload your
+            documents directly to the designated course folders on the platform
+            for easy access by students and faculty.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-to-top" onclick="scrollToTop()">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+      // Smooth scrolling function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth", // Enable smooth scrolling
+        });
+      }
+
+      // Show or hide the button based on scroll position
+      window.onscroll = function () {
+        const button = document.querySelector(".back-to-top");
+        if (
+          document.body.scrollTop > 100 ||
+          document.documentElement.scrollTop > 100
+        ) {
+          button.style.display = "block";
+        } else {
+          button.style.display = "none";
+        }
+      };
+
+      // Lấy các phần tử cần thiết từ DOM
+      const editBtn = document.getElementById("editBtn");
+      const saveBtn = document.getElementById("saveBtn");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const profileForm = document.getElementById("profileForm");
+      const inputs = profileForm.querySelectorAll("input, textarea");
+
+      // Biến để lưu trữ giá trị ban đầu
+      let originalValues = {};
+
+      // Chuyển sang chế độ chỉnh sửa
+      editBtn.addEventListener("click", () => {
+        // Lưu trữ giá trị ban đầu của tất cả các trường vào originalValues
+        originalValues = {};
+        inputs.forEach((input) => {
+          originalValues[input.name] = input.value; // Lưu giá trị ban đầu
+          input.disabled = false; // Bật tất cả các trường để chỉnh sửa
+          input.classList.add("editing"); // Thêm một lớp cho các trường đang được chỉnh sửa
+        });
+
+        // Ẩn nút Edit và hiển thị các nút Save và Cancel
+        editBtn.style.display = "none";
+        saveBtn.style.display = "inline-block";
+        cancelBtn.style.display = "inline-block";
+      });
+
+      // Lưu các thay đổi
+      saveBtn.addEventListener("click", () => {
+        inputs.forEach((input) => {
+          input.disabled = true; // Tắt tất cả các trường sau khi lưu
+          input.classList.remove("editing"); // Xóa lớp "editing" khi hoàn tất chỉnh sửa
+        });
+
+        // Ẩn nút Save và Cancel, hiển thị lại nút Edit
+        saveBtn.style.display = "none";
+        cancelBtn.style.display = "none";
+        editBtn.style.display = "inline-block";
+
+        // Thêm logic lưu thông tin vào đây nếu cần (ví dụ: gửi thông tin đến server)
+        alert("Changes saved successfully!");
+      });
+
+      // Hủy các thay đổi
+      cancelBtn.addEventListener("click", () => {
+        // Đặt lại giá trị ban đầu cho tất cả các trường
+        inputs.forEach((input) => {
+          if (originalValues.hasOwnProperty(input.name)) {
+            input.value = originalValues[input.name]; // Khôi phục giá trị ban đầu
+          }
+          input.disabled = true; // Tắt tất cả các trường
+          input.classList.remove("editing"); // Xóa lớp "editing" khi hoàn tất
+        });
+
+        // Ẩn nút Save và Cancel, hiển thị lại nút Edit
+        saveBtn.style.display = "none";
+        cancelBtn.style.display = "none";
+        editBtn.style.display = "inline-block";
+
+        alert("Changes canceled.");
+      });
+
+      // Dark Mode Toggle Functionality
+      const toggleButton = document.getElementById("darkModeToggle");
+      toggleButton.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const icon = toggleButton.classList.contains("fa-moon")
+          ? "fa-sun"
+          : "fa-moon";
+        toggleButton.classList.remove("fa-moon", "fa-sun");
+        toggleButton.classList.add(icon);
+      });
+    </script>
+  </body>
+</html>
