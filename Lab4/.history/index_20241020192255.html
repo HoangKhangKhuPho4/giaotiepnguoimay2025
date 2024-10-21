@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MuleSoft 4.X Complete Guide For Beginners - Hands On Projects</title>
+    <!-- Bootstrap CSS (Optional, can be removed if not needed) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .header .title {
+            flex-grow: 1;
+        }
+        .header .actions a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .header .actions i {
+            margin-right: 5px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+        }
+
+        /* Video Section */
+        .video-section {
+            flex: 3;
+            background-color: #e0f7fa;
+            padding: 0;
+            position: relative;
+        }
+        .video-section img {
+            width: 100%;
+            height: auto;
+        }
+        .video-section .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Course Content Sidebar */
+        .course-content {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border-left: 1px solid #ddd;
+            max-height: calc(100vh - 62px); /* Adjust according to header height */
+            overflow-y: auto;
+        }
+        .course-content h3 {
+            margin-top: 0;
+        }
+        .course-content .section {
+            margin-bottom: 20px;
+        }
+        .course-content .section h4 {
+            margin: 0;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .course-content .section h4:hover {
+            background-color: #e8e8e8;
+        }
+        .course-content .section ul {
+            list-style: none;
+            padding: 0 10px;
+            margin: 0;
+            display: none; /* Hide by default */
+        }
+        .course-content .section ul li {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .course-content .section ul li:last-child {
+            border-bottom: none;
+        }
+        .course-content .section ul li i {
+            margin-right: 10px;
+        }
+        .course-content .section ul li span {
+            flex-grow: 1;
+        }
+        .course-content .section ul li .time {
+            color: #888;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            background-color: white;
+            border-top: 1px solid #ddd;
+        }
+        .footer .rating {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .footer .rating i {
+            color: #f4c150;
+            margin-right: 5px;
+        }
+        .footer .rating span {
+            margin-right: 20px;
+        }
+        .footer p {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="#">Home</a>
+        <div class="title">MuleSoft 4.X Complete Guide For Beginners - Hands On Projects</div>
+        <div class="actions">
+            <a href="#"><i class="fas fa-star"></i>Leave a rating</a>
+            <a href="#"><i class="fas fa-trophy"></i>Your progress</a>
+            <a href="#"><i class="fas fa-share"></i>Share</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Video Section -->
+        <div class="video-section">
+            <img src="https://storage.googleapis.com/a1aa/image/fsbgM94oYs13UKKpIDslJxrwW5rEwmn87g74F0Kgf8X5ZqoTA.jpg" alt="Video thumbnail with a play button in the center" width="800" height="450">
+            <i class="fas fa-play-circle play-button"></i>
+        </div>
+
+        <!-- Course Content Sidebar -->
+        <div class="course-content">
+            <h3>Course content</h3>
+
+            <!-- Section 1 -->
+            <div class="section">
+                <h4>
+                    2. Integration introduction
+                    <i class="fas fa-chevron-down"></i>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Integration introduction</span>
+                        <span class="time">8min</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Mule API development life cycle and components</span>
+                        <span class="time">4min</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-file"></i>
+                        <span>Course resources &amp; documents</span>
+                        <span class="time">1min</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section">
+                <h4>
+                    Section 2: Mule 4 installation set-up
+                    <i class="fas fa-chevron-down"></i>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Installation set-up</span>
+                        <span class="time">21min</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section">
+                <h4>
+                    Section 3: Mule basics - develop first mule app, run, debug, export &amp; import mule app
+                    <i class="fas fa-chevron-down"></i>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Develop first mule app</span>
+                        <span class="time">42min</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Add more sections as needed -->
+            <!-- ... -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="rating">
+            <i class="fas fa-star"></i>
+            <span>4.6</span>
+            <span>4,705 ratings</span>
+            <span>26,379 Students</span>
+            <span>50.5 hours Total</span>
+        </div>
+        <p>Upgraded with latest MuleSoft ESB versions, Anypoint Platform, DataWeave, MUnit, DevOps, MCD Tests and Realtime Project</p>
+    </div>
+
+    <!-- JavaScript to handle collapsible sections -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.course-content .section');
+
+            sections.forEach(function (section) {
+                const header = section.querySelector('h4');
+                const content = section.querySelector('ul');
+                const icon = header.querySelector('i');
+
+                // Initially hide the content
+                content.style.display = 'none';
+
+                header.addEventListener('click', function () {
+                    if (content.style.display === 'none') {
+                        content.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        content.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

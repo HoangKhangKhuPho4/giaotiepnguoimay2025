@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MuleSoft 4.X Complete Guide For Beginners - Hands On Projects</title>
+    <!-- Bootstrap CSS (Optional) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Container */
+        .container {
+            display: grid;
+            grid-template-columns: 70% 30%; /* Adjusted to 70% and 30% */
+            gap: 0;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Ensure it takes full viewport height */
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        /* Video Player */
+        .video-player {
+            display: none; /* Hidden by default */
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .video-player.active {
+            display: block;
+        }
+        .video-embed {
+            width: 100%;
+            height: 315px;
+        }
+
+        /* Menu Bar */
+        .menu-bar {
+            background-color: #fff;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .menu-bar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        .menu-bar ul li {
+            font-size: 16px;
+            position: relative;
+        }
+        .menu-bar ul li a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            transition: color 0.3s;
+        }
+        .menu-bar ul li a:hover {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        .menu-bar .search-icon {
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+            margin-right: 15px;
+        }
+
+        /* Course Title */
+        .course-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Course Info */
+        .course-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        .course-info .rating {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+        }
+        .course-info .rating i {
+            color: #f4b400;
+            margin-right: 5px;
+        }
+        .course-info .students,
+        .course-info .hours {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .course-info .students::after,
+        .course-info .hours::after {
+            content: attr(data-label);
+            font-weight: normal;
+            color: #666;
+            margin-left: 5px;
+        }
+        .course-info .last-updated,
+        .course-info .language {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .course-info .language a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+        .course-info .language a:hover {
+            text-decoration: underline;
+        }
+
+        /* What You'll Learn */
+        .what-you-learn {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-top: 80px;
+            margin-bottom: 20px;
+        }
+        .what-you-learn h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+        .what-you-learn ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .what-you-learn ul li {
+            display: flex;
+            align-items: flex-start;
+        }
+        .what-you-learn ul li i {
+            color: #28a745;
+            margin-right: 10px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            padding: 20px;
+            position: relative;
+            border-left: 1px solid #ddd;
+            max-height: 100vh; /* Full viewport height */
+            overflow-y: auto;
+        }
+        .sidebar h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .sidebar .section {
+            margin-bottom: 10px;
+        }
+        .sidebar .section h4 {
+            margin: 0;
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f8f8f8;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .sidebar .section h4:hover {
+            background-color: #e8e8e8;
+        }
+        .sidebar .section ul {
+            list-style: none;
+            padding: 0 10px;
+            margin: 0;
+            display: none; /* Hide by default */
+        }
+        .sidebar .section ul li {
+            display: flex;
+            align-items: center;
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .sidebar .section ul li:last-child {
+            border-bottom: none;
+        }
+        .sidebar .section ul li i {
+            margin-right: 10px;
+        }
+        .sidebar .section ul li span {
+            flex-grow: 1;
+        }
+        .sidebar .section ul li .time {
+            color: #888;
+        }
+        .close-button {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Video Player -->
+            <div class="video-player">
+                <iframe class="video-embed" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <!-- Menu Bar -->
+            <div class="menu-bar">
+                <i class="fas fa-search search-icon"></i>
+                <ul>
+                    <li><a href="#">Overview</a></li>
+                    <li><a href="#">Q&A</a></li>
+                    <li><a href="#">Notes</a></li>
+                    <li><a href="#">Announcements</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Learning tools</a></li>
+                </ul>
+            </div>
+
+            <!-- Course Title -->
+            <div class="course-title">Upgraded with latest MuleSoft ESB versions, Anypoint Platform, DataWeave, MUnit, DevOps, MCD Tests and Realtime Project</div>
+
+            <!-- Course Info -->
+            <div class="course-info">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    4.6
+                    <span style="color: #666; font-size: 14px; margin-left: 5px;">(4,705 ratings)</span>
+                </div>
+                <div class="students" data-label="Students">26,379</div>
+                <div class="hours" data-label="Total">50.5 hours</div>
+            </div>
+            <div class="course-info">
+                <div class="last-updated">
+                    <i class="fas fa-calendar-alt"></i> Last updated November 2023
+                </div>
+                <div class="language">
+                    <i class="fas fa-globe"></i> English <i class="fas fa-closed-captioning"></i> English [Auto], French [Auto], <a href="#">5 more</a>
+                </div>
+            </div>
+
+            <!-- What You'll Learn -->
+            <div class="what-you-learn">
+                <h2>What you'll learn</h2>
+                <ul>
+                    <li><i class="fas fa-check"></i> You will become an expert in Mule ESB, Anypoint platform operations, MUnit and DevOps with Mule.</li>
+                    <li><i class="fas fa-check"></i> Step-by-step coding in detailed explanation.</li>
+                    <li><i class="fas fa-check"></i> Set up MuleSoft independently for your organization.</li>
+                    <li><i class="fas fa-check"></i> Develop, design, manage projects efficiently.</li>
+                    <li><i class="fas fa-check"></i> Mule Level 1, Level 2, and Integration Associate certifications guaranteed.</li>
+                    <li><i class="fas fa-check"></i> This course teaches you Mule 4.x in depth, including all the phases of SDLC.</li>
+                    <li><i class="fas fa-check"></i> Gain real-time hands-on experience after completing this course.</li>
+                    <li><i class="fas fa-check"></i> The course will keep on adding new topics from MuleSoft.</li>
+                    <li><i class="fas fa-check"></i> One course destination to learn all the actions of a real-time project.</li>
+                    <li><i class="fas fa-check"></i> Mule real-time project helps you deal with real-time activities and builds your confidence.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="close-button">
+                <i class="fas fa-times"></i>
+            </div>
+            <h3>Course content</h3>
+
+            <!-- Adjusted Sections -->
+            <!-- Section 1 -->
+            <div class="section">
+                <h4>
+                    2. Integration introduction
+                    <i class="fas fa-chevron-down"></i>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Integration introduction</span>
+                        <span class="time">8min</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Mule API development life cycle and components</span>
+                        <span class="time">4min</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-file"></i>
+                        <span>Course resources &amp; documents</span>
+                        <span class="time">1min</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section">
+                <h4>
+                    Section 2: Mule 4 installation set-up
+                    <i class="fas fa-chevron-down"></i>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Installation step 1</span>
+                        <span class="time">12min</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Installation step 2</span>
+                        <span class="time">9min</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section">
+                <h4>
+                    Section 3: Mule basics - develop first mule app, run, debug, export &amp; import mule app
+                    <i class="fas fa-chevron-down"></i>
+                </h4>
+                <ul>
+                    <li>
+                        <i class="fas fa-video"></i>
+                        <span>Develop first mule app</span>
+                        <span class="time">42min</span>
+                    </li>
+                    <!-- Add more items if needed -->
+                </ul>
+            </div>
+
+            <!-- Continue with other sections similarly -->
+            <!-- ... -->
+        </div>
+    </div>
+
+    <!-- JavaScript to handle collapsible sections -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = document.querySelectorAll('.sidebar .section');
+
+            sections.forEach(function (section) {
+                const header = section.querySelector('h4');
+                const content = section.querySelector('ul');
+                const icon = header.querySelector('i');
+
+                // Initially hide the content
+                content.style.display = 'none';
+
+                header.addEventListener('click', function () {
+                    if (content.style.display === 'none') {
+                        content.style.display = 'block';
+                        icon.classList.remove('fa-chevron-down');
+                        icon.classList.add('fa-chevron-up');
+                    } else {
+                        content.style.display = 'none';
+                        icon.classList.remove('fa-chevron-up');
+                        icon.classList.add('fa-chevron-down');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>MuleSoft 4.X Complete Guide For Beginners - Hands On Projects</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CSS for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <!-- Liên kết đến tệp CSS của bạn -->
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div style="display: flex; align-items: center; gap: 15px">
+        <a href="#"><i class="fas fa-chevron-left"></i> Home</a>
+        <span
+          >MuleSoft 4.X Complete Guide For Beginners - Hands On Projects</span
+        >
+      </div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          position: relative;
+        "
+      >
+        <a href="#" id="leave-rating"
+          ><i class="fas fa-star"></i> Leave a rating</a
+        >
+        <div id="progress-container" style="position: relative">
+          <a href="#" id="your-progress" style="position: relative">
+            <div
+              style="
+                width: 30px;
+                height: 30px;
+                border: 1px solid rgba(255, 255, 255, 0.5);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i class="fas fa-trophy" style="font-size: 16px"></i>
+            </div>
+            Your progress <i class="fas fa-caret-down"></i>
+          </a>
+          <!-- Progress Dropdown Menu -->
+          <div id="progress-dropdown" class="dropdown-menu" style="right: 0">
+            <p>Your course progress is 50%.</p>
+          </div>
+        </div>
+        <button id="share-button">
+          Share <i class="fas fa-caret-down"></i>
+        </button>
+        <button id="more-options-button">
+          <i class="fas fa-ellipsis-v"></i>
+        </button>
+        <!-- Share Dropdown -->
+        <div id="share-dropdown" class="dropdown-menu" style="right: 120px">
+          <a href="#">Share on Facebook</a>
+          <a href="#">Share on Twitter</a>
+          <a href="#">Copy Link</a>
+        </div>
+        <!-- More Options Dropdown -->
+        <div
+          id="more-options-dropdown"
+          class="dropdown-menu"
+          style="right: 60px"
+        >
+          <a href="#">Settings</a>
+          <a href="#">Help</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container-fluid">
+      <div class="row g-0">
+        <!-- Main Content -->
+        <div class="col-md-9 p-0">
+          <div class="main-content">
+            <!-- Video Player -->
+            <div class="video-player">
+              <iframe
+                class="video-embed"
+                id="video-embed"
+                src=""
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <!-- Menu Bar -->
+            <div class="menu-bar">
+              <i class="fas fa-search search-icon"></i>
+              <ul>
+                <li>
+                  <a href="#" data-section="overview" class="menu-item active"
+                    >Overview</a
+                  >
+                </li>
+                <li><a href="#" data-section="qa" class="menu-item">Q&A</a></li>
+                <li>
+                  <a href="#" data-section="notes" class="menu-item">Notes</a>
+                </li>
+                <li>
+                  <a href="#" data-section="announcements" class="menu-item"
+                    >Announcements</a
+                  >
+                </li>
+                <li>
+                  <a href="#" data-section="reviews" class="menu-item"
+                    >Reviews</a
+                  >
+                </li>
+                <li>
+                  <a href="#" data-section="learning-tools" class="menu-item"
+                    >Learning tools</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Content Sections -->
+            <!-- Overview Section -->
+            <div id="overview" class="content-section active">
+              <!-- Course Title -->
+              <div class="course-title">
+                Upgraded with latest MuleSoft ESB versions, Anypoint Platform,
+                DataWeave, MUnit, DevOps, MCD Tests and Realtime Project
+              </div>
+
+              <!-- Course Info -->
+              <div class="course-info">
+                <div class="rating">
+                  <i class="fas fa-star"></i>
+                  4.6
+                  <span style="color: #666; font-size: 14px; margin-left: 5px"
+                    >(4,705 ratings)</span
+                  >
+                </div>
+                <div class="students" data-label=" Students">26,379</div>
+                <div class="hours" data-label=" Total">50.5 hours</div>
+              </div>
+              <div class="course-info">
+                <div class="last-updated">
+                  <i class="fas fa-calendar-alt"></i> Last updated November 2023
+                </div>
+                <div class="language">
+                  <i class="fas fa-globe"></i> English
+                  <i class="fas fa-closed-captioning"></i> English [Auto],
+                  French [Auto], <a href="#">5 more</a>
+                </div>
+              </div>
+
+              <!-- What You'll Learn -->
+              <div class="what-you-learn">
+                <h2>What you'll learn</h2>
+                <ul>
+                  <li>
+                    <i class="fas fa-check"></i> You will become an expert in
+                    Mule ESB, Anypoint platform operations, MUnit and DevOps
+                    with Mule.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Step-by-step coding in detailed
+                    explanation.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Set up MuleSoft independently
+                    for your organization.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Develop, design, manage
+                    projects efficiently.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Mule Level 1, Level 2, and
+                    Integration Associate certifications guaranteed.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> This course teaches you Mule
+                    4.x in depth, including all the phases of SDLC.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Gain real-time hands-on
+                    experience after completing this course.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> The course will keep on adding
+                    new topics from MuleSoft.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> One course destination to learn
+                    all the actions of a real-time project.
+                  </li>
+                  <li>
+                    <i class="fas fa-check"></i> Mule real-time project helps
+                    you deal with real-time activities and builds your
+                    confidence.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Các Content Sections khác giữ nguyên -->
+            <!-- Q&A Section -->
+            <div id="qa" class="content-section">
+              <h2>Q&A</h2>
+              <p>
+                Here you can find questions and answers related to the course.
+              </p>
+            </div>
+
+            <!-- Notes Section -->
+            <div id="notes" class="content-section">
+              <h2>Notes</h2>
+              <p>Your personal notes for the course will appear here.</p>
+            </div>
+
+            <!-- Announcements Section -->
+            <div id="announcements" class="content-section">
+              <h2>Announcements</h2>
+              <p>
+                Stay updated with the latest announcements from the instructor.
+              </p>
+            </div>
+
+            <!-- Reviews Section -->
+            <div id="reviews" class="content-section">
+              <h2>Reviews</h2>
+              <p>Read reviews from other students.</p>
+            </div>
+
+            <!-- Learning Tools Section -->
+            <div id="learning-tools" class="content-section">
+              <h2>Learning Tools</h2>
+              <p>
+                Access additional resources to enhance your learning experience.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-md-3 p-0">
+          <div class="sidebar">
+            <div class="close-button">
+              <i class="fas fa-times"></i>
+            </div>
+            <h3>Course content</h3>
+
+            <!-- Section 1 -->
+            <div class="section">
+              <h4>
+                Section 1: Introduction to MuleSoft and Anypoint Platform
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://www.youtube.com/embed/Xp46m57w1Ns?si=bgE8o5T4Trt4sKOV">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">What is MuleSoft?</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 10min
+                    </div>
+                  </div>
+                </li>
+
+                <li data-video-url="https://youtu.be/AdRwJ3CTiD8?si=nXxkdG0WVe77BfNQ">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Overview of Anypoint Platform</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 15min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 2 -->
+            <div class="section">
+              <h4>
+                Section 2: Mule 4 Installation and Setup
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/JIBW1vTLqOY?si=vuWOU3uDFpo76rL4">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Installing Mule 4 on Windows</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 20min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/JIBW1vTLqOY?si=Ko08jz6o-M7Ve15R">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Installing Mule 4 on MacOS</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 18min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 3 -->
+            <div class="section">
+              <h4>
+                Section 3: Developing First Mule Application
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/YPrfhZydQd0?si=YixLh1nXENso34Ty">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Creating a Hello World Mule Application</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 25min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/SFxxiZolVnA?si=UZ2MUUIA5srqKX5k">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Running and Testing Mule Applications</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 30min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 4 -->
+            <div class="section">
+              <h4>
+                Section 4: Mule basics - Mule events and mule message structure
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/Wps-bOKEIME?si=MV_s4sD2YiUl6W_K">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Understanding Mule Events</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 15min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/HG2mdaw1_Ak?si=6GMwx4uCm7ijTuVG">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Exploring Mule Message Structure</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 17min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 5 đến Section 13 (Đã Được Đồng Bộ) -->
+            <!-- Section 5 -->
+            <div class="section">
+              <h4>
+                Section 5: Mule basics - Basic transformations
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/uq_hp0PK7JA?si=dUDUwEjgas2vvnyV">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">DataWeave for Beginners</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 20min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/hnWfICY7iLk?si=Dv38FYX2TQyCV_Qw">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Transforming JSON to XML</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 22min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 6 -->
+            <div class="section">
+              <h4>
+                Section 6: Mule RESTful Services (Database) as Provider - Simple
+                Use Case to Get Started
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/CM2rLDHHjfI?si=8o0AYQdga-7ZUNCo">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Introduction to RESTful services in Mule</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 10min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/tHKsZdS8Oug?si=7g1Zl2USxCV2fsox">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Setting up a database connection</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 12min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/NqP0-UkIQS4?si=sVP91DfbGj8rr4Xh">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Implementing CRUD operations</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 15min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/6WZ6S-qmtqY?si=VXeDFMqxqK5nRoTt">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Securing RESTful services</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 8min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/-mN3VyJuCjM?si=2kYPo1EwCOM8VDh7">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Testing RESTful services</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 6min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/vWf8Bm73Hp0?si=aw_MZg4kueIohy_Z">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Summary and best practices</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 5min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 7 -->
+            <div class="section">
+              <h4>
+                Section 7: DataWeave language - basics
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/R5dUqDrvFvI?si=a1hZTYHBG2wGPXnu">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Introduction to DataWeave</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 15min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/qY-yUrMb8s4?si=3Qbr1tIyuVeCJ_93">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">DataWeave syntax and structures</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 20min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 8 -->
+            <div class="section">
+              <h4>
+                Section 8: Mule database module - first system API UHub
+                (database) SAPI...
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/SXpp7jZ1_48?si=vQvOFOB9ygQT0Z-l">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Introduction to Mule database module</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 12min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://youtu.be/z-tPVyHRzGQ?si=ZXY0DA3ju9aMfgvr">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Database operations with Mule</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 18min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 9 -->
+            <div class="section">
+              <h4>
+                Section 9: Mule validation module and flow types
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://youtu.be/7mCKA-DMv0A?si=xqn6a2Jzc45KHAzB">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Introduction to validation module</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 10min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://www.youtube.com/embed/VEzXk3HWEzg">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Types of flow and their usage</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 15min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 10 -->
+            <div class="section">
+              <h4>
+                Section 10: Mule error handling
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://www.youtube.com/embed/OE1RRVkiPy8">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Handling errors in Mule applications</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 20min
+                    </div>
+                  </div>
+                </li>
+                <li data-video-url="https://www.youtube.com/embed/rF7_GHRNLxM">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Error propagation and error types</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 30min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 11 -->
+            <div class="section">
+              <h4>
+                Section 11: Anypoint platform introduction & access management
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://www.youtube.com/embed/VcBNm4uqum0">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Introduction to Anypoint platform</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 10min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 12 -->
+            <div class="section">
+              <h4>
+                Section 12: Anypoint Platform - Design Center - Design API's
+                Using RAML
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://www.youtube.com/embed/IxTr0MQ1tA8">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Basics of RAML in Design Center</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 15min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Section 13 -->
+            <div class="section">
+              <h4>
+                Section 13: Anypoint Platform - Design Center - Design Fragments
+                Based API's Using...
+                <i class="fas fa-chevron-down"></i>
+              </h4>
+              <ul>
+                <li data-video-url="https://www.youtube.com/embed/NpFxtxpsXGg">
+                  <div class="lesson-item">
+                    <div class="lesson-header">
+                      <input type="checkbox" class="lesson-checkbox" />
+                      <span class="lesson-title">Creating reusable fragments</span>
+                    </div>
+                    <div class="lesson-time">
+                      <i class="fas fa-play-circle"></i> 10min
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <!-- Đảm bảo tất cả các <li> đều có cấu trúc giống nhau -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Liên kết đến tệp JavaScript của bạn -->
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
