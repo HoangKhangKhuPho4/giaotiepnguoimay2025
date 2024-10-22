@@ -1,420 +1,603 @@
-/* Reset and Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
+/* Tổng quát */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #fff;
-  color: #333;
+  background-color: #f1f3f4;
 }
 
 /* Navbar */
 .navbar {
-  background-color: #333;
-  color: white;
-  padding: 10px 20px;
+  background-color: #ffffff;
+  padding: 15px 20px; /* Reduced horizontal padding */
+  border-bottom: 1px solid #dfe1e5;
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  position: relative;
 }
-
-.navbar a {
-  color: white;
-  text-decoration: none;
+.navbar .nav-links {
   display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.navbar button {
-  background-color: #444;
-  color: white;
-  border: 1px solid #666;
-  padding: 5px 15px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.navbar button:last-child {
-  padding: 5px;
-}
-
-/* Dropdown Menus */
-.navbar .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  background-color: white;
-  color: black;
-  border: 1px solid #ddd;
-  padding: 10px;
-  min-width: 150px;
-  z-index: 1;
-}
-
-.navbar .dropdown-menu a {
-  color: #333;
-  text-decoration: none;
-  display: block;
-  padding: 5px 0;
-}
-
-.navbar .dropdown-menu a:hover {
-  background-color: #f1f1f1;
-}
-
-/* Show Dropdown on Hover */
-#progress-container:hover .dropdown-menu,
-#share-button:hover + .dropdown-menu,
-#more-options-button:hover + .dropdown-menu {
-  display: block;
-}
-
-/* Main Content */
-.main-content {
-  padding: 20px;
-}
-
-/* Video Player */
-.video-player {
-  display: none; /* Hidden by default */
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ddd;
-}
-
-.video-player.active {
-  display: block;
-}
-
-.video-embed {
+  gap: 30px; /* Tăng khoảng cách từ 20px lên 30px */
   width: 100%;
-  height: 315px;
+  max-width: 1200px;
+  justify-content: space-around;
 }
-
-/* Menu Bar */
-.menu-bar {
-  background-color: #fff;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-  margin-bottom: 20px;
-}
-
-.menu-bar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 15px;
-}
-
-.menu-bar ul li {
-  font-size: 16px;
-  position: relative;
-}
-
-.menu-bar ul li a {
+.navbar a {
+  color: #202124;
   text-decoration: none;
-  color: #333;
-  padding: 10px;
-  transition: color 0.3s;
-}
-
-.menu-bar ul li a:hover {
-  color: #0056b3;
-}
-
-.menu-bar .search-icon {
-  font-size: 20px;
-  color: #333;
-  cursor: pointer;
-  margin-right: 15px;
-}
-
-/* Menu Item Active */
-.menu-bar ul li a.active {
-  color: #0056b3;
-  font-weight: bold;
-}
-
-/* Content Sections */
-.content-section {
-  display: none;
-}
-
-.content-section.active {
-  display: block;
-}
-
-/* Course Title */
-.course-title {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-/* Course Info */
-.course-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.course-info .rating {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-.course-info .rating i {
-  color: #f4b400;
-  margin-right: 5px;
-}
-
-.course-info .students,
-.course-info .hours {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.course-info .students::after,
-.course-info .hours::after {
-  content: attr(data-label);
-  font-weight: normal;
-  color: #666;
-  margin-left: 5px;
-}
-
-.course-info .last-updated,
-.course-info .language {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #666;
   font-size: 14px;
-  margin-top: 10px;
+  white-space: nowrap;
 }
-
-.course-info .language a {
-  color: #0056b3;
-  text-decoration: none;
-}
-
-.course-info .language a:hover {
+.navbar a:hover {
+  color: #1a73e8;
   text-decoration: underline;
 }
 
-/* What You'll Learn */
-.what-you-learn {
-  background-color: #f9f9f9;
+/* Welcome Section */
+.welcome-section {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #dfe1e5;
+}
+.welcome-section .avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+.welcome-section .welcome-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #202124;
+}
+.welcome-section .add-info {
+  color: #1a73e8;
+  font-size: 14px;
+  margin-top: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Streak Section */
+.streak-section {
+  background-color: #ffffff;
   padding: 20px;
-  border: 1px solid #ddd;
-  margin-top: 40px; /* Added spacing above */
+  margin: 20px;
+  border: 1px solid #dfe1e5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start; /* Căn chỉnh các phần tử theo đầu */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+.streak-info-container {
+  flex: 1;
+  text-align: left;
+  margin-right: 20px; /* Khoảng cách giữa streak-info và streak-stats */
+}
+.streak-info {
+  font-size: 18px; /* Tăng kích thước font để đồng nhất */
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 5px; /* Khoảng cách giữa streak-info và streak-subtext */
+}
+.streak-subtext {
+  font-size: 16px;
+  color: #5f6368;
+}
+.streak-stats {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start; /* Căn chỉnh các phần tử theo đầu */
+}
+.streak {
+  display: flex;
+  align-items: center; /* Căn giữa theo trục dọc */
+  gap: 10px;
+  font-size: 16px;
+  color: #202124;
+}
+.streak i {
+  color: #6f42c1;
+  font-size: 24px; /* Đảm bảo tất cả các biểu tượng có cùng kích thước */
+  flex-shrink: 0; /* Ngăn không cho biểu tượng bị co lại */
+}
+.streak-text {
+  margin-top: -2px; /* Di chuyển "Current streak" lên một chút */
+}
+.progress {
+  display: flex;
+  align-items: flex-start; /* Căn chỉnh các phần tử theo đầu */
+  gap: 15px;
+  position: relative;
+}
+.progress .progress-circle {
+  position: relative;
+  width: 80px; /* Increased size for better visibility */
+  height: 80px;
+}
+.progress .progress-circle svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.progress-info {
+  font-size: 14px;
+  color: #202124;
+  position: relative;
+}
+.progress-info div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.dot-orange,
+.dot-green {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+.dot-orange {
+  background-color: #ffa500; /* Màu cam */
+}
+.dot-green {
+  background-color: #28a745; /* Màu xanh lá cây */
+}
+.dot-info {
+    margin-left: 50px; /* Tăng từ 10px lên 20px để cách xa hơn */
+    color: #1a73e8;
+    cursor: pointer;
+    position: relative;
+  }
+  
+.dot-info .tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: max-content;
+  max-width: 200px;
+}
+.dot-info .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.dot-info:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+.see-activity {
+  color: #1a73e8;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 10px;
+  align-self: flex-end;
+}
+
+/* Tooltip Styles */
+.tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the icon */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: max-content;
+  max-width: 200px;
+}
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* At the bottom of the tooltip */
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+.info-icon:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Learning Section */
+.learning-section {
+  padding: 20px 30px;
+}
+.learning-section .section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #202124;
+}
+.learning-section .tabs {
+  display: flex;
+  gap: 20px;
   margin-bottom: 20px;
 }
-
-.what-you-learn h2 {
-  font-size: 20px;
-  margin-bottom: 15px;
+.learning-section .tabs a {
+  color: #202124;
+  text-decoration: none;
+  font-size: 16px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
 }
-
-/* Maintain Original Structure for 'What you'll learn' */
-.what-you-learn ul {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.learning-section .tabs a.active {
+  border-bottom: 2px solid #1a73e8;
+  color: #1a73e8;
 }
-
-.what-you-learn ul li {
+.learning-section .tabs a:hover {
+  color: #1a73e8;
+}
+.learning-section .my-learning {
+  color: #1a73e8;
+  font-size: 14px;
+  text-align: right;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.learning-section .courses,
+.learning-section .learning-paths,
+.learning-section .cert-prep {
   display: flex;
-  align-items: flex-start;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
-.what-you-learn ul li i {
-  color: #28a745;
-  margin-right: 10px;
+/* Certification Section */
+.certification-section {
+  background-color: #ffffff;
+  padding: 20px 30px;
+  margin: 20px;
+  border: 1px solid #dfe1e5;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
-/* Sidebar */
-.sidebar {
-  padding: 0; /* Removed padding */
-  border-left: 1px solid #ddd;
-  border-right: 1px solid #ddd; /* Added border-right */
-  box-sizing: border-box; /* Include padding in size */
-  position: relative;
-  /* Removed fixed height and overflow */
-  /* height: 100vh; */
-  /* overflow-y: auto; */
-}
-
-/* Ensure All Sidebar Elements Use Border Box */
-.sidebar * {
-  box-sizing: border-box;
-}
-
-/* Sidebar Header */
-.sidebar-header {
+.certification-section .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 15px 20px; /* Adjusted padding for better alignment */
-  background-color: #f1f1f1;
-  border-bottom: 1px solid #ddd;
-  margin: 0; /* Remove default margins */
+  padding: 10px 0;
+  gap: 15px;
 }
-
-.sidebar-header h3 {
-  font-size: 18px;
+.certification-section .header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #202124;
   margin: 0;
 }
-
-.sidebar-header .close-button {
-  cursor: pointer;
-  font-size: 20px; /* Adjusted size */
-  color: #333; /* Color to fit design */
+.certification-section .header a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
   transition: color 0.3s;
 }
-
-.sidebar-header .close-button:hover {
-  color: #ff0000; /* Color indicating interactivity */
+.certification-section .header a:hover {
+  text-decoration: underline;
 }
-
-/* Section Styles */
-.sidebar .section {
-  margin: 0;
+.certification-section .recommendations-container {
+  position: relative;
 }
-
-.sidebar .section h4 {
-  margin: 0;
-  padding: 10px 20px; /* Even padding on all sides */
-  width: 100%; /* Full width */
-  background-color: #f8f8f8;
-  font-size: 16px;
-  cursor: pointer;
+.certification-section .recommendations {
   display: flex;
-  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.certification-section .recommendations::-webkit-scrollbar {
+  display: none;
+}
+.certification-section .recommendation {
+  background-color: #ffffff;
+  border: 1px solid #dfe1e5;
+  border-radius: 5px;
+  width: 350px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.certification-section .recommendation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.certification-section .recommendation img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid #dfe1e5;
+  display: block;
+  transition: transform 0.3s;
+  overflow: hidden;
+}
+.certification-section .recommendation:hover img {
+  transform: scale(1.1);
+}
+.certification-section .recommendation-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  border-bottom: 1px solid #ddd; /* Only border-bottom */
 }
-
-.sidebar .section h4:hover {
-  background-color: #e8e8e8;
+.certification-section .recommendation-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #202124;
+  transition: color 0.3s;
 }
-
-.sidebar .section ul {
-  list-style: none;
-  padding: 0; /* Remove padding */
-  margin: 0; /* Remove margin */
-  display: block; /* Always display ul */
+.certification-section .recommendation-content p {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 10px;
 }
-
-.sidebar .section ul li {
-  margin: 0;
-  padding: 10px 20px; /* Even padding on all sides */
-  width: 100%; /* Full width */
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: flex-start;
-  border-bottom: 1px solid #eee; /* Maintain border-bottom */
-  cursor: pointer;
-}
-
-.sidebar .section ul li:hover {
-  background-color: #f1f1f1;
-}
-
-/* Lesson Item Structure */
-.sidebar .section ul li .lesson-header {
-  display: flex;
-  align-items: center;
-  gap: 15px; /* Increased spacing between checkbox and title */
-}
-
-.sidebar .section ul li .lesson-title {
-  font-weight: 500;
-}
-
-.sidebar .section ul li .lesson-time {
+.certification-section .recommendation-content .rating {
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #555;
-  margin-left: 25px; /* Indent from title */
+  color: #5f6368;
 }
-
-.sidebar .section ul li .lesson-time i {
-  font-size: 14px; /* Adjusted icon size */
-  color: #555; /* Changed color to gray */
+.certification-section .recommendation-content .rating i {
+  color: #f5a623;
   margin-right: 5px;
 }
 
-/* Checkbox Styling */
-.lesson-checkbox {
-  width: 16px;
-  height: 16px;
+/* Nút "Scroll Right" */
+.certification-section .scroll-right-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1;
+}
+.certification-section .scroll-right-button:hover {
+  background-color: #333333;
+}
+.certification-section .scroll-right-button i {
+  font-size: 16px;
 }
 
-/* Additional Padding for Indentation */
-.sidebar .section ul li {
-  padding-left: 10px;
-}
-
-/* Hover Effect for Lesson Items */
-.sidebar .section ul li:hover {
+/* Personalize Section */
+.certification-section .personalize {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+  border: 1px dashed #dfe1e5;
+  border-radius: 5px;
   background-color: #f9f9f9;
+  margin: 20px;
+}
+.certification-section .personalize .close-personalize {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  color: #5f6368;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.certification-section .personalize .close-personalize:hover {
+  color: #ff0000;
+}
+.certification-section .personalize .add-occupation-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+.certification-section .personalize .add-occupation-button:hover {
+  background-color: #333333;
+  transform: scale(1.05);
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .sidebar {
-    border-left: none;
-    border-right: none;
-    border-top: 1px solid #ddd;
-    height: auto; /* Adjust height */
+/* Common Card Styles */
+.card {
+  width: 350px;
+  height: auto;
+  border: 1px solid #dfe1e5;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Course Card */
+.course-card {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.course-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.course-card .image-container {
+  position: relative;
+  width: 35%;
+}
+.course-card .image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.course-card .course-info {
+  padding: 15px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.course-card .course-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #202124;
+  margin-bottom: 10px;
+}
+.course-card .course-details {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+/* Certification Recommendation Content */
+.recommendation .recommendation-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.recommendation .recommendation-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #202124;
+  transition: color 0.3s;
+}
+.recommendation .recommendation-content p {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 10px;
+}
+.recommendation .recommendation-content .rating {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #5f6368;
+}
+.recommendation .recommendation-content .rating i {
+  color: #f5a623;
+  margin-right: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 800px) {
+  .course-card,
+  .recommendation {
+    flex-direction: column;
+    width: 100%;
   }
 
-  /* Hide Close Button on Mobile */
-  .sidebar-header .close-button {
-    display: none;
-  }
-
-  /* Show Dropdown Menu on Click for Section Headers */
-  .sidebar .section h4.active + ul {
-    display: block;
+  .course-card .image-container,
+  .course-info,
+  .recommendation-content {
+    width: 100%;
   }
 }
 
-/* Additional Styles for Better Indentation */
-.lesson-time {
-  margin-left: 25px; /* Further indent time from title */
-  padding-left: 0; /* Remove left padding if necessary */
+@media (max-width: 600px) {
+  .learning-section .courses,
+  .learning-section .learning-paths,
+  .learning-section .cert-prep {
+    flex-direction: column;
+  }
+
+  .course-card,
+  .recommendation {
+    width: 100%;
+  }
 }
 
-#more-languages {
-  position: relative; /* Giữ nguyên vị trí theo phần tử cha */
-  margin-top: 10px; /* Khoảng cách giữa "Last updated" và danh sách ngôn ngữ mở rộng */
-  background-color: #fff; /* Màu nền trắng để phù hợp với nền tổng thể */
-  padding: 10px; /* Đảm bảo khoảng cách nội dung */
-  z-index: 1000;
-  width: max-content; /* Đảm bảo không rộng hơn nội dung */
-  color: #333; /* Màu chữ để dễ đọc */
-
-  /* Loại bỏ tất cả viền và hiệu ứng bóng */
-  border: none !important;
-  box-shadow: none !important;
-  outline: none !important;
+/* Additional Styles for Progress Circle */
+.progress-circle svg circle {
+  stroke-linecap: round;
+}
+/* Outer Gray Semi-Circle */
+.progress-circle svg .outer-gray {
+  stroke: #d3d3d3; /* Light gray */
+  stroke-width: 5;
+  fill: none;
+  stroke-dasharray: 157; /* 2 * π * r (r=25) */
+  stroke-dashoffset: 117.75; /* 25% offset */
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+/* Outer Orange Semi-Circle */
+.progress-circle svg .outer-orange {
+  stroke: #ffa500; /* Orange */
+  stroke-width: 5;
+  fill: none;
+  stroke-dasharray: 157;
+  stroke-dashoffset: 117.75; /* 25% progress */
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+/* Inner Dark Green Circle */
+.progress-circle svg .inner-circle {
+  stroke: #006400; /* Dark green */
+  stroke-width: 5;
+  fill: none;
 }
