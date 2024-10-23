@@ -281,7 +281,6 @@ body {
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* Certification Section */
@@ -327,7 +326,6 @@ body {
   padding-bottom: 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
 }
 .certification-section .recommendations::-webkit-scrollbar {
   display: none;
@@ -514,15 +512,6 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1200px) {
-  .navbar .nav-links {
-    gap: 20px;
-  }
-  .learning-section .tabs {
-    gap: 15px;
-  }
-}
-
 @media (max-width: 800px) {
   .course-card,
   .recommendation {
@@ -547,29 +536,6 @@ body {
   .course-card,
   .recommendation {
     width: 100%;
-  }
-
-  .navbar .nav-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .welcome-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .streak-section {
-    flex-direction: column;
-  }
-  .streak-stats {
-    gap: 15px;
-  }
-  .learning-section .tabs {
-    flex-direction: column;
-    align-items: center;
   }
 }
 

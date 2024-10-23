@@ -9,7 +9,7 @@ body {
 /* Navbar */
 .navbar {
   background-color: #ffffff;
-  padding: 15px 20px;
+  padding: 15px 20px; /* Reduced horizontal padding */
   border-bottom: 1px solid #dfe1e5;
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@ body {
 }
 .navbar .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 30px; /* Tăng khoảng cách từ 20px lên 30px */
   width: 100%;
   max-width: 1200px;
   justify-content: space-around;
@@ -25,7 +25,7 @@ body {
 .navbar a {
   color: #202124;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 14px;
   white-space: nowrap;
 }
 .navbar a:hover {
@@ -51,16 +51,16 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 24px;
 }
 .welcome-section .welcome-text {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   color: #202124;
 }
 .welcome-section .add-info {
   color: #1a73e8;
-  font-size: 0.875rem;
+  font-size: 14px;
   margin-top: 5px;
   cursor: pointer;
   font-weight: bold;
@@ -75,54 +75,54 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-start; /* Căn chỉnh các phần tử theo đầu */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 .streak-info-container {
   flex: 1;
   text-align: left;
-  margin-right: 20px;
+  margin-right: 20px; /* Khoảng cách giữa streak-info và streak-stats */
 }
 .streak-info {
-  font-size: 1.125rem;
+  font-size: 18px; /* Tăng kích thước font để đồng nhất */
   font-weight: bold;
   color: #000000;
-  margin-bottom: 5px;
+  margin-bottom: 5px; /* Khoảng cách giữa streak-info và streak-subtext */
 }
 .streak-subtext {
-  font-size: 1rem;
+  font-size: 16px;
   color: #5f6368;
 }
 .streak-stats {
   display: flex;
   gap: 30px;
-  align-items: flex-start;
+  align-items: flex-start; /* Căn chỉnh các phần tử theo đầu */
 }
 .streak {
   display: flex;
-  align-items: center;
+  align-items: center; /* Căn giữa theo trục dọc */
   gap: 10px;
-  font-size: 1rem;
+  font-size: 16px;
   color: #202124;
 }
 .streak i {
   color: #6f42c1;
-  font-size: 1.5rem;
-  flex-shrink: 0;
+  font-size: 24px; /* Đảm bảo tất cả các biểu tượng có cùng kích thước */
+  flex-shrink: 0; /* Ngăn không cho biểu tượng bị co lại */
 }
 .streak-text {
-  margin-top: -2px;
+  margin-top: -2px; /* Di chuyển "Current streak" lên một chút */
 }
 .progress {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* Căn chỉnh các phần tử theo đầu */
   gap: 15px;
   position: relative;
 }
 .progress .progress-circle {
   position: relative;
-  width: 80px;
+  width: 80px; /* Increased size for better visibility */
   height: 80px;
 }
 .progress .progress-circle svg {
@@ -131,7 +131,7 @@ body {
   left: 0;
 }
 .progress-info {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #202124;
   position: relative;
 }
@@ -149,17 +149,18 @@ body {
   margin-right: 8px;
 }
 .dot-orange {
-  background-color: #ffa500;
+  background-color: #ffa500; /* Màu cam */
 }
 .dot-green {
-  background-color: #28a745;
+  background-color: #28a745; /* Màu xanh lá cây */
 }
 .dot-info {
-  margin-left: 20px;
-  color: #1a73e8;
-  cursor: pointer;
-  position: relative;
-}
+    margin-left: 50px; /* Tăng từ 10px lên 20px để cách xa hơn */
+    color: #1a73e8;
+    cursor: pointer;
+    position: relative;
+  }
+  
 .dot-info .tooltip {
   visibility: hidden;
   background-color: #555;
@@ -169,7 +170,7 @@ body {
   padding: 5px 10px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  bottom: 125%; /* Position above the icon */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -180,7 +181,7 @@ body {
 .dot-info .tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 100%; /* At the bottom of the tooltip */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -193,7 +194,7 @@ body {
 }
 .see-activity {
   color: #1a73e8;
-  font-size: 0.875rem;
+  font-size: 14px;
   cursor: pointer;
   font-weight: bold;
   text-decoration: underline;
@@ -211,7 +212,7 @@ body {
   padding: 5px 10px;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  bottom: 125%; /* Position above the icon */
   left: 50%;
   transform: translateX(-50%);
   opacity: 0;
@@ -222,7 +223,7 @@ body {
 .tooltip::after {
   content: "";
   position: absolute;
-  top: 100%;
+  top: 100%; /* At the bottom of the tooltip */
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
@@ -239,7 +240,7 @@ body {
   padding: 20px 30px;
 }
 .learning-section .section-title {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
   color: #202124;
@@ -252,7 +253,7 @@ body {
 .learning-section .tabs a {
   color: #202124;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
   padding-bottom: 5px;
   border-bottom: 2px solid transparent;
   cursor: pointer;
@@ -267,7 +268,7 @@ body {
 }
 .learning-section .my-learning {
   color: #1a73e8;
-  font-size: 0.875rem;
+  font-size: 14px;
   text-align: right;
   margin-bottom: 20px;
   cursor: pointer;
@@ -281,7 +282,6 @@ body {
   gap: 20px;
   overflow-x: auto;
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
 /* Certification Section */
@@ -300,7 +300,7 @@ body {
   gap: 15px;
 }
 .certification-section .header h1 {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: bold;
   color: #202124;
   margin: 0;
@@ -308,7 +308,7 @@ body {
 .certification-section .header a {
   color: #1a73e8;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 16px;
   font-weight: bold;
   transition: color 0.3s;
 }
@@ -327,7 +327,6 @@ body {
   padding-bottom: 10px;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  -webkit-overflow-scrolling: touch;
 }
 .certification-section .recommendations::-webkit-scrollbar {
   display: none;
@@ -368,21 +367,21 @@ body {
   justify-content: space-between;
 }
 .certification-section .recommendation-content h3 {
-  font-size: 1.125rem;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
   color: #202124;
   transition: color 0.3s;
 }
 .certification-section .recommendation-content p {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #5f6368;
   margin-bottom: 10px;
 }
 .certification-section .recommendation-content .rating {
   display: flex;
   align-items: center;
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #5f6368;
 }
 .certification-section .recommendation-content .rating i {
@@ -413,7 +412,7 @@ body {
   background-color: #333333;
 }
 .certification-section .scroll-right-button i {
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 /* Personalize Section */
@@ -432,7 +431,7 @@ body {
   right: 10px;
   background: transparent;
   border: none;
-  font-size: 1.25rem;
+  font-size: 20px;
   color: #5f6368;
   cursor: pointer;
   transition: color 0.3s;
@@ -445,7 +444,7 @@ body {
   color: #ffffff;
   border: none;
   padding: 12px 25px;
-  font-size: 1rem;
+  font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
@@ -503,26 +502,48 @@ body {
   justify-content: center;
 }
 .course-card .course-title {
-  font-size: 1.25rem;
+  font-size: 20px;
   font-weight: bold;
   color: #202124;
   margin-bottom: 10px;
 }
 .course-card .course-details {
-  font-size: 0.875rem;
+  font-size: 14px;
   color: #5f6368;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .navbar .nav-links {
-    gap: 20px;
-  }
-  .learning-section .tabs {
-    gap: 15px;
-  }
+/* Certification Recommendation Content */
+.recommendation .recommendation-content {
+  padding: 15px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.recommendation .recommendation-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #202124;
+  transition: color 0.3s;
+}
+.recommendation .recommendation-content p {
+  font-size: 14px;
+  color: #5f6368;
+  margin-bottom: 10px;
+}
+.recommendation .recommendation-content .rating {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #5f6368;
+}
+.recommendation .recommendation-content .rating i {
+  color: #f5a623;
+  margin-right: 5px;
 }
 
+/* Responsive Design */
 @media (max-width: 800px) {
   .course-card,
   .recommendation {
@@ -548,29 +569,6 @@ body {
   .recommendation {
     width: 100%;
   }
-
-  .navbar .nav-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .welcome-section {
-    flex-direction: column;
-    text-align: center;
-  }
-  .streak-section {
-    flex-direction: column;
-  }
-  .streak-stats {
-    gap: 15px;
-  }
-  .learning-section .tabs {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 
 /* Additional Styles for Progress Circle */
@@ -579,27 +577,27 @@ body {
 }
 /* Outer Gray Semi-Circle */
 .progress-circle svg .outer-gray {
-  stroke: #d3d3d3;
+  stroke: #d3d3d3; /* Light gray */
   stroke-width: 5;
   fill: none;
-  stroke-dasharray: 157;
-  stroke-dashoffset: 117.75;
+  stroke-dasharray: 157; /* 2 * π * r (r=25) */
+  stroke-dashoffset: 117.75; /* 25% offset */
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
 }
 /* Outer Orange Semi-Circle */
 .progress-circle svg .outer-orange {
-  stroke: #ffa500;
+  stroke: #ffa500; /* Orange */
   stroke-width: 5;
   fill: none;
   stroke-dasharray: 157;
-  stroke-dashoffset: 117.75;
+  stroke-dashoffset: 117.75; /* 25% progress */
   transform: rotate(-90deg);
   transform-origin: 50% 50%;
 }
 /* Inner Dark Green Circle */
 .progress-circle svg .inner-circle {
-  stroke: #006400;
+  stroke: #006400; /* Dark green */
   stroke-width: 5;
   fill: none;
 }
