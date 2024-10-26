@@ -294,11 +294,6 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
         transition: transform 0.3s, box-shadow 0.3s;
         color: #333333; /* Màu chữ tối */
-
-        /* Thêm thuộc tính sau để căn giữa nội dung */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
 
       .design-area:hover {
@@ -329,14 +324,13 @@
         background: linear-gradient(45deg, #1565c0, #0d47a1);
       }
 
-      /* Cập Nhật Lớp Image Preview */
       .image-preview {
         width: 100%;
-        height: auto; /* Loại bỏ chiều cao cố định */
-        max-height: 400px; /* Đặt giới hạn chiều cao tối đa nếu cần */
-        object-fit: cover; /* Hoặc 'contain' tùy ý bạn */
-        border-radius: 5px;
+        height: auto;
         margin-bottom: 15px;
+        border-radius: 5px;
+        object-fit: cover;
+        min-height: 200px;
       }
 
       /* Responsive */
@@ -667,9 +661,9 @@
               <ol>
                 <li>Đẩy lên GitHub.</li>
                 <li>
-                  Cho vào thư mục <strong>lab5_MaSV_HoangTen</strong> rồi nén
-                  lại thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài
-                  lên đây.
+                  Cho vào thư mục <strong>lab5_MaSV_HoTen</strong> rồi nén lại
+                  thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài lên
+                  đây.
                 </li>
                 <li>Nếu làm sai yêu cầu bị 0đ.</li>
               </ol>
@@ -686,28 +680,28 @@
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
                   <img
-                    src="assets/img/5.Req2.png"
+                    src="assets/img/requirement2.jpg"
                     alt="Requirement Image 2"
                     class="img-fluid rounded image-preview"
                   />
                 </div>
                 <div class="col-md-4 col-sm-6 mb-4">
                   <img
-                    src="assets/img/5.Req3.png"
+                    src="assets/img/requirement3.jpg"
                     alt="Requirement Image 3"
                     class="img-fluid rounded image-preview"
                   />
                 </div>
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-6 col-sm-6 mb-4">
                   <img
-                    src="assets/img/5.Req4.png"
+                    src="assets/img/requirement4.jpg"
                     alt="Requirement Image 4"
                     class="img-fluid rounded image-preview"
                   />
                 </div>
-                <div class="col-md-4 col-sm-6 mb-4">
+                <div class="col-md-6 col-sm-6 mb-4">
                   <img
-                    src="assets/img/5.Req5.png"
+                    src="assets/img/requirement5.jpg"
                     alt="Requirement Image 5"
                     class="img-fluid rounded image-preview"
                   />
@@ -724,13 +718,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignOnPaperLab5.jpg"
+                    src="assets/img/DesignPaperLab5.jpg"
                     alt="Design On Paper Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignOnPaperLab5.jpg"
+                      href="assets/img/DesignPaperLab5.jpg"
                       download
                       class="download-btn"
                     >
@@ -743,13 +737,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignOnFigmaLab5.png"
+                    src="assets/img/DesignLab5.png"
                     alt="Design On Figma Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignOnFigmaLab5.png"
+                      href="assets/img/DesignLab5.png"
                       download
                       class="download-btn"
                     >
@@ -772,14 +766,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab5/index.html"
+                  src="Lab5/responsive_design.html"
                   title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab5/index.html" class="lab-button">
+                <a href="Lab5/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>

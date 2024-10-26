@@ -1,0 +1,742 @@
+/* CSS Variables */
+:root {
+  --primary-color: #1a73e8;
+  --secondary-color: #f5a623;
+  --text-color: #202124;
+  --subtext-color: #5f6368;
+  --background-color: #f1f3f4;
+  --white-color: #ffffff;
+  --border-color: #dfe1e5;
+  --hover-color: #333333;
+  --font-family: 'Roboto', sans-serif;
+}
+
+/* Tổng quát */
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--border-color);
+  position: relative;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-color);
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Welcome Section */
+.welcome-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+  background-color: var(--white-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: #000000;
+  color: var(--white-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.welcome-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.add-info {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  margin-top: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  outline: none;
+}
+
+.add-info:focus {
+  text-decoration: underline;
+}
+
+/* Streak Section */
+.streak-section {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 20px;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.streak-info-container {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.streak-info {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.streak-subtext {
+  font-size: 1rem;
+  color: var(--subtext-color);
+}
+
+.streak-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.streak {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.streak i {
+  color: #6f42c1;
+  font-size: 1.5rem;
+}
+
+.streak-text {
+  margin-top: -2px;
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.progress-circle {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.progress-circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-info {
+  font-size: 0.875rem;
+  color: var(--text-color);
+}
+
+.progress-info div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.dot-orange,
+.dot-green {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.dot-orange {
+  background-color: #ffa500;
+}
+
+.dot-green {
+  background-color: #28a745;
+}
+
+.dot-info {
+  margin-left: 5px;
+  color: var(--primary-color);
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip {
+  visibility: hidden;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  width: max-content;
+  max-width: 200px;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.dot-info:hover .tooltip,
+.dot-info:focus .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.see-activity {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* Learning Section */
+.learning-section {
+  padding: 20px 30px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.tab.active {
+  border-bottom: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.tab:hover {
+  color: var(--primary-color);
+}
+
+.my-learning {
+  color: var(--primary-color);
+  font-size: 0.875rem;
+  text-align: right;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.tab-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  flex-shrink: 0;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.course-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  width: 35%;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.course-info {
+  padding: 15px;
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.course-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0 0 10px 0;
+}
+
+.course-details {
+  font-size: 0.875rem;
+  color: var(--subtext-color);
+  margin: 0;
+}
+
+/* Certification Section */
+.certification-section {
+  padding: 20px 30px;
+  margin: 20px;
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.certification-section .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  gap: 15px;
+}
+
+.certification-section .header h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.certification-section .header a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s, text-decoration 0.3s;
+}
+
+.certification-section .header a:hover {
+  text-decoration: underline;
+}
+
+.recommendations-container {
+  position: relative;
+}
+
+.recommendations {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.recommendations::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.recommendation {
+  background-color: var(--white-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  width: 350px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recommendation:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.recommendation img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.recommendation:hover img {
+  transform: scale(1.1);
+}
+
+.recommendation-content {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.recommendation-content h3 {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.recommendation-content p {
+  font-size: 0.875rem;
+  color: var(--subtext-color);
+  margin: 0 0 10px 0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--subtext-color);
+}
+
+.rating i {
+  color: #f5a623;
+  margin-right: 5px;
+}
+
+/* Scroll Right Button */
+.scroll-right-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #000000;
+  color: var(--white-color);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  z-index: 1;
+}
+
+.scroll-right-button:hover {
+  background-color: #333333;
+}
+
+.scroll-right-button i {
+  font-size: 1rem;
+}
+
+/* Personalize Section */
+.personalize {
+  position: relative;
+  text-align: center;
+  padding: 40px 20px;
+  border: 1px dashed var(--border-color);
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin: 20px 0;
+}
+
+.close-personalize {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.25rem;
+  color: var(--subtext-color);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-personalize:hover {
+  color: #ff0000;
+}
+
+.personalize i {
+  font-size: 40px;
+  color: var(--secondary-color);
+}
+
+.personalize h2 {
+  font-size: 1.5rem;
+  margin: 20px 0 10px 0;
+  color: var(--text-color);
+}
+
+.personalize p {
+  font-size: 1rem;
+  color: var(--subtext-color);
+  margin: 0 0 20px 0;
+}
+
+.add-occupation-button {
+  background-color: #000000;
+  color: var(--white-color);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-occupation-button:hover {
+  background-color: #333333;
+  transform: scale(1.05);
+}
+
+/* Common Card Styles */
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  background-color: var(--white-color);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .navbar .nav-links {
+    gap: 20px;
+  }
+
+  .learning-section .tabs {
+    gap: 15px;
+  }
+
+  .streak-stats {
+    gap: 15px;
+  }
+
+  .recommendation {
+    width: 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .streak-section {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .streak-stats {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .recommendations {
+    gap: 15px;
+  }
+
+  .recommendation {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-card,
+  .recommendation {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .course-card .image-container,
+  .course-info,
+  .recommendation-content {
+    width: 100%;
+  }
+
+  .streak-section {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--white-color);
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .welcome-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .progress-info .date-range {
+    margin-left: 0;
+  }
+
+  .streak-stats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .recommendations .recommendation {
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .learning-section .tabs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tabs a {
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Additional Styles for Progress Circle */
+.progress-circle svg circle {
+  stroke-linecap: round;
+}
+
+/* Outer Gray Circle */
+.outer-gray {
+  stroke: #d3d3d3;
+  stroke-width: 5;
+  fill: none;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 165;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Outer Orange Circle */
+.outer-orange {
+  stroke: #ffa500;
+  stroke-width: 5;
+  fill: none;
+  stroke-dasharray: 220;
+  stroke-dashoffset: 165;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+
+/* Inner Dark Green Circle */
+.inner-circle {
+  stroke: #006400;
+  stroke-width: 5;
+  fill: none;
+}
+
+/* Accessibility Focus Styles */
+a:focus,
+button:focus,
+.add-info:focus,
+.dot-info:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}

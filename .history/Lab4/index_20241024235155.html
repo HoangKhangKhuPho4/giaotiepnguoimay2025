@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard & Certification Recommendations</title>
+    <!-- Font Awesome for Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <div class="nav-links">
+        <a href="#">Business Operations</a>
+        <a href="#">Cloud Computing</a>
+        <a href="#">Cybersecurity</a>
+        <a href="#">Data Science</a>
+        <a href="#">Development</a>
+        <a href="#">IT Operations</a>
+        <a href="#">Language Learning</a>
+        <a href="#">Leadership &amp; Management</a>
+        <a href="#">Marketing</a>
+      </div>
+    </div>
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+      <div class="avatar">K</div>
+      <div>
+        <div class="welcome-text">Welcome back, Hoang Khang Nguyen Le</div>
+        <div class="add-info">
+          <strong>Add occupation and interests</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Streak Section -->
+    <div class="streak-section">
+      <div class="streak-info-container">
+        <div class="streak-info">Weekly Streak</div>
+        <div class="streak-subtext">One ring down, one to go. Keep it up!</div>
+      </div>
+      <div class="streak-stats">
+        <div class="streak">
+          <i class="fas fa-fire"></i>
+          <div class="streak-text">
+            <strong>2 weeks</strong><br />
+            Current streak
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-circle">
+            <svg height="60" width="60">
+              <!-- Vòng tròn xám nhạt -->
+              <circle
+                class="outer-gray"
+                cx="30"
+                cy="30"
+                r="25"
+                stroke="#d3d3d3"
+                stroke-width="5"
+                fill="none"
+              />
+              <!-- Vòng tròn cam 25% -->
+              <circle
+                class="outer-orange"
+                cx="30"
+                cy="30"
+                r="25"
+                stroke="#ffa500"
+                stroke-width="5"
+                fill="none"
+                stroke-dasharray="157"
+                stroke-dashoffset="117.75"
+              />
+              <!-- Vòng tròn xanh lá bên trong -->
+              <circle
+                class="inner-circle"
+                cx="30"
+                cy="30"
+                r="15"
+                stroke="#006400"
+                stroke-width="5"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="progress-info">
+            <div>
+              <span class="dot-orange"></span>
+              11/30 course min
+              <span class="dot-info">
+                <i class="fas fa-info-circle"></i>
+                <div class="tooltip">
+                  You need to complete 11 out of 30 courses to maintain your
+                  streak.
+                </div>
+              </span>
+            </div>
+            <div>
+              <span class="dot-green"></span>
+              4/1 visit
+            </div>
+            <div style="margin-left: 20px">Oct 13 - 19</div>
+          </div>
+        </div>
+        <div class="see-activity">See all activity</div>
+      </div>
+    </div>
+
+    <!-- Learning Section -->
+    <div class="learning-section">
+      <div class="section-title">Pick up where you left off</div>
+      <div class="tabs">
+        <a class="active" href="#" data-tab="courses">Courses</a>
+        <a href="#" data-tab="learning-paths">Learning paths</a>
+        <a href="#" data-tab="cert-prep">Certification preparation</a>
+      </div>
+      <div class="my-learning">My learning</div>
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <!-- Courses Tab Content -->
+        <div class="courses" id="courses">
+          <!-- Thẻ Card Course 1 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/customVideoThumbnail1.png"
+                alt="Introduction to [Your Video Topic 1]"
+                class="course-thumbnail"
+              />
+              <!-- Play button removed -->
+            </div>
+            <div class="course-info">
+              <div class="course-title">1. Introduction</div>
+              <div class="course-details">Lecture 1m</div>
+            </div>
+          </div>
+          <!-- Thẻ Card Course 2 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/customVideoThumbnail2.png"
+                alt="Advanced Concepts in [Your Video Topic 2]"
+                class="course-thumbnail"
+              />
+              <!-- Play button removed -->
+            </div>
+            <div class="course-info">
+              <div class="course-title">2. Integration introduction</div>
+              <div class="course-details">Lecture 6m left.</div>
+            </div>
+          </div>
+          <!-- Thẻ Card Course 3 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/customVideoThumbnail3.png"
+                alt="Mastering [Your Video Topic 3]"
+                class="course-thumbnail"
+              />
+              <!-- Play button removed -->
+            </div>
+            <div class="course-info">
+              <div class="course-title">7. Quiz and Questions</div>
+              <div class="course-details">Quiz 9 questions</div>
+            </div>
+          </div>
+          <!-- Replace VIDEO_ID_X with actual YouTube video IDs if needed -->
+        </div>
+
+        <!-- Learning Paths Tab Content -->
+        <div class="learning-paths" id="learning-paths" style="display: none">
+          <!-- Thẻ Card Learning Path 1 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/Data.jpg"
+                alt="Data Science Learning Path"
+                class="course-thumbnail"
+              />
+            </div>
+            <div class="course-info">
+              <div class="course-title">Data Science Learning Path</div>
+              <div class="course-details">
+                A comprehensive path to become a data scientist.
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Learning Path 2 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/cloud.jpg"
+                alt="Cloud Computing Learning Path"
+                class="course-thumbnail"
+              />
+            </div>
+            <div class="course-info">
+              <div class="course-title">Cloud Computing Learning Path</div>
+              <div class="course-details">
+                Master cloud technologies and architectures.
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Learning Path 3 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/security.jpg"
+                alt="Cybersecurity Learning Path"
+                class="course-thumbnail"
+              />
+            </div>
+            <div class="course-info">
+              <div class="course-title">Cybersecurity Learning Path</div>
+              <div class="course-details">
+                Learn to protect systems and data effectively.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certification Preparation Tab Content -->
+        <div class="cert-prep" id="cert-prep" style="display: none">
+          <!-- Thẻ Card Certification Prep 1 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/AWS.png"
+                alt="AWS Certification Prep"
+                class="course-thumbnail"
+              />
+            </div>
+            <div class="course-info">
+              <div class="course-title">AWS Certification Prep</div>
+              <div class="course-details">
+                Prepare for your AWS certification exams.
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification Prep 2 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/ggPrep.jpg"
+                alt="Google Cloud Certification Prep"
+                class="course-thumbnail"
+              />
+            </div>
+            <div class="course-info">
+              <div class="course-title">Google Cloud Certification Prep</div>
+              <div class="course-details">
+                Get ready for Google Cloud certifications.
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification Prep 3 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/Azue.png"
+                alt="Microsoft Azure Certification Prep"
+                class="course-thumbnail"
+              />
+            </div>
+            <div class="course-info">
+              <div class="course-title">Microsoft Azure Certification Prep</div>
+              <div class="course-details">
+                Comprehensive prep for Azure certifications.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certification Section -->
+    <div class="certification-section">
+      <div class="header">
+        <h1>Based on your certification interests, we recommend</h1>
+        <a href="#">Edit certification interests</a>
+      </div>
+      <div class="recommendations-container">
+        <div class="recommendations" id="recommendations">
+          <!-- Thẻ Card Certification 1 -->
+          <div class="recommendation card">
+            <img
+              src="images/course1.png"
+              alt="Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808"
+              class="recommendation-image"
+              height="150"
+              width="350"
+            />
+            <div class="recommendation-content">
+              <h3>
+                Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808
+              </h3>
+              <p>Andrii Piatakha, Learn IT University</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(438)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification 2 -->
+          <div class="recommendation card">
+            <img
+              src="images/course2.png"
+              alt="Oracle Java Certification - Pass the Associate 1Z0-808 Exam."
+              class="recommendation-image"
+              height="150"
+              width="350"
+            />
+            <div class="recommendation-content">
+              <h3>
+                Oracle Java Certification - Pass the Associate 1Z0-808 Exam.
+              </h3>
+              <p>Tim Buchalka's Learn Programming Academy, Goran Lochert</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(5,906)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification 3 -->
+          <div class="recommendation card">
+            <img
+              src="images/course3.png"
+              alt="Complete Java SE 8 Developer Bootcamp - OCA Prep Included"
+              class="recommendation-image"
+              height="150"
+              width="350"
+            />
+            <div class="recommendation-content">
+              <h3>Complete Java SE 8 Developer Bootcamp - OCA Prep Included</h3>
+              <p>Intertech Training, Jeff Jensen</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(9,726)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification 4 -->
+          <div class="recommendation card">
+            <img
+              src="images/course4.png"
+              alt="Spring Professional Certification Exam Tutorial - Module 02"
+              class="recommendation-image"
+              height="150"
+              width="350"
+            />
+            <div class="recommendation-content">
+              <h3>
+                Spring Professional Certification Exam Tutorial - Module 02
+              </h3>
+              <p>Dominik Cebula</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(1,121)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification 5 -->
+          <div class="recommendation card">
+            <img
+              src="images/course5.png"
+              alt="AWS Certified Solutions Architect – Associate"
+              class="recommendation-image"
+              height="150"
+              width="350"
+            />
+            <div class="recommendation-content">
+              <h3>AWS Certified Solutions Architect – Associate</h3>
+              <p>A Cloud Guru, Stephane Maarek</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.7 <span>(2,345)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Thẻ Card Certification 6 -->
+          <div class="recommendation card">
+            <img
+              src="images/course6.jpg"
+              alt="Certified Information Systems Security Professional (CISSP)"
+              class="recommendation-image"
+              height="150"
+              width="350"
+            />
+            <div class="recommendation-content">
+              <h3>
+                Certified Information Systems Security Professional (CISSP)
+              </h3>
+              <p>Cybrary, James Michael</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.8 <span>(3,210)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Nút "Scroll Right" -->
+        <button class="scroll-right-button" id="scrollRightBtn">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="personalize">
+        <!-- Close Icon -->
+        <button class="close-personalize" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <!-- User Icon -->
+        <i class="fas fa-user" style="font-size: 40px; color: #f5a623"></i>
+
+        <!-- Heading -->
+        <h2>Personalize your learning experience</h2>
+
+        <!-- Description -->
+        <p>
+          Add your occupation and interests to get better content
+          recommendations.
+        </p>
+
+        <!-- Add Occupation and Interests Button -->
+        <button class="add-occupation-button">
+          Add occupation and interests
+        </button>
+      </div>
+    </div>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

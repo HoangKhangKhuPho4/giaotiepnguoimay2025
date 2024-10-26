@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard & Certification Recommendations</title>
+    <!-- Font Awesome for Icons -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-brand">Dashboard</div>
+      <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navbar-menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links" id="navbar-menu">
+        <a href="#">Business Operations</a>
+        <a href="#">Cloud Computing</a>
+        <a href="#">Cybersecurity</a>
+        <a href="#">Data Science</a>
+        <a href="#">Development</a>
+        <a href="#">IT Operations</a>
+        <a href="#">Language Learning</a>
+        <a href="#">Leadership &amp; Management</a>
+        <a href="#">Marketing</a>
+      </div>
+    </nav>
+
+    <!-- Welcome Section -->
+    <section class="welcome-section">
+      <div class="avatar" aria-label="User Avatar">K</div>
+      <div>
+        <h2 class="welcome-text">Chào mừng trở lại, Hoàng Khang Nguyen Le</h2>
+        <div class="add-info" tabindex="0">
+          <strong>Thêm nghề nghiệp và sở thích</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Streak Section -->
+    <section class="streak-section">
+      <div class="streak-info-container">
+        <h3 class="streak-info">Chuỗi Hoạt Động Hàng Tuần</h3>
+        <p class="streak-subtext">Một vòng đã hoàn thành, còn một vòng nữa. Tiếp tục nhé!</p>
+      </div>
+      <div class="streak-stats">
+        <div class="streak">
+          <i class="fas fa-fire"></i>
+          <div class="streak-text">
+            <strong>2 tuần</strong><br />
+            Chuỗi hiện tại
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-circle">
+            <svg height="80" width="80">
+              <!-- Vòng tròn xám nhạt -->
+              <circle
+                class="outer-gray"
+                cx="40"
+                cy="40"
+                r="35"
+                stroke="#d3d3d3"
+                stroke-width="5"
+                fill="none"
+              />
+              <!-- Vòng tròn cam 25% -->
+              <circle
+                class="outer-orange"
+                cx="40"
+                cy="40"
+                r="35"
+                stroke="#ffa500"
+                stroke-width="5"
+                fill="none"
+                stroke-dasharray="220"
+                stroke-dashoffset="165"
+              />
+              <!-- Vòng tròn xanh lá bên trong -->
+              <circle
+                class="inner-circle"
+                cx="40"
+                cy="40"
+                r="20"
+                stroke="#006400"
+                stroke-width="5"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <div class="progress-info">
+            <div>
+              <span class="dot-orange"></span>
+              11/30 khóa học
+              <span class="dot-info" tabindex="0">
+                <i class="fas fa-info-circle"></i>
+                <div class="tooltip">
+                  Bạn cần hoàn thành 11 trong 30 khóa học để duy trì chuỗi của mình.
+                </div>
+              </span>
+            </div>
+            <div>
+              <span class="dot-green"></span>
+              4/1 lượt truy cập
+            </div>
+            <div class="date-range">13 - 19 Tháng 10</div>
+          </div>
+        </div>
+        <a href="#" class="see-activity">Xem tất cả hoạt động</a>
+      </div>
+    </section>
+
+    <!-- Learning Section -->
+    <section class="learning-section">
+      <h2 class="section-title">Tiếp tục nơi bạn đã dừng lại</h2>
+      <div class="tabs">
+        <a href="#" class="tab active" data-tab="courses">Khóa Học</a>
+        <a href="#" class="tab" data-tab="learning-paths">Lộ Trình Học Tập</a>
+        <a href="#" class="tab" data-tab="cert-prep">Chuẩn Bị Chứng Chỉ</a>
+      </div>
+      <a href="#" class="my-learning">Học của tôi</a>
+      <!-- Tab Content -->
+      <div class="tab-content">
+        <!-- Courses Tab Content -->
+        <div class="tab-pane active" id="courses">
+          <!-- Course Card 1 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/customVideoThumbnail1.png"
+                alt="Giới Thiệu về [Chủ Đề Video Của Bạn 1]"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">1. Giới Thiệu</h3>
+              <p class="course-details">Bài giảng 1 phút</p>
+            </div>
+          </div>
+          <!-- Course Card 2 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/customVideoThumbnail2.png"
+                alt="Khái Niệm Nâng Cao về [Chủ Đề Video Của Bạn 2]"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">2. Giới Thiệu Về Tích Hợp</h3>
+              <p class="course-details">Bài giảng còn lại 6 phút</p>
+            </div>
+          </div>
+          <!-- Course Card 3 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/customVideoThumbnail3.png"
+                alt="Nắm Vững [Chủ Đề Video Của Bạn 3]"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">7. Quiz và Câu Hỏi</h3>
+              <p class="course-details">Quiz 9 câu hỏi</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Learning Paths Tab Content -->
+        <div class="tab-pane" id="learning-paths">
+          <!-- Learning Path Card 1 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/Data.jpg"
+                alt="Lộ Trình Học Data Science"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">Lộ Trình Học Data Science</h3>
+              <p class="course-details">
+                Một lộ trình toàn diện để trở thành nhà khoa học dữ liệu.
+              </p>
+            </div>
+          </div>
+          <!-- Learning Path Card 2 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/cloud.jpg"
+                alt="Lộ Trình Học Cloud Computing"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">Lộ Trình Học Cloud Computing</h3>
+              <p class="course-details">
+                Thành thạo công nghệ và kiến trúc đám mây.
+              </p>
+            </div>
+          </div>
+          <!-- Learning Path Card 3 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/security.jpg"
+                alt="Lộ Trình Học Cybersecurity"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">Lộ Trình Học Cybersecurity</h3>
+              <p class="course-details">
+                Học cách bảo vệ hệ thống và dữ liệu hiệu quả.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certification Preparation Tab Content -->
+        <div class="tab-pane" id="cert-prep">
+          <!-- Certification Prep Card 1 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/AWS.png"
+                alt="Chuẩn Bị Chứng Chỉ AWS"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">Chuẩn Bị Chứng Chỉ AWS</h3>
+              <p class="course-details">
+                Chuẩn bị cho các kỳ thi chứng chỉ AWS của bạn.
+              </p>
+            </div>
+          </div>
+          <!-- Certification Prep Card 2 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/ggPrep.jpg"
+                alt="Chuẩn Bị Chứng Chỉ Google Cloud"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">Chuẩn Bị Chứng Chỉ Google Cloud</h3>
+              <p class="course-details">
+                Chuẩn bị cho các chứng chỉ Google Cloud.
+              </p>
+            </div>
+          </div>
+          <!-- Certification Prep Card 3 -->
+          <div class="course-card card">
+            <div class="image-container">
+              <img
+                src="images/Azue.png"
+                alt="Chuẩn Bị Chứng Chỉ Microsoft Azure"
+                class="course-thumbnail"
+                loading="lazy"
+              />
+            </div>
+            <div class="course-info">
+              <h3 class="course-title">Chuẩn Bị Chứng Chỉ Microsoft Azure</h3>
+              <p class="course-details">
+                Chuẩn bị toàn diện cho các chứng chỉ Azure.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certification Section -->
+    <section class="certification-section">
+      <div class="header">
+        <h1>Dựa trên sở thích chứng chỉ của bạn, chúng tôi đề xuất</h1>
+        <a href="#">Chỉnh sửa sở thích chứng chỉ</a>
+      </div>
+      <div class="recommendations-container">
+        <div class="recommendations" id="recommendations">
+          <!-- Recommendation Card 1 -->
+          <div class="recommendation card">
+            <img
+              src="images/course1.png"
+              alt="Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808"
+              class="recommendation-image"
+              height="150"
+              width="350"
+              loading="lazy"
+            />
+            <div class="recommendation-content">
+              <h3>Oracle Certified Associate Java Programmer (OCAJP) 1Z0-808</h3>
+              <p>Andrii Piatakha, Learn IT University</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(438)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recommendation Card 2 -->
+          <div class="recommendation card">
+            <img
+              src="images/course2.png"
+              alt="Oracle Java Certification - Pass the Associate 1Z0-808 Exam."
+              class="recommendation-image"
+              height="150"
+              width="350"
+              loading="lazy"
+            />
+            <div class="recommendation-content">
+              <h3>Oracle Java Certification - Pass the Associate 1Z0-808 Exam.</h3>
+              <p>Tim Buchalka's Learn Programming Academy, Goran Lochert</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(5,906)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recommendation Card 3 -->
+          <div class="recommendation card">
+            <img
+              src="images/course3.png"
+              alt="Complete Java SE 8 Developer Bootcamp - OCA Prep Included"
+              class="recommendation-image"
+              height="150"
+              width="350"
+              loading="lazy"
+            />
+            <div class="recommendation-content">
+              <h3>Complete Java SE 8 Developer Bootcamp - OCA Prep Included</h3>
+              <p>Intertech Training, Jeff Jensen</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(9,726)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recommendation Card 4 -->
+          <div class="recommendation card">
+            <img
+              src="images/course4.png"
+              alt="Spring Professional Certification Exam Tutorial - Module 02"
+              class="recommendation-image"
+              height="150"
+              width="350"
+              loading="lazy"
+            />
+            <div class="recommendation-content">
+              <h3>Spring Professional Certification Exam Tutorial - Module 02</h3>
+              <p>Dominik Cebula</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.6 <span>(1,121)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recommendation Card 5 -->
+          <div class="recommendation card">
+            <img
+              src="images/course5.png"
+              alt="AWS Certified Solutions Architect – Associate"
+              class="recommendation-image"
+              height="150"
+              width="350"
+              loading="lazy"
+            />
+            <div class="recommendation-content">
+              <h3>AWS Certified Solutions Architect – Associate</h3>
+              <p>A Cloud Guru, Stephane Maarek</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.7 <span>(2,345)</span>
+              </div>
+            </div>
+          </div>
+          <!-- Recommendation Card 6 -->
+          <div class="recommendation card">
+            <img
+              src="images/course6.jpg"
+              alt="Certified Information Systems Security Professional (CISSP)"
+              class="recommendation-image"
+              height="150"
+              width="350"
+              loading="lazy"
+            />
+            <div class="recommendation-content">
+              <h3>Certified Information Systems Security Professional (CISSP)</h3>
+              <p>Cybrary, James Michael</p>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                4.8 <span>(3,210)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="scroll-right-button" id="scrollRightBtn" aria-label="Cuộn sang phải">
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="personalize" id="personalizeSection">
+        <!-- Close Icon -->
+        <button class="close-personalize" aria-label="Đóng">
+          <i class="fas fa-times"></i>
+        </button>
+        <!-- User Icon -->
+        <i class="fas fa-user" aria-hidden="true"></i>
+        <!-- Heading -->
+        <h2>Cá nhân hóa trải nghiệm học tập của bạn</h2>
+        <!-- Description -->
+        <p>
+          Thêm nghề nghiệp và sở thích của bạn để nhận được các đề xuất nội dung tốt hơn.
+        </p>
+        <!-- Add Occupation and Interests Button -->
+        <button class="add-occupation-button">Thêm nghề nghiệp và sở thích</button>
+      </div>
+    </section>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

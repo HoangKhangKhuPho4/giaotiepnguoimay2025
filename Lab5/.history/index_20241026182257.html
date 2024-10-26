@@ -1,0 +1,299 @@
+<html>
+<head>
+    <title>
+        My Learning
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        /* Combined header and nav */
+        .header-nav {
+            background-color: #333; /* Black background */
+            color: white;
+            padding: 20px;
+            text-align: left;
+        }
+        .header-nav h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        .header-nav p {
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+        }
+        .header-nav p i {
+            margin: 0 5px;
+        }
+        .header-nav .nav {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px; /* Space between header content and nav */
+        }
+        .header-nav .nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative; /* For underline effect */
+        }
+        .header-nav .nav a:not(:last-child) {
+            margin-right: 10px;
+        }
+        .header-nav .nav a:hover::after,
+        .header-nav .nav a.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -5px; /* Adjust the distance below the text */
+            height: 2px; /* Thickness of the underline */
+            background-color: white;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+        }
+        .filters select, .filters input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .filters input[type="text"] {
+            flex-grow: 1;
+        }
+        .filters .reset-link {
+            color: black;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .filters button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .filters button:hover {
+            background-color: #555;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .course {
+            background-color: white;
+            width: 30%;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 400px;
+        }
+        .course img {
+            width: 100%;
+            height: auto;
+        }
+        .course-content {
+            padding: 15px;
+            flex-grow: 1;
+        }
+        .course-content h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .course-content p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        .course-footer .progress {
+            font-size: 14px;
+            color: #666;
+        }
+        .course-footer .rating {
+            display: flex;
+            align-items: center;
+        }
+        .course-footer .rating i {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+        .course-footer .rating span {
+            font-size: 14px;
+            color: #666;
+        }
+        .learning-paths {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 45%;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card img {
+            width: 50px;
+            height: auto;
+        }
+        .card h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+        .progress-bar {
+            height: 5px;
+            background-color: #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4a148c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Combined Header and Navigation -->
+    <div class="header-nav">
+        <h1>
+            My learning
+        </h1>
+        <p>
+            87hr 36min watched
+            <i class="fas fa-circle"></i>
+            <i class="fas fa-eye"></i>
+            <!-- Replaced icon before "View all activity" -->
+            <i class="fas fa-exclamation-circle"></i>
+            View all activity
+        </p>
+        <div class="nav">
+            <a class="tab-link active" data-tab="all-courses">All courses</a>
+            <a class="tab-link" data-tab="learning-paths">Learning paths</a>
+            <a class="tab-link" data-tab="certifications">Certifications</a>
+            <a class="tab-link" data-tab="archived">Archived</a>
+            <a class="tab-link" data-tab="learning-tools">Learning tools</a>
+        </div>
+    </div>
+    <div class="filters">
+        <div>
+            <select>
+                <option>Recently Accessed</option>
+            </select>
+            <select>
+                <option>Categories</option>
+            </select>
+            <select>
+                <option>Progress</option>
+            </select>
+            <select>
+                <option>Instructor</option>
+            </select>
+            <!-- Changed button to link with black text -->
+            <a href="#" class="reset-link">Reset</a>
+        </div>
+        <div>
+            <input type="text" placeholder="Search my courses"/>
+            <button>
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </div>
+    <!-- All Courses Tab Content -->
+    <div class="courses" id="all-courses">
+        <div class="course">
+            <img src="https://storage.googleapis.com/a1aa/image/cIz3XZ4qBOYMCZToC1xYtOS3nZLy3c3w81hSKHIM1s9Uxn6E.jpg" alt="Information Security Management System" width="300" height="200"/>
+            <div class="course-content">
+                <h3>FPT_ISMS Refresh Training S2 2024 (Vietnamese)</h3>
+                <p>FSOFT Content Development</p>
+            </div>
+            <div class="course-footer">
+                <div class="progress">100% complete</div>
+                <div class="rating">
+                    <i class="far fa-star"></i>
+                    <span>Leave a rating</span>
+                </div>
+            </div>
+        </div>
+        <!-- Add other courses here -->
+        <!-- ... -->
+    </div>
+    <!-- Learning Paths Tab Content -->
+    <div class="courses" id="learning-paths" style="display: none;">
+        <div class="card">
+            <img src="https://storage.googleapis.com/a1aa/image/6F9Hi4y5CLK2Gh25nVP0Bx1k6apve96hMgMmNj0JZOYA2P1JA.jpg" alt="FPT logo" width="50" height="50"/>
+            <h2>Learning path</h2>
+            <h2>Induction Training_GAAFOFY (VI)</h2>
+            <p>1 of 6 items complete</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 16.67%;"></div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://storage.googleapis.com/a1aa/image/6F9Hi4y5CLK2Gh25nVP0Bx1k6apve96hMgMmNj0JZOYA2P1JA.jpg" alt="FPT logo" width="50" height="50"/>
+            <h2>Learning path</h2>
+            <h2>Induction Training for BO_IT_Mandatory (VI)</h2>
+            <p>9 of 9 items complete</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Certifications Tab Content -->
+    <div class="courses" id="certifications" style="display: none;">
+        <p>Certifications content goes here...</p>
+    </div>
+    <!-- Archived Tab Content -->
+    <div class="courses" id="archived" style="display: none;">
+        <p>Archived content goes here...</p>
+    </div>
+    <!-- Learning Tools Tab Content -->
+    <div class="courses" id="learning-tools" style="display: none;">
+        <p>Learning Tools content goes here...</p>
+    </div>
+    <script>
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+
+                document.querySelectorAll('.courses').forEach(tab => tab.style.display = 'none');
+                document.getElementById(this.getAttribute('data-tab')).style.display = 'flex';
+            });
+        });
+    </script>
+</body>
+</html>

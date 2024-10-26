@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 5 - Course Management Page</title>
+    <title>Lab 5 - Responsive Web Design</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -294,11 +294,6 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
         transition: transform 0.3s, box-shadow 0.3s;
         color: #333333; /* Màu chữ tối */
-
-        /* Thêm thuộc tính sau để căn giữa nội dung */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
 
       .design-area:hover {
@@ -329,14 +324,13 @@
         background: linear-gradient(45deg, #1565c0, #0d47a1);
       }
 
-      /* Cập Nhật Lớp Image Preview */
       .image-preview {
         width: 100%;
-        height: auto; /* Loại bỏ chiều cao cố định */
-        max-height: 400px; /* Đặt giới hạn chiều cao tối đa nếu cần */
-        object-fit: cover; /* Hoặc 'contain' tùy ý bạn */
-        border-radius: 5px;
+        height: auto;
         margin-bottom: 15px;
+        border-radius: 5px;
+        object-fit: cover;
+        min-height: 200px;
       }
 
       /* Responsive */
@@ -608,7 +602,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 5 - Course Management Page</h2>
+        <h2 class="text-center mb-4">Lab 5 - Responsive Web Design</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -658,62 +652,107 @@
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
-              <p>Cô gửi bài tập làm trên lớp:</p>
+              <p>
+                Cô gửi yêu cầu lab5, thiết kế giao diện web responsive cho dự án
+                như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
+                github dạng: <em>XXX.github.com/lab5.html</em>
+              </p>
+              <h4>Responsive Web Design Requirements:</h4>
               <ul>
-                <li>Nhóm 1: yêu cầu Req1 và Req2</li>
-                <li>Nhóm 2: yêu cầu Req3, 4, 5</li>
-              </ul>
-              <p>Các em hoàn thành xong thì:</p>
-              <ol>
-                <li>Đẩy lên GitHub.</li>
                 <li>
-                  Cho vào thư mục <strong>lab5_MaSV_HoangTen</strong> rồi nén
-                  lại thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài
-                  lên đây.
+                  <strong>Layout Responsive:</strong>
+                  <ul>
+                    <li>
+                      Thiết kế giao diện hoạt động tốt trên mọi kích thước màn
+                      hình từ điện thoại di động đến máy tính để bàn.
+                    </li>
+                    <li>
+                      Sử dụng kỹ thuật Flexbox hoặc CSS Grid để tạo layout linh
+                      hoạt.
+                    </li>
+                  </ul>
                 </li>
-                <li>Nếu làm sai yêu cầu bị 0đ.</li>
-              </ol>
-
-              <!-- Image Gallery Section -->
-              <h4 class="mt-4">Hình Ảnh Minh Họa:</h4>
-              <div class="row">
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req1.png"
-                    alt="Requirement Image 1"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req2.png"
-                    alt="Requirement Image 2"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req3.png"
-                    alt="Requirement Image 3"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req4.png"
-                    alt="Requirement Image 4"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req5.png"
-                    alt="Requirement Image 5"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-              </div>
-              <!-- End of Image Gallery -->
+                <li>
+                  <strong>Navigation Menu:</strong>
+                  <ul>
+                    <li>
+                      Navigation menu thay đổi khi chuyển đổi kích thước màn
+                      hình, từ thanh ngang trên desktop sang menu dạng hamburger
+                      trên mobile.
+                    </li>
+                    <li>
+                      Menu có thể mở rộng và thu gọn khi nhấn vào biểu tượng
+                      hamburger.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Images and Media:</strong>
+                  <ul>
+                    <li>
+                      Sử dụng hình ảnh có kích thước linh hoạt, không bị vỡ khi
+                      thay đổi kích thước màn hình.
+                    </li>
+                    <li>
+                      Sử dụng các kỹ thuật như `srcset` và `picture` để tải hình
+                      ảnh phù hợp với từng thiết bị.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Typography:</strong>
+                  <ul>
+                    <li>
+                      Sử dụng đơn vị đo linh hoạt như `em`, `rem`, hoặc `vw` để
+                      đảm bảo văn bản hiển thị rõ ràng trên mọi thiết bị.
+                    </li>
+                    <li>
+                      Đảm bảo độ tương phản giữa văn bản và nền đủ cao để dễ
+                      đọc.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Forms and Inputs:</strong>
+                  <ul>
+                    <li>
+                      Thiết kế các form nhập liệu responsive, dễ sử dụng trên cả
+                      mobile và desktop.
+                    </li>
+                    <li>
+                      Sử dụng placeholder và label rõ ràng cho các trường nhập
+                      liệu.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Performance Optimization:</strong>
+                  <ul>
+                    <li>
+                      Tối ưu hóa hình ảnh và tài nguyên để giảm thời gian tải
+                      trang trên thiết bị di động.
+                    </li>
+                    <li>
+                      Sử dụng lazy loading cho hình ảnh và video khi cần thiết.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <h4>Additional Considerations:</h4>
+              <ul>
+                <li>
+                  Sử dụng media queries để điều chỉnh layout và phong cách theo
+                  từng kích thước màn hình cụ thể.
+                </li>
+                <li>
+                  Kiểm tra và đảm bảo giao diện hoạt động tốt trên các trình
+                  duyệt phổ biến như Chrome, Firefox, Safari, và Edge.
+                </li>
+                <li>
+                  Đảm bảo các yếu tố tương tác như nút bấm và form nhập liệu dễ
+                  sử dụng trên cả thiết bị di động và desktop.
+                </li>
+              </ul>
             </div>
 
             <!-- Tab Design -->
@@ -724,13 +763,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignOnPaperLab5.jpg"
+                    src="assets/img/DesignPaperLab5.jpg"
                     alt="Design On Paper Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignOnPaperLab5.jpg"
+                      href="assets/img/DesignPaperLab5.jpg"
                       download
                       class="download-btn"
                     >
@@ -743,13 +782,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignOnFigmaLab5.png"
+                    src="assets/img/DesignLab5.png"
                     alt="Design On Figma Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignOnFigmaLab5.png"
+                      href="assets/img/DesignLab5.png"
                       download
                       class="download-btn"
                     >
@@ -772,14 +811,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab5/index.html"
+                  src="Lab5/responsive_design.html"
                   title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab5/index.html" class="lab-button">
+                <a href="Lab5/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>

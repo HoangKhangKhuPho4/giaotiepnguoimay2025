@@ -294,11 +294,6 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
         transition: transform 0.3s, box-shadow 0.3s;
         color: #333333; /* Màu chữ tối */
-
-        /* Thêm thuộc tính sau để căn giữa nội dung */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
       }
 
       .design-area:hover {
@@ -329,12 +324,11 @@
         background: linear-gradient(45deg, #1565c0, #0d47a1);
       }
 
-      /* Cập Nhật Lớp Image Preview */
+      /* Updated Image Preview for Uniform Size */
       .image-preview {
         width: 100%;
-        height: auto; /* Loại bỏ chiều cao cố định */
-        max-height: 400px; /* Đặt giới hạn chiều cao tối đa nếu cần */
-        object-fit: cover; /* Hoặc 'contain' tùy ý bạn */
+        height: 200px; /* Fixed height for uniformity */
+        object-fit: cover; /* Crop images to fill the container */
         border-radius: 5px;
         margin-bottom: 15px;
       }
@@ -667,9 +661,9 @@
               <ol>
                 <li>Đẩy lên GitHub.</li>
                 <li>
-                  Cho vào thư mục <strong>lab5_MaSV_HoangTen</strong> rồi nén
-                  lại thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài
-                  lên đây.
+                  Cho vào thư mục <strong>lab5_MaSV_HoTen</strong> rồi nén lại
+                  thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài lên
+                  đây.
                 </li>
                 <li>Nếu làm sai yêu cầu bị 0đ.</li>
               </ol>
@@ -724,13 +718,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignOnPaperLab5.jpg"
+                    src="assets/img/DesignPaperLab5.jpg"
                     alt="Design On Paper Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignOnPaperLab5.jpg"
+                      href="assets/img/DesignPaperLab5.jpg"
                       download
                       class="download-btn"
                     >
@@ -743,13 +737,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignOnFigmaLab5.png"
+                    src="assets/img/DesignLab5.png"
                     alt="Design On Figma Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignOnFigmaLab5.png"
+                      href="assets/img/DesignLab5.png"
                       download
                       class="download-btn"
                     >
@@ -802,21 +796,15 @@
                 và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
               </p>
               <div class="social-links">
-                <a href="#" aria-label="Twitter"
-                  ><i class="bi bi-twitter"></i
-                ></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
                 <a
                   href="https://www.facebook.com/profile.php?id=100088292157574"
                   aria-label="Facebook"
                   ><i class="bi bi-facebook"></i
                 ></a>
-                <a href="#" aria-label="Instagram"
-                  ><i class="bi bi-instagram"></i
-                ></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
-                <a href="#" aria-label="LinkedIn"
-                  ><i class="bi bi-linkedin"></i
-                ></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
 
