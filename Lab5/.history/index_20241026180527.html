@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Learning</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: left;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .header p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .nav {
+            display: flex;
+            justify-content: flex-start;
+            background-color: #444;
+            padding: 10px 20px;
+        }
+        .nav a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .nav a:hover {
+            background-color: #555;
+        }
+        .nav a.active {
+            background-color: #555;
+        }
+        .filters {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: white;
+            border-bottom: 1px solid #ddd;
+        }
+        .filters select, .filters input {
+            padding: 10px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .filters button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #333;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .filters button:hover {
+            background-color: #555;
+        }
+        .courses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        .course {
+            background-color: white;
+            width: 30%;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .course img {
+            width: 100%;
+            height: auto;
+        }
+        .course-content {
+            padding: 15px;
+        }
+        .course-content h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .course-content p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .course-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        .course-footer .progress {
+            font-size: 14px;
+            color: #666;
+        }
+        .course-footer .rating {
+            display: flex;
+            align-items: center;
+        }
+        .course-footer .rating i {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f5f5f5;
+            padding: 10px 0;
+            border-bottom: 2px solid #ccc;
+        }
+        .tabs a {
+            text-decoration: none;
+            color: #333;
+            font-size: 18px;
+            padding: 10px 20px;
+        }
+        .tabs a.active {
+            border-bottom: 3px solid #333;
+        }
+        .learning-paths {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 45%;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+        }
+        .progress-bar {
+            height: 5px;
+            background-color: #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress {
+            height: 100%;
+            background-color: #4a148c;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>My Learning</h1>
+    <p>87hr 36min watched | <i class="fas fa-eye"></i> View all activity</p>
+</div>
+<div class="nav">
+    <a class="tab-link active" data-tab="all-courses">All courses</a>
+    <a class="tab-link" data-tab="learning-paths">Learning paths</a>
+    <a class="tab-link" data-tab="certifications">Certifications</a>
+    <a class="tab-link" data-tab="archived">Archived</a>
+    <a class="tab-link" data-tab="learning-tools">Learning tools</a>
+</div>
+<div class="filters">
+    <div>
+        <select>
+            <option>Recently Accessed</option>
+        </select>
+        <select>
+            <option>Categories</option>
+        </select>
+        <select>
+            <option>Progress</option>
+        </select>
+        <select>
+            <option>Instructor</option>
+        </select>
+        <button>Reset</button>
+    </div>
+    <div>
+        <input placeholder="Search my courses" type="text"/>
+        <button><i class="fas fa-search"></i></button>
+    </div>
+</div>
+<div class="courses" id="all-courses">
+    <div class="course">
+        <img alt="Information Security Management System" src="https://storage.googleapis.com/a1aa/image/cIz3XZ4qBOYMCZToC1xYtOS3nZLy3c3w81hSKHIM1s9Uxn6E.jpg"/>
+        <div class="course-content">
+            <h3>FPT_ISMS Refresh Training S2 2024 (Vietnamese)</h3>
+            <p>FSOFT Content Development</p>
+        </div>
+        <div class="course-footer">
+            <div class="progress">100% complete</div>
+            <div class="rating">
+                <i class="far fa-star"></i>
+                <span>Leave a rating</span>
+            </div>
+        </div>
+    </div>
+    <div class="course">
+        <img alt="Spring Boot Development Bootcamp" src="https://storage.googleapis.com/a1aa/image/oqDmrHXpH07PM9v5qFcgcuZMyv6CWxShFP7JNbkPtThXxn6E.jpg"/>
+        <div class="course-content">
+            <h3>The Complete Spring Boot Development Bootcamp</h3>
+            <p>Learn The Part Inc., Rayan Slim, Jose...</p>
+        </div>
+        <div class="course-footer">
+            <div class="progress">100% complete</div>
+            <div class="rating">
+                <i class="far fa-star"></i>
+                <span>Leave a rating</span>
+            </div>
+        </div>
+    </div>
+    <!-- Additional courses can be added here following the same structure -->
+</div>
+<script>
+    document.querySelectorAll('.tab-link').forEach(link => {
+        link.addEventListener('click', function() {
+            document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+
+            document.querySelectorAll('.courses').forEach(tab => tab.style.display = 'none');
+            document.getElementById(this.getAttribute('data-tab')).style.display = 'flex';
+        });
+    });
+</script>
+</body>
+</html>

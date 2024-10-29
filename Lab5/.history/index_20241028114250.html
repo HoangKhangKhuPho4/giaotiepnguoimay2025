@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <title>My Learning</title>
+
+    <!-- Font Awesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Header and Navigation -->
+    <div class="header-nav">
+      <h1>My learning</h1>
+      <p>
+        87hr 36min watched
+        <i class="fas fa-info"></i>
+        <span class="view-activity">View all activity</span>
+      </p>
+      <div class="nav">
+        <a class="tab-link active" data-tab="all-courses">All courses</a>
+        <a class="tab-link" data-tab="learning-paths">Learning paths</a>
+        <a class="tab-link" data-tab="certifications">Certifications</a>
+        <a class="tab-link" data-tab="archived">Archived</a>
+        <a class="tab-link" data-tab="learning-tools">Learning tools</a>
+      </div>
+    </div>
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filters-left">
+        <!-- Sort by Group -->
+        <div class="filter-group">
+          <label for="sort-by">Sort by</label>
+          <select id="sort-by">
+            <option value="recent">Recently Accessed</option>
+            <!-- Add more options if needed -->
+          </select>
+        </div>
+        <!-- Filter by Group -->
+        <div class="filter-group">
+          <label for="categories">Filter by</label>
+          <select id="categories">
+            <option value="">Categories</option>
+            <!-- Add category options here -->
+          </select>
+        </div>
+        <!-- Progress Filter -->
+        <div class="filter-group">
+          <label for="progress">&nbsp;</label>
+          <select id="progress">
+            <option value="">Progress</option>
+            <!-- Add progress options here -->
+          </select>
+        </div>
+        <!-- Instructor Filter -->
+        <div class="filter-group">
+          <label for="instructor">&nbsp;</label>
+          <select id="instructor">
+            <option value="">Instructor</option>
+            <!-- Add instructor options here -->
+          </select>
+        </div>
+        <!-- Reset Link -->
+        <a href="#" class="reset-link">Reset</a>
+      </div>
+      <div style="position: relative">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search my courses"
+          autocomplete="off"
+        />
+        <button>
+          <i class="fas fa-search"></i>
+        </button>
+        <ul id="suggestions" class="suggestions" style="display: none"></ul>
+      </div>
+    </div>
+    <!-- All Courses Content -->
+    <div class="content-section" id="all-courses">
+      <div class="courses">
+        <!-- Course 10 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/course1.jpg"
+            alt="Introduction to Python Programming Language"
+          />
+          <div class="course-content">
+            <h3>Comprehensive Introduction to Python Programming Language</h3>
+            <p>Udemy</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 60%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">60% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 11 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/js.png"
+            alt="Mastering Advanced JavaScript Concepts"
+          />
+          <div class="course-content">
+            <h3>Mastering Advanced JavaScript Concepts and Techniques</h3>
+            <p>Coursera</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 75%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">75% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 12 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/maxresdefault.jpg"
+            alt="Data Structures and Algorithms in Depth"
+          />
+          <div class="course-content">
+            <h3>Data Structures and Algorithms in Depth for Developers</h3>
+            <p>edX</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 20%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">20% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 13 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/machineln.png"
+            alt="Fundamentals of Machine Learning Basics"
+          />
+          <div class="course-content">
+            <h3>Fundamentals of Machine Learning Basics and Applications</h3>
+            <p>Pluralsight</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 40%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">40% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 14 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/1656944007892.jpg"
+            alt="Introduction to Cybersecurity Principles"
+          />
+          <div class="course-content">
+            <h3>Introduction to Cybersecurity Principles and Practices</h3>
+            <p>Udacity</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 5%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">5% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 15 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/WhatsApp-Image-2023-09-13-at-2.57.02-PM.jpeg"
+            alt="Web Development with React Framework"
+          />
+          <div class="course-content">
+            <h3>Building Modern Web Applications with React Framework</h3>
+            <p>Codecademy</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 80%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">80% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 16 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/Cloud.jpg"
+            alt="Cloud Computing Essentials and Practices"
+          />
+          <div class="course-content">
+            <h3>Cloud Computing Essentials and Best Practices</h3>
+            <p>LinkedIn Learning</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 90%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">90% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 17 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/Blockchain1.webp"
+            alt="Understanding Blockchain Technology"
+          />
+          <div class="course-content">
+            <h3>Understanding Blockchain Technology and Its Applications</h3>
+            <p>Udemy</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 35%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">35% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 18 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/terms_a_artificial-intelligence-ai_asp-FINAL-ddba8ac599f3438d8064350d2ee1ae5a.jpg"
+            alt="Artificial Intelligence Overview"
+          />
+          <div class="course-content">
+            <h3>Artificial Intelligence Overview: Concepts and Trends</h3>
+            <p>Coursera</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 50%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">50% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 19 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/userExperientDesign.jpg"
+            alt="User Experience Design Principles"
+          />
+          <div class="course-content">
+            <h3>User Experience Design Principles and Best Practices</h3>
+            <p>Interaction Design Foundation</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 70%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">70% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 20 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img src="images/SQL.jpg" alt="Introduction to SQL Databases" />
+          <div class="course-content">
+            <h3>Introduction to SQL Databases and Querying Techniques</h3>
+            <p>DataCamp</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 45%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">45% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+        <!-- Course 21 -->
+        <div class="course">
+          <i class="fas fa-ellipsis-v ellipsis"></i>
+          <img
+            src="images/Agile.png"
+            alt="Agile Project Management Techniques"
+          />
+          <div class="course-content">
+            <h3>Agile Project Management Techniques and Methodologies</h3>
+            <p>Scrum.org</p>
+          </div>
+          <div class="course-footer">
+            <div class="progress-bar">
+              <div class="progress" style="width: 85%"></div>
+            </div>
+            <div class="progress-rating">
+              <span class="complete-text">85% complete</span>
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+            <span class="leave-rating">Leave a rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Learning Paths Content -->
+    <div class="content-section" id="learning-paths" style="display: none">
+      <div class="learning-paths">
+        <!-- Learning Path 1 -->
+        <div class="learning-path">
+          <div class="learning-path-header">
+            <img src="images/fpt.png" alt="FPT logo" />
+            <div class="learning-path-text">
+              <h2>Learning path</h2>
+              <h2>Induction Training_GAAFOFY (VI)</h2>
+            </div>
+          </div>
+          <!-- Footer with progress info anchored at the bottom -->
+          <div class="learning-path-footer">
+            <p>1 of 6 items complete</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 16.67%"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Learning Path 2 -->
+        <div class="learning-path">
+          <div class="learning-path-header">
+            <img src="images/fpt.png" alt="FPT logo" />
+            <div class="learning-path-text">
+              <h2>Learning path</h2>
+              <h2>Induction Training for BO_IT_Mandatory (VI)</h2>
+            </div>
+          </div>
+          <!-- Footer with progress info anchored at the bottom -->
+          <div class="learning-path-footer">
+            <p>9 of 9 items complete</p>
+            <div class="progress-bar">
+              <div class="progress" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Other Tabs Content -->
+    <div class="content-section" id="certifications" style="display: none">
+      <p>Certifications content goes here...</p>
+    </div>
+    <div class="content-section" id="archived" style="display: none">
+      <p>Archived content goes here...</p>
+    </div>
+    <div class="content-section" id="learning-tools" style="display: none">
+      <p>Learning Tools content goes here...</p>
+    </div>
+    <!-- JavaScript for Tab Functionality, Search Suggestions, and Reset Functionality -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
