@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Custom Challenge</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .modal-content {
+      border-radius: 8px;
+    }
+    .modal-header {
+      background-color: #007bff;
+      color: white;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+    .form-control,
+    .form-select {
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .editor-toolbar {
+      border: 1px solid #ced4da;
+      border-bottom: none;
+      border-radius: 4px 4px 0 0;
+      background-color: #e9ecef;
+      padding: 5px;
+    }
+    .editor-content {
+      border: 1px solid #ced4da;
+      border-radius: 0 0 4px 4px;
+      padding: 10px;
+      min-height: 150px;
+      background-color: white;
+    }
+    .footer {
+      background-color: #343a40;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .btn-custom-ide {
+      background-color: #1c1e21;
+      color: white;
+      padding: 12px;
+      width: 100%;
+      font-weight: bold;
+      text-align: center;
+      display: inline-block;
+      border-radius: 4px;
+      border: none;
+    }
+    .btn-custom-ide:hover {
+      background-color: #0f0f0f;
+    }
+  </style>
+</head>
+<body>
+  <!-- Modal -->
+  <div class="modal fade show d-block" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Edit Custom Challenge</h5>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <!-- Challenge Name -->
+            <div class="mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="challengeName"
+                value="Demo"
+              />
+            </div>
+
+            <!-- Difficulty -->
+            <div class="mb-3">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <label for="difficulty" class="form-label m-lg-1">Difficulty:</label>
+                </div>
+                <div class="col-md-3">
+                  <select class="form-select" id="difficulty">
+                    <option selected>Easy</option>
+                    <option>Medium</option>
+                    <option>Hard</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Short Description -->
+            <div class="mb-3">
+              <div class="row align-items-center">
+                <div class="col-md-3">
+                  <label for="shortDescription" class="form-label m-lg-1">Short description:</label>
+                </div>
+                <div class="col-md-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="shortDescription"
+                    placeholder="Optional short description about this challenge..."
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Button to open Java IDE -->
+            <button type="button" class="btn-custom-ide mt-3">
+              Click here to open the Java (JUnit) IDE and edit your code →
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ENjdO4Dr2bkBIFxQpeoS2KOGc6x5P6hg/tSx0GxBcFjv2y1Y6VN1zH5Zp9vQ+Tjk"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giao diện Modal Phù Hợp với Desktop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        .modal-header {
+            background-color: #007bff;
+            color: white;
+            border-top-left-radius: 0.3rem;
+            border-top-right-radius: 0.3rem;
+        }
+        .modal-content {
+            border-radius: 0.3rem;
+        }
+        .btn-primary {
+            background-color: #1a1a1a;
+            border-color: #1a1a1a;
+        }
+        .btn-primary:hover {
+            background-color: #333333;
+            border-color: #333333;
+        }
+        .form-select, .form-control {
+            border-radius: 0;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-close {
+            color: black;
+        }
+        /* Loại bỏ hoặc điều chỉnh các quy định max-width tùy chỉnh */
+        /* .modal-dialog {
+            max-width: 90%; 
+            margin: 1.75rem auto;
+        }
+        @media (min-width: 576px) {
+            .modal-dialog {
+                max-width: 500px; 
+            }
+        }
+        @media (min-width: 992px) { 
+            .modal-dialog {
+                max-width: 800px; 
+            }
+        }
+        @media (min-width: 1200px) { 
+            .modal-dialog {
+                max-width: 1000px; 
+            }
+        } */
+    </style>
+</head>
+<body>
+    <!-- Nút Kích Hoạt Modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        Mở Modal
+    </button>
+
+    <!-- Modal Structure -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl" role="document"> <!-- Sử dụng lớp modal-xl để tăng kích thước -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New Unit Test Custom Challenge</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Demo" aria-label="Demo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="difficulty" class="form-label">Difficulty:</label>
+                            <select class="form-select" id="difficulty" aria-label="Difficulty">
+                                <option>Easy</option>
+                                <option>Medium</option>
+                                <option>Hard</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Optional short description about this challenge..." aria-label="Description">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary w-100">Click here to open the Java (JUnit) IDE and edit your code &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+ktxQW0Qb0b0+8mg5f1Qp3iu4KJ4g" crossorigin="anonymous"></script>
+</body>
+</html>

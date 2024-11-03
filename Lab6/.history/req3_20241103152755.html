@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Custom Challenge</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Corrected Bootstrap CSS with accurate integrity hash -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GNFb5kfVZxQIrT+8XEXr2Znl+1rhdvIBw4BIghs/b1FxciJpSzauP6sQGY7eJm0j"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+        max-width: 1200px; /* Set max-width for the page */
+        max-height: 800px; /* Set max-height for the page */
+        margin: 0 auto; /* Center the page */
+      }
+      .modal-dialog {
+        max-width: 800px; /* Set max-width for modal */
+        max-height: 600px; /* Set max-height for modal */
+        margin: auto; /* Center the modal */
+      }
+      .modal-content {
+        border-radius: 8px;
+      }
+      .modal-header {
+        background-color: #007bff;
+        color: white;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .form-control,
+      .form-select {
+        margin-bottom: 15px;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+      .editor-toolbar {
+        border: 1px solid #ced4da;
+        border-bottom: none;
+        border-radius: 4px 4px 0 0;
+        background-color: #e9ecef;
+        padding: 5px;
+      }
+      .editor-content {
+        border: 1px solid #ced4da;
+        border-radius: 0 0 4px 4px;
+        padding: 10px;
+        min-height: 150px;
+        background-color: white;
+        overflow-y: auto;
+      }
+      .footer {
+        background-color: #343a40;
+        color: white;
+        padding: 10px;
+        border-radius: 4px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      @media (max-width: 576px) {
+        .editor-content {
+          min-height: 100px; /* Reduce height for smaller screens */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Modal Structure -->
+    <div
+      class="modal fade"
+      id="editChallengeModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="editChallengeModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editChallengeModalLabel">
+              Edit Custom Challenge
+            </h5>
+            <!-- Corrected close button without invalid class -->
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="editChallengeForm">
+              <!-- Last Modified Section -->
+              <div class="mb-3">
+                <label for="challengeName" class="form-label m-lg-1">
+                  Last modified by sontth1@fpt.com on Apr 01 2024
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="challengeName"
+                  value="DSA ET Opt7 01"
+                  required
+                />
+              </div>
+
+              <!-- Difficulty Section -->
+              <div class="mb-3">
+                <div class="row align-items-center">
+                  <div class="col-md-3">
+                    <label for="difficulty" class="form-label m-lg-1">
+                      Difficulty:
+                    </label>
+                  </div>
+                  <div class="col-md-3">
+                    <select class="form-select" id="difficulty" required>
+                      <option value="" disabled selected>Select difficulty</option>
+                      <option value="Easy">Easy</option>
+                      <option value="Medium">Medium</option>
+                      <option value="Hard">Hard</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Short Description Section -->
+              <div class="mb-3">
+                <div class="row align-items-center">
+                  <div class="col-md-3">
+                    <label for="shortDescription" class="form-label m-lg-1">
+                      Short description:
+                    </label>
+                  </div>
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="shortDescription"
+                      value="This is a private challenge"
+                      required
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Editor Section -->
+              <div class="mb-3">
+                <label for="editor" class="form-label m-lg-1">Normal</label>
+                <div class="editor-toolbar">
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="bold"
+                    title="Bold"
+                  >
+                    <b>B</b>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="italic"
+                    title="Italic"
+                  >
+                    <i>I</i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="underline"
+                    title="Underline"
+                  >
+                    <u>U</u>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="strikeThrough"
+                    title="Strikethrough"
+                  >
+                    <s>S</s>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="insertUnorderedList"
+                    title="Unordered List"
+                  >
+                    <i class="fas fa-list-ul"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="insertOrderedList"
+                    title="Ordered List"
+                  >
+                    <i class="fas fa-list-ol"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="justifyLeft"
+                    title="Align Left"
+                  >
+                    <i class="fas fa-align-left"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="justifyCenter"
+                    title="Align Center"
+                  >
+                    <i class="fas fa-align-center"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="justifyRight"
+                    title="Align Right"
+                  >
+                    <i class="fas fa-align-right"></i>
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-light btn-sm"
+                    data-command="insertCode"
+                    title="Insert Code"
+                  >
+                    <i class="fas fa-code"></i>
+                  </button>
+                </div>
+                <div
+                  class="editor-content"
+                  id="editorContent"
+                  contenteditable="true"
+                >
+                  Write a program to count the number of elements as odd numbers
+                  in the array<br />
+                  Example: Array A = { 12, 31, 25, 17, 40, 10, 29}<br />
+                  => Number of elements as odd number in array A is : 4
+                </div>
+              </div>
+
+              <!-- Footer Section -->
+              <div class="footer" id="starterCodeLink">
+                <i class="fas fa-check"></i> Starter code will automatically
+                be generated for all 18 coding languages
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-start">
+            <button type="button" class="btn btn-primary" id="updateChallengeBtn">
+              Update Custom Challenge
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Font Awesome JS (for icons) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <!-- Corrected Bootstrap JS with accurate integrity hash -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-QJHtvGhmr9b7M/T7p5XxFXjChfP3TpMkePzlbM31YcFkaR+T+4XGm2Z5hXbLJ8CQ"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize Bootstrap Modal
+        const editChallengeModal = new bootstrap.Modal(
+          document.getElementById("editChallengeModal")
+        );
+
+        // Show the modal on page load
+        editChallengeModal.show();
+
+        // Handle closing the modal
+        document
+          .querySelector(".btn-close")
+          .addEventListener("click", function () {
+            editChallengeModal.hide();
+          });
+
+        // Handle editor toolbar button clicks
+        const toolbarButtons = document.querySelectorAll(
+          ".editor-toolbar button"
+        );
+        toolbarButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const command = this.getAttribute("data-command");
+            const editor = document.getElementById("editorContent");
+
+            if (command === "insertCode") {
+              // Wrap selected text in <code> tag
+              const selection = window.getSelection();
+              if (!selection.rangeCount) return;
+              const range = selection.getRangeAt(0);
+              const code = document.createElement("code");
+              code.textContent = selection.toString();
+              range.deleteContents();
+              range.insertNode(code);
+            } else {
+              document.execCommand(command, false, null);
+            }
+
+            // Focus back to the editor
+            editor.focus();
+          });
+        });
+
+        // Handle Update Custom Challenge button click
+        document
+          .getElementById("updateChallengeBtn")
+          .addEventListener("click", function () {
+            const form = document.getElementById("editChallengeForm");
+            const challengeName = document.getElementById("challengeName")
+              .value.trim();
+            const difficulty = document.getElementById("difficulty").value;
+            const shortDescription = document.getElementById(
+              "shortDescription"
+            ).value.trim();
+            const editorContent = document.getElementById("editorContent")
+              .innerHTML.trim();
+
+            // Simple validation
+            if (
+              !challengeName ||
+              !difficulty ||
+              !shortDescription ||
+              !editorContent
+            ) {
+              alert("Please fill in all the fields.");
+              return;
+            }
+
+            // Here you can handle the form submission, e.g., send data to the server
+            // For demonstration, we'll just log the data and show a success message
+
+            const challengeData = {
+              challengeName,
+              difficulty,
+              shortDescription,
+              editorContent,
+            };
+
+            console.log("Challenge Data:", challengeData);
+
+            // Show success alert
+            alert("Custom Challenge updated successfully!");
+
+            // Optionally, close the modal
+            editChallengeModal.hide();
+          });
+
+        // Handle Starter Code Link Footer click (already present)
+        document
+          .getElementById("starterCodeLink")
+          .addEventListener("click", function () {
+            window.location.href = "req4.html";
+          });
+      });
+    </script>
+  </body>
+</html>

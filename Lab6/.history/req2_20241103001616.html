@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Unit Test Custom Challenge</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            width: 600px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 16px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header .close-btn {
+            font-size: 1.2rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 20px;
+        }
+
+        .content input[type="text"], 
+        .content select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            color: #333;
+            background-color: #f8f9fa;
+            transition: border-color 0.3s ease;
+        }
+
+        .content select {
+            appearance: none;
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%23333' d='M7 10l5 5 5-5H7z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            background-size: 10px;
+        }
+
+        .content label {
+            font-size: 0.9rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .footer {
+            padding: 16px;
+            background-color: #263238;
+            text-align: center;
+        }
+
+        .footer button {
+            background-color: #263238;
+            color: white;
+            padding: 12px;
+            width: 100%;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .footer button:hover {
+            background-color: #1b252b;
+        }
+
+        /* Hover effect */
+        .content input[type="text"]:focus, 
+        .content select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span>New unit test custom challenge</span>
+            <span class="close-btn">&times;</span>
+        </div>
+        <div class="content">
+            <label for="title">Challenge Title:</label>
+            <input type="text" id="title" placeholder="Demo">
+
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+                <option selected>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+            </select>
+
+            <label for="description">Short description:</label>
+            <input type="text" id="description" placeholder="Optional short description about this challenge...">
+        </div>
+        <div class="footer">
+            <button type="button">Click here to open the Java (JUnit) IDE and edit your code →</button>
+        </div>
+    </div>
+</body>
+</html>

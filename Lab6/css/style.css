@@ -1,0 +1,76 @@
+body {
+    background-color: #f8f9fa;
+  }
+  /* Adjust the modal to be responsive */
+  .modal-dialog {
+    max-width: 90%;
+    margin: 3rem auto;
+  }
+  /* Make the modal header larger */
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+    padding: 1rem;
+  }
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  /* Center content inside cards and make them flexible */
+  .card {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+  .badge {
+    background-color: #6c757d;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-outline-secondary {
+    border-color: #6c757d;
+    color: #6c757d;
+  }
+  .card-body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+  }
+  .card-text {
+    flex-grow: 1;
+  }
+  .card-buttons {
+    margin-top: auto;
+  }
+  /* Adjust image sizes and center them */
+  .card-img-top {
+    max-width: 80px; /* Adjust size as needed */
+    height: auto;
+    margin: 0 auto;
+  }
+  /* Ensure buttons are responsive */
+  .card-buttons a {
+    margin: 0.5rem;
+  }
+
+  .container-fluid {
+    margin-top: 2rem; /* Điều chỉnh giá trị này để đạt được khoảng cách mong muốn */
+  }

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 6 - JavaScript Programming</title>
+    <title>Lab 5 - Course Management Page</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -20,11 +20,20 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
@@ -92,7 +101,11 @@
         transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff); /* Hover background */
+        background: linear-gradient(
+          45deg,
+          #66b2ff,
+          #4da6ff
+        ); /* Hover background */
         color: #ff8c00; /* Hover text color */
       }
 
@@ -281,6 +294,11 @@
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
         transition: transform 0.3s, box-shadow 0.3s;
         color: #333333; /* Màu chữ tối */
+
+        /* Thêm thuộc tính sau để căn giữa nội dung */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
 
       .design-area:hover {
@@ -311,13 +329,14 @@
         background: linear-gradient(45deg, #1565c0, #0d47a1);
       }
 
+      /* Cập Nhật Lớp Image Preview */
       .image-preview {
         width: 100%;
-        height: auto;
-        margin-bottom: 15px;
+        height: auto; /* Loại bỏ chiều cao cố định */
+        max-height: 400px; /* Đặt giới hạn chiều cao tối đa nếu cần */
+        object-fit: cover; /* Hoặc 'contain' tùy ý bạn */
         border-radius: 5px;
-        object-fit: cover;
-        min-height: 200px;
+        margin-bottom: 15px;
       }
 
       /* Responsive */
@@ -474,7 +493,11 @@
       }
 
       .newsletter-form button {
-        background-color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho nút gửi */
+        background-color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Màu xanh nước biển cho nút gửi */
         color: white;
         border-radius: 0 4px 4px 0;
         cursor: pointer;
@@ -482,17 +505,63 @@
       }
 
       .newsletter-form button:hover {
-        background-color: hsl(220, 100%, 60%); /* Xanh nước biển nhạt hơn khi hover */
+        background-color: hsl(
+          220,
+          100%,
+          60%
+        ); /* Xanh nước biển nhạt hơn khi hover */
       }
 
       .footer-contact p {
         color: #ffffff; /* Đổi màu văn bản thành trắng */
       }
 
+      .footer-contact a {
+        color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+      }
+
+      .footer-contact p {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      .footer-contact p a {
+        color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+      }
+
+      .footer-contact a {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      .footer-contact p {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
       .footer-contact p strong {
         color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
       }
 
+      /* Màu cho nội dung phía sau tiêu đề */
       .footer-contact p a {
         color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
         text-decoration: none;
@@ -539,7 +608,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 6 - JavaScript Programming</h2>
+        <h2 class="text-center mb-4">Lab 5 - Course Management Page</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -555,13 +624,13 @@
           <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
             <i class="bi bi-book"></i> Lab 4
           </a>
-          <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
+          <a
+            href="lab5.html"
+            class="btn btn-warning-custom lab5 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 5
           </a>
-          <a
-            href="lab6.html"
-            class="btn btn-info-custom lab6 lab-button active"
-          >
+          <a href="lab6.html" class="btn btn-info-custom lab6 lab-button">
             <i class="bi bi-book"></i> Lab 6
           </a>
           <a href="lab7.html" class="btn btn-light-custom lab7 lab-button">
@@ -589,160 +658,62 @@
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
-              <p>
-                Các em làm bài tập này giúp cô nhé.
-              </p>
-              <p>
-                <strong>Nhóm 2 làm Req4, 5, 6, 7</strong>
-              </p>
-              <p>
-                Các em hoàn thành xong thì:
-              </p>
+              <p>Cô gửi bài tập làm trên lớp:</p>
+              <ul>
+                <li>Nhóm 1: yêu cầu Req1 và Req2</li>
+                <li>Nhóm 2: yêu cầu Req3, 4, 5</li>
+              </ul>
+              <p>Các em hoàn thành xong thì:</p>
               <ol>
                 <li>Đẩy lên GitHub.</li>
                 <li>
-                  Cho vào thư mục <strong>lab6_MaSV_HoangTen</strong> rồi nén lại thành file .zip (chỉ .zip) rồi nộp bài lên đây.
+                  Cho vào thư mục <strong>lab5_MaSV_HoangTen</strong> rồi nén
+                  lại thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài
+                  lên đây.
                 </li>
                 <li>Nếu làm sai yêu cầu bị 0đ.</li>
               </ol>
 
-              <!-- Image Cards Section -->
-              <h4 class="mt-4">Tài liệu tham khảo:</h4>
-              <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mt-3">
-                <!-- Card 1 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req1.png"
-                      class="card-img-top"
-                      alt="Card 1"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 1</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
+              <!-- Image Gallery Section -->
+              <h4 class="mt-4">Hình Ảnh Minh Họa:</h4>
+              <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req1.png"
+                    alt="Requirement Image 1"
+                    class="img-fluid rounded image-preview"
+                  />
                 </div>
-                <!-- Card 2 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req2.png"
-                      class="card-img-top"
-                      alt="Card 2"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 2</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req2.png"
+                    alt="Requirement Image 2"
+                    class="img-fluid rounded image-preview"
+                  />
                 </div>
-                <!-- Card 3 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req3.png"
-                      class="card-img-top"
-                      alt="Card 3"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 3</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req3.png"
+                    alt="Requirement Image 3"
+                    class="img-fluid rounded image-preview"
+                  />
                 </div>
-                <!-- Card 4 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req4.png"
-                      class="card-img-top"
-                      alt="Card 4"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 4</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req4.png"
+                    alt="Requirement Image 4"
+                    class="img-fluid rounded image-preview"
+                  />
                 </div>
-
-                <!-- Card 5 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req5 (1).png"
-                      class="card-img-top"
-                      alt="Card 5"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 5</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 6 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req6 (1).png"
-                      class="card-img-top"
-                      alt="Card 6"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 6</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 7 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req7 (1).png"
-                      class="card-img-top"
-                      alt="Card 7"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 7</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 8 -->
-                <div class="col">
-                  <div class="card h-100">
-                    <img
-                      src="assets/img/6. Req8 (1).png"
-                      class="card-img-top"
-                      alt="Card 8"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Tài liệu 8</h5>
-                      <p class="card-text">
-                        Mô tả ngắn về tài liệu hoặc hình ảnh này.
-                      </p>
-                    </div>
-                  </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req5.png"
+                    alt="Requirement Image 5"
+                    class="img-fluid rounded image-preview"
+                  />
                 </div>
               </div>
-              <!-- End of Image Cards Section -->
+              <!-- End of Image Gallery -->
             </div>
 
             <!-- Tab Design -->
@@ -753,13 +724,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab6.jpg"
-                    alt="Design On Paper Lab6"
+                    src="assets/img/DesignOnPaperLab5.jpg"
+                    alt="Design On Paper Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab6.jpg"
+                      href="assets/img/DesignOnPaperLab5.jpg"
                       download
                       class="download-btn"
                     >
@@ -772,20 +743,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignLab6.png"
-                    alt="Design On Figma Lab6"
+                    src="assets/img/DesignOnFigmaLab5.png"
+                    alt="Design On Figma Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignLab6.png"
+                      href="assets/img/DesignOnFigmaLab5.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link-lab6"
+                      href="https://www.figma.com/your-figma-link-lab5"
                       target="_blank"
                       class="view-btn"
                     >
@@ -801,14 +772,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab6/javascript_programming.html"
-                  title="javascript_programming"
+                  src="Lab5/index.html"
+                  title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab6/Html/index.html" class="lab-button">
+                <a href="Lab5/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -831,15 +802,21 @@
                 và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
               </p>
               <div class="social-links">
-                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="bi bi-twitter"></i
+                ></a>
                 <a
                   href="https://www.facebook.com/profile.php?id=100088292157574"
                   aria-label="Facebook"
                   ><i class="bi bi-facebook"></i
                 ></a>
-                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
                 <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
               </div>
             </div>
 
@@ -925,7 +902,8 @@
               <h4>Liên Hệ</h4>
               <p>
                 <strong>Email:</strong>
-                <a href="mailto:22130116@st.hcmuaf.edu.vn">22130116@st.hcmuaf.edu.vn</a
+                <a href="mailto:22130116@st.hcmuaf.edu.vn"
+                  >22130116@st.hcmuaf.edu.vn</a
                 ><br />
                 <strong>Điện Thoại:</strong>
                 <a href="tel:+1234567890">+1 234 567 890</a><br />
@@ -933,17 +911,12 @@
               </p>
               <!-- Đăng Ký Newsletter -->
               <form action="#" method="post" class="newsletter-form">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email của bạn"
-                  aria-label="Email của bạn"
-                  required
-                />
+                <input type="email" name="email" placeholder="Email của bạn" aria-label="Email của bạn" required />
                 <button type="submit" aria-label="Đăng Ký">
                   <i class="bi bi-send"></i>
                 </button>
               </form>
+              
             </div>
           </div>
         </div>
@@ -989,7 +962,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 6
+      // Hàm thay đổi tab trong Lab 5
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
