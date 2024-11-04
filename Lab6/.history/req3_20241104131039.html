@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Custom Challenge</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/req3.css">
+    <style>
+      body {
+    background-color: #f8f9fa;
+    max-width: 1200px; /* Thiết lập max-width cho trang */
+    max-height: 800px; /* Thiết lập max-height cho trang */
+    margin: 0 auto; /* Giúp căn giữa trang */
+  }
+  .modal-dialog {
+    max-width: 800px; /* Thiết lập max-width cho modal */
+    max-height: 600px; /* Thiết lập max-height cho modal */
+    margin: auto; /* Đảm bảo modal được căn giữa */
+  }
+  .modal-content {
+    border-radius: 8px;
+  }
+  .modal-header {
+    background-color: #007bff;
+    color: white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .form-control,
+  .form-select {
+    margin-bottom: 15px;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  .editor-toolbar {
+    border: 1px solid #ced4da;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    background-color: #e9ecef;
+    padding: 5px;
+  }
+  .editor-content {
+    border: 1px solid #ced4da;
+    border-radius: 0 0 4px 4px;
+    padding: 10px;
+    min-height: 150px;
+    background-color: white;
+  }
+  .footer {
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  @media (max-width: 576px) {
+    .editor-content {
+      min-height: 100px; /* Giảm chiều cao cho các màn hình nhỏ hơn */
+    }
+  }
+    </style>
+  </head>
+  <body>
+    <!-- Modal -->
+    <div class="modal fade show d-block" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Edit Custom Challenge</h5>
+            <!-- Cập nhật nút đóng modal -->
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- Last Modified Section -->
+              <div class="mb-3">
+                <label for="challengeName" class="form-label m-lg-1"
+                  >Last modified by sontth1@fpt.com on Apr 01 2024</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="challengeName"
+                  value="DSA ET Opt7 01"
+                />
+              </div>
+
+              <!-- Difficulty Section -->
+              <div class="mb-3">
+                <div class="row align-items-center">
+                  <div class="col-md-3">
+                    <label for="difficulty" class="form-label m-lg-1"
+                      >Difficulty:</label
+                    >
+                  </div>
+                  <div class="col-md-3">
+                    <select class="form-select" id="difficulty">
+                      <option selected><strong>Easy</strong></option>
+                      <option>Medium</option>
+                      <option>Hard</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Short Description Section -->
+              <div class="mb-3">
+                <div class="row align-items-center">
+                  <div class="col-md-3">
+                    <label for="shortDescription" class="form-label m-lg-1"
+                      >Short description:</label
+                    >
+                  </div>
+                  <div class="col-md-9">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="shortDescription"
+                      value="This is a private challenge"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Editor Section -->
+              <div class="mb-3">
+                <label for="editor" class="form-label m-lg-1">Normal</label>
+                <div class="editor-toolbar">
+                  <button type="button" class="btn btn-light btn-sm">
+                    <b>B</b>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i>I</i>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <u>U</u>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <s>S</s>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i class="fas fa-list-ul"></i>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i class="fas fa-list-ol"></i>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i class="fas fa-align-left"></i>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i class="fas fa-align-center"></i>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i class="fas fa-align-right"></i>
+                  </button>
+                  <button type="button" class="btn btn-light btn-sm">
+                    <i class="fas fa-code"></i>
+                  </button>
+                </div>
+                <div class="editor-content" contenteditable="true">
+                  Write a program to count the number of elements as odd numbers
+                  in the array<br />
+                  Example: Array A = { 12, 31, 25, 17, 40, 10, 29}<br />
+                  => Number of elements as odd number in array A is : 4
+                </div>
+              </div>
+
+              <!-- Footer Section -->
+              <div class="footer" id="starterCodeLink">
+                <i class="fas fa-check"></i> Starter code will automatically be
+                generated for all 18 coding languages
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer justify-content-start">
+            <button type="button" class="btn btn-primary">
+              Update Custom Challenge
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Font Awesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoS2KOGc6x5P6hg/tSx0GxBcFjv2y1Y6VN1zH5Zp9vQ+Tjk"
+      crossorigin="anonymous"
+    ></script>
+       <script src="js/req3.js"></script>
+  </body>
+</html>
