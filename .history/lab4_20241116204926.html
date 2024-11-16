@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 3 - Learning Resources Sharing Platform</title>
+    <title>Lab 4 - Personal Learning Portal</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -42,29 +42,29 @@
       /* Cơ bản */
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #121212; /* Nền chính màu đen tối */
-        color: #e0e0e0; /* Màu chữ sáng cho độ tương phản */
+        background-color: #121212;
+        color: #e0e0e0;
       }
 
       /* Header */
       .header {
-        background-color: #1f1f1f; /* Màu nền header tối hơn */
+        background-color: #1f1f1f;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       .logo .sitename {
         font-size: 24px;
         font-weight: 700;
-        color: #ffffff; /* Màu chữ trắng */
+        color: #ffffff;
       }
 
       .navmenu ul li a {
-        color: #e0e0e0; /* Màu chữ sáng cho liên kết */
+        color: #e0e0e0;
         transition: color 0.3s;
       }
 
       .navmenu ul li a:hover {
-        color: #1e88e5; /* Màu khi hover */
+        color: #1e88e5;
       }
 
       /* Lab Buttons */
@@ -77,7 +77,6 @@
       }
 
       /* Định nghĩa lớp lab-button cho các nút Lab */
-      /* General Lab Button Styles */
       .lab-button {
         padding: 12px 24px;
         border-radius: 50px;
@@ -93,7 +92,7 @@
         border: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none; /* Ensure no underline */
+        text-decoration: none;
       }
 
       /* Hover Styles for All Lab Buttons */
@@ -101,12 +100,8 @@
         transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(
-          45deg,
-          #66b2ff,
-          #4da6ff
-        ); /* Hover background */
-        color: #ff8c00; /* Hover text color */
+        background: linear-gradient(45deg, #66b2ff, #4da6ff);
+        color: #ff8c00;
       }
 
       /* Active Button Styles */
@@ -118,7 +113,7 @@
 
       /* Ensure hover on active button changes text color */
       .lab-button.active:hover {
-        color: #ff8c00; /* Màu cam khi hover */
+        color: #ff8c00;
       }
 
       /* Focus Styles for Accessibility */
@@ -132,7 +127,7 @@
         position: relative;
         z-index: 10;
         display: flex;
-        justify-content: center; /* Căn giữa các nút */
+        justify-content: center;
         align-items: center;
         gap: 10px;
         flex-wrap: wrap;
@@ -252,12 +247,12 @@
         border: 1px solid #424242;
         padding: 30px;
         border-radius: 12px;
-        background-color: #ffffff; /* Chuyển nền sang màu trắng */
+        background-color: #ffffff;
         font-size: 16px;
         line-height: 1.6;
         min-height: 600px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-        color: #333333; /* Màu chữ tối */
+        color: #333333;
       }
 
       .tab-content h3,
@@ -265,7 +260,7 @@
       .tab-content p,
       .tab-content li,
       .tab-content a {
-        color: #333333; /* Màu chữ tối */
+        color: #333333;
       }
 
       .tab-item {
@@ -288,12 +283,12 @@
         flex: 1;
         min-width: 300px;
         padding: 20px;
-        border: 1px solid #ddd; /* Đổi màu viền thành xám nhạt */
+        border: 1px solid #ddd;
         border-radius: 10px;
-        background-color: #ffffff; /* Chuyển nền sang màu trắng */
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
+        background-color: #ffffff;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s, box-shadow 0.3s;
-        color: #333333; /* Màu chữ tối */
+        color: #333333;
       }
 
       .design-area:hover {
@@ -310,7 +305,7 @@
 
       .design-area p,
       .design-area a {
-        color: #333333; /* Màu chữ và liên kết tối */
+        color: #333333;
       }
 
       .design-area .button-group .download-btn,
@@ -331,6 +326,27 @@
         border-radius: 5px;
         object-fit: cover;
         min-height: 200px;
+      }
+
+      /* CSS cho các card hình ảnh trong Tab Requirement */
+      .image-card {
+        overflow: hidden;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        background-color: #ffffff;
+        margin-bottom: 20px;
+      }
+
+      .image-card img {
+        width: 100%;
+        height: 300px; /* Chiều cao cố định cho hình ảnh */
+        object-fit: cover; /* Hình ảnh lấp đầy khu vực chứa */
+      }
+
+      .image-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
       /* Responsive */
@@ -358,6 +374,9 @@
         .iframe-container {
           padding-bottom: 75%;
         }
+        .image-card img {
+          height: 200px;
+        }
       }
 
       /* CSS cho Iframe Container */
@@ -368,7 +387,7 @@
         height: 0;
         overflow: hidden;
         margin-top: 20px;
-        background-color: #ffffff; /* Nền trắng cho iframe */
+        background-color: #ffffff;
       }
 
       .iframe-container iframe {
@@ -469,29 +488,25 @@
       }
 
       .footer-contact a {
-        color: hsl(220, 100%, 50%); /* Màu xanh nước biển */
+        color: hsl(220, 100%, 50%);
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+        color: hsl(220, 100%, 60%);
       }
 
       .newsletter-form input[type="email"] {
-        background-color: hsl(220, 0%, 95%); /* Màu nền cho ô email */
-        border: 1px solid hsl(220, 100%, 50%); /* Viền xanh nước biển */
+        background-color: hsl(220, 0%, 95%);
+        border: 1px solid hsl(220, 100%, 50%);
         padding: 8px 12px;
         border-radius: 4px 0 0 4px;
         font-size: 14px;
       }
 
       .newsletter-form button {
-        background-color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Màu xanh nước biển cho nút gửi */
+        background-color: hsl(220, 100%, 50%);
         color: white;
         border-radius: 0 4px 4px 0;
         cursor: pointer;
@@ -499,71 +514,57 @@
       }
 
       .newsletter-form button:hover {
-        background-color: hsl(
-          220,
-          100%,
-          60%
-        ); /* Xanh nước biển nhạt hơn khi hover */
+        background-color: hsl(220, 100%, 60%);
       }
 
       .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
+        color: #ffffff;
       }
 
       .footer-contact a {
-        color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
+        color: hsl(220, 100%, 50%);
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+        color: hsl(220, 100%, 60%);
       }
 
       .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
+        color: #ffffff;
       }
 
       .footer-contact p a {
-        color: hsl(
-          220,
-          100%,
-          50%
-        ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
+        color: hsl(220, 100%, 50%);
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+        color: hsl(220, 100%, 60%);
+      }
+
+      .footer-contact p strong {
+        color: hsl(220, 100%, 50%);
+      }
+
+      .footer-contact p a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%);
       }
 
       .footer-contact a {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
+        color: #ffffff;
       }
 
       .footer-contact p {
-        color: #ffffff; /* Đổi màu văn bản thành trắng */
-      }
-
-      /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
-      .footer-contact p strong {
-        color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
-      }
-
-      /* Màu cho nội dung phía sau tiêu đề */
-      .footer-contact p a {
-        color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+        color: #ffffff;
       }
     </style>
   </head>
@@ -602,7 +603,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 3 - Learning Resources Sharing Platform</h2>
+        <h2 class="text-center mb-4">Lab 4 - Learning Dashboard</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -612,13 +613,13 @@
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
             <i class="bi bi-book"></i> Lab 2
           </a>
-          <a
-            href="lab3.html"
-            class="btn btn-success-custom lab3 lab-button active"
-          >
+          <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
             <i class="bi bi-book"></i> Lab 3
           </a>
-          <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
+          <a
+            href="lab4.html"
+            class="btn btn-danger-custom lab4 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 4
           </a>
           <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
@@ -649,20 +650,48 @@
             </button>
           </div>
           <div class="tab-content">
-        <!-- Tab Requirement -->
-<div id="requirement" class="tab-item active requirement-content">
-  <h3>Chào các em,</h3>
-  <p>
-    Các bạn thể hiện cho cô chức năng: chia sẻ tài liệu học tập cho sinh viên theo môn học. Mỗi môn học có thể chia sẻ các tài liệu như Bài giảng / Bài tập / Tài liệu tham khảo.
-  </p>
-  <p>
-    Dưới đây là 1 ý tưởng cô đang làm, các bạn tham khảo và làm khác đi nhé.
-  </p>
-  <p>
-    Các bạn bỏ toàn bộ file các bạn làm vào thư mục MaSV_HoTen_lab3, nén lại thành file .zip rồi gửi cho cô nhé.
-  </p>
-</div>
+            <!-- Tab Requirement -->
+            <div id="requirement" class="tab-item active requirement-content">
+              <p>
+                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Re4
+                ghép lại thành 1 trang)
+              </p>
+              <p>Các em hoàn thành xong thì:</p>
+              <ol>
+                <li>Đẩy lên GitHub.</li>
+                <li>
+                  Cho vào thư mục <strong>lab4_MaSV_HoTen</strong> rồi nén lại
+                  thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài lên
+                  đây.
+                </li>
+                <li>Nếu làm sai yêu cầu bị 0đ.</li>
+              </ol>
 
+              <!-- Thêm hai hình ảnh -->
+              <div class="additional-images mt-4">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="card image-card">
+                      <img
+                        src="assets/img/Req1.png"
+                        alt="Mô tả hình Req3"
+                        class="card-img-top"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card image-card">
+                      <img
+                        src="assets/img/Req2.png"
+                        alt="Mô tả hình Req4"
+                        class="card-img-top"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Kết thúc thêm hình ảnh -->
+            </div>
 
             <!-- Tab Design -->
             <div id="design" class="tab-item">
@@ -672,13 +701,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab3.jpg"
-                    alt="Design On Paper Lab3"
+                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
+                    alt="Design On Paper Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab3.jpg"
+                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
                       download
                       class="download-btn"
                     >
@@ -691,20 +720,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/figmaLab3.png"
-                    alt="Design On Figma Lab3"
+                    src="assets/img/DesignFigmaLab4.png"
+                    alt="Design On Figma Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/figmaLab3.png"
+                      href="assets/img/DesignFigmaLab4.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link-lab3"
+                      href="https://www.figma.com/your-figma-link-lab4"
                       target="_blank"
                       class="view-btn"
                     >
@@ -720,14 +749,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab3/index.html"
-                  title="responsive_design"
+                  src="Lab4/index.html"
+                  title="data_visualization"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab3/index.html" class="lab-button">
+                <a href="Lab4/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -882,7 +911,8 @@
             </div>
             <div class="col-lg-6 footer-credits text-center text-lg-end">
               Thiết Kế Bởi
-              <a href="https://www.facebook.com/profile.php?id=100088292157574"
+              <a
+                href="https://www.facebook.com/profile.php?id=100088292157574"
                 >Nguyễn Lê Hoàng Khang</a
               >
             </div>
@@ -915,7 +945,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 3
+      // Hàm thay đổi tab trong Lab
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
@@ -965,11 +995,11 @@
       function showAlert(message, type) {
         const alertPlaceholder = document.createElement("div");
         alertPlaceholder.innerHTML = `
-          <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
-            ${message}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        `;
+            <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
+              ${message}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          `;
         document.body.appendChild(alertPlaceholder);
 
         // Tự động xóa thông báo sau 3 giây
