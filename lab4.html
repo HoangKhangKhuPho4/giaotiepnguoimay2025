@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 4 - Personal Learning Portal</title>
+    <title>Lab 4 - Data Visualization</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -42,29 +42,29 @@
       /* Cơ bản */
       body {
         font-family: "Roboto", sans-serif;
-        background-color: #121212;
-        color: #e0e0e0;
+        background-color: #121212; /* Nền chính màu đen tối */
+        color: #e0e0e0; /* Màu chữ sáng cho độ tương phản */
       }
 
       /* Header */
       .header {
-        background-color: #1f1f1f;
+        background-color: #1f1f1f; /* Màu nền header tối hơn */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
       }
 
       .logo .sitename {
         font-size: 24px;
         font-weight: 700;
-        color: #ffffff;
+        color: #ffffff; /* Màu chữ trắng */
       }
 
       .navmenu ul li a {
-        color: #e0e0e0;
+        color: #e0e0e0; /* Màu chữ sáng cho liên kết */
         transition: color 0.3s;
       }
 
       .navmenu ul li a:hover {
-        color: #1e88e5;
+        color: #1e88e5; /* Màu khi hover */
       }
 
       /* Lab Buttons */
@@ -77,6 +77,7 @@
       }
 
       /* Định nghĩa lớp lab-button cho các nút Lab */
+      /* General Lab Button Styles */
       .lab-button {
         padding: 12px 24px;
         border-radius: 50px;
@@ -92,7 +93,7 @@
         border: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
         background: linear-gradient(45deg, #1e90ff, #1565c0);
-        text-decoration: none;
+        text-decoration: none; /* Ensure no underline */
       }
 
       /* Hover Styles for All Lab Buttons */
@@ -100,8 +101,12 @@
         transform: scale(1.05);
         opacity: 0.9;
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        background: linear-gradient(45deg, #66b2ff, #4da6ff);
-        color: #ff8c00;
+        background: linear-gradient(
+          45deg,
+          #66b2ff,
+          #4da6ff
+        ); /* Hover background */
+        color: #ff8c00; /* Hover text color */
       }
 
       /* Active Button Styles */
@@ -113,7 +118,7 @@
 
       /* Ensure hover on active button changes text color */
       .lab-button.active:hover {
-        color: #ff8c00;
+        color: #ff8c00; /* Màu cam khi hover */
       }
 
       /* Focus Styles for Accessibility */
@@ -127,7 +132,7 @@
         position: relative;
         z-index: 10;
         display: flex;
-        justify-content: center;
+        justify-content: center; /* Căn giữa các nút */
         align-items: center;
         gap: 10px;
         flex-wrap: wrap;
@@ -247,12 +252,12 @@
         border: 1px solid #424242;
         padding: 30px;
         border-radius: 12px;
-        background-color: #ffffff;
+        background-color: #ffffff; /* Chuyển nền sang màu trắng */
         font-size: 16px;
         line-height: 1.6;
         min-height: 600px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-        color: #333333;
+        color: #333333; /* Màu chữ tối */
       }
 
       .tab-content h3,
@@ -260,7 +265,7 @@
       .tab-content p,
       .tab-content li,
       .tab-content a {
-        color: #333333;
+        color: #333333; /* Màu chữ tối */
       }
 
       .tab-item {
@@ -283,12 +288,12 @@
         flex: 1;
         min-width: 300px;
         padding: 20px;
-        border: 1px solid #ddd;
+        border: 1px solid #ddd; /* Đổi màu viền thành xám nhạt */
         border-radius: 10px;
-        background-color: #ffffff;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        background-color: #ffffff; /* Chuyển nền sang màu trắng */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
         transition: transform 0.3s, box-shadow 0.3s;
-        color: #333333;
+        color: #333333; /* Màu chữ tối */
       }
 
       .design-area:hover {
@@ -305,7 +310,7 @@
 
       .design-area p,
       .design-area a {
-        color: #333333;
+        color: #333333; /* Màu chữ và liên kết tối */
       }
 
       .design-area .button-group .download-btn,
@@ -326,27 +331,6 @@
         border-radius: 5px;
         object-fit: cover;
         min-height: 200px;
-      }
-
-      /* CSS cho các card hình ảnh trong Tab Requirement */
-      .image-card {
-        overflow: hidden;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        transition: transform 0.3s, box-shadow 0.3s;
-        background-color: #ffffff;
-        margin-bottom: 20px;
-      }
-
-      .image-card img {
-        width: 100%;
-        height: 300px; /* Chiều cao cố định cho hình ảnh */
-        object-fit: cover; /* Hình ảnh lấp đầy khu vực chứa */
-      }
-
-      .image-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
       /* Responsive */
@@ -374,9 +358,6 @@
         .iframe-container {
           padding-bottom: 75%;
         }
-        .image-card img {
-          height: 200px;
-        }
       }
 
       /* CSS cho Iframe Container */
@@ -387,7 +368,7 @@
         height: 0;
         overflow: hidden;
         margin-top: 20px;
-        background-color: #ffffff;
+        background-color: #ffffff; /* Nền trắng cho iframe */
       }
 
       .iframe-container iframe {
@@ -488,25 +469,29 @@
       }
 
       .footer-contact a {
-        color: hsl(220, 100%, 50%);
+        color: hsl(220, 100%, 50%); /* Màu xanh nước biển */
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact a:hover {
-        color: hsl(220, 100%, 60%);
+        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
       }
 
       .newsletter-form input[type="email"] {
-        background-color: hsl(220, 0%, 95%);
-        border: 1px solid hsl(220, 100%, 50%);
+        background-color: hsl(220, 0%, 95%); /* Màu nền cho ô email */
+        border: 1px solid hsl(220, 100%, 50%); /* Viền xanh nước biển */
         padding: 8px 12px;
         border-radius: 4px 0 0 4px;
         font-size: 14px;
       }
 
       .newsletter-form button {
-        background-color: hsl(220, 100%, 50%);
+        background-color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Màu xanh nước biển cho nút gửi */
         color: white;
         border-radius: 0 4px 4px 0;
         cursor: pointer;
@@ -514,57 +499,71 @@
       }
 
       .newsletter-form button:hover {
-        background-color: hsl(220, 100%, 60%);
+        background-color: hsl(
+          220,
+          100%,
+          60%
+        ); /* Xanh nước biển nhạt hơn khi hover */
       }
 
       .footer-contact p {
-        color: #ffffff;
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
       }
 
       .footer-contact a {
-        color: hsl(220, 100%, 50%);
+        color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact a:hover {
-        color: hsl(220, 100%, 60%);
+        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
       }
 
       .footer-contact p {
-        color: #ffffff;
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
       }
 
       .footer-contact p a {
-        color: hsl(220, 100%, 50%);
+        color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
         text-decoration: none;
         transition: color 0.3s;
       }
 
       .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%);
-      }
-
-      .footer-contact p strong {
-        color: hsl(220, 100%, 50%);
-      }
-
-      .footer-contact p a {
-        color: #ffffff;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-
-      .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%);
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
 
       .footer-contact a {
-        color: #ffffff;
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
       }
 
       .footer-contact p {
-        color: #ffffff;
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
+      .footer-contact p strong {
+        color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
+      }
+
+      /* Màu cho nội dung phía sau tiêu đề */
+      .footer-contact p a {
+        color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
     </style>
   </head>
@@ -603,7 +602,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 4 - Learning Dashboard</h2>
+        <h2 class="text-center mb-4">Lab 4 - Data Visualization</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -652,45 +651,116 @@
           <div class="tab-content">
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
+              <h3>Chào các em,</h3>
               <p>
-                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Re4
-                ghép lại thành 1 trang)
+                Cô gửi yêu cầu lab4, thiết kế giao diện cho chức năng trực quan
+                hóa dữ liệu như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại
+                đường link github dạng: <em>XXX.github.com/lab4.html</em>
               </p>
-              <p>Các em hoàn thành xong thì:</p>
-              <ol>
-                <li>Đẩy lên GitHub.</li>
+              <h4>Data Visualization Requirements:</h4>
+              <ul>
                 <li>
-                  Cho vào thư mục <strong>lab4_MaSV_HoTen</strong> rồi nén lại
-                  thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài lên
-                  đây.
+                  <strong>Chart Types:</strong> Include at least three types of
+                  charts (e.g., Bar Chart, Line Chart, Pie Chart).
+                  <ul>
+                    <li>Each chart should represent different datasets.</li>
+                    <li>
+                      Charts should be interactive, allowing users to hover and
+                      view data points.
+                    </li>
+                  </ul>
                 </li>
-                <li>Nếu làm sai yêu cầu bị 0đ.</li>
-              </ol>
-
-              <!-- Thêm hai hình ảnh -->
-              <div class="additional-images mt-4">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="card image-card">
-                      <img
-                        src="assets/img/Req1.png"
-                        alt="Mô tả hình Req3"
-                        class="card-img-top"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="card image-card">
-                      <img
-                        src="assets/img/Req2.png"
-                        alt="Mô tả hình Req4"
-                        class="card-img-top"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- Kết thúc thêm hình ảnh -->
+                <li>
+                  <strong>Responsive Design:</strong>
+                  <ul>
+                    <li>
+                      Ensure all charts are responsive and render correctly on
+                      various screen sizes.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Data Sources:</strong>
+                  <ul>
+                    <li>
+                      Fetch data from external APIs or use static JSON files.
+                    </li>
+                    <li>Data should be dynamically loaded into the charts.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Legend and Labels:</strong>
+                  <ul>
+                    <li>Include legends and labels for clarity.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Color Scheme:</strong>
+                  <ul>
+                    <li>
+                      Use a consistent and visually appealing color palette.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Accessibility:</strong>
+                  <ul>
+                    <li>
+                      Ensure charts are accessible, including proper ARIA
+                      labels.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Export Functionality:</strong>
+                  <ul>
+                    <li>
+                      Allow users to export charts as images (PNG, JPEG) or PDF.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Filtering and Sorting:</strong>
+                  <ul>
+                    <li>
+                      Provide options for users to filter and sort the data
+                      displayed in the charts.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Performance:</strong>
+                  <ul>
+                    <li>
+                      Optimize charts for performance to handle large datasets
+                      without lag.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Documentation:</strong>
+                  <ul>
+                    <li>
+                      Provide clear documentation on how to use the
+                      visualization tools.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <h4>Additional Considerations:</h4>
+              <ul>
+                <li>
+                  Ensure smooth transitions and animations for chart rendering.
+                </li>
+                <li>
+                  Implement tooltips to display detailed information on data
+                  points.
+                </li>
+                <li>
+                  Maintain code readability and organization using modular
+                  JavaScript or frameworks if necessary.
+                </li>
+              </ul>
             </div>
 
             <!-- Tab Design -->
@@ -701,13 +771,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
+                    src="assets/img/DesignPaperLab4.jpg"
                     alt="Design On Paper Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
+                      href="assets/img/DesignPaperLab4.jpg"
                       download
                       class="download-btn"
                     >
@@ -720,13 +790,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignFigmaLab4.png"
+                    src="assets/img/DesignLab4.png"
                     alt="Design On Figma Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignFigmaLab4.png"
+                      href="assets/img/DesignLab4.png"
                       download
                       class="download-btn"
                     >
@@ -749,14 +819,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab4/index.html"
+                  src="Lab4/data_visualization.html"
                   title="data_visualization"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab4/index.html" class="lab-button">
+                <a href="Lab4/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -911,8 +981,7 @@
             </div>
             <div class="col-lg-6 footer-credits text-center text-lg-end">
               Thiết Kế Bởi
-              <a
-                href="https://www.facebook.com/profile.php?id=100088292157574"
+              <a href="https://www.facebook.com/profile.php?id=100088292157574"
                 >Nguyễn Lê Hoàng Khang</a
               >
             </div>
@@ -951,14 +1020,12 @@
         const tabItems = document.querySelectorAll(".tab-item");
         tabItems.forEach((item) => {
           item.style.display = "none";
-          item.classList.remove("active");
         });
 
         // Hiển thị tab được chọn
         const selectedTab = document.getElementById(tabId);
         if (selectedTab) {
           selectedTab.style.display = "block";
-          selectedTab.classList.add("active");
         }
 
         // Xóa class active khỏi tất cả các tab
@@ -995,11 +1062,11 @@
       function showAlert(message, type) {
         const alertPlaceholder = document.createElement("div");
         alertPlaceholder.innerHTML = `
-            <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
-              ${message}
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          `;
+          <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        `;
         document.body.appendChild(alertPlaceholder);
 
         // Tự động xóa thông báo sau 3 giây

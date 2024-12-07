@@ -240,7 +240,7 @@ logoutButton.addEventListener("click", function () {
 async function fetchUserData(userId) {
   const token = localStorage.getItem("authToken");
   try {
-    const response = await fetch(`https://localhost:5000/api/users/${userId}`, {
+    const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -307,7 +307,7 @@ accountForm.addEventListener("submit", async function (e) {
 
   try {
     const response = await fetch(
-      `https://localhost:5000/api/users/${currentUserId}`,
+      `http://localhost:5000/api/users/${currentUserId}`,
       {
         method: "PUT",
         headers: {

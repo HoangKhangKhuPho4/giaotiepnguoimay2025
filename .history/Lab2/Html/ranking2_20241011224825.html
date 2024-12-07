@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard và Feedback</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* CSS Variables */
+      :root {
+        --primary-color: #4caf50;
+        --secondary-color: #2196f3;
+        --danger-color: #e63946;
+        --background-color: #f0f2f5;
+        --light-gray: #f1f1f1;
+        --dark-gray: #6a994e;
+        --text-color: #333333;
+        --white: #ffffff;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Reset và cơ bản */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      /* Navigation Bar */
+      .navbar {
+        background-color: var(--primary-color);
+        padding: 15px 20px;
+        box-shadow: var(--box-shadow);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar h1 {
+        color: var(--white);
+        font-size: 24px;
+        font-weight: 700;
+        text-align: center;
+      }
+
+      /* Leaderboard Styles */
+      .leaderboard-section {
+        padding: 60px 20px;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url("../img/bgRanking.png") no-repeat center center/cover;
+      }
+
+      .leaderboard-container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: var(--border-radius);
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-header {
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--white);
+        background-color: var(--primary-color);
+        padding: 15px;
+        border-radius: var(--border-radius);
+        margin-bottom: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-controls {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+      }
+
+      .leaderboard-controls select {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .leaderboard-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--white);
+        padding: 15px 20px;
+        border-radius: var(--border-radius);
+        margin-bottom: 15px;
+        box-shadow: var(--box-shadow);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .leaderboard-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .leaderboard-item img.medal {
+        width: 40px;
+        height: 40px;
+      }
+
+      .player-info {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        margin-left: 15px;
+      }
+
+      .player-info img.avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--primary-color);
+        margin-right: 15px;
+      }
+
+      .player-details {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .player-name {
+        font-size: 18px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        color: var(--text-color);
+      }
+
+      .stars i {
+        color: #ffc107;
+        margin-right: 2px;
+      }
+
+      .score {
+        background-color: var(--secondary-color);
+        color: var(--white);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 16px;
+      }
+
+      /* Feedback Styles */
+      .feedback-section {
+        padding: 60px 20px;
+        background-color: #f7f7f7;
+      }
+
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: var(--white);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      }
+
+      .title {
+        font-size: 36px;
+        color: var(--danger-color);
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .info-table,
+      .feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+      }
+
+      .info-table th,
+      .info-table td,
+      .feedback-table th,
+      .feedback-table td {
+        padding: 12px 15px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+
+      .info-table th,
+      .feedback-table th {
+        background-color: var(--light-gray);
+        color: var(--dark-gray);
+        font-weight: 600;
+      }
+
+      .info-table td,
+      .feedback-table td {
+        background-color: var(--white);
+      }
+
+      .info-table .due-date {
+        color: var(--danger-color);
+        font-weight: 600;
+      }
+
+      .related-documents {
+        background-color: #d4a373;
+        color: #fff;
+        padding: 15px 20px;
+        border-radius: var(--border-radius);
+        margin-bottom: 25px;
+      }
+
+      .related-documents h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+
+      .related-documents ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .related-documents li {
+        margin-bottom: 8px;
+      }
+
+      .checkbox {
+        text-align: center;
+      }
+
+      .checkbox input {
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+      }
+
+      /* Phần nhập phản hồi */
+      .feedback-form {
+        margin-top: 25px;
+      }
+
+      .feedback-form h3 {
+        font-size: 24px;
+        margin-bottom: 15px;
+        color: var(--primary-color);
+        font-weight: 600;
+      }
+
+      .feedback-form select,
+      .feedback-form textarea {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 16px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .feedback-form select:focus,
+      .feedback-form textarea:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+      }
+
+      .feedback-form textarea {
+        resize: vertical;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 15px;
+      }
+
+      .button-group button {
+        flex: 1;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .button-group button:first-child {
+        background-color: var(--primary-color);
+        color: var(--white);
+      }
+
+      .button-group button:first-child:hover {
+        background-color: #45a049;
+      }
+
+      .button-group .back-button {
+        background-color: #ccc;
+        color: #333;
+      }
+
+      .button-group .back-button:hover {
+        background-color: #b3b3b3;
+      }
+
+      /* Back to Top Button Styles */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: var(--white);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        display: none; /* Initially hidden */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: var(--box-shadow);
+      }
+
+      .back-to-top:hover {
+        background-color: #45a049;
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .leaderboard-container {
+          padding: 20px;
+        }
+
+        .leaderboard-header {
+          font-size: 28px;
+        }
+
+        .player-info {
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 0;
+        }
+
+        .score {
+          margin-top: 10px;
+        }
+
+        .title {
+          font-size: 28px;
+        }
+
+        .container {
+          padding: 20px;
+        }
+
+        .info-table th,
+        .info-table td,
+        .feedback-table th,
+        .feedback-table td {
+          padding: 10px;
+        }
+
+        .related-documents {
+          padding: 10px 15px;
+        }
+
+        .feedback-form h3 {
+          font-size: 20px;
+        }
+
+        .button-group {
+          flex-direction: column;
+        }
+
+        .button-group button {
+          width: 100%;
+        }
+
+        /* Adjust Back to Top Button on smaller screens */
+        .back-to-top {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <h1>Leaderboard và Feedback</h1>
+    </div>
+
+    <!-- Phần leaderboard -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+        <div class="leaderboard-controls">
+          <select id="sortOptions" onchange="sortLeaderboard()">
+            <option value="desc">Sắp xếp theo điểm giảm dần</option>
+            <option value="asc">Sắp xếp theo điểm tăng dần</option>
+          </select>
+        </div>
+        <div id="leaderboardList">
+          <!-- Leaderboard items giữ nguyên như trong mã HTML của bạn -->
+          <div class="leaderboard-item">
+            <img
+              alt="Gold medal"
+              height="30"
+              src="https://storage.googleapis.com/a1aa/image/l0QQsOP6capBEZPJHuLNswGAe8m8G1xXKYW40ZFaJQfaNTkTA.jpg"
+              width="30"
+              class="medal"
+            />
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Nguyễn Trần Ngọc Hân</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">2980</div>
+          </div>
+          <div class="leaderboard-item">
+            <img
+              alt="Silver medal"
+              height="30"
+              src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+              width="30"
+              class="medal"
+            />
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Nguyễn Hoài Khương</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">2721</div>
+          </div>
+          <div class="leaderboard-item">
+            <img
+              alt="Bronze medal"
+              height="30"
+              src="https://storage.googleapis.com/a1aa/image/kqNrh2AR4pKkAtA4PNmffegoT74MNyYxi4LZT14FYxg6amInA.jpg"
+              width="30"
+              class="medal"
+            />
+            <div class="player-info">
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Phạm Quang Trọng</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">2579</div>
+          </div>
+          <div class="leaderboard-item">
+            <div class="player-info">
+              <div class="player-name">4</div>
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Trần Quốc Hưng</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">1874</div>
+          </div>
+          <div class="leaderboard-item">
+            <div class="player-info">
+              <div class="player-name">5</div>
+              <img
+                alt="Player avatar"
+                height="30"
+                src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+                width="30"
+                class="avatar"
+              />
+              <div class="player-details">
+                <div class="player-name">Thiều Nhật Hào</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="score">1756</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần feedback -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">Feedback</div>
+        <table class="info-table">
+          <tr>
+            <th>Tên Chiến Dịch hoặc Dự Án:</th>
+            <td>Viết tiêu đề ở đây</td>
+            <th class="due-date">Hạn Chót:</th>
+            <td>MM/DD/YYYY</td>
+          </tr>
+          <tr>
+            <th>Người Yêu Cầu Feedback:</th>
+            <td>Thêm tên ở đây</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents">
+          <h4>Tài Liệu Liên Quan</h4>
+          <ul>
+            <li><a href="#">Liên kết đến bộ bài thuyết trình</a></li>
+            <li>
+              <a href="#">Liên kết đến bản ghi cuộc họp</a> và mật khẩu: 123456
+            </li>
+            <li><a href="#">Thêm các liên kết khác cần feedback</a></li>
+          </ul>
+        </div>
+        <table class="feedback-table" id="feedbackTable">
+          <thead>
+            <tr>
+              <th>Tên</th>
+              <th>Liên Kết Tài Liệu và Số Trang</th>
+              <th>Phản Hồi</th>
+              <th>Đã Được Giải Quyết?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Feedback entries sẽ được thêm vào đây bằng JavaScript -->
+          </tbody>
+        </table>
+
+        <!-- Phần nhập phản hồi -->
+        <div class="feedback-form">
+          <h3>Nhập Phản Hồi</h3>
+          <select id="exerciseSelect">
+            <option value="">Chọn bài tập Java</option>
+            <option value="Easy">Bài Tập Easy</option>
+            <option value="Medium">Bài Tập Medium</option>
+            <option value="Hard">Bài Tập Hard</option>
+          </select>
+          <textarea
+            id="feedbackText"
+            placeholder="Nhập phản hồi của bạn ở đây..."
+          ></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Gửi Phản Hồi</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='java_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      // Leaderboard Sorting Functionality
+      function sortLeaderboard() {
+        const sortOption = document.getElementById("sortOptions").value;
+        const leaderboardList = document.getElementById("leaderboardList");
+        const items = Array.from(
+          leaderboardList.getElementsByClassName("leaderboard-item")
+        );
+
+        items.sort((a, b) => {
+          const scoreA = parseInt(a.querySelector(".score").textContent);
+          const scoreB = parseInt(b.querySelector(".score").textContent);
+          if (sortOption === "asc") {
+            return scoreA - scoreB;
+          } else {
+            return scoreB - scoreA;
+          }
+        });
+
+        // Clear existing items
+        leaderboardList.innerHTML = "";
+
+        // Append sorted items
+        items.forEach((item) => leaderboardList.appendChild(item));
+      }
+
+      // Feedback Functionality
+      let feedbackData = JSON.parse(localStorage.getItem("feedbackData")) || [];
+
+      // Hàm tạo các dòng trong Feedback table
+      function createFeedbackRow(entry, index) {
+        const tr = document.createElement("tr");
+
+        const nameTd = document.createElement("td");
+        nameTd.textContent = entry.name;
+
+        const linkTd = document.createElement("td");
+        const link = document.createElement("a");
+        link.href = entry.link;
+        link.textContent = entry.linkText;
+        linkTd.appendChild(link);
+
+        const feedbackTd = document.createElement("td");
+        feedbackTd.textContent = entry.feedback;
+
+        const addressedTd = document.createElement("td");
+        addressedTd.className = "checkbox";
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = entry.addressed;
+        checkbox.onchange = () => toggleAddressed(index);
+        addressedTd.appendChild(checkbox);
+
+        tr.appendChild(nameTd);
+        tr.appendChild(linkTd);
+        tr.appendChild(feedbackTd);
+        tr.appendChild(addressedTd);
+
+        return tr;
+      }
+
+      // Hiển thị Feedback
+      function displayFeedback() {
+        const feedbackTableBody = document.querySelector(
+          "#feedbackTable tbody"
+        );
+        feedbackTableBody.innerHTML = "";
+        feedbackData.forEach((entry, index) => {
+          feedbackTableBody.appendChild(createFeedbackRow(entry, index));
+        });
+      }
+
+      // Thêm Feedback mới
+      function submitFeedback() {
+        const textarea = document.getElementById("feedbackText");
+        const feedback = textarea.value;
+        const select = document.getElementById("exerciseSelect");
+        const selectedExercise = select.value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Vui lòng chọn bài tập và nhập phản hồi trước khi gửi.");
+          return;
+        }
+
+        const newFeedback = {
+          name: "Người Dùng", // Bạn có thể thay đổi thành tên người dùng thực tế
+          link: "#",
+          linkText: `Bài tập ${selectedExercise}`,
+          feedback: feedback,
+          addressed: false,
+        };
+
+        feedbackData.push(newFeedback);
+        localStorage.setItem("feedbackData", JSON.stringify(feedbackData));
+        displayFeedback();
+
+        alert(
+          "Phản hồi của bạn đã được lưu cho " +
+            selectedExercise +
+            ": " +
+            feedback
+        );
+        textarea.value = ""; // Xóa nội dung textarea sau khi gửi
+        select.selectedIndex = 0; // Đặt lại lựa chọn
+      }
+
+      // Đánh dấu phản hồi đã được giải quyết
+      function toggleAddressed(index) {
+        feedbackData[index].addressed = !feedbackData[index].addressed;
+        localStorage.setItem("feedbackData", JSON.stringify(feedbackData));
+        displayFeedback();
+      }
+
+      // Khởi tạo Feedback
+      displayFeedback();
+
+      // Back to Top Functionality
+      window.onscroll = function () {
+        const backToTopButton = document.getElementById("backToTop");
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          backToTopButton.style.display = "block"; // Show the button
+        } else {
+          backToTopButton.style.display = "none"; // Hide the button
+        }
+      };
+
+      function scrollToTop() {
+        document.body.scrollTop = 0; // For Safari
+        document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      }
+
+      function scrollToTop() {
+        const scrollDuration = 500; // Duration in milliseconds
+        const scrollStep = -window.scrollY / (scrollDuration / 15); // Calculate scroll step
+        const scrollInterval = setInterval(() => {
+          if (window.scrollY !== 0) {
+            window.scrollBy(0, scrollStep); // Scroll step
+          } else {
+            clearInterval(scrollInterval); // Stop the interval
+          }
+        }, 15); // Interval time in milliseconds
+      }
+    </script>
+  </body>
+</html>

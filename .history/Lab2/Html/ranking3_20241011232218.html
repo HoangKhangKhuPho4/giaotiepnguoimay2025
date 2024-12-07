@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard và Feedback - Trang số 3</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #f4f6f9;
+        color: #333;
+      }
+
+      /* Leaderboard Styles */
+      .leaderboard-section {
+        padding: 60px 20px;
+        background-image: linear-gradient(to right, #ff7e5f, #feb47b);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .leaderboard-container {
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 15px;
+        padding: 20px;
+        width: 450px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+        transition: transform 0.3s;
+      }
+
+      .leaderboard-container:hover {
+        transform: translateY(-10px);
+      }
+
+      .leaderboard-header {
+        background: #1d3557;
+        color: #ffffff;
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 26px;
+        font-weight: 600;
+        margin-bottom: 30px;
+      }
+
+      .leaderboard-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f1f5f9;
+        padding: 15px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        color: #333;
+        transition: background 0.3s, box-shadow 0.3s;
+      }
+
+      .leaderboard-item:hover {
+        background: #e9ecef;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .leaderboard-item img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .leaderboard-item .player-info {
+        display: flex;
+        align-items: center;
+      }
+
+      .leaderboard-item .player-name {
+        font-weight: 600;
+        color: #2c3e50;
+        font-size: 16px;
+      }
+
+      .leaderboard-item .stars {
+        color: #ffcc00;
+        margin-left: 10px;
+      }
+
+      .leaderboard-item .score {
+        background: #2a9d8f;
+        color: #ffffff;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+      }
+
+      /* Feedback Styles */
+      .feedback-section {
+        padding: 50px;
+        background-color: #f4f4f9;
+      }
+
+      .title {
+        font-size: 38px;
+        color: #e76f51;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: bold;
+      }
+
+      .container {
+        max-width: 950px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 30px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+
+      .info-table,
+      .feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      .info-table th,
+      .info-table td,
+      .feedback-table th,
+      .feedback-table td {
+        border: 1px solid #e9e9e9;
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      .info-table th,
+      .feedback-table th {
+        background-color: #f1f5f9;
+        color: #264653;
+        font-weight: 600;
+      }
+
+      .info-table td,
+      .feedback-table td {
+        background-color: #ffffff;
+      }
+
+      .info-table .due-date {
+        color: #e63946;
+        font-weight: bold;
+      }
+
+      .related-documents {
+        background-color: #1d3557;
+        color: #ffffff;
+        padding: 15px;
+        font-weight: bold;
+        border-radius: 6px;
+        margin-bottom: 20px;
+      }
+
+      .related-documents ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+
+      .related-documents li {
+        margin: 8px 0;
+      }
+
+      /* Phần nhập phản hồi */
+      .feedback-form {
+        margin-top: 30px;
+      }
+
+      .feedback-form select,
+      .feedback-form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .feedback-form textarea {
+        height: 120px;
+        resize: vertical;
+      }
+
+      .feedback-form button {
+        padding: 12px 25px;
+        background-color: #2a9d8f;
+        color: white;
+        font-size: 16px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .feedback-form button:hover {
+        background-color: #21867a;
+      }
+
+      .feedback-form .back-button {
+        margin-left: 15px;
+        background-color: #ccc;
+        color: #333;
+      }
+
+      .feedback-form .back-button:hover {
+        background-color: #999;
+      }
+
+      /* Back to Top Button Styles */
+      .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #2a9d8f;
+        color: #ffffff;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        display: none; /* Initially hidden */
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .back-to-top:hover {
+        background-color: #21867a;
+      }
+
+      /* Responsive adjustments */
+      @media screen and (max-width: 768px) {
+        .title {
+          font-size: 28px;
+        }
+
+        .container {
+          padding: 20px;
+        }
+
+        .info-table th,
+        .info-table td,
+        .feedback-table th,
+        .feedback-table td {
+          padding: 10px;
+        }
+
+        .feedback-form textarea {
+          height: 100px;
+        }
+
+        .feedback-form button {
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
+
+      /* Tooltip Styles */
+      .tooltip {
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Position the tooltip above the text */
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      /* Styles cho nhóm nút */
+      .button-group {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Phần leaderboard -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+        <div class="leaderboard-item">
+          <img
+            alt="Gold medal"
+            height="40"
+            src="https://storage.googleapis.com/a1aa/image/l0QQsOP6capBEZPJHuLNswGAe8m8G1xXKYW40ZFaJQfaNTkTA.jpg"
+            width="40"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              height="40"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+              width="40"
+            />
+            <div class="player-name">Nguyễn Bùi Thanh Khang</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="score">2980</div>
+        </div>
+        <div class="leaderboard-item">
+          <img
+            alt="Silver medal"
+            height="40"
+            src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+            width="40"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              height="40"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+              width="40"
+            />
+            <div class="player-name">Lý Thái Minh Khang</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <div class="score">2721</div>
+        </div>
+        <div class="leaderboard-item">
+          <img
+            alt="Bronze medal"
+            height="40"
+            src="https://storage.googleapis.com/a1aa/image/kqNrh2AR4pKkAtA4PNmffegoT74MNyYxi4LZT14FYxg6amInA.jpg"
+            width="40"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              height="40"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+              width="40"
+            />
+            <div class="player-name">Phạm Thế Huy</div>
+            <div class="stars">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </div>
+          </div>
+          <div class="score">2579</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần feedback -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">Feedback</div>
+        <table class="info-table">
+          <tr>
+            <th>Campaign or Project Name:</th>
+            <td>Write the title here</td>
+            <th class="due-date">Due Date:</th>
+            <td>MM/DD/YYYY</td>
+          </tr>
+          <tr>
+            <th>Feedback Requested By:</th>
+            <td>Add a name here</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents">
+          Related Documents
+          <ul>
+            <li>List down links to presentation decks</li>
+            <li>Include links to meeting recordings and password</li>
+            <li>Add other links you need feedback on</li>
+          </ul>
+        </div>
+        <table class="feedback-table">
+          <tr>
+            <th>Name</th>
+            <th>Link to Document and Page Number</th>
+            <th>Feedback</th>
+            <th>Addressed?</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+        </table>
+
+        <!-- Phần nhập phản hồi -->
+        <div class="feedback-form">
+          <h3>Nhập Phản Hồi</h3>
+          <select>
+            <option value="">Chọn bài tập C</option>
+            <option value="easy">Bài Tập Easy</option>
+            <option value="medium">Bài Tập Medium</option>
+            <option value="hard">Bài Tập Hard</option>
+          </select>
+          <textarea placeholder="Nhập phản hồi của bạn ở đây..."></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Gửi Phản Hồi</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='c_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script>
+      function submitFeedback() {
+        const textarea = document.querySelector(".feedback-form textarea");
+        const feedback = textarea.value;
+        const selectedExercise = document.querySelector(
+          ".feedback-form select"
+        ).value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Vui lòng chọn bài tập và nhập phản hồi trước khi gửi.");
+          return;
+        }
+
+        alert(
+          "Phản hồi của bạn đã được lưu cho " +
+            selectedExercise +
+            ": " +
+            feedback
+        );
+        textarea.value = ""; // Xóa nội dung textarea sau khi gửi
+        document.querySelector(".feedback-form select").selectedIndex = 0; // Đặt lại lựa chọn
+      }
+
+      // Back to Top Functionality
+      window.onscroll = function () {
+        const backToTopButton = document.getElementById("backToTop");
+        if (
+          document.body.scrollTop > 20 ||
+          document.documentElement.scrollTop > 20
+        ) {
+          backToTopButton.style.display = "block"; // Show the button
+        } else {
+          backToTopButton.style.display = "none"; // Hide the button
+        }
+      };
+
+      function scrollToTop() {
+        const scrollDuration = 500; // Duration in milliseconds
+        const scrollStep = -window.scrollY / (scrollDuration / 15); // Calculate scroll step
+        const scrollInterval = setInterval(() => {
+          if (window.scrollY !== 0) {
+            window.scrollBy(0, scrollStep); // Scroll step
+          } else {
+            clearInterval(scrollInterval); // Stop the interval
+          }
+        }, 15); // Interval time in milliseconds
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Website cá nhân</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- Custom CSS for Animations and Enhancements -->
+    <style>
+      /* Page Load Animation */
+      body {
+        opacity: 0;
+        transition: opacity 1s ease-in;
+      }
+
+      body.loaded {
+        opacity: 1;
+      }
+
+      /* Hero Section Enhancements */
+      .hero {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: #f8f9fa;
+        overflow: hidden;
+      }
+
+      .hero img {
+        max-width: 100%;
+        height: auto;
+        transition: transform 0.5s ease;
+      }
+
+      .hero img:hover {
+        transform: scale(1.05);
+      }
+
+      .hero .container {
+        text-align: center;
+        z-index: 2;
+      }
+
+      .hero h2 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+        color: #333;
+      }
+
+      .hero p {
+        font-size: 1.2em;
+        color: #555;
+      }
+
+      .hero .social-links a {
+        color: #555;
+        margin: 0 10px;
+        font-size: 1.5em;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      .hero .social-links a:hover {
+        color: #009970;
+        transform: scale(1.2);
+      }
+
+      /* Video Introduction Section Enhancements */
+      .video-intro .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        padding-top: 30px;
+        height: 0;
+        overflow: hidden;
+      }
+
+      .video-intro .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+        transition: transform 0.3s;
+      }
+
+      .video-intro .video-container iframe:hover {
+        transform: scale(1.05);
+      }
+
+      .video-intro .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 4em;
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+
+      .video-intro .video-container:hover .overlay {
+        opacity: 1;
+      }
+
+      /* CTA Buttons Enhancements */
+      .cta-buttons .btn {
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .cta-buttons .btn-primary {
+        background-color: #009970;
+        border: none;
+        color: white;
+      }
+
+      .cta-buttons .btn-primary:hover {
+        background-color: #007961;
+        transform: scale(1.05);
+      }
+
+      .cta-buttons .btn-secondary {
+        background-color: #555555;
+        border: none;
+        color: white;
+      }
+
+      .cta-buttons .btn-secondary:hover {
+        background-color: #333333;
+        transform: scale(1.05);
+      }
+
+      /* Footer Enhancements */
+      .footer .footer-content .footer-links ul li a {
+        color: #555;
+        transition: color 0.3s;
+      }
+
+      .footer .footer-content .footer-links ul li a:hover {
+        color: #009970;
+      }
+
+      .footer .footer-content .footer-about p {
+        color: #555;
+      }
+
+      .footer .footer-content .footer-contact a {
+        color: #555;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer .footer-content .footer-contact a:hover {
+        color: #009970;
+      }
+
+      .footer .footer-bottom .footer-credits a {
+        color: #009970;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer .footer-bottom .footer-credits a:hover {
+        color: #007961;
+      }
+
+      /* Scroll Top Button Enhancements */
+      #scroll-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        display: none;
+        background: #009970;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+      }
+
+      #scroll-top:hover {
+        background-color: #007961;
+        transform: scale(1.1);
+      }
+
+      /* Newsletter Form Enhancements */
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 70%;
+        transition: border-color 0.3s;
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        border-color: #009970;
+        outline: none;
+      }
+
+      .newsletter-form button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #009970;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
+      }
+
+      .newsletter-form button:hover {
+        background-color: #007961;
+        transform: scale(1.05);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .hero h2 {
+          font-size: 2.5em;
+        }
+
+        .hero p {
+          font-size: 1em;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero h2 {
+          font-size: 2em;
+        }
+
+        .hero p {
+          font-size: 0.9em;
+        }
+
+        .footer .footer-content .footer-about,
+        .footer .footer-content .footer-links,
+        .footer .footer-content .footer-services,
+        .footer .footer-content .footer-contact {
+          margin-bottom: 30px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero img {
+          height: 60vh;
+        }
+
+        .footer .footer-content .footer-about,
+        .footer .footer-content .footer-links,
+        .footer .footer-content .footer-services,
+        .footer .footer-content .footer-contact {
+          text-align: center;
+        }
+
+        #scroll-top {
+          bottom: 20px;
+          right: 20px;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="index-page">
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+        data-aos="fade-down"
+        data-aos-duration="1000"
+      >
+        <a href="index.html" class="logo d-flex align-items-center" data-aos="fade-right" data-aos-delay="200">
+          <!-- Add the logo image below -->
+          <img
+            src="assets/img/logoDt.png"
+            alt="Logo"
+            style="height: 50px; width: auto; margin-right: 10px"
+          />
+          <h1 class="sitename">Hoang Khang</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu" data-aos="fade-left" data-aos-delay="300">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="result.html">Result</a></li>
+            <li><a href="lab1.html">My Labs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+    <!-- End Header -->
+
+    <!-- ======= Main Content ======= -->
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background" data-aos="fade-up">
+        <img src="assets/img/cvat.png" alt="Hero Image" />
+
+        <div class="container" data-aos="zoom-out" data-aos-delay="100">
+          <h2 data-aos="fade-up" data-aos-delay="200">Nguyễn Lê Hoàng Khang</h2>
+          <p data-aos="fade-up" data-aos-delay="300">
+            I'm
+            <span
+              class="typed"
+              data-typed-items="Designer, Developer, Freelancer, Photographer"
+            >Photographer</span
+            ><span class="typed-cursor typed-cursor--blink"></span>
+          </p>
+          <div class="social-links" data-aos="fade-up" data-aos-delay="400">
+            <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100088292157574" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      <!-- Video Introduction Section -->
+      <section
+        id="video-intro"
+        class="video-intro section-padding"
+        data-aos="fade-up"
+      >
+        <div class="container">
+          <div class="section-title text-center" data-aos="fade-right" data-aos-delay="100">
+            <h2>Giới Thiệu Bằng Video</h2>
+            <p>
+              Khám phá thêm về bản thân và các dự án của tôi qua video dưới đây.
+            </p>
+          </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+              <div
+                class="video-container"
+                data-aos="zoom-in"
+                data-aos-delay="200"
+              >
+                <iframe
+                  src="https://www.youtube.com/embed/-8rzYXL0vvo?si=17feh5Hve0-wDn3K"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+                <div class="overlay">
+                  <i class="bi bi-play-circle-fill"></i>
+                </div>
+              </div>
+              <div class="cta-buttons text-center mt-4" data-aos="fade-up" data-aos-delay="300">
+                <a href="portfolio.html" class="btn btn-primary me-2">Xem Portfolio</a>
+                <a href="contact.html" class="btn btn-secondary">Liên Hệ Tôi</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Video Introduction Section -->
+    </main>
+    <!-- End Main Content -->
+
+    <!-- ======= Footer Section ======= -->
+    <footer id="footer" class="footer" data-aos="fade-up" data-aos-delay="400">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <!-- Giới Thiệu -->
+            <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up" data-aos-delay="100">
+              <h4>Giới Thiệu</h4>
+              <p>
+                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
+                và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100088292157574"
+                  aria-label="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+
+            <!-- Liên Kết Nhanh -->
+            <div
+              class="col-lg-2 col-md-6 footer-links"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h4>Liên Kết Nhanh</h4>
+              <ul>
+                <li>
+                  <a href="index.html"
+                    ><i class="bi bi-chevron-right"></i> Trang Chủ</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html"
+                    ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
+                  >
+                </li>
+                <li>
+                  <a href="resume.html"
+                    ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
+                  >
+                </li>
+                <li>
+                  <a href="services.html"
+                    ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
+                  >
+                </li>
+                <li>
+                  <a href="portfolio.html"
+                    ><i class="bi bi-chevron-right"></i> Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="bi bi-chevron-right"></i> Liên Hệ</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Dịch Vụ -->
+            <div
+              class="col-lg-3 col-md-6 footer-services"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h4>Dịch Vụ</h4>
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Thông Tin Liên Hệ -->
+            <div
+              class="col-lg-4 col-md-6 footer-contact"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <h4>Liên Hệ</h4>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:22130116@st.hcmuaf.edu.vn"
+                  >22130116@st.hcmuaf.edu.vn</a
+                ><br />
+                <strong>Điện Thoại:</strong>
+                <a href="tel:+1234567890">+1 234 567 890</a><br />
+                <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
+              </p>
+              <!-- Đăng Ký Newsletter -->
+              <form action="#" method="post" class="newsletter-form">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email của bạn"
+                  aria-label="Email của bạn"
+                  required
+                />
+                <button type="submit" aria-label="Đăng Ký">
+                  <i class="bi bi-send"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start" data-aos="fade-up" data-aos-delay="500">
+              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
+              Mọi Quyền
+            </div>
+            <div class="col-lg-6 footer-credits text-center text-lg-end" data-aos="fade-up" data-aos-delay="600">
+              Thiết Kế Bởi
+              <a href="https://www.facebook.com/profile.php?id=100088292157574"
+                >Nguyễn Lê Hoàng Khang</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End Footer Section -->
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      data-aos="fade-up"
+      data-aos-delay="700"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Initialize AOS and Typed.js -->
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        easing: 'ease-in-out',
+      });
+
+      // Page Load Animation
+      window.addEventListener('load', () => {
+        document.body.classList.add('loaded');
+      });
+
+      // Initialize Typed.js
+      var typed = new Typed('.typed', {
+        strings: ["Designer", "Developer", "Freelancer", "Photographer"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 2000,
+        loop: true,
+      });
+    </script>
+  </body>
+</html>
