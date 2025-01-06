@@ -34,7 +34,7 @@
       href="assets/vendor/glightbox/css/glightbox.min.css"
       rel="stylesheet"
     />
-
+     
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
 
@@ -565,6 +565,72 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
+
+      /* Card Hover Effect */
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      /* Card Layout */
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-text {
+        margin-bottom: 15px;
+      }
+
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      .card .card-body {
+        text-align: center;
+      }
+
+      .card .btn {
+        background-color: #1e88e5;
+        color: #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      .card .btn:hover {
+        background-color: #1565c0;
+      }
     </style>
   </head>
 
@@ -649,108 +715,103 @@
             </button>
           </div>
           <div class="tab-content">
-            <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi yêu cầu lab6, phát triển các tính năng JavaScript cho dự
-                án như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường
-                link github dạng: <em>XXX.github.com/lab6.html</em>
+                Các em làm bài tập này giúp cô nhé.
               </p>
-              <h4>JavaScript Programming Requirements:</h4>
               <ul>
-                <li>
-                  <strong>Dynamic Content:</strong>
-                  <ul>
-                    <li>
-                      Tạo các phần tử HTML động bằng JavaScript để cải thiện
-                      giao diện người dùng.
-                    </li>
-                    <li>
-                      Sử dụng DOM manipulation để cập nhật nội dung trang mà
-                      không cần tải lại.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Form Validation:</strong>
-                  <ul>
-                    <li>
-                      Thực hiện kiểm tra dữ liệu nhập vào trên client-side trước
-                      khi gửi đến server.
-                    </li>
-                    <li>
-                      Hiển thị thông báo lỗi rõ ràng khi dữ liệu không hợp lệ.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Event Handling:</strong>
-                  <ul>
-                    <li>
-                      Xử lý các sự kiện người dùng như click, hover, và nhập
-                      liệu để tương tác với trang web.
-                    </li>
-                    <li>
-                      Sử dụng các hàm callback để quản lý các sự kiện phức tạp.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>API Integration:</strong>
-                  <ul>
-                    <li>
-                      Tích hợp với các API bên ngoài để lấy dữ liệu và hiển thị
-                      trên trang web.
-                    </li>
-                    <li>
-                      Sử dụng `fetch` hoặc `axios` để thực hiện các yêu cầu
-                      HTTP.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Asynchronous Programming:</strong>
-                  <ul>
-                    <li>
-                      Sử dụng Promises và `async/await` để xử lý các tác vụ bất
-                      đồng bộ.
-                    </li>
-                    <li>
-                      Đảm bảo giao diện người dùng không bị đóng băng trong quá
-                      trình xử lý.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Performance Optimization:</strong>
-                  <ul>
-                    <li>
-                      Tối ưu hóa mã JavaScript để cải thiện hiệu suất trang web.
-                    </li>
-                    <li>
-                      Sử dụng kỹ thuật như debouncing và throttling để quản lý
-                      các sự kiện nhanh.
-                    </li>
-                  </ul>
-                </li>
+                <li><strong>Nhóm 2:</strong> làm Req 5, 6, 7, 8</li>
               </ul>
-              <h4>Additional Considerations:</h4>
-              <ul>
-                <li>
-                  Tuân thủ các chuẩn mã hóa và đảm bảo mã JavaScript dễ đọc và
-                  bảo trì.
-                </li>
-                <li>
-                  Kiểm tra và đảm bảo tính tương thích trên các trình duyệt phổ
-                  biến như Chrome, Firefox, Safari, và Edge.
-                </li>
-                <li>
-                  Đảm bảo các tính năng JavaScript không ảnh hưởng đến khả năng
-                  truy cập của trang web.
-                </li>
-              </ul>
+              <h4>Yêu Cầu Hoàn Thành:</h4>
+              <ol>
+                <li>Đẩy dự án lên GitHub.</li>
+                <li>Cho toàn bộ nội dung vào thư mục <code>lab6_MaSV_HoTen</code> và nén lại thành tệp <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).</li>
+                <li>Nếu làm sai yêu cầu, bài tập sẽ bị tính <strong>0 điểm</strong>.</li>
+              </ol>
+            
+              <!-- Card hình ảnh (2 card đầu tiên) -->
+              <div class="row mt-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/6. Req1.png"
+                      class="card-img-top"
+                      alt="Hình ảnh Req 5"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Hình Ảnh Req 5</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 5.
+                      </p>
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Card 2 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/6. Req2.png"
+                      class="card-img-top"
+                      alt="Hình ảnh Req 6"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Hình Ảnh Req 6</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 6.
+                      </p>
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+              <!-- Card hình ảnh (Card 3 và Card 4 trên cùng một dòng) -->
+              <div class="row mt-4">
+                <!-- Card 3 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/6. Req3.png"
+                      class="card-img-top"
+                      alt="Hình ảnh Req 7"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Hình Ảnh Req 7</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 7.
+                      </p>
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+            
+                <!-- Card 4 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/6. Req4.png"
+                      class="card-img-top"
+                      alt="Hình ảnh Req 8"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Hình Ảnh Req 8</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 8.
+                      </p>
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            
+            
+            
+            
 
             <!-- Tab Design -->
             <div id="design" class="tab-item">
@@ -779,13 +840,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignLab6.png"
+                    src="assets/img/DesignFigmaLab6.png"
                     alt="Design On Figma Lab6"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignLab6.png"
+                      href="assets/img/DesignFigmaLab6.png"
                       download
                       class="download-btn"
                     >
@@ -808,14 +869,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab6/javascript_programming.html"
+                  src="Lab6/index.html"
                   title="javascript_programming"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab6/Html/index.html" class="lab-button">
+                <a href="Lab6/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
