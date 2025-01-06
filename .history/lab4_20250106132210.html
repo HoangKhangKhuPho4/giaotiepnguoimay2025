@@ -587,15 +587,14 @@
       }
 
       .card {
+        height: 100%; /* Chiều cao tự động điều chỉnh dựa trên nội dung */
         display: flex;
-        flex-direction: column; /* Sắp xếp nội dung theo cột */
-        justify-content: space-between; /* Đảm bảo các phần tách đều */
-        height: 100%; /* Giữ chiều cao thẻ đồng đều */
+        flex-direction: column; /* Sắp xếp theo cột */
+        justify-content: space-between; /* Căn đều nội dung bên trong */
       }
 
       .card-text {
-        flex-grow: 1; /* Cho phép nội dung chiếm khoảng trống */
-        text-align: justify; /* Căn lề đều nội dung */
+        margin-bottom: 15px;
       }
       .card-img-top {
         width: 100%;
@@ -621,16 +620,9 @@
         filter: brightness(1.2);
         transform: scale(1.05);
       }
-      .card-body {
-        display: flex;
-        flex-direction: column; /* Nội dung trong card sắp xếp theo cột */
-        justify-content: space-between; /* Đảm bảo căn đều nội dung và nút */
-        flex-grow: 1; /* Đảm bảo nội dung kéo dài nếu cần */
-      }
 
-      .card-title {
-        margin-bottom: 15px; /* Thêm khoảng cách dưới tiêu đề */
-        text-align: center; /* Căn giữa tiêu đề nếu cần */
+      .card .card-body {
+        text-align: center;
       }
 
       .card .btn {
@@ -641,10 +633,6 @@
 
       .card .btn:hover {
         background-color: #1565c0;
-      }
-      .btn {
-        align-self: center; /* Đảm bảo nút ở giữa card */
-        margin-top: auto; /* Đẩy nút xuống cuối card */
       }
     </style>
   </head>
@@ -764,13 +752,13 @@
                     <div class="card-body">
                       <h5 class="card-title">Hình Ảnh 1</h5>
                       <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
-                        với nội dung dài hơn một chút để kiểm tra.
+                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ với nội dung dài hơn một chút để kiểm tra.
                       </p>
                       <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
+                
 
                 <!-- Card 2 -->
                 <div class="col-md-6 mb-4">
