@@ -566,70 +566,46 @@
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
       /* Card Hover Effect */
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        overflow: hidden;
-      }
+.hover-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+}
 
-      .hover-card img {
-        transition: transform 0.3s, filter 0.3s;
-      }
+.hover-card img {
+  transition: transform 0.3s, filter 0.3s;
+}
 
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
+.hover-card:hover img {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
 
-      /* Card Layout */
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
+/* Card Layout */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+}
 
-      .card-text {
-        margin-bottom: 15px;
-      }
+.card .card-body {
+  text-align: center;
+}
 
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
+.card .btn {
+  background-color: #1e88e5;
+  color: #ffffff;
+  transition: background-color 0.3s;
+}
 
-      .hover-card img {
-        transition: transform 0.3s, filter 0.3s;
-      }
+.card .btn:hover {
+  background-color: #1565c0;
+}
 
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-
-      .card .card-body {
-        text-align: center;
-      }
-
-      .card .btn {
-        background-color: #1e88e5;
-        color: #ffffff;
-        transition: background-color 0.3s;
-      }
-
-      .card .btn:hover {
-        background-color: #1565c0;
-      }
     </style>
   </head>
 
@@ -718,66 +694,51 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Các bạn thể hiện cho cô chức năng: chia sẻ tài liệu học tập cho
-                sinh viên theo môn học. Mỗi môn học có thể chia sẻ các tài liệu
-                như <strong>Bài giảng</strong>, <strong>Bài tập</strong>, hoặc
-                <strong>Tài liệu tham khảo</strong>.
+                Các bạn thể hiện cho cô chức năng: chia sẻ tài liệu học tập cho sinh viên theo môn học.
+                Mỗi môn học có thể chia sẻ các tài liệu như <strong>Bài giảng</strong>, <strong>Bài tập</strong>, hoặc <strong>Tài liệu tham khảo</strong>.
               </p>
               <p>
-                Dưới đây là một ý tưởng cô đang làm, các bạn tham khảo và làm
-                khác đi nhé.
+                Dưới đây là một ý tưởng cô đang làm, các bạn tham khảo và làm khác đi nhé.
               </p>
               <p>
-                Các bạn bỏ toàn bộ file các bạn làm vào thư mục
-                <code>MaSV_HoTen_lab3</code>, nén lại thành file
-                <code>.zip</code> rồi gửi cho cô nhé.
+                Các bạn bỏ toàn bộ file các bạn làm vào thư mục <code>MaSV_HoTen_lab3</code>, nén lại thành file <code>.zip</code> rồi gửi cho cô nhé.
               </p>
-
+            
               <!-- Row chứa 2 card -->
-              <div class="row mt-4 justify-content-center align-items-stretch">
+              <div class="row mt-4">
                 <!-- Card 1 -->
-                <div class="col-lg-6 col-md-6 mb-4 d-flex align-items-stretch">
+                <div class="col-md-6 mb-3">
                   <div class="card hover-card">
-                    <img
-                      src="assets/img/anhDeBaiLab3.png"
-                      class="card-img-top"
-                      alt="Card Image 1"
-                    />
-                    <div class="card-body d-flex flex-column">
+                    <img src="assets/img/card-image-1.jpg" class="card-img-top" alt="Card Image 1">
+                    <div class="card-body">
                       <h5 class="card-title">Bài Giảng</h5>
-                      <p class="card-text flex-grow-1">
-                        Chia sẻ bài giảng chi tiết theo từng môn học giúp sinh
-                        viên dễ dàng theo dõi.
+                      <p class="card-text">
+                        Chia sẻ bài giảng chi tiết theo từng môn học giúp sinh viên dễ dàng theo dõi.
                       </p>
-                      <a href="#" class="btn btn-primary mt-auto"
-                        >Xem Chi Tiết</a
-                      >
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
-
+            
                 <!-- Card 2 -->
-                <div class="col-lg-6 col-md-6 mb-4 d-flex align-items-stretch">
+                <div class="col-md-6 mb-3">
                   <div class="card hover-card">
-                    <img
-                      src="assets/img/anhDeBaiLab3_Part2.png"
-                      class="card-img-top"
-                      alt="Card Image 2"
-                    />
-                    <div class="card-body d-flex flex-column">
+                    <img src="assets/img/card-image-2.jpg" class="card-img-top" alt="Card Image 2">
+                    <div class="card-body">
                       <h5 class="card-title">Tài Liệu Tham Khảo</h5>
-                      <p class="card-text flex-grow-1">
-                        Tài liệu tham khảo phong phú hỗ trợ sinh viên học tập
-                        hiệu quả hơn.
+                      <p class="card-text">
+                        Tài liệu tham khảo phong phú hỗ trợ sinh viên học tập hiệu quả hơn.
                       </p>
-                      <a href="#" class="btn btn-primary mt-auto"
-                        >Xem Chi Tiết</a
-                      >
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            
+
+
+            
 
             <!-- Tab Design -->
             <div id="design" class="tab-item">
@@ -787,13 +748,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/paper_Lab3.jpg"
+                    src="assets/img/DesignPaperLab3.jpg"
                     alt="Design On Paper Lab3"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/paper_Lab3.jpg"
+                      href="assets/img/DesignPaperLab3.jpg"
                       download
                       class="download-btn"
                     >
@@ -806,13 +767,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/figmaLab3.png"
+                    src="assets/img/DesignLab3.png"
                     alt="Design On Figma Lab3"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/figmaLab3.png"
+                      href="assets/img/DesignLab3.png"
                       download
                       class="download-btn"
                     >
@@ -835,14 +796,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab3/index.html"
+                  src="Lab3/responsive_design.html"
                   title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab3/index.html" class="lab-button">
+                <a href="Lab3/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
