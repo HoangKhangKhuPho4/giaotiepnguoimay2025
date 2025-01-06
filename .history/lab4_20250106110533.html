@@ -565,58 +565,6 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
-
-      /* Card Hover Effect */
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        overflow: hidden;
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 350px; /* Chiều cao tối thiểu */
-      }
-
-      .card-text {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        --webkit-line-clamp: 3; /* Hiển thị tối đa 3 dòng */
-        --webkit-box-orient: vertical;
-      }
-
-      .hover-card img {
-        width: 100%;
-        height: 200px; /* Chiều cao cố định cho ảnh */
-        object-fit: cover; /* Ảnh không bị méo */
-      }
-
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-
-      .row.mt-4 {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .col-md-6 {
-        display: flex;
-      }
-
-      .card {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
     </style>
   </head>
 
@@ -701,69 +649,64 @@
             </button>
           </div>
           <div class="tab-content">
-            <!-- Tab Requirement -->
-            <div id="requirement" class="tab-item active requirement-content">
-              <h3>Chào các em,</h3>
-              <p>
-                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Req4
-                ghép lại thành 1 trang).
-              </p>
-              <h4>Yêu Cầu Hoàn Thành:</h4>
-              <ol>
-                <li>Đẩy dự án lên GitHub.</li>
-                <li>
-                  Cho toàn bộ nội dung vào thư mục
-                  <code>lab4_MaSV_HoTen</code> và nén lại thành tệp
-                  <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
-                </li>
-                <li>
-                  Nếu làm sai yêu cầu, bài tập sẽ bị tính
-                  <strong>0 điểm</strong>.
-                </li>
-              </ol>
+        <!-- Tab Requirement -->
+<div id="requirement" class="tab-item active requirement-content">
+  <h3>Chào các em,</h3>
+  <p>
+    Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Req4 ghép lại thành 1 trang).
+  </p>
+  <h4>Yêu Cầu Hoàn Thành:</h4>
+  <ol>
+    <li>Đẩy dự án lên GitHub.</li>
+    <li>
+      Cho toàn bộ nội dung vào thư mục <code>lab4_MaSV_HoTen</code> và nén lại thành
+      tệp <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
+    </li>
+    <li>
+      Nếu làm sai yêu cầu, bài tập sẽ bị tính <strong>0 điểm</strong>.
+    </li>
+  </ol>
 
-              <!-- Row chứa 2 card -->
-              <div class="row mt-4">
-                <!-- Card 1 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req1.png"
-                      class="card-img-top"
-                      alt="Card Image 1"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 1</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
-                        với nội dung dài hơn một chút để kiểm tra.
-                      </p>
-                      <a href="#" class="btn btn-primary mt-auto"
-                        >Xem Chi Tiết</a
-                      >
-                    </div>
-                  </div>
-                </div>
+  <!-- Row chứa 2 card -->
+  <div class="row mt-4">
+    <!-- Card 1 -->
+    <div class="col-md-6 mb-4">
+      <div class="card hover-card">
+        <img
+          src="assets/img/card1.jpg"
+          class="card-img-top"
+          alt="Card Image 1"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Hình Ảnh 1</h5>
+          <p class="card-text">
+            Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ.
+          </p>
+          <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+        </div>
+      </div>
+    </div>
 
-                <!-- Card 2 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req2.png"
-                      class="card-img-top"
-                      alt="Card Image 2"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 2</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh thứ hai. Đây là một ví dụ.
-                      </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+    <!-- Card 2 -->
+    <div class="col-md-6 mb-4">
+      <div class="card hover-card">
+        <img
+          src="assets/img/card2.jpg"
+          class="card-img-top"
+          alt="Card Image 2"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Hình Ảnh 2</h5>
+          <p class="card-text">
+            Mô tả ngắn gọn về hình ảnh thứ hai. Đây là một ví dụ.
+          </p>
+          <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
             <!-- Tab Design -->
             <div id="design" class="tab-item">
@@ -773,13 +716,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
+                    src="assets/img/DesignPaperLab4.jpg"
                     alt="Design On Paper Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
+                      href="assets/img/DesignPaperLab4.jpg"
                       download
                       class="download-btn"
                     >
@@ -792,13 +735,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignFigmaLab4.png"
+                    src="assets/img/DesignLab4.png"
                     alt="Design On Figma Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignFigmaLab4.png"
+                      href="assets/img/DesignLab4.png"
                       download
                       class="download-btn"
                     >

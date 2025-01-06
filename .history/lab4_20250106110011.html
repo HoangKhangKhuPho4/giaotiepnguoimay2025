@@ -565,58 +565,6 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
-
-      /* Card Hover Effect */
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        overflow: hidden;
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 350px; /* Chiều cao tối thiểu */
-      }
-
-      .card-text {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        --webkit-line-clamp: 3; /* Hiển thị tối đa 3 dòng */
-        --webkit-box-orient: vertical;
-      }
-
-      .hover-card img {
-        width: 100%;
-        height: 200px; /* Chiều cao cố định cho ảnh */
-        object-fit: cover; /* Ảnh không bị méo */
-      }
-
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-
-      .row.mt-4 {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .col-md-6 {
-        display: flex;
-      }
-
-      .card {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
     </style>
   </head>
 
@@ -705,64 +653,114 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Req4
-                ghép lại thành 1 trang).
+                Cô gửi yêu cầu lab4, thiết kế giao diện cho chức năng trực quan
+                hóa dữ liệu như sau. Tới 11h59 phút ngày hôm nay, các em nộp lại
+                đường link github dạng: <em>XXX.github.com/lab4.html</em>
               </p>
-              <h4>Yêu Cầu Hoàn Thành:</h4>
-              <ol>
-                <li>Đẩy dự án lên GitHub.</li>
+              <h4>Data Visualization Requirements:</h4>
+              <ul>
                 <li>
-                  Cho toàn bộ nội dung vào thư mục
-                  <code>lab4_MaSV_HoTen</code> và nén lại thành tệp
-                  <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
+                  <strong>Chart Types:</strong> Include at least three types of
+                  charts (e.g., Bar Chart, Line Chart, Pie Chart).
+                  <ul>
+                    <li>Each chart should represent different datasets.</li>
+                    <li>
+                      Charts should be interactive, allowing users to hover and
+                      view data points.
+                    </li>
+                  </ul>
                 </li>
                 <li>
-                  Nếu làm sai yêu cầu, bài tập sẽ bị tính
-                  <strong>0 điểm</strong>.
+                  <strong>Responsive Design:</strong>
+                  <ul>
+                    <li>
+                      Ensure all charts are responsive and render correctly on
+                      various screen sizes.
+                    </li>
+                  </ul>
                 </li>
-              </ol>
-
-              <!-- Row chứa 2 card -->
-              <div class="row mt-4">
-                <!-- Card 1 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req1.png"
-                      class="card-img-top"
-                      alt="Card Image 1"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 1</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
-                        với nội dung dài hơn một chút để kiểm tra.
-                      </p>
-                      <a href="#" class="btn btn-primary mt-auto"
-                        >Xem Chi Tiết</a
-                      >
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req2.png"
-                      class="card-img-top"
-                      alt="Card Image 2"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 2</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh thứ hai. Đây là một ví dụ.
-                      </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <li>
+                  <strong>Data Sources:</strong>
+                  <ul>
+                    <li>
+                      Fetch data from external APIs or use static JSON files.
+                    </li>
+                    <li>Data should be dynamically loaded into the charts.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Legend and Labels:</strong>
+                  <ul>
+                    <li>Include legends and labels for clarity.</li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Color Scheme:</strong>
+                  <ul>
+                    <li>
+                      Use a consistent and visually appealing color palette.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Accessibility:</strong>
+                  <ul>
+                    <li>
+                      Ensure charts are accessible, including proper ARIA
+                      labels.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Export Functionality:</strong>
+                  <ul>
+                    <li>
+                      Allow users to export charts as images (PNG, JPEG) or PDF.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Filtering and Sorting:</strong>
+                  <ul>
+                    <li>
+                      Provide options for users to filter and sort the data
+                      displayed in the charts.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Performance:</strong>
+                  <ul>
+                    <li>
+                      Optimize charts for performance to handle large datasets
+                      without lag.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Documentation:</strong>
+                  <ul>
+                    <li>
+                      Provide clear documentation on how to use the
+                      visualization tools.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <h4>Additional Considerations:</h4>
+              <ul>
+                <li>
+                  Ensure smooth transitions and animations for chart rendering.
+                </li>
+                <li>
+                  Implement tooltips to display detailed information on data
+                  points.
+                </li>
+                <li>
+                  Maintain code readability and organization using modular
+                  JavaScript or frameworks if necessary.
+                </li>
+              </ul>
             </div>
 
             <!-- Tab Design -->
@@ -773,13 +771,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
+                    src="assets/img/DesignPaperLab4.jpg"
                     alt="Design On Paper Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
+                      href="assets/img/DesignPaperLab4.jpg"
                       download
                       class="download-btn"
                     >
@@ -792,13 +790,13 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignFigmaLab4.png"
+                    src="assets/img/DesignLab4.png"
                     alt="Design On Figma Lab4"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignFigmaLab4.png"
+                      href="assets/img/DesignLab4.png"
                       download
                       class="download-btn"
                     >

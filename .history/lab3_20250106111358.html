@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 4 - LearnSync</title>
+    <title>Lab 3 - StudyShare</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -565,32 +565,14 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
-
       /* Card Hover Effect */
       .hover-card {
         transition: transform 0.3s, box-shadow 0.3s;
         overflow: hidden;
       }
 
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 350px; /* Chiều cao tối thiểu */
-      }
-
-      .card-text {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        --webkit-line-clamp: 3; /* Hiển thị tối đa 3 dòng */
-        --webkit-box-orient: vertical;
-      }
-
       .hover-card img {
-        width: 100%;
-        height: 200px; /* Chiều cao cố định cho ảnh */
-        object-fit: cover; /* Ảnh không bị méo */
+        transition: transform 0.3s, filter 0.3s;
       }
 
       .hover-card:hover {
@@ -603,19 +585,50 @@
         transform: scale(1.05);
       }
 
-      .row.mt-4 {
-        display: flex;
-        flex-wrap: wrap;
-      }
-
-      .col-md-6 {
-        display: flex;
-      }
-
+      /* Card Layout */
       .card {
-        flex: 1;
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-text {
+        margin-bottom: 15px;
+      }
+
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      .card .card-body {
+        text-align: center;
+      }
+
+      .card .btn {
+        background-color: #1e88e5;
+        color: #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      .card .btn:hover {
+        background-color: #1565c0;
       }
     </style>
   </head>
@@ -654,7 +667,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 4 - LearnSync</h2>
+        <h2 class="text-center mb-4">Lab 3 - StudyShare</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -664,13 +677,13 @@
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
             <i class="bi bi-book"></i> Lab 2
           </a>
-          <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
+          <a
+            href="lab3.html"
+            class="btn btn-success-custom lab3 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 3
           </a>
-          <a
-            href="lab4.html"
-            class="btn btn-danger-custom lab4 lab-button active"
-          >
+          <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
             <i class="bi bi-book"></i> Lab 4
           </a>
           <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
@@ -705,60 +718,59 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Req4
-                ghép lại thành 1 trang).
+                Các bạn thể hiện cho cô chức năng: chia sẻ tài liệu học tập cho
+                sinh viên theo môn học. Mỗi môn học có thể chia sẻ các tài liệu
+                như <strong>Bài giảng</strong>, <strong>Bài tập</strong>, hoặc
+                <strong>Tài liệu tham khảo</strong>.
               </p>
-              <h4>Yêu Cầu Hoàn Thành:</h4>
-              <ol>
-                <li>Đẩy dự án lên GitHub.</li>
-                <li>
-                  Cho toàn bộ nội dung vào thư mục
-                  <code>lab4_MaSV_HoTen</code> và nén lại thành tệp
-                  <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
-                </li>
-                <li>
-                  Nếu làm sai yêu cầu, bài tập sẽ bị tính
-                  <strong>0 điểm</strong>.
-                </li>
-              </ol>
+              <p>
+                Dưới đây là một ý tưởng cô đang làm, các bạn tham khảo và làm
+                khác đi nhé.
+              </p>
+              <p>
+                Các bạn bỏ toàn bộ file các bạn làm vào thư mục
+                <code>MaSV_HoTen_lab3</code>, nén lại thành file
+                <code>.zip</code> rồi gửi cho cô nhé.
+              </p>
 
               <!-- Row chứa 2 card -->
-              <div class="row mt-4">
+              <div class="row mt-4 justify-content-center align-items-stretch">
                 <!-- Card 1 -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-6 col-md-6 mb-4 d-flex align-items-stretch">
                   <div class="card hover-card">
                     <img
-                      src="assets/img/Req1.png"
+                      src="assets/img/anhDeBaiLab3.png"
                       class="card-img-top"
                       alt="Card Image 1"
                     />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 1</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
-                        với nội dung dài hơn một chút để kiểm tra.
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Bài Giảng</h5>
+                      <p class="card-text flex-grow-1">
+                        Chia sẻ bài giảng chi tiết theo từng môn học giúp sinh
+                        viên dễ dàng theo dõi.
                       </p>
-                      <a href="#" class="btn btn-primary mt-auto"
-                        >Xem Chi Tiết</a
-                      >
+                      <a href="#" class="lab-button mt-auto">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
 
                 <!-- Card 2 -->
-                <div class="col-md-6 mb-4">
+                <div class="col-lg-6 col-md-6 mb-4 d-flex align-items-stretch">
                   <div class="card hover-card">
                     <img
-                      src="assets/img/Req2.png"
+                      src="assets/img/anhDeBaiLab3_Part2.png"
                       class="card-img-top"
                       alt="Card Image 2"
                     />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 2</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh thứ hai. Đây là một ví dụ.
+                    <div class="card-body d-flex flex-column">
+                      <h5 class="card-title">Tài Liệu Tham Khảo</h5>
+                      <p class="card-text flex-grow-1">
+                        Tài liệu tham khảo phong phú hỗ trợ sinh viên học tập
+                        hiệu quả hơn.
                       </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                      <a href="#" class="btn btn-primary mt-auto"
+                        >Xem Chi Tiết</a
+                      >
                     </div>
                   </div>
                 </div>
@@ -773,13 +785,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
-                    alt="Design On Paper Lab4"
+                    src="assets/img/paper_Lab3.jpg"
+                    alt="Design On Paper Lab3"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
+                      href="assets/img/paper_Lab3.jpg"
                       download
                       class="download-btn"
                     >
@@ -792,20 +804,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignFigmaLab4.png"
-                    alt="Design On Figma Lab4"
+                    src="assets/img/figmaLab3.png"
+                    alt="Design On Figma Lab3"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignFigmaLab4.png"
+                      href="assets/img/figmaLab3.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link-lab4"
+                      href="https://www.figma.com/your-figma-link-lab3"
                       target="_blank"
                       class="view-btn"
                     >
@@ -821,14 +833,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab4/data_visualization.html"
-                  title="data_visualization"
+                  src="Lab3/index.html"
+                  title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab4/Html/index.html" class="lab-button">
+                <a href="Lab3/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -1016,18 +1028,20 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab
+      // Hàm thay đổi tab trong Lab 3
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
         tabItems.forEach((item) => {
           item.style.display = "none";
+          item.classList.remove("active");
         });
 
         // Hiển thị tab được chọn
         const selectedTab = document.getElementById(tabId);
         if (selectedTab) {
           selectedTab.style.display = "block";
+          selectedTab.classList.add("active");
         }
 
         // Xóa class active khỏi tất cả các tab
