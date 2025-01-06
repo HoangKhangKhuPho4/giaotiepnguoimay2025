@@ -640,12 +640,12 @@
       }
 
       .card-img-top {
-        width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của card */
-        height: 200px; /* Chiều cao cố định */
-        object-fit: cover; /* Đảm bảo hình ảnh vừa với khung mà không bị méo */
-        object-position: center; /* Căn giữa hình ảnh nếu bị cắt */
-        border-radius: 5px; /* Tùy chọn: Bo tròn góc nếu cần */
-        display: block; /* Đảm bảo không có khoảng trắng không mong muốn */
+        width: 100%; /* Chiếm toàn bộ chiều rộng của thẻ card */
+        height: 200px; /* Đặt chiều cao cố định cho khung hình ảnh */
+        object-fit: cover; /* Giữ tỉ lệ ảnh, cắt phần thừa để vừa với khung */
+        object-position: center; /* Căn giữa ảnh nếu bị cắt */
+        display: block; /* Đảm bảo không có khoảng trắng thừa */
+        border-radius: 5px; /* Tùy chọn: bo góc nếu cần */
       }
 
       .footer-contact p a:hover {
@@ -837,7 +837,7 @@
                       <p class="card-text">
                         Đây là hình ảnh minh họa cho yêu cầu 1 trong bài tập.
                       </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a></a>
+                      <a href="#" class="btn-view-details">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
@@ -855,7 +855,7 @@
                       <p class="card-text">
                         Đây là hình ảnh minh họa cho yêu cầu 2 trong bài tập.
                       </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                      <a href="#" class="btn-view-details">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>

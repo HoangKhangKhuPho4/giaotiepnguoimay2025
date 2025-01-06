@@ -590,16 +590,16 @@
 
       .card {
         display: flex;
-        flex-direction: column; /* Sắp xếp theo cột */
-        justify-content: space-between; /* Tách đều nội dung trong card */
-        height: 100%; /* Giữ card đồng đều */
+        flex-direction: column; /* Sắp xếp các phần theo cột */
+        justify-content: space-between; /* Đảm bảo các phần cách đều nhau */
+        height: 100%; /* Giữ chiều cao đồng đều cho tất cả các card */
       }
 
       .card-body {
         display: flex;
         flex-direction: column;
-        justify-content: space-between; /* Đảm bảo văn bản và nút không chèn lấn */
-        flex-grow: 1; /* Cho phép nội dung phát triển */
+        justify-content: space-between; /* Giữa nội dung và nút */
+        flex-grow: 1;
       }
 
       .card-title {
@@ -640,82 +640,14 @@
       }
 
       .card-img-top {
-        width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của card */
-        height: 200px; /* Chiều cao cố định */
-        object-fit: cover; /* Đảm bảo hình ảnh vừa với khung mà không bị méo */
-        object-position: center; /* Căn giữa hình ảnh nếu bị cắt */
-        border-radius: 5px; /* Tùy chọn: Bo tròn góc nếu cần */
-        display: block; /* Đảm bảo không có khoảng trắng không mong muốn */
-      }
+  width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng của card */
+  height: 200px; /* Chiều cao cố định */
+  object-fit: cover; /* Đảm bảo hình ảnh vừa với khung mà không bị méo */
+  object-position: center; /* Căn giữa hình ảnh nếu bị cắt */
+  border-radius: 5px; /* Tùy chọn: Bo tròn góc nếu cần */
+  display: block; /* Đảm bảo không có khoảng trắng không mong muốn */
+}
 
-      .footer-contact p a:hover {
-        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
-      }
-      /* Card Hover Effect */
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        overflow: hidden;
-      }
-
-      .hover-card img {
-        transition: transform 0.3s, filter 0.3s;
-      }
-
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-
-      /* Card Layout */
-      .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .card-text {
-        margin-bottom: 15px;
-      }
-
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-
-      .hover-card img {
-        transition: transform 0.3s, filter 0.3s;
-      }
-
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-
-      .card .card-body {
-        text-align: center;
-      }
-
-      .card .btn {
-        background-color: #1e88e5;
-        color: #ffffff;
-        transition: background-color 0.3s;
-      }
-
-      .card .btn:hover {
-        background-color: #1565c0;
-      }
     </style>
   </head>
 
@@ -837,11 +769,11 @@
                       <p class="card-text">
                         Đây là hình ảnh minh họa cho yêu cầu 1 trong bài tập.
                       </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a></a>
+                      <a href="#" class="btn-view-details">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
-
+              
                 <!-- Card 2 -->
                 <div class="col-md-6 mb-4">
                   <div class="card hover-card">
@@ -855,11 +787,12 @@
                       <p class="card-text">
                         Đây là hình ảnh minh họa cho yêu cầu 2 trong bài tập.
                       </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                      <a href="#" class="btn-view-details">Xem Chi Tiết</a>
                     </div>
                   </div>
                 </div>
               </div>
+              
             </div>
 
             <!-- Tab Design -->
