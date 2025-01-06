@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 5 - Course Management Page</title>
+    <title>Lab 5 - LearningHub Responsive Web</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -324,13 +324,13 @@
         background: linear-gradient(45deg, #1565c0, #0d47a1);
       }
 
-      /* Updated Image Preview for Uniform Size */
       .image-preview {
         width: 100%;
-        height: 200px; /* Fixed height for uniformity */
-        object-fit: cover; /* Crop images to fill the container */
-        border-radius: 5px;
+        height: auto;
         margin-bottom: 15px;
+        border-radius: 5px;
+        object-fit: cover;
+        min-height: 200px;
       }
 
       /* Responsive */
@@ -565,6 +565,28 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
+
+      /* Card Hover Effect */
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+        width: 100%;
+        height: auto;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
     </style>
   </head>
 
@@ -602,7 +624,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 5 - Course Management Page</h2>
+        <h2 class="text-center mb-4">Lab 5 - LearningHub Responsive Web</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -654,60 +676,59 @@
               <h3>Chào các em,</h3>
               <p>Cô gửi bài tập làm trên lớp:</p>
               <ul>
-                <li>Nhóm 1: yêu cầu Req1 và Req2</li>
-                <li>Nhóm 2: yêu cầu Req3, 4, 5</li>
+                <li><strong>Nhóm 1:</strong> yêu cầu Req1 và Req2</li>
+                <li><strong>Nhóm 2:</strong> yêu cầu Req3, 4, 5</li>
               </ul>
-              <p>Các em hoàn thành xong thì:</p>
+              <h4>Yêu Cầu Hoàn Thành:</h4>
               <ol>
-                <li>Đẩy lên GitHub.</li>
+                <li>Đẩy dự án lên GitHub.</li>
                 <li>
-                  Cho vào thư mục <strong>lab5_MaSV_HoTen</strong> rồi nén lại
-                  thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài lên
-                  đây.
+                  Cho toàn bộ nội dung vào thư mục
+                  <code>lab5_MaSV_HoTen</code> và nén lại thành tệp
+                  <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
                 </li>
-                <li>Nếu làm sai yêu cầu bị 0đ.</li>
+                <li>
+                  Nếu làm sai yêu cầu, bài tập sẽ bị tính
+                  <strong>0 điểm</strong>.
+                </li>
               </ol>
 
-              <!-- Image Gallery Section -->
-              <h4 class="mt-4">Hình Ảnh Minh Họa:</h4>
-              <div class="row">
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req1.png"
-                    alt="Requirement Image 1"
-                    class="img-fluid rounded image-preview"
-                  />
+              <!-- Card Container -->
+              <div class="row mt-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/5.Req1.png"
+                      class="card-img-top"
+                      alt="Hình ảnh yêu cầu 1"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Yêu cầu 1</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 1 trong bài tập.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req2.png"
-                    alt="Requirement Image 2"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req3.png"
-                    alt="Requirement Image 3"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req4.png"
-                    alt="Requirement Image 4"
-                    class="img-fluid rounded image-preview"
-                  />
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                  <img
-                    src="assets/img/5.Req5.png"
-                    alt="Requirement Image 5"
-                    class="img-fluid rounded image-preview"
-                  />
+
+                <!-- Card 2 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/5.Req2.png"
+                      class="card-img-top"
+                      alt="Hình ảnh yêu cầu 2"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Yêu cầu 2</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 2 trong bài tập.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <!-- End of Image Gallery -->
             </div>
 
             <!-- Tab Design -->
@@ -766,7 +787,7 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab5/index.html"
+                  src="Lab5/responsive_design.html"
                   title="responsive_design"
                   allowfullscreen
                 ></iframe>
@@ -796,15 +817,21 @@
                 và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
               </p>
               <div class="social-links">
-                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="#" aria-label="Twitter"
+                  ><i class="bi bi-twitter"></i
+                ></a>
                 <a
                   href="https://www.facebook.com/profile.php?id=100088292157574"
                   aria-label="Facebook"
                   ><i class="bi bi-facebook"></i
                 ></a>
-                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
                 <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
               </div>
             </div>
 
