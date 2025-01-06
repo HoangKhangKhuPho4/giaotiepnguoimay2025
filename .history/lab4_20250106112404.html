@@ -603,18 +603,19 @@
         transform: scale(1.05);
       }
 
-      .card .card-body {
-        text-align: center;
+      .row.mt-4 {
+        display: flex;
+        flex-wrap: wrap;
       }
 
-      .card .btn {
-        background-color: #1e88e5;
-        color: #ffffff;
-        transition: background-color 0.3s;
+      .col-md-6 {
+        display: flex;
       }
 
-      .card .btn:hover {
-        background-color: #1565c0;
+      .card {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
     </style>
   </head>
@@ -734,15 +735,16 @@
                     <div class="card-body">
                       <h5 class="card-title">Hình Ảnh 1</h5>
                       <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ với nội dung dài hơn một chút để kiểm tra.
+                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
+                        với nội dung dài hơn một chút để kiểm tra.
                       </p>
                       <a href="#" class="btn btn-primary mt-auto"
-                      >Xem Chi Tiết</a
-                    >
+                        >Xem Chi Tiết</a
+                      >
                     </div>
                   </div>
                 </div>
-              
+
                 <!-- Card 2 -->
                 <div class="col-md-6 mb-4">
                   <div class="card hover-card">
@@ -761,7 +763,6 @@
                   </div>
                 </div>
               </div>
-              
             </div>
 
             <!-- Tab Design -->
@@ -820,14 +821,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab4/index.html"
+                  src="Lab4/data_visualization.html"
                   title="data_visualization"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab4/index.html" class="lab-button">
+                <a href="Lab4/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
