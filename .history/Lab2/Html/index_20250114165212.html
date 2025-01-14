@@ -163,7 +163,7 @@ input:checked + .slider::before {
 nav {
   background-color: rgba(44, 62, 80, 0.95);
   color: #fff;
-  padding: 10px;
+  padding: 10px 20px; /* Thêm padding trái và phải để căn chỉnh */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -192,13 +192,14 @@ nav.scrolled {
 }
 
 .nav-links {
-  list-style: none;
   display: flex;
   align-items: center;
+  gap: 15px; /* Khoảng cách giữa các liên kết điều hướng */
 }
 
+
 .nav-links li {
-  margin-left: 30px;
+  margin-left: 15px; /* Reduced from 30px to 15px */
   position: relative;
 }
 
@@ -210,9 +211,6 @@ nav.scrolled {
   padding: 8px 0;
   display: inline-block;
   transition: color var(--transition-speed);
-  outline: none;
-  border: none;
-  box-shadow: none;
 }
 
 .nav-links li a::after {
@@ -235,6 +233,13 @@ nav.scrolled {
 .nav-links li a:hover,
 .nav-links li a.active {
   color: var(--accent-color);
+}
+
+/* Authentication Links */
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa các liên kết xác thực */
 }
 
 .nav-hamburger {
@@ -415,23 +420,16 @@ header::before {
 }
 
 .header-content .Intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px; /* Tạo khoảng cách 40px giữa các phần tử */
-  padding: 20px; /* Thêm padding để tạo không gian xung quanh */
+  margin-bottom: 40px;
 }
 
-
-
-/* Tùy chỉnh văn bản mô tả */
+/* Coding is Fun */
 .header-content .Intro .Description {
   font-size: 32px;
+  margin-bottom: 20px;
   font-weight: 500;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  max-width: 800px; /* Giới hạn chiều rộng tối đa */
-  text-align: center; /* Căn giữa văn bản */
+  color: #ffffff; /* Set the font color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
 }
 
 
@@ -909,7 +907,8 @@ textarea:focus {
 ============================== */
 .search-container {
   position: relative;
-  width: 100%;
+  width: 350px; /* Tăng chiều rộng của thanh tìm kiếm */
+  transition: width var(--transition-speed);
 }
 
 .search-container i {
@@ -949,6 +948,13 @@ textarea:focus {
   padding: 12px 24px; /* Tăng padding để làm cho nút lớn hơn */
   border-radius: 30px; /* Tạo đường viền cong cho nút */
   display: inline-block; /* Đảm bảo rằng nút không bị giãn theo chiều ngang */
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between Đăng Ký and Đăng nhập */
+  margin-left: 20px; /* Optional: Adjust if needed */
 }
 
 
@@ -1092,26 +1098,33 @@ textarea:focus {
 
 
 .nav-logo {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align image and text vertically in the center */
-  gap: 8px; /* Add some space between the image and the text */
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Khoảng cách giữa logo và tiêu đề */
 }
+
 
 /* Tăng kích thước logo */
 
-/* Làm logo dài hơn */
 .nav-logo img {
-  height: 40px; /* Kích thước logo vẫn giữ nguyên */
-  margin-right: 15px; /* Khoảng cách giữa logo và chữ */
-  width: auto; /* Giữ chiều rộng tự động cho logo nếu cần */
+  height: 40px; /* Kích thước logo */
+  width: auto;
 }
 
 .nav-logo h1 {
-  font-size: 24px; /* Tăng kích thước tiêu đề logo */
+  font-size: 24px;
   color: #fff;
   font-weight: bold;
-  margin-left: 10px;
+  margin: 0;
 }
+
+/* Nhóm Menu trong Navbar */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Khoảng cách giữa nav-links và auth-links */
+}
+
 
 .search-container {
   position: relative;
@@ -1131,14 +1144,13 @@ textarea:focus {
 
 .search-container input {
   width: 100%;
-  padding: 12px 20px 12px 45px; /* Tăng padding-left để tạo không gian cho biểu tượng */
+  padding: 12px 20px 12px 45px; /* Tăng padding để phù hợp với kích thước mới */
   border: 1px solid #ccc;
-  border-radius: 0; /* Đặt góc vuông. Thay đổi thành 5px nếu muốn góc nhẹ nhàng */
+  border-radius: 30px;
   font-size: 16px;
   outline: none;
   transition: all 0.3s ease;
 }
-
 
 .search-container input:focus {
   border-color: var(--primary-color);
@@ -1275,81 +1287,41 @@ textarea:focus {
 button:focus, input:focus, textarea:focus {
   border: none !important; /* Loại bỏ border khi focus */
 }
-.suggestion-category-container {
-  flex: 1;
-  margin: 10px;
-  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng chiều rộng */
-}
-
-/* Sắp xếp các danh mục gợi ý cạnh nhau */
-.autocomplete-suggestions {
+/* Căn chỉnh thanh tìm kiếm phía trên dòng chữ "Coding is Fun" */
+.header-content .search-bar {
+  margin-bottom: 20px; /* Khoảng cách giữa thanh tìm kiếm và dòng chữ */
   display: flex;
-  gap: 20px;
-  width: 100%; /* Đảm bảo chiều rộng khớp với thanh tìm kiếm */
-  flex-wrap: wrap; /* Cho phép các danh mục gợi ý tự động xuống dòng nếu cần */
-  /* Loại bỏ các thuộc tính sau nếu có */
-  max-height: none; /* Không giới hạn chiều cao */
-  overflow: visible; /* Hiển thị đầy đủ nội dung mà không cần thanh cuộn */
+  justify-content: center; /* Căn giữa thanh tìm kiếm */
 }
 
-.suggestion-category {
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: var(--secondary-color);
-  font-size: 16px;
-  border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 5px;
-}
-
-/* Tùy chỉnh các mục gợi ý */
-/* Tùy chỉnh các mục gợi ý */
-.autocomplete-suggestion {
-  padding: 10px 15px;
-  cursor: pointer;
+.header-content .search-container {
+  width: 400px; /* Chiều rộng thanh tìm kiếm */
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #f0f0f0;
-  color: var(--text-color);
-  font-weight: normal;
-  white-space: normal; /* Cho phép xuống dòng nếu cần */
 }
 
-.autocomplete-suggestion:last-child {
-  border-bottom: none;
+.header-content .search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
 }
 
-.autocomplete-suggestion:hover {
-  background-color: var(--background-color);
-  color: var(--accent-color);
+.header-content .search-container input {
+  width: 100%;
+  padding: 10px 20px 10px 40px; /* Khoảng cách chữ và biểu tượng tìm kiếm */
+  border-radius: 25px; /* Bo góc thanh tìm kiếm */
+  border: 1px solid #ccc;
+  font-size: 16px;
 }
 
-.autocomplete-suggestion i {
-  color: var(--accent-color);
+.header-content .search-container input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
-/* Thiết kế phản hồi cho các thiết bị nhỏ */
-@media (max-width: 768px) {
-  .autocomplete-suggestions {
-    flex-direction: column;
-    gap: 10px; /* Giảm khoảng cách giữa các danh mục */
-  }
 
-
-  .suggestion-category-container {
-    margin: 5px 0;
-    border-right: none; /* Loại bỏ đường viền trên thiết bị nhỏ */
-    padding-right: 0;
-  }
-}
-
-/* Thêm đường viền ngăn cách giữa các danh mục trên màn hình lớn */
-@media (min-width: 769px) {
-  .suggestion-category-container:first-child {
-    border-right: 1px solid var(--accent-color); /* Màu đường viền */
-    padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
-  }
-}
 </style>
 
     </style>
@@ -1369,69 +1341,64 @@ button:focus, input:focus, textarea:focus {
       </svg>
     </div>
 
-<!-- Navbar -->
-<nav id="navbar">
-  <!-- Logo -->
-  <div class="nav-logo">
-    <img src="../img/logo2.png" alt="Logo">
-    <h1>Học Lập Trình</h1>
-  </div>
+    <nav id="navbar">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="../img/logo2.png" alt="Logo">
+        <h1>Học Lập Trình</h1>
+      </div>
+    
+      <!-- Nhóm Menu -->
+      <div class="nav-menu">
+        <!-- Thanh điều hướng (Navbar Links) -->
+        <ul class="nav-links">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+          <li><a href="#dsa">DSA</a></li>
+          <li><a href="#data-science">Data Science</a></li>
+          <li><a href="#web-tech">Web Tech</a></li>
+        </ul>
+    
+        <!-- Authentication Links -->
+        <div class="auth-links">
+          <a href="../SignUp/index.html">Đăng ký</a>
+          <a href="../Login/index.html" class="btn">Đăng nhập</a>
+        </div>
+      </div>
+    
+      <!-- Hamburger Menu (Nếu cần cho responsive) -->
+      <div class="nav-hamburger" onclick="toggleHamburger()" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    
+    
 
-  <!-- Nhóm Menu -->
-  <div class="nav-menu">
-    <!-- Thanh điều hướng (Navbar Links) -->
-    <ul class="nav-links">
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#tutorials">Tutorials</a></li>
-      <li><a href="#dsa">DSA</a></li>
-      <li><a href="#data-science">Data Science</a></li>
-      <li><a href="#web-tech">Web Tech</a></li>
-       <!-- Authentication Links -->
-    <div class="auth-links">
-      <a href="../SignUp/index.html">Đăng ký</a>
-      <a href="../Login/index.html" class="btn">Đăng nhập</a>
-    </div>
-    </ul>
-
-   
-  </div>
-
-  <!-- Hamburger Menu (Nếu cần cho responsive) -->
-  <div class="nav-hamburger" onclick="toggleHamburger()" aria-label="Toggle Navigation">
-    <i class="fas fa-bars"></i>
-  </div>
-</nav>
 
 
 
     <!-- Header -->
-<!-- Header -->
-<header id="home">
-  <div class="header-content" data-aos="fade-in">
-    <!-- Phần Intro -->
-    <article class="Intro">
-      <!-- Mô tả -->
-      <p class="Description">Hello, What Do You Want To Learn?</p>
-      
-      <!-- Thanh Tìm Kiếm -->
-      <form class="search-bar" action="/search" method="GET" autocomplete="off">
-        <div class="search-container">
-          <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-          </svg>
-          <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
-          <div id="autocomplete-list" class="autocomplete-suggestions"></div>
-        </div>
-      </form>
-      
-      <!-- Hình ảnh -->
-      <img src="../img/63921-developer.gif" alt="Animated Gif" />
-    </article>
-  </div>
-</header>
-
-
-
+    <header id="home">
+      <div class="header-content" data-aos="fade-in">
+        <!-- Thanh tìm kiếm -->
+        <form class="search-bar" action="/search" method="GET" autocomplete="off">
+          <div class="search-container">
+            <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+            </svg>
+            <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
+            <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+          </div>
+        </form>
+    
+        <!-- Nội dung chính -->
+        <article class="Intro">
+          <p class="Description">Coding is Fun!!</p>
+          <img src="../img/63921-developer.gif" alt="Animated Gif" />
+        </article>
+      </div>
+    </header>
+    
 
     <!-- Main Content -->
     <div class="container">
@@ -1851,7 +1818,7 @@ function submitCode() {
     const language = 'python';
 
     if (code) {
-      fetch('https://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
+      fetch('http://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

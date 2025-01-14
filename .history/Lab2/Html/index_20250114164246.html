@@ -44,75 +44,74 @@ referrerpolicy="no-referrer"
     <!-- Custom CSS -->
     <style>
     /* ==============================
-    Reset and Base Styles
-    ============================== */
-    *, *::before, *::after {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+Reset and Base Styles
+============================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    :root {
-      /* Color Palette */
-      --primary-color: #3498db;
-      --secondary-color: #2c3e50;
-      --background-color: #f4f6f8;
-      --text-color: #2c3e50;
-      --text-light-color: #7f8c8d;
-      --accent-color: #e74c3c;
-      --footer-bg: #34495e;
+:root {
+  /* Color Palette */
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --background-color: #f4f6f8;
+  --text-color: #2c3e50;
+  --text-light-color: #7f8c8d;
+  --accent-color: #e74c3c;
+  --footer-bg: #34495e;
 
-      /* Typography */
-      --font-family: 'Montserrat', sans-serif;
-      --heading-font: 'Poppins', sans-serif;
+  /* Typography */
+  --font-family: 'Montserrat', sans-serif;
+  --heading-font: 'Poppins', sans-serif;
 
-      /* Transitions */
-      --transition-speed: 0.3s;
+  /* Transitions */
+  --transition-speed: 0.3s;
 
-      /* Other */
-      --border-radius: 8px;
-    }
+  /* Other */
+  --border-radius: 8px;
+}
 
-    body {
-      font-family: var(--font-family);
-      background-color: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-    }
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
 
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color var(--transition-speed);
-    }
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
 
-    a:hover {
-      color: var(--accent-color);
-    }
+a:hover {
+  color: var(--accent-color);
+}
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: var(--heading-font);
-      color: inherit;
-      font-weight: normal; /* Đặt font-weight thành normal */
-    }
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  color: inherit;
+  font-weight: normal; /* Đặt font-weight thành normal */
+}
 
-    p {
-      color: var(--text-color);
-      font-weight: normal; /* Đặt font-weight thành normal */
-    }
-
-
-      /* ==============================
-      Các lớp không cần đậm
-    ============================== */
-    .boxtitle, .boxheader, .suggestion-category {
-      font-weight: normal; /* Đặt font-weight thành normal */
-    }
+p {
+  color: var(--text-color);
+  font-weight: normal; /* Đặt font-weight thành normal */
+}
 
 /* ==============================
-  Theme Toggle Switch
+Các lớp không cần đậm
+============================== */
+.boxtitle, .boxheader, .suggestion-category {
+  font-weight: normal; /* Đặt font-weight thành normal */
+}
+
+/* ==============================
+Theme Toggle Switch
 ============================== */
 .theme-switch {
   position: fixed;
@@ -158,12 +157,12 @@ input:checked + .slider::before {
 }
 
 /* ==============================
-  Navbar Styles with Animated Underline
+Navbar Styles with Animated Underline
 ============================== */
 nav {
   background-color: rgba(44, 62, 80, 0.95);
   color: #fff;
-  padding: 10px;
+  padding: 10px 20px; /* Thêm padding trái và phải để căn chỉnh */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -175,30 +174,39 @@ nav {
   transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
 }
 
-nav.scrolled {
-  background-color: var(--secondary-color);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Khoảng cách giữa logo và tiêu đề */
 }
 
 .nav-logo img {
-  height: 25px;
-  margin-right: 8px;
+  height: 40px; /* Kích thước logo */
+  width: auto;
 }
 
 .nav-logo h1 {
-  font-size: 14px;
+  font-size: 24px;
   color: #fff;
   font-weight: bold;
+  margin: 0;
 }
 
-.nav-links {
-  list-style: none;
+/* Nhóm Menu trong Navbar */
+.nav-menu {
   display: flex;
   align-items: center;
+  gap: 20px; /* Khoảng cách giữa nav-links và auth-links */
+}
+
+/* Thanh điều hướng (Navbar Links) */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Khoảng cách giữa các liên kết điều hướng */
 }
 
 .nav-links li {
-  margin-left: 30px;
   position: relative;
 }
 
@@ -210,9 +218,6 @@ nav.scrolled {
   padding: 8px 0;
   display: inline-block;
   transition: color var(--transition-speed);
-  outline: none;
-  border: none;
-  box-shadow: none;
 }
 
 .nav-links li a::after {
@@ -237,15 +242,46 @@ nav.scrolled {
   color: var(--accent-color);
 }
 
+/* Authentication Links */
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Khoảng cách giữa các liên kết xác thực */
+}
+
+.auth-links a {
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.auth-links a.btn {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.auth-links a.btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.auth-links a:not(.btn) {
+  background-color: transparent;
+  color: #fff;
+}
+
+.auth-links a:not(.btn):hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger Menu */
 .nav-hamburger {
   display: none;
   font-size: 24px;
   cursor: pointer;
 }
 
-/* ------------------------------
-  Dropdown Menu Styles
------------------------------- */
+/* Dropdown Menu Styles (Nếu có) */
 .nav-links .dropdown:hover .dropdown-content {
   display: block;
 }
@@ -300,14 +336,15 @@ nav.scrolled {
 }
 
 /* ==============================
-  Responsive Navbar Styles
+Responsive Navbar Styles
 ============================== */
 @media (max-width: 768px) {
   .nav-hamburger {
     display: block;
+    margin-left: auto; /* Đẩy hamburger đến cuối cùng bên phải */
   }
 
-  .nav-links {
+  .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
@@ -318,10 +355,17 @@ nav.scrolled {
     align-items: flex-start;
     padding-top: 100px;
     transition: right var(--transition-speed);
+    gap: 20px;
   }
 
-  .nav-links.active {
+  .nav-menu.active {
     right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
   }
 
   .nav-links li {
@@ -335,11 +379,22 @@ nav.scrolled {
     text-align: left;
   }
 
-  .nav-links li a::after {
-    left: 0;
-    transform: translateX(0);
+  .auth-links {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
   }
 
+  .auth-links a {
+    width: 100%;
+    text-align: left;
+  }
+
+  .auth-links a.btn {
+    margin-top: 10px;
+  }
+
+  /* Dropdown Menu Styles for Mobile */
   .nav-links .dropdown .dropdown-content {
     position: static;
     box-shadow: none;
@@ -357,7 +412,7 @@ nav.scrolled {
 
   .nav-links .dropdown > a::after {
     content: "\f078";
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     margin-left: 5px;
     transition: transform var(--transition-speed);
@@ -366,14 +421,10 @@ nav.scrolled {
   .nav-links .dropdown.active > a::after {
     transform: rotate(180deg);
   }
-
-  .nav-links .dropdown .dropdown-content li a {
-    padding: 12px 20px;
-  }
 }
 
 /* ==============================
-  Header Section
+Header Section
 ============================== */
 header {
   background-image: url("../img/OnlineSystem.gif");
@@ -415,25 +466,17 @@ header::before {
 }
 
 .header-content .Intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px; /* Tạo khoảng cách 40px giữa các phần tử */
-  padding: 20px; /* Thêm padding để tạo không gian xung quanh */
+  margin-bottom: 40px;
 }
 
-
-
-/* Tùy chỉnh văn bản mô tả */
+/* Coding is Fun */
 .header-content .Intro .Description {
   font-size: 32px;
+  margin-bottom: 20px;
   font-weight: 500;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  max-width: 800px; /* Giới hạn chiều rộng tối đa */
-  text-align: center; /* Căn giữa văn bản */
+  color: #ffffff; /* Set the font color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
 }
-
 
 .header-content .Intro img {
   width: 100%;
@@ -449,7 +492,7 @@ header::before {
 }
 
 /* ==============================
-  Explore Section
+Explore Section
 ============================== */
 #Explore {
   padding: 60px 20px;
@@ -559,7 +602,7 @@ header::before {
 }
 
 /* ==============================
-  Contact Section
+Contact Section
 ============================== */
 .contact-section {
   text-align: center;
@@ -641,7 +684,7 @@ header::before {
 }
 
 /* ==============================
-  Footer Styles
+Footer Styles
 ============================== */
 footer {
   background-color: var(--footer-bg);
@@ -777,7 +820,7 @@ footer {
 }
 
 /* ==============================
-  Media Queries for Footer
+Media Queries for Footer
 ============================== */
 @media (max-width: 768px) {
   .footer-container {
@@ -802,7 +845,7 @@ footer {
 }
 
 /* ==============================
-  Back to Top Button
+Back to Top Button
 ============================== */
 .back-to-top {
   position: fixed;
@@ -826,7 +869,7 @@ footer {
 }
 
 /* ==============================
-  Media Queries for Enhanced Responsiveness
+Media Queries for Enhanced Responsiveness
 ============================== */
 @media (max-width: 768px) {
   header {
@@ -871,10 +914,6 @@ footer {
     justify-content: center;
   }
 
-  .footer-section ul li {
-    margin-bottom: 10px;
-  }
-
   .nav-links li {
     margin: 15px 0;
   }
@@ -886,7 +925,7 @@ footer {
 }
 
 /* ==============================
-  Additional Enhancements
+Additional Enhancements
 ============================== */
 html {
   scroll-behavior: smooth;
@@ -905,28 +944,30 @@ textarea:focus {
 }
 
 /* ==============================
-  Search Bar Styles
+Search Bar Styles
 ============================== */
 .search-container {
   position: relative;
-  width: 100%;
+  width: 500px; /* Tăng chiều rộng của thanh tìm kiếm để dài hơn */
+  transition: width var(--transition-speed);
 }
 
-.search-container i {
+.search-container .search-icon {
   position: absolute;
   top: 50%;
   left: 10px;
   transform: translateY(-50%);
-  color: #7f8c8d;
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
 }
 
 .search-container input {
   width: 100%;
-  padding: 10px 15px 10px 40px; /* Tăng padding để tạo không gian */
+  padding: 12px 20px 12px 45px; /* Khoảng cách chữ và biểu tượng tìm kiếm */
+  border-radius: 30px; /* Bo góc thanh tìm kiếm */
   border: 1px solid #ccc;
-  border-radius: 30px; /* Bo góc thêm cho đẹp hơn */
-  font-size: 16px; /* Tăng font-size */
+  font-size: 16px;
   outline: none;
   transition: all 0.3s ease;
 }
@@ -935,22 +976,30 @@ textarea:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
+
 .search-container input::placeholder {
   color: #bdc3c7;
   font-size: 12px;
 }
 
-/* Tăng kích thước và chiều dài nút Đăng ký và Đăng nhập */
-.auth-links a {
-  margin-left: 16px;
-  text-decoration: none;
-  font-size: 16px; /* Tăng kích thước chữ */
-  color: #fff;
-  padding: 12px 24px; /* Tăng padding để làm cho nút lớn hơn */
-  border-radius: 30px; /* Tạo đường viền cong cho nút */
-  display: inline-block; /* Đảm bảo rằng nút không bị giãn theo chiều ngang */
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-container {
+    width: 200px; /* Giảm chiều rộng cho màn hình nhỏ */
+  }
+
+  .search-container input {
+    padding-left: 35px; /* Đảm bảo không gian cho nút tìm kiếm */
+  }
 }
 
+/* Authentication Links - Responsive Adjustments */
+.auth-links {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between Đăng Ký and Đăng nhập */
+  margin-left: 20px; /* Optional: Adjust if needed */
+}
 
 .auth-links .btn {
   background-color: #f39c12;
@@ -978,341 +1027,41 @@ textarea:focus {
   transform: translateX(-10px); /* Moves the search bar 10px to the left */
 }
 
-.search-container {
-  position: relative;
-  width: 200px; /* Increased width for better visibility */
-  transition: width var(--transition-speed);
-}
-
-.search-container i.search-icon {
-  position: absolute;
-  top: 50%;
-  left: 15px; /* Điều chỉnh vị trí biểu tượng tìm kiếm */
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-}
-
-.search-container input {
-  width: 100%;
-  padding: 8px 10px 8px 35px; /* Increased padding-left to accommodate the icon */
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 14px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.search-container input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .search-container {
-    width: 150px; /* Adjusted width for smaller screens */
-  }
-
-  .shift-left {
-    transform: translateX(-5px); /* Slightly less shift on smaller screens */
-  }
-}
-
-.search-container button {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #7f8c8d;
-  font-size: 16px;
-}
-
-.search-container button:focus {
-  outline: none;
-}
-
-/* Tăng chiều rộng của thanh tìm kiếm */
-.search-container {
-  position: relative;
-  width: 250px; /* Tăng từ 150px lên 250px hoặc theo ý bạn */
-  transition: width var(--transition-speed);
-}
-
-/* Định vị nút tìm kiếm */
-.search-container .search-button {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: #7f8c8d;
-  font-size: 16px;
-  outline: none;
-}
-
-.search-container .search-button:focus {
-  outline: none;
-}
-
-
-
-/* Điều chỉnh padding của input */
-.search-container input {
-  width: 100%;
-  padding: 8px 10px 8px 35px; /* Tăng padding-left để tạo không gian cho biểu tượng */
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  font-size: 14px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-.search-container input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .search-container {
-    width: 200px; /* Giảm chiều rộng cho màn hình nhỏ */
-  }
-
-  .search-container input {
-    padding-left: 35px; /* Đảm bảo không gian cho nút tìm kiếm */
-  }
-}
-
-
-.nav-logo {
-  display: flex; /* Use flexbox */
-  align-items: center; /* Align image and text vertically in the center */
-  gap: 8px; /* Add some space between the image and the text */
-}
-
-/* Tăng kích thước logo */
-
-/* Làm logo dài hơn */
-.nav-logo img {
-  height: 40px; /* Kích thước logo vẫn giữ nguyên */
-  margin-right: 15px; /* Khoảng cách giữa logo và chữ */
-  width: auto; /* Giữ chiều rộng tự động cho logo nếu cần */
-}
-
-.nav-logo h1 {
-  font-size: 24px; /* Tăng kích thước tiêu đề logo */
-  color: #fff;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-.search-container {
-  position: relative;
-  width: 500px; /* Tăng chiều rộng của thanh tìm kiếm để dài hơn */
-  transition: width var(--transition-speed);
-}
-
-.search-container .search-icon {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  pointer-events: none;
-}
-
-.search-container input {
-  width: 100%;
-  padding: 12px 20px 12px 45px; /* Tăng padding-left để tạo không gian cho biểu tượng */
-  border: 1px solid #ccc;
-  border-radius: 0; /* Đặt góc vuông. Thay đổi thành 5px nếu muốn góc nhẹ nhàng */
-  font-size: 16px;
-  outline: none;
-  transition: all 0.3s ease;
-}
-
-
-.search-container input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-}
-
 /* Search Suggestions Dropdown */
-.suggestions {
+.autocomplete-suggestions {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
-  background-color: #fff;
+  right: 0;
+  background-color: #fff; /* Nền trắng */
   border: 1px solid #ccc;
   border-top: none;
-  border-radius: 0 0 var(--border-radius) var(--border-radius);
-  max-height: 200px;
+  max-height: 300px;
   overflow-y: auto;
-  z-index: 1000;
+  z-index: 1001;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: none; /* Ẩn mặc định */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.suggestions.active {
+.autocomplete-suggestions.active {
   display: block;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.suggestions .suggestion-item {
-  padding: 10px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.suggestions .suggestion-item:hover {
-  background-color: var(--background-color);
-}
-
-.suggestions .suggestion-item a {
-  color: var(--text-color);
-  text-decoration: none;
-  flex-grow: 1;
-}
-
-.suggestions .suggestion-item a:hover {
-  color: var(--accent-color);
-}
-
-.suggestions .suggestion-item .language-link {
-  margin-left: auto;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-
-  /* ==============================
-      Autocomplete Suggestions Styles
-    ============================== */
-    .autocomplete-suggestions {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background-color: #fff; /* Nền trắng */
-      border: 1px solid #ccc;
-      border-top: none;
-      max-height: 300px;
-      overflow-y: auto;
-      z-index: 1001;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      display: none; /* Ẩn mặc định */
-      opacity: 0;
-      transform: translateY(-10px);
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    .autocomplete-suggestions.active {
-      display: block;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .autocomplete-suggestion {
-      padding: 10px 15px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #f0f0f0;
-      color: var(--text-color); /* Sử dụng biến màu văn bản */
-      font-weight: normal; /* Đảm bảo chữ không in đậm */
-    }
-
-    .autocomplete-suggestion:last-child {
-      border-bottom: none;
-    }
-
-    .autocomplete-suggestion:hover {
-      background-color: var(--background-color); /* Nền khi hover */
-      color: var(--primary-color); /* Màu chữ khi hover */
-    }
-
-    .autocomplete-suggestion i {
-      color: var(--accent-color);
-    }
-
-    .suggestion-category {
-      padding: 10px 15px;
-      background-color: #f9f9f9;
-      font-weight: normal; /* Đặt font-weight thành normal */
-      border-bottom: 1px solid #e0e0e0;
-      color: var(--text-color); /* Sử dụng biến màu văn bản cho tiêu đề */
-    }
-
-    .suggestion-category + .autocomplete-suggestion {
-      border-top: none;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .search-container {
-        width: 200px;
-      }
-    }
-
-/* Loại bỏ outline và box-shadow trên tất cả các phần tử có thể nhận focus */
-*:focus {
-  outline: none !important; /* Loại bỏ hoàn toàn outline với !important */
-  box-shadow: none !important; /* Loại bỏ bóng đổ với !important */
-}
-
-/* Đảm bảo rằng button và input không có border khi được click */
-button:focus, input:focus, textarea:focus {
-  border: none !important; /* Loại bỏ border khi focus */
-}
-.suggestion-category-container {
-  flex: 1;
-  margin: 10px;
-  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng chiều rộng */
-}
-
-/* Sắp xếp các danh mục gợi ý cạnh nhau */
-.autocomplete-suggestions {
-  display: flex;
-  gap: 20px;
-  width: 100%; /* Đảm bảo chiều rộng khớp với thanh tìm kiếm */
-  flex-wrap: wrap; /* Cho phép các danh mục gợi ý tự động xuống dòng nếu cần */
-  /* Loại bỏ các thuộc tính sau nếu có */
-  max-height: none; /* Không giới hạn chiều cao */
-  overflow: visible; /* Hiển thị đầy đủ nội dung mà không cần thanh cuộn */
-}
-
-.suggestion-category {
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: var(--secondary-color);
-  font-size: 16px;
-  border-bottom: 1px solid var(--accent-color);
-  padding-bottom: 5px;
-}
-
-/* Tùy chỉnh các mục gợi ý */
-/* Tùy chỉnh các mục gợi ý */
 .autocomplete-suggestion {
   padding: 10px 15px;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   border-bottom: 1px solid #f0f0f0;
-  color: var(--text-color);
-  font-weight: normal;
-  white-space: normal; /* Cho phép xuống dòng nếu cần */
+  color: var(--text-color); /* Sử dụng biến màu văn bản */
+  font-weight: normal; /* Đảm bảo chữ không in đậm */
 }
 
 .autocomplete-suggestion:last-child {
@@ -1320,36 +1069,176 @@ button:focus, input:focus, textarea:focus {
 }
 
 .autocomplete-suggestion:hover {
-  background-color: var(--background-color);
-  color: var(--accent-color);
+  background-color: var(--background-color); /* Nền khi hover */
+  color: var(--primary-color); /* Màu chữ khi hover */
 }
 
 .autocomplete-suggestion i {
   color: var(--accent-color);
 }
 
-/* Thiết kế phản hồi cho các thiết bị nhỏ */
+.suggestion-category {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  font-weight: normal; /* Đặt font-weight thành normal */
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--text-color); /* Sử dụng biến màu văn bản cho tiêu đề */
+}
+
+.suggestion-category + .autocomplete-suggestion {
+  border-top: none;
+}
+
+/* ==============================
+Back to Top Button
+============================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* ==============================
+Final Adjustments
+============================== */
+
+/* Remove outline and box-shadow on focus */
+*:focus {
+  outline: none !important; /* Loại bỏ hoàn toàn outline với !important */
+  box-shadow: none !important; /* Loại bỏ bóng đổ với !important */
+}
+
+/* Ensure button and input have no border on focus */
+button:focus, input:focus, textarea:focus {
+  border: none !important; /* Loại bỏ border khi focus */
+}
+
+/* Align the search bar above "Coding is Fun" */
+.header-content .search-bar {
+  margin-bottom: 20px; /* Khoảng cách giữa thanh tìm kiếm và dòng chữ */
+  display: flex;
+  justify-content: center; /* Căn giữa thanh tìm kiếm */
+}
+
+.header-content .search-container {
+  width: 400px; /* Chiều rộng thanh tìm kiếm */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-content .search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+.header-content .search-container input {
+  width: 100%;
+  padding: 10px 20px 10px 40px; /* Khoảng cách chữ và biểu tượng tìm kiếm */
+  border-radius: 25px; /* Bo góc thanh tìm kiếm */
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.header-content .search-container input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+/* ==============================
+Autocomplete Suggestions Styles
+============================== */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff; /* Nền trắng */
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none; /* Ẩn mặc định */
+}
+
+.autocomplete-suggestions.active {
+  display: block;
+}
+
+.autocomplete-suggestion {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.autocomplete-suggestion:hover {
+  background-color: var(--background-color);
+}
+
+.autocomplete-suggestion a {
+  color: var(--text-color);
+  text-decoration: none;
+  flex-grow: 1;
+}
+
+.autocomplete-suggestion a:hover {
+  color: var(--accent-color);
+}
+
+.suggestion-category {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  font-weight: normal; /* Đặt font-weight thành normal */
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--text-color); /* Sử dụng biến màu văn bản cho tiêu đề */
+}
+
+.suggestion-category + .autocomplete-suggestion {
+  border-top: none;
+}
+
+/* ==============================
+Additional Media Queries
+============================== */
 @media (max-width: 768px) {
-  .autocomplete-suggestions {
-    flex-direction: column;
-    gap: 10px; /* Giảm khoảng cách giữa các danh mục */
+  .search-container {
+    width: 200px; /* Adjusted width for smaller screens */
   }
 
-
-  .suggestion-category-container {
-    margin: 5px 0;
-    border-right: none; /* Loại bỏ đường viền trên thiết bị nhỏ */
-    padding-right: 0;
+  .shift-left {
+    transform: translateX(-5px); /* Slightly less shift on smaller screens */
   }
 }
 
-/* Thêm đường viền ngăn cách giữa các danh mục trên màn hình lớn */
-@media (min-width: 769px) {
-  .suggestion-category-container:first-child {
-    border-right: 1px solid var(--accent-color); /* Màu đường viền */
-    padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
+/* ==============================
+Final Responsive Adjustments
+============================== */
+@media (max-width: 768px) {
+  .search-container {
+    width: 150px; /* Adjusted width for even smaller screens */
   }
 }
+
 </style>
 
     </style>
@@ -1369,69 +1258,64 @@ button:focus, input:focus, textarea:focus {
       </svg>
     </div>
 
-<!-- Navbar -->
-<nav id="navbar">
-  <!-- Logo -->
-  <div class="nav-logo">
-    <img src="../img/logo2.png" alt="Logo">
-    <h1>Học Lập Trình</h1>
-  </div>
+    <nav id="navbar">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="../img/logo2.png" alt="Logo">
+        <h1>Học Lập Trình</h1>
+      </div>
+    
+      <!-- Nhóm Menu -->
+      <div class="nav-menu">
+        <!-- Thanh điều hướng (Navbar Links) -->
+        <ul class="nav-links">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+          <li><a href="#dsa">DSA</a></li>
+          <li><a href="#data-science">Data Science</a></li>
+          <li><a href="#web-tech">Web Tech</a></li>
+        </ul>
+    
+        <!-- Authentication Links -->
+        <div class="auth-links">
+          <a href="../SignUp/index.html">Đăng ký</a>
+          <a href="../Login/index.html" class="btn">Đăng nhập</a>
+        </div>
+      </div>
+    
+      <!-- Hamburger Menu (Nếu cần cho responsive) -->
+      <div class="nav-hamburger" onclick="toggleHamburger()" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    
+    
 
-  <!-- Nhóm Menu -->
-  <div class="nav-menu">
-    <!-- Thanh điều hướng (Navbar Links) -->
-    <ul class="nav-links">
-      <li><a href="#courses">Courses</a></li>
-      <li><a href="#tutorials">Tutorials</a></li>
-      <li><a href="#dsa">DSA</a></li>
-      <li><a href="#data-science">Data Science</a></li>
-      <li><a href="#web-tech">Web Tech</a></li>
-       <!-- Authentication Links -->
-    <div class="auth-links">
-      <a href="../SignUp/index.html">Đăng ký</a>
-      <a href="../Login/index.html" class="btn">Đăng nhập</a>
-    </div>
-    </ul>
-
-   
-  </div>
-
-  <!-- Hamburger Menu (Nếu cần cho responsive) -->
-  <div class="nav-hamburger" onclick="toggleHamburger()" aria-label="Toggle Navigation">
-    <i class="fas fa-bars"></i>
-  </div>
-</nav>
 
 
 
     <!-- Header -->
-<!-- Header -->
-<header id="home">
-  <div class="header-content" data-aos="fade-in">
-    <!-- Phần Intro -->
-    <article class="Intro">
-      <!-- Mô tả -->
-      <p class="Description">Hello, What Do You Want To Learn?</p>
-      
-      <!-- Thanh Tìm Kiếm -->
-      <form class="search-bar" action="/search" method="GET" autocomplete="off">
-        <div class="search-container">
-          <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-          </svg>
-          <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
-          <div id="autocomplete-list" class="autocomplete-suggestions"></div>
-        </div>
-      </form>
-      
-      <!-- Hình ảnh -->
-      <img src="../img/63921-developer.gif" alt="Animated Gif" />
-    </article>
-  </div>
-</header>
-
-
-
+    <header id="home">
+      <div class="header-content" data-aos="fade-in">
+        <!-- Thanh tìm kiếm -->
+        <form class="search-bar" action="/search" method="GET" autocomplete="off">
+          <div class="search-container">
+            <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+            </svg>
+            <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
+            <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+          </div>
+        </form>
+    
+        <!-- Nội dung chính -->
+        <article class="Intro">
+          <p class="Description">Coding is Fun!!</p>
+          <img src="../img/63921-developer.gif" alt="Animated Gif" />
+        </article>
+      </div>
+    </header>
+    
 
     <!-- Main Content -->
     <div class="container">
@@ -1851,7 +1735,7 @@ function submitCode() {
     const language = 'python';
 
     if (code) {
-      fetch('https://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
+      fetch('http://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

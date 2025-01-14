@@ -1328,17 +1328,18 @@ button:focus, input:focus, textarea:focus {
   color: var(--accent-color);
 }
 
-/* Thiết kế phản hồi cho các thiết bị nhỏ */
-@media (max-width: 768px) {
-  .autocomplete-suggestions {
-    flex-direction: column;
-    gap: 10px; /* Giảm khoảng cách giữa các danh mục */
+/* Thêm đường viền ngăn cách giữa các danh mục trên màn hình lớn */
+@media (min-width: 769px) {
+  .suggestion-category-container:first-child {
+    border-right: 1px solid var(--accent-color); /* Màu đường viền */
+    padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
   }
+}
 
 
   .suggestion-category-container {
     margin: 5px 0;
-    border-right: none; /* Loại bỏ đường viền trên thiết bị nhỏ */
+    border-right: none; /* Đảm bảo không có đường viền trên thiết bị nhỏ */
     padding-right: 0;
   }
 }
@@ -1350,6 +1351,8 @@ button:focus, input:focus, textarea:focus {
     padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
   }
 }
+
+
 </style>
 
     </style>

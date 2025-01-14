@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lab 5 - Course Management Page</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <style>
+      /* Cơ bản */
+      body {
+        font-family: "Roboto", sans-serif;
+        background-color: #121212; /* Nền chính màu đen tối */
+        color: #e0e0e0; /* Màu chữ sáng cho độ tương phản */
+      }
+
+      /* Header */
+      .header {
+        background-color: #1f1f1f; /* Màu nền header tối hơn */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .logo .sitename {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff; /* Màu chữ trắng */
+      }
+
+      .navmenu ul li a {
+        color: #e0e0e0; /* Màu chữ sáng cho liên kết */
+        transition: color 0.3s;
+      }
+
+      .navmenu ul li a:hover {
+        color: #1e88e5; /* Màu khi hover */
+      }
+
+      /* Lab Buttons */
+      .lab-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      /* Định nghĩa lớp lab-button cho các nút Lab */
+      /* General Lab Button Styles */
+      .lab-button {
+        padding: 12px 24px;
+        border-radius: 50px;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: 500;
+        transition: transform 0.3s, opacity 0.3s, box-shadow 0.3s,
+          background 0.3s, color 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        text-transform: uppercase;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        text-decoration: none; /* Ensure no underline */
+      }
+
+      /* Hover Styles for All Lab Buttons */
+      .lab-button:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        background: linear-gradient(
+          45deg,
+          #66b2ff,
+          #4da6ff
+        ); /* Hover background */
+        color: #ff8c00; /* Hover text color */
+      }
+
+      /* Active Button Styles */
+      .lab-button.active {
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        color: #ffffff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Ensure hover on active button changes text color */
+      .lab-button.active:hover {
+        color: #ff8c00; /* Màu cam khi hover */
+      }
+
+      /* Focus Styles for Accessibility */
+      .lab-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(30, 144, 255, 0.5);
+      }
+
+      /* Button Groups */
+      .button-group {
+        position: relative;
+        z-index: 10;
+        display: flex;
+        justify-content: center; /* Căn giữa các nút */
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      /* Đảm bảo nút trong button-group không chiếm toàn bộ chiều ngang */
+      .button-group a {
+        display: inline-flex;
+        width: auto;
+      }
+
+      /* Download and View Buttons */
+      .download-btn,
+      .view-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        color: #ffffff;
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        border: none;
+      }
+
+      .download-btn:hover,
+      .view-btn:hover {
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .download-btn:focus,
+      .view-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5);
+      }
+
+      /* Nút Review Pages */
+      .review-btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        color: #ffffff;
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        border: none;
+      }
+
+      .review-btn:hover {
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .review-btn:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5);
+      }
+
+      /* Tab Container */
+      .tab-container {
+        margin: 20px auto;
+        max-width: 1400px;
+        padding: 0 40px;
+      }
+
+      .tab-list {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .tab {
+        cursor: pointer;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        transition: background-color 0.3s, color 0.3s, transform 0.2s;
+        background-color: #2c2c2c;
+        color: #e0e0e0;
+        font-size: 16px;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .tab.active {
+        background-color: #1e88e5;
+        color: #ffffff;
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      }
+
+      .tab:hover {
+        background-color: #424242;
+      }
+
+      .tab:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30, 136, 229, 0.5);
+      }
+
+      /* Tab Content */
+      .tab-content {
+        border: 1px solid #424242;
+        padding: 30px;
+        border-radius: 12px;
+        background-color: #ffffff; /* Chuyển nền sang màu trắng */
+        font-size: 16px;
+        line-height: 1.6;
+        min-height: 600px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        color: #333333; /* Màu chữ tối */
+      }
+
+      .tab-content h3,
+      .tab-content h4,
+      .tab-content p,
+      .tab-content li,
+      .tab-content a {
+        color: #333333; /* Màu chữ tối */
+      }
+
+      .tab-item {
+        display: none;
+      }
+
+      .tab-item.active {
+        display: block;
+      }
+
+      /* Design Section */
+      .design-section {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .design-area {
+        flex: 1;
+        min-width: 300px;
+        padding: 20px;
+        border: 1px solid #ddd; /* Đổi màu viền thành xám nhạt */
+        border-radius: 10px;
+        background-color: #ffffff; /* Chuyển nền sang màu trắng */
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Giảm độ đậm của bóng đổ */
+        transition: transform 0.3s, box-shadow 0.3s;
+        color: #333333; /* Màu chữ tối */
+      }
+
+      .design-area:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .design-area h4 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        color: #1e88e5;
+        text-align: center;
+      }
+
+      .design-area p,
+      .design-area a {
+        color: #333333; /* Màu chữ và liên kết tối */
+      }
+
+      .design-area .button-group .download-btn,
+      .design-area .button-group .view-btn {
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        color: #ffffff;
+      }
+
+      .design-area .button-group .download-btn:hover,
+      .design-area .button-group .view-btn:hover {
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
+      }
+
+      .image-preview {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        object-fit: cover;
+        min-height: 200px;
+      }
+
+      /* Responsive */
+      @media (max-width: 1200px) {
+        .design-area {
+          min-width: 350px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .tab-list {
+          flex-direction: column;
+        }
+        .tab {
+          width: 100%;
+        }
+        .design-section {
+          flex-direction: column;
+          align-items: center;
+        }
+        .design-area {
+          width: 100%;
+          min-width: unset;
+        }
+        .iframe-container {
+          padding-bottom: 75%;
+        }
+      }
+
+      /* CSS cho Iframe Container */
+      .iframe-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        margin-top: 20px;
+        background-color: #ffffff; /* Nền trắng cho iframe */
+      }
+
+      .iframe-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /* Cải thiện phần Requirement */
+      .requirement-content ol,
+      .requirement-content ul {
+        margin-left: 20px;
+        padding-left: 20px;
+      }
+
+      .requirement-content li {
+        margin-bottom: 10px;
+      }
+
+      .requirement-content p {
+        margin-bottom: 15px;
+        text-align: justify;
+        color: #333333;
+      }
+
+      /* Footer */
+      .footer {
+        background-color: #1f1f1f;
+        color: #e0e0e0;
+        padding: 40px 0;
+      }
+
+      .footer .sitename {
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      .footer p {
+        font-size: 16px;
+        color: #b0b0b0;
+      }
+
+      .social-links a {
+        color: #e0e0e0;
+        font-size: 20px;
+        margin: 0 10px;
+        transition: color 0.3s;
+      }
+
+      .social-links a:hover {
+        color: #1e88e5;
+      }
+
+      .copyright {
+        font-size: 14px;
+        color: #b0b0b0;
+      }
+
+      .credits a {
+        color: #1e88e5;
+        text-decoration: underline;
+      }
+
+      .credits a:hover {
+        color: #64b5f6;
+      }
+
+      /* Scroll Top */
+      .scroll-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        color: #ffffff;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s, transform 0.3s;
+        z-index: 1000;
+        cursor: pointer;
+      }
+
+      .scroll-top:hover {
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
+        transform: translateY(-2px);
+      }
+
+      /* Hiển thị nút Scroll Top khi cuộn xuống */
+      .scroll-top.show {
+        display: flex;
+      }
+
+      .footer-contact a {
+        color: hsl(220, 100%, 50%); /* Màu xanh nước biển */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+      }
+
+      .newsletter-form input[type="email"] {
+        background-color: hsl(220, 0%, 95%); /* Màu nền cho ô email */
+        border: 1px solid hsl(220, 100%, 50%); /* Viền xanh nước biển */
+        padding: 8px 12px;
+        border-radius: 4px 0 0 4px;
+        font-size: 14px;
+      }
+
+      .newsletter-form button {
+        background-color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Màu xanh nước biển cho nút gửi */
+        color: white;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .newsletter-form button:hover {
+        background-color: hsl(
+          220,
+          100%,
+          60%
+        ); /* Xanh nước biển nhạt hơn khi hover */
+      }
+
+      .footer-contact p {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      .footer-contact a {
+        color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Đổi màu link email và số điện thoại thành xanh nước biển */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nước biển nhạt hơn khi hover */
+      }
+
+      .footer-contact p {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      .footer-contact p a {
+        color: hsl(
+          220,
+          100%,
+          50%
+        ); /* Giữ màu xanh nước biển cho link email và số điện thoại */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+      }
+
+      .footer-contact a {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      .footer-contact p {
+        color: #ffffff; /* Đổi màu văn bản thành trắng */
+      }
+
+      /* Màu riêng cho tiêu đề (Email, Điện Thoại, Địa Chỉ) */
+      .footer-contact p strong {
+        color: hsl(220, 100%, 50%); /* Màu xanh nước biển cho tiêu đề */
+      }
+
+      /* Màu cho nội dung phía sau tiêu đề */
+      .footer-contact p a {
+        color: #ffffff; /* Màu trắng cho nội dung sau Email và Điện Thoại */
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+      }
+    </style>
+  </head>
+
+  <body class="index-page">
+    <!-- Header -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <img
+            src="assets/img/logoDt.png"
+            alt="Logo"
+            style="height: 50px; width: auto; margin-right: 10px"
+          />
+          <h1 class="sitename">Hoang Khang</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul class="d-flex gap-3">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="result.html">Result</a></li>
+            <li><a href="lab1.html">My Labs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container" style="margin-top: 100px">
+        <h2 class="text-center mb-4">Lab 5 - Course Management Page</h2>
+
+        <!-- Lab Buttons -->
+        <div class="lab-buttons">
+          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
+            <i class="bi bi-book"></i> Lab 1
+          </a>
+          <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
+            <i class="bi bi-book"></i> Lab 2
+          </a>
+          <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
+            <i class="bi bi-book"></i> Lab 3
+          </a>
+          <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
+            <i class="bi bi-book"></i> Lab 4
+          </a>
+          <a
+            href="lab5.html"
+            class="btn btn-warning-custom lab5 lab-button active"
+          >
+            <i class="bi bi-book"></i> Lab 5
+          </a>
+          <a href="lab6.html" class="btn btn-info-custom lab6 lab-button">
+            <i class="bi bi-book"></i> Lab 6
+          </a>
+          <a href="lab7.html" class="btn btn-light-custom lab7 lab-button">
+            <i class="bi bi-book"></i> Lab 7
+          </a>
+          <a href="lab8.html" class="btn btn-dark-custom lab8 lab-button">
+            <i class="bi bi-book"></i> Lab 8
+          </a>
+        </div>
+
+        <!-- Tab Container -->
+        <div class="tab-container">
+          <div class="tab-list">
+            <button class="tab active" onclick="changeTab('requirement')">
+              <i class="bi bi-list-task"></i> Requirement
+            </button>
+            <button class="tab" onclick="changeTab('design')">
+              <i class="bi bi-pencil-square"></i> Design
+            </button>
+            <button class="tab" onclick="changeTab('implement')">
+              <i class="bi bi-code-slash"></i> Implement
+            </button>
+          </div>
+          <div class="tab-content">
+            <!-- Tab Requirement -->
+            <div id="requirement" class="tab-item active requirement-content">
+              <h3>Chào các em,</h3>
+              <p>Cô gửi bài tập làm trên lớp:</p>
+              <ul>
+                <li>Nhóm 1: yêu cầu Req1 và Req2</li>
+                <li>Nhóm 2: yêu cầu Req3, 4, 5</li>
+              </ul>
+              <p>Các em hoàn thành xong thì:</p>
+              <ol>
+                <li>Đẩy lên GitHub.</li>
+                <li>
+                  Cho vào thư mục <strong>lab5_MaSV_HoTen</strong> rồi nén lại
+                  thành file <strong>.zip</strong> (chỉ .zip) rồi nộp bài lên
+                  đây.
+                </li>
+                <li>Nếu làm sai yêu cầu bị 0đ.</li>
+              </ol>
+
+              <!-- Image Gallery Section -->
+              <h4 class="mt-4">Hình Ảnh Minh Họa:</h4>
+              <div class="row">
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req1.png"
+                    alt="Requirement Image 1"
+                    class="img-fluid rounded image-preview"
+                  />
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req2.png"
+                    alt="Requirement Image 2"
+                    class="img-fluid rounded image-preview"
+                  />
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.req3.jpgS"
+                    alt="Requirement Image 3"
+                    class="img-fluid rounded image-preview"
+                  />
+                </div>
+                <div class="col-md-6 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req4.png"
+                    alt="Requirement Image 4"
+                    class="img-fluid rounded image-preview"
+                  />
+                </div>
+                <div class="col-md-6 col-sm-6 mb-4">
+                  <img
+                    src="assets/img/5.Req5.png"
+                    alt="Requirement Image 5"
+                    class="img-fluid rounded image-preview"
+                  />
+                </div>
+              </div>
+              <!-- End of Image Gallery -->
+            </div>
+
+            <!-- Tab Design -->
+            <div id="design" class="tab-item">
+              <h3>Design</h3>
+              <div class="design-section">
+                <!-- Design On Paper -->
+                <div class="design-area">
+                  <h4>Design On Paper</h4>
+                  <img
+                    src="assets/img/DesignPaperLab5.jpg"
+                    alt="Design On Paper Lab5"
+                    class="image-preview"
+                  />
+                  <div class="button-group">
+                    <a
+                      href="assets/img/DesignPaperLab5.jpg"
+                      download
+                      class="download-btn"
+                    >
+                      <i class="bi bi-download"></i> Download
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Design On Figma -->
+                <div class="design-area">
+                  <h4>Design On Figma</h4>
+                  <img
+                    src="assets/img/DesignLab5.png"
+                    alt="Design On Figma Lab5"
+                    class="image-preview"
+                  />
+                  <div class="button-group">
+                    <a
+                      href="assets/img/DesignLab5.png"
+                      download
+                      class="download-btn"
+                    >
+                      <i class="bi bi-download"></i> Download
+                    </a>
+                    <a
+                      href="https://www.figma.com/your-figma-link-lab5"
+                      target="_blank"
+                      class="view-btn"
+                    >
+                      <i class="bi bi-eye"></i> View On Figma
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab Implement -->
+            <div id="implement" class="tab-item">
+              <h3>Implement</h3>
+              <div class="iframe-container">
+                <iframe
+                  src="Lab5/responsive_design.html"
+                  title="responsive_design"
+                  allowfullscreen
+                ></iframe>
+              </div>
+              <!-- Review Pages Button -->
+              <div class="button-group" style="margin-top: 20px">
+                <a href="Lab5/Html/index.html" class="lab-button">
+                  <i class="bi bi-eye"></i> Review Pages
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <!-- Giới Thiệu -->
+            <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up">
+              <h4>Giới Thiệu</h4>
+              <p>
+                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
+                và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="Twitter"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100088292157574"
+                  aria-label="Facebook"
+                  ><i class="bi bi-facebook"></i
+                ></a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Liên Kết Nhanh -->
+            <div
+              class="col-lg-2 col-md-6 footer-links"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h4>Liên Kết Nhanh</h4>
+              <ul>
+                <li>
+                  <a href="index.html"
+                    ><i class="bi bi-chevron-right"></i> Trang Chủ</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html"
+                    ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
+                  >
+                </li>
+                <li>
+                  <a href="resume.html"
+                    ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
+                  >
+                </li>
+                <li>
+                  <a href="services.html"
+                    ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
+                  >
+                </li>
+                <li>
+                  <a href="portfolio.html"
+                    ><i class="bi bi-chevron-right"></i> Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="bi bi-chevron-right"></i> Liên Hệ</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Dịch Vụ -->
+            <div
+              class="col-lg-3 col-md-6 footer-services"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h4>Dịch Vụ</h4>
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Thông Tin Liên Hệ -->
+            <div
+              class="col-lg-4 col-md-6 footer-contact"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h4>Liên Hệ</h4>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:22130116@st.hcmuaf.edu.vn"
+                  >22130116@st.hcmuaf.edu.vn</a
+                ><br />
+                <strong>Điện Thoại:</strong>
+                <a href="tel:+1234567890">+1 234 567 890</a><br />
+                <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
+              </p>
+              <!-- Đăng Ký Newsletter -->
+              <form action="#" method="post" class="newsletter-form">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email của bạn"
+                  aria-label="Email của bạn"
+                  required
+                />
+                <button type="submit" aria-label="Đăng Ký">
+                  <i class="bi bi-send"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start">
+              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
+              Mọi Quyền
+            </div>
+            <div class="col-lg-6 footer-credits text-center text-lg-end">
+              Thiết Kế Bởi
+              <a href="https://www.facebook.com/profile.php?id=100088292157574"
+                >Nguyễn Lê Hoàng Khang</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+    >
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/typed.js/typed.umd.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Hàm thay đổi tab trong Lab 5
+      function changeTab(tabId) {
+        // Ẩn tất cả các tab-item
+        const tabItems = document.querySelectorAll(".tab-item");
+        tabItems.forEach((item) => {
+          item.style.display = "none";
+        });
+
+        // Hiển thị tab được chọn
+        const selectedTab = document.getElementById(tabId);
+        if (selectedTab) {
+          selectedTab.style.display = "block";
+        }
+
+        // Xóa class active khỏi tất cả các tab
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach((tab) => {
+          tab.classList.remove("active");
+        });
+
+        // Thêm class active cho tab được chọn
+        const activeTab = document.querySelector(
+          `.tab[onclick="changeTab('${tabId}')"]`
+        );
+        if (activeTab) {
+          activeTab.classList.add("active");
+        }
+      }
+
+      // Khởi tạo mặc định
+      document.addEventListener("DOMContentLoaded", function () {
+        changeTab("requirement"); // Hiển thị tab Requirement mặc định
+      });
+
+      // Hiển thị nút Scroll Top khi cuộn xuống
+      window.addEventListener("scroll", function () {
+        const scrollTop = document.getElementById("scroll-top");
+        if (window.pageYOffset > 300) {
+          scrollTop.classList.add("show");
+        } else {
+          scrollTop.classList.remove("show");
+        }
+      });
+
+      // Hàm hiển thị thông báo (nếu cần)
+      function showAlert(message, type) {
+        const alertPlaceholder = document.createElement("div");
+        alertPlaceholder.innerHTML = `
+          <div class="alert alert-${type} alert-dismissible fade show position-fixed top-0 end-0 m-3" role="alert">
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        `;
+        document.body.appendChild(alertPlaceholder);
+
+        // Tự động xóa thông báo sau 3 giây
+        setTimeout(() => {
+          const alert = bootstrap.Alert.getOrCreateInstance(
+            alertPlaceholder.firstChild
+          );
+          alert.close();
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

@@ -415,23 +415,16 @@ header::before {
 }
 
 .header-content .Intro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px; /* Tạo khoảng cách 40px giữa các phần tử */
-  padding: 20px; /* Thêm padding để tạo không gian xung quanh */
+  margin-bottom: 40px;
 }
 
-
-
-/* Tùy chỉnh văn bản mô tả */
+/* Coding is Fun */
 .header-content .Intro .Description {
   font-size: 32px;
+  margin-bottom: 20px;
   font-weight: 500;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  max-width: 800px; /* Giới hạn chiều rộng tối đa */
-  text-align: center; /* Căn giữa văn bản */
+  color: #ffffff; /* Set the font color to white */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better visibility */
 }
 
 
@@ -909,7 +902,8 @@ textarea:focus {
 ============================== */
 .search-container {
   position: relative;
-  width: 100%;
+  width: 350px; /* Tăng chiều rộng của thanh tìm kiếm */
+  transition: width var(--transition-speed);
 }
 
 .search-container i {
@@ -1131,14 +1125,13 @@ textarea:focus {
 
 .search-container input {
   width: 100%;
-  padding: 12px 20px 12px 45px; /* Tăng padding-left để tạo không gian cho biểu tượng */
+  padding: 12px 20px 12px 45px; /* Tăng padding để phù hợp với kích thước mới */
   border: 1px solid #ccc;
-  border-radius: 0; /* Đặt góc vuông. Thay đổi thành 5px nếu muốn góc nhẹ nhàng */
+  border-radius: 30px;
   font-size: 16px;
   outline: none;
   transition: all 0.3s ease;
 }
-
 
 .search-container input:focus {
   border-color: var(--primary-color);
@@ -1275,23 +1268,19 @@ textarea:focus {
 button:focus, input:focus, textarea:focus {
   border: none !important; /* Loại bỏ border khi focus */
 }
+/* Container cho mỗi danh mục gợi ý */
 .suggestion-category-container {
   flex: 1;
   margin: 10px;
-  box-sizing: border-box; /* Đảm bảo padding và border không làm tăng chiều rộng */
 }
 
 /* Sắp xếp các danh mục gợi ý cạnh nhau */
 .autocomplete-suggestions {
   display: flex;
   gap: 20px;
-  width: 100%; /* Đảm bảo chiều rộng khớp với thanh tìm kiếm */
-  flex-wrap: wrap; /* Cho phép các danh mục gợi ý tự động xuống dòng nếu cần */
-  /* Loại bỏ các thuộc tính sau nếu có */
-  max-height: none; /* Không giới hạn chiều cao */
-  overflow: visible; /* Hiển thị đầy đủ nội dung mà không cần thanh cuộn */
 }
 
+/* Tùy chỉnh tiêu đề danh mục */
 .suggestion-category {
   font-weight: bold;
   margin-bottom: 10px;
@@ -1302,7 +1291,6 @@ button:focus, input:focus, textarea:focus {
 }
 
 /* Tùy chỉnh các mục gợi ý */
-/* Tùy chỉnh các mục gợi ý */
 .autocomplete-suggestion {
   padding: 10px 15px;
   cursor: pointer;
@@ -1312,7 +1300,6 @@ button:focus, input:focus, textarea:focus {
   border-bottom: 1px solid #f0f0f0;
   color: var(--text-color);
   font-weight: normal;
-  white-space: normal; /* Cho phép xuống dòng nếu cần */
 }
 
 .autocomplete-suggestion:last-child {
@@ -1332,24 +1319,23 @@ button:focus, input:focus, textarea:focus {
 @media (max-width: 768px) {
   .autocomplete-suggestions {
     flex-direction: column;
-    gap: 10px; /* Giảm khoảng cách giữa các danh mục */
   }
-
 
   .suggestion-category-container {
     margin: 5px 0;
-    border-right: none; /* Loại bỏ đường viền trên thiết bị nhỏ */
+    border-right: none; /* Đảm bảo không có đường viền trên thiết bị nhỏ */
     padding-right: 0;
   }
 }
 
-/* Thêm đường viền ngăn cách giữa các danh mục trên màn hình lớn */
+/* Thêm đường viền bên phải cho danh mục đầu tiên trên màn hình lớn */
 @media (min-width: 769px) {
   .suggestion-category-container:first-child {
-    border-right: 1px solid var(--accent-color); /* Màu đường viền */
-    padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
+    border-right: 1px solid var(--accent-color); /* Sử dụng màu phù hợp */
+    padding-right: 20px; /* Thêm khoảng cách giữa đường viền và nội dung */
   }
 }
+
 </style>
 
     </style>
@@ -1410,26 +1396,23 @@ button:focus, input:focus, textarea:focus {
   <div class="header-content" data-aos="fade-in">
     <!-- Phần Intro -->
     <article class="Intro">
-      <!-- Mô tả -->
       <p class="Description">Hello, What Do You Want To Learn?</p>
-      
-      <!-- Thanh Tìm Kiếm -->
-      <form class="search-bar" action="/search" method="GET" autocomplete="off">
-        <div class="search-container">
-          <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-          </svg>
-          <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
-          <div id="autocomplete-list" class="autocomplete-suggestions"></div>
-        </div>
-      </form>
-      
-      <!-- Hình ảnh -->
+          <!-- Thanh Tìm Kiếm -->
+    <form class="search-bar" action="/search" method="GET" autocomplete="off">
+      <div class="search-container">
+        <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+        </svg>
+        <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
+        <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+      </div>
+    </form>
       <img src="../img/63921-developer.gif" alt="Animated Gif" />
     </article>
+
+
   </div>
 </header>
-
 
 
 

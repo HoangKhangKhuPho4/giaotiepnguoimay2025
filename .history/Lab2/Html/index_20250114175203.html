@@ -1338,18 +1338,19 @@ button:focus, input:focus, textarea:focus {
 
   .suggestion-category-container {
     margin: 5px 0;
-    border-right: none; /* Loại bỏ đường viền trên thiết bị nhỏ */
+    border-right: none; /* Đảm bảo không có đường viền trên thiết bị nhỏ */
     padding-right: 0;
   }
 }
 
-/* Thêm đường viền ngăn cách giữa các danh mục trên màn hình lớn */
+/* Thêm đường viền bên phải cho danh mục đầu tiên trên màn hình lớn */
 @media (min-width: 769px) {
   .suggestion-category-container:first-child {
-    border-right: 1px solid var(--accent-color); /* Màu đường viền */
-    padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
+    border-right: 1px solid var(--accent-color); /* Sử dụng màu phù hợp */
+    padding-right: 20px; /* Thêm khoảng cách giữa đường viền và nội dung */
   }
 }
+
 </style>
 
     </style>
