@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Interview Questions</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body,
+      html {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+      }
+      .content {
+        padding: 20px;
+      }
+      .alert-warning {
+        background-color: #fff3cd;
+        border-color: #ffeeba;
+        color: #856404;
+        border-radius: 0.375rem;
+        padding: 1rem;
+        font-size: 1rem;
+      }
+      .cards-container .card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .cards-container .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .card-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #343a40;
+      }
+      .question-item {
+        background-color: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 0.375rem;
+        padding: 15px;
+        margin-bottom: 20px;
+        transition: box-shadow 0.2s;
+      }
+      .question-item:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      }
+      .question-item .tags a {
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+      .badge-light {
+        background-color: #e2e6ea;
+        color: #495057;
+      }
+      .badge-dark {
+        background-color: #343a40;
+        color: #ffffff;
+      }
+      .pagination .page-link {
+        border-radius: 0.375rem;
+      }
+      /* Responsive Card Adjustments */
+      @media (min-width: 992px) {
+        .cards-container .col-lg-4 {
+          max-width: 16.666667%;
+          flex: 0 0 16.666667%;
+        }
+      }
+      @media (max-width: 991.98px) {
+        .cards-container .col-md-6 {
+          max-width: 50%;
+          flex: 0 0 50%;
+        }
+      }
+      @media (max-width: 575.98px) {
+        .cards-container .col-sm-12 {
+          max-width: 100%;
+          flex: 0 0 100%;
+        }
+      }
+      /* Thêm CSS cho phần avatar trong phản hồi */
+      .last-reply {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+      }
+      /* Loại bỏ CSS cho hình ảnh avatar */
+      /* .last-reply img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    } */
+      .last-reply .reply-icon {
+        font-size: 1.5rem; /* Điều chỉnh kích thước icon */
+        color: #6c757d; /* Màu xám nhạt giống màu của văn bản */
+        margin-right: 10px;
+      }
+      .last-reply .reply-info {
+        display: flex;
+        flex-direction: column;
+      }
+      /* Thêm hiệu ứng active cho các tùy chọn lọc */
+      .nav-link.active {
+        background-color: #0d6efd;
+        color: #fff !important;
+      }
+      .nav-link:hover {
+        background-color: #e9ecef;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Main Content -->
+    <div class="content container-fluid">
+      <!-- Alert -->
+      <div class="alert alert-warning text-center" role="alert">
+        <strong>Attention!</strong> Please verify your email to unlock all
+        features and services on Học Lập Trình.
+      </div>
+
+      <!-- Cards Section -->
+      <div class="mt-5">
+        <div class="row cards-container">
+          <!-- Card Template -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex align-items-center justify-content-center"
+              >
+                <i class="fas fa-question-circle fa-2x text-primary mb-3"></i>
+                <h5 class="card-title">Interview Question</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 1: Interview Question -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-question-circle fa-2x text-primary mb-3"></i>
+                <h5 class="card-title">Interview Question</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Interview Experience -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-briefcase fa-2x text-success mb-3"></i>
+                <h5 class="card-title">Interview Experience</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Compensation -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-dollar-sign fa-2x text-warning mb-3"></i>
+                <h5 class="card-title">Compensation</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Career -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-user-tie fa-2x text-info mb-3"></i>
+                <h5 class="card-title">Career</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5: Study Guide -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-book-reader fa-2x text-secondary mb-3"></i>
+                <h5 class="card-title">Study Guide</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6: General Discussion -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-comments fa-2x text-danger mb-3"></i>
+                <h5 class="card-title">General Discussion</h5>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7: Support & Feedback -->
+          <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+            <div class="card h-100 text-center">
+              <div
+                class="card-body d-flex flex-column align-items-center justify-content-center"
+              >
+                <i class="fas fa-life-ring fa-2x text-success mb-3"></i>
+                <h5 class="card-title">Support &amp; Feedback</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content (Nâng Cấp) -->
+      <div class="tab-content container-fluid">
+        <div class="tab-pane fade show active" id="interview-question">
+          <!-- Header với tiêu đề và nút tạo mới -->
+          <div
+            class="d-flex justify-content-between align-items-center mt-4 mb-3"
+          >
+            <h2 class="h5 mb-0">All Interview Questions</h2>
+            <button class="btn btn-primary d-flex align-items-center">
+              <i class="fas fa-plus me-2"></i> New Question
+            </button>
+          </div>
+
+          <!-- Bộ lọc câu hỏi và tìm kiếm -->
+          <div
+            class="d-flex justify-content-between align-items-center mb-4 flex-wrap"
+          >
+            <ul class="nav nav-pills mb-2 mb-md-0" id="sort-options">
+              <li class="nav-item">
+                <a class="nav-link active" href="#" data-sort="hot">Hot</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-sort="newest">Newest</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-sort="oldest">Oldest</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-sort="mostVotes"
+                  >Most Votes</a
+                >
+              </li>
+            </ul>
+
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search questions..."
+                aria-label="Search"
+              />
+              <button class="btn btn-outline-secondary" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-8">
+              <!-- Container để chèn các question-item -->
+              <div id="question-list">
+                <!-- Các question-item sẽ được chèn vào đây bằng JavaScript -->
+              </div>
+
+              <!-- Pagination -->
+              <nav aria-label="Page navigation" class="mt-4">
+                <ul class="pagination justify-content-center" id="pagination">
+                  <!-- Các nút phân trang sẽ được chèn vào đây bằng JavaScript -->
+                </ul>
+              </nav>
+            </div>
+
+            <div class="col-lg-4 mt-4 mt-lg-0">
+              <!-- Search Tags -->
+              <div class="mb-4">
+                <div class="input-group">
+                  <input
+                    type="text"
+                    class="form-control rounded-pill"
+                    placeholder="Search for tags..."
+                    aria-label="Search for tags"
+                  />
+                  <button class="btn btn-outline-secondary" type="button">
+                    <i class="fas fa-search text-muted"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Tags Card -->
+              <div class="card mb-4">
+                <div class="card-header bg-primary text-white">Tags</div>
+                <div class="card-body">
+                  <div class="d-flex flex-wrap">
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      google <span class="badge bg-dark ms-1">2615</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      amazon <span class="badge bg-dark ms-1">2313</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      facebook <span class="badge bg-dark ms-1">1332</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      interview <span class="badge bg-dark ms-1">1064</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      online assessment
+                      <span class="badge bg-dark ms-1">1042</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      meta <span class="badge bg-dark ms-1">958</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      phone screen <span class="badge bg-dark ms-1">946</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      microsoft <span class="badge bg-dark ms-1">736</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      onsite <span class="badge bg-dark ms-1">720</span>
+                    </a>
+                    <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                      system design <span class="badge bg-dark ms-1">717</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Có thể thêm các card hoặc thông tin bổ sung khác -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bootstrap JS và các phụ thuộc -->
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoOqH6V5FY3p7x4O4N5CTeZMoC1PEaX14lZ6owkDf7R43H+"
+        crossorigin="anonymous"
+      ></script>
+
+      <!-- Script gửi chiều cao -->
+      <script>
+        function sendHeight() {
+          const body = document.body;
+          const html = document.documentElement;
+          const height = Math.max(
+            body.scrollHeight,
+            body.offsetHeight,
+            html.clientHeight,
+            html.scrollHeight,
+            html.offsetHeight
+          );
+          parent.postMessage({ height: height }, window.location.origin);
+        }
+
+        // Gửi chiều cao khi tải trang và khi thay đổi kích thước
+        window.addEventListener("load", sendHeight);
+        window.addEventListener("resize", sendHeight);
+
+        // Kiểm tra định kỳ các thay đổi nội dung động
+        setInterval(sendHeight, 1000);
+      </script>
+
+      <!-- Script Phân Trang và Sắp Xếp -->
+      <script>
+        // Dữ liệu mẫu cho các câu hỏi
+        const questions = [
+          {
+            title: "Google Online Assessment Questions",
+            author: "Sinha",
+            date: "August 6, 2019",
+            lastReply: { name: "Nandhu", time: "16 hours ago" },
+            tags: ["google", "online assessment"],
+            comments: "3.1K",
+            views: "837.9K",
+          },
+          {
+            title: "How to write an Interview Question post",
+            author: "LeetCode",
+            date: "April 28, 2018",
+            lastReply: { name: "Priyanshu Ranjan", time: "January 12, 2023" },
+            tags: ["guide"],
+            comments: "638",
+            views: "178.7K",
+          },
+          {
+            title: "What is System Design Interview?",
+            author: "Alex",
+            date: "May 10, 2020",
+            lastReply: { name: "Jordan", time: "2 days ago" },
+            tags: ["system design"],
+            comments: "1.2K",
+            views: "350K",
+          },
+          {
+            title: "Best Practices for Phone Screen",
+            author: "Taylor",
+            date: "July 15, 2021",
+            lastReply: { name: "Morgan", time: "3 hours ago" },
+            tags: ["phone screen"],
+            comments: "750",
+            views: "120K",
+          },
+          {
+            title: "Compensation Negotiation Tips",
+            author: "Sam",
+            date: "March 22, 2022",
+            lastReply: { name: "Jamie", time: "1 week ago" },
+            tags: ["compensation"],
+            comments: "980",
+            views: "200K",
+          },
+          {
+            title: "Career Growth Strategies",
+            author: "Chris",
+            date: "November 5, 2020",
+            lastReply: { name: "Casey", time: "5 days ago" },
+            tags: ["career"],
+            comments: "1.5K",
+            views: "300K",
+          },
+          {
+            title: "Effective Study Guides for Interviews",
+            author: "Dana",
+            date: "January 18, 2023",
+            lastReply: { name: "Pat", time: "10 hours ago" },
+            tags: ["study guide"],
+            comments: "500",
+            views: "90K",
+          },
+          {
+            title: "Meta Interview Process Overview",
+            author: "Riley",
+            date: "February 10, 2021",
+            lastReply: { name: "Taylor", time: "2 days ago" },
+            tags: ["meta"],
+            comments: "1.1K",
+            views: "250K",
+          },
+          {
+            title: "Amazon Onsite Interview Tips",
+            author: "Jordan",
+            date: "June 30, 2019",
+            lastReply: { name: "Morgan", time: "4 hours ago" },
+            tags: ["amazon", "onsite"],
+            comments: "2K",
+            views: "400K",
+          },
+          {
+            title: "Facebook System Design Questions",
+            author: "Alex",
+            date: "September 12, 2022",
+            lastReply: { name: "Jamie", time: "3 hours ago" },
+            tags: ["facebook", "system design"],
+            comments: "1.8K",
+            views: "320K",
+          },
+          // Bạn có thể thêm nhiều câu hỏi hơn ở đây
+        ];
+
+        let filteredQuestions = [...questions]; // Mảng chứa các câu hỏi sau khi lọc/sắp xếp
+        const questionsPerPage = 5; // Số câu hỏi hiển thị trên mỗi trang
+        let currentPage = 1;
+        let totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
+
+        // Hàm để chuyển đổi số lượng từ dạng "1.5K" thành số thực
+        function parseCount(count) {
+          if (count.endsWith("K")) {
+            return parseFloat(count) * 1000;
+          }
+          if (count.endsWith("M")) {
+            return parseFloat(count) * 1000000;
+          }
+          return parseInt(count);
+        }
+
+        // Hàm để hiển thị câu hỏi cho trang hiện tại
+        function displayQuestions(page) {
+          const questionList = document.getElementById("question-list");
+          questionList.innerHTML = ""; // Xóa nội dung hiện tại
+
+          // Tính toán chỉ số bắt đầu và kết thúc
+          const start = (page - 1) * questionsPerPage;
+          const end = start + questionsPerPage;
+          const paginatedQuestions = filteredQuestions.slice(start, end);
+
+          // Tạo và thêm các question-item vào DOM
+          paginatedQuestions.forEach((q) => {
+            const questionItem = document.createElement("div");
+            questionItem.classList.add("question-item");
+
+            questionItem.innerHTML = `
+            <h5>
+              <a href="#" class="text-dark text-decoration-none">${q.title}</a>
+            </h5>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <div class="d-flex align-items-center">
+                <i class="fas fa-user-circle fa-lg text-muted me-2"></i>
+                <span class="text-muted">${q.author}</span>
+              </div>
+              <span class="text-muted">${q.date}</span>
+            </div>
+            <!-- Phần Phản Hồi với Icon -->
+            <div class="last-reply">
+              <i class="fas fa-user-circle reply-icon"></i>
+              <div class="reply-info">
+                <span class="text-muted">Last Reply: ${q.lastReply.name}</span>
+                <span class="text-muted">${q.lastReply.time}</span>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-2">
+              <div class="tags">
+                ${q.tags
+                  .map(
+                    (tag) =>
+                      `<a href="#" class="badge bg-secondary me-1">${tag}</a>`
+                  )
+                  .join("")}
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="me-3"><i class="fas fa-comment-alt me-1"></i>${
+                  q.comments
+                }</span>
+                <span><i class="fas fa-eye me-1"></i>${q.views}</span>
+              </div>
+            </div>
+          `;
+
+            questionList.appendChild(questionItem);
+          });
+        }
+
+        // Hàm để tạo các nút phân trang
+        function setupPagination() {
+          const pagination = document.getElementById("pagination");
+          pagination.innerHTML = ""; // Xóa nội dung hiện tại
+
+          // Nút Previous
+          const prevLi = document.createElement("li");
+          prevLi.classList.add("page-item");
+          if (currentPage === 1) {
+            prevLi.classList.add("disabled");
+          }
+          prevLi.innerHTML = `<a class="page-link" href="#" tabindex="-1">Previous</a>`;
+          prevLi.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage > 1) {
+              currentPage--;
+              updatePagination();
+            }
+          });
+          pagination.appendChild(prevLi);
+
+          // Các nút số trang
+          for (let i = 1; i <= totalPages; i++) {
+            const li = document.createElement("li");
+            li.classList.add("page-item");
+            if (i === currentPage) {
+              li.classList.add("active");
+            }
+            li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+            li.addEventListener("click", (e) => {
+              e.preventDefault();
+              currentPage = i;
+              updatePagination();
+            });
+            pagination.appendChild(li);
+          }
+
+          // Nút Next
+          const nextLi = document.createElement("li");
+          nextLi.classList.add("page-item");
+          if (currentPage === totalPages) {
+            nextLi.classList.add("disabled");
+          }
+          nextLi.innerHTML = `<a class="page-link" href="#">Next</a>`;
+          nextLi.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (currentPage < totalPages) {
+              currentPage++;
+              updatePagination();
+            }
+          });
+          pagination.appendChild(nextLi);
+        }
+
+        // Hàm để cập nhật hiển thị câu hỏi và phân trang
+        function updatePagination() {
+          displayQuestions(currentPage);
+          setupPagination();
+          sendHeight(); // Gửi chiều cao lại sau khi cập nhật nội dung
+        }
+
+        // Hàm để sắp xếp câu hỏi dựa trên tiêu chí
+        function sortQuestions(criteria) {
+          switch (criteria) {
+            case "hot":
+              // Giả định "Hot" dựa trên số lượng comments (càng nhiều càng hot)
+              filteredQuestions.sort(
+                (a, b) => parseCount(b.comments) - parseCount(a.comments)
+              );
+              break;
+            case "newest":
+              filteredQuestions.sort(
+                (a, b) => new Date(b.date) - new Date(a.date)
+              );
+              break;
+            case "oldest":
+              filteredQuestions.sort(
+                (a, b) => new Date(a.date) - new Date(b.date)
+              );
+              break;
+            case "mostVotes":
+              // Giả định "Most Votes" dựa trên số lượng comments (càng nhiều càng nhiều votes)
+              filteredQuestions.sort(
+                (a, b) => parseCount(b.comments) - parseCount(a.comments)
+              );
+              break;
+            default:
+              break;
+          }
+        }
+
+        // Hàm để xử lý sự kiện khi chọn tùy chọn lọc
+        function handleSortOptionClick(event) {
+          event.preventDefault();
+          const selectedSort = event.target.getAttribute("data-sort");
+          if (!selectedSort) return;
+
+          // Xóa class active khỏi tất cả các tùy chọn
+          const sortOptions = document.querySelectorAll(
+            "#sort-options .nav-link"
+          );
+          sortOptions.forEach((option) => option.classList.remove("active"));
+
+          // Thêm class active cho tùy chọn đã chọn
+          event.target.classList.add("active");
+
+          // Sắp xếp câu hỏi dựa trên tiêu chí đã chọn
+          sortQuestions(selectedSort);
+
+          // Cập nhật tổng số trang sau khi sắp xếp
+          totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
+
+          // Đặt lại trang hiện tại về 1
+          currentPage = 1;
+
+          // Cập nhật phân trang và hiển thị câu hỏi
+          updatePagination();
+        }
+
+        // Hàm để khởi tạo các sự kiện lọc
+        function initSortEvents() {
+          const sortOptions = document.querySelectorAll(
+            "#sort-options .nav-link"
+          );
+          sortOptions.forEach((option) => {
+            option.addEventListener("click", handleSortOptionClick);
+          });
+        }
+
+        // Khởi tạo khi tải trang
+        document.addEventListener("DOMContentLoaded", () => {
+          // Khởi tạo các sự kiện lọc
+          initSortEvents();
+
+          // Sắp xếp mặc định là "Hot"
+          sortQuestions("hot");
+
+          // Cập nhật tổng số trang dựa trên mảng đã sắp xếp
+          totalPages = Math.ceil(filteredQuestions.length / questionsPerPage);
+
+          // Hiển thị câu hỏi và phân trang
+          updatePagination();
+        });
+      </script>
+    </div>
+  </body>
+</html>

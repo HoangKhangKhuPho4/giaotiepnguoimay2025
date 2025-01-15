@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Questions - LeetCode Discuss</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f3f5;
+        }
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar-nav .nav-link {
+            color: #495057;
+            transition: color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #007bff;
+        }
+        .main-content {
+            padding: 20px;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+        .btn-group .btn {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .btn-group .btn:hover {
+            background-color: #e2e6ea;
+        }
+        .card {
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background-color: #ffffff;
+        }
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            padding: 15px;
+        }
+        .card-header h5 {
+            margin: 0;
+        }
+        .card-header-tabs .nav-link {
+            color: #495057;
+            margin-right: 10px;
+            transition: color 0.3s, border-bottom 0.3s;
+        }
+        .card-header-tabs .nav-link.active {
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .list-group-item {
+            border: none;
+            border-bottom: 1px solid #e9ecef;
+            transition: background-color 0.3s;
+        }
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+        }
+        .list-group-item:last-child {
+            border-bottom: none;
+        }
+        .badge {
+            font-size: 0.8em;
+            margin-left: 5px;
+        }
+        .pagination .page-link {
+            color: #0d6efd;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .pagination .page-link:hover {
+            background-color: #0d6efd;
+            color: #ffffff;
+        }
+        .tags {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .tags h6 {
+            margin-bottom: 15px;
+        }
+        .tags .badge {
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tags .badge:hover {
+            background-color: #0d6efd;
+            color: #ffffff;
+        }
+        .footer {
+            background-color: #ffffff;
+            padding: 20px;
+            border-top: 1px solid #e9ecef;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+        }
+        .footer a {
+            color: #0d6efd;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+        .footer a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fade-in">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">LeetCode</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Problems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Discuss</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Interview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Store</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Premium</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-content container-fluid fade-in">
+        <div class="alert alert-warning text-center" role="alert">
+            Please verify your email to unlock all features and services on LeetCode.
+        </div>
+
+        <div class="d-flex justify-content-between mb-3">
+            <div class="btn-group" role="group" aria-label="Interview Categories">
+                <button type="button" class="btn btn-outline-secondary">Interview Question</button>
+                <button type="button" class="btn btn-outline-secondary">Interview Experience</button>
+                <button type="button" class="btn btn-outline-secondary">Compensation</button>
+                <button type="button" class="btn btn-outline-secondary">Career</button>
+                <button type="button" class="btn btn-outline-secondary">Study Guide</button>
+                <button type="button" class="btn btn-outline-secondary">General Discussion</button>
+                <button type="button" class="btn btn-outline-secondary">Support & Feedback</button>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h5>All Interview Questions</h5>
+                <ul class="nav nav-tabs card-header-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">System Design</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Operating System</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Object-Oriented Design</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary me-2">Hot</button>
+                        <button type="button" class="btn btn-outline-secondary me-2">Newest</button>
+                        <button type="button" class="btn btn-outline-secondary me-2">Oldest</button>
+                        <button type="button" class="btn btn-outline-secondary">Most Votes</button>
+                    </div>
+                    <div class="input-group" style="max-width: 300px;">
+                        <input type="text" class="form-control" placeholder="Search topics or comments...">
+                        <button class="btn btn-outline-secondary" type="button">New</button>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <!-- List Items -->
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1"><i class="fas fa-thumbtack text-danger"></i> Google Online Assessment Questions</h6>
+                            <small class="text-muted">Sinha created at August 6, 2019 6:16 PM | Last Reply: Nandhu 16 hours ago</small>
+                        </div>
+                        <div class="text-end">
+                            <span class="badge bg-light text-dark">3.1K</span>
+                            <span class="badge bg-light text-dark">837.9K</span>
+                        </div>
+                    </li>
+                    <!-- Các phần tử danh sách khác tương tự -->
+                    <!-- ... -->
+                </ul>
+                <nav aria-label="Page navigation example" class="mt-3">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">200</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="tags mt-4">
+            <h6>Tags</h6>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search for tags...">
+            </div>
+            <div class="d-flex flex-wrap">
+                <span class="badge bg-light text-dark m-1">google 2815</span>
+                <span class="badge bg-light text-dark m-1">amazon 2311</span>
+                <span class="badge bg-light text-dark m-1">facebook 1132</span>
+                <span class="badge bg-light text-dark m-1">interview 1064</span>
+                <span class="badge bg-light text-dark m-1">online assessment 1042</span>
+                <span class="badge bg-light text-dark m-1">meta 958</span>
+                <span class="badge bg-light text-dark m-1">phone screen 946</span>
+                <span class="badge bg-light text-dark m-1">microsoft 736</span>
+                <span class="badge bg-light text-dark m-1">onsite 720</span>
+                <span class="badge bg-light text-dark m-1">system design 717</span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer fade-in">
+        <div class="container">
+            <p class="mb-0">Copyright © 2023 LeetCode</p>
+            <p class="mb-0">
+                <a href="#">Help Center</a> |
+                <a href="#">Jobs</a> |
+                <a href="#">Bug Bounty</a> |
+                <a href="#">Online Interview</a> |
+                <a href="#">Students</a> |
+                <a href="#">Terms</a> |
+                <a href="#">Privacy Policy</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-q6i/X+965DzO0rT+0p+g6fQ5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q5r5y5Q" crossorigin="anonymous"></script>
+    <script>
+        // Thêm các hiệu ứng hoặc tương tác JavaScript nếu cần
+    </script>
+</body>
+</html>

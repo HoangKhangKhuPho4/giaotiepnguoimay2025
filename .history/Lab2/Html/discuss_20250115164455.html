@@ -3,15 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0" />
-    <title>OnlineJudgeSystem</title>
-    <!-- Font Awesome for Icons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnlineJudgeSystem - Interview Questions</title>
+    
+    <!-- Font Awesome for Icons (Using version 6.4.0) -->
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-      integrity="sha512-1ycn6IcaQQ40/MKBW2W4xQ8lv+8PZcF0CjtPvHzaxkFZfQ7mV4n5Bq5qR5GgjbH9e2TFRoM+1Ax5WnYf3bTW8Q=="
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pVn1C6BV1eJhNJ0pu6Fk9qg6vYRV8oA25I3gOPCvj+qKLMH6TqbeNqzXhPmgaxdG6lroVJEEgHojzwMl9kIYQw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <!-- AOS Library for Animations on Scroll -->
     <link
       rel="stylesheet"
@@ -21,29 +24,17 @@
       referrerpolicy="no-referrer"
     />
 
-    <!-- Font Awesome for Icons -->
- <!-- Font Awesome 6 (Ví dụ) -->
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-integrity="sha512-pVn1C6BV1eJhNJ0pu6Fk9qg6vYRV8oA25I3gOPCvj+qKLMH6TqbeNqzXhPmgaxdG6lroVJEEgHojzwMl9kIYQw=="
-crossorigin="anonymous"
-referrerpolicy="no-referrer"
-/>
-
-
- <!-- Font Awesome for Icons -->
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-integrity="sha512-1ycn6IcaQQ40/MKBW2W4xQ8lv+8PZcF0CjtPvHzaxkFZfQ7mV4n5Bq5qR5GgjbH9e2TFRoM+1Ax5WnYf3bTW8Q=="
-crossorigin="anonymous"
-referrerpolicy="no-referrer"
-/>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
 
     <!-- Custom CSS -->
     <style>
-    /* ==============================
+   /* ==============================
     Reset and Base Styles
     ============================== */
     *, *::before, *::after {
@@ -74,13 +65,22 @@ referrerpolicy="no-referrer"
     }
 
     body {
-      font-family: var(--font-family);
-      background-color: var(--background-color);
-      color: var(--text-color);
-      line-height: 1.6;
-      scroll-behavior: smooth;
-      transition: background-color var(--transition-speed), color var(--transition-speed);
-    }
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+/* Nội dung chính */
+main {
+  flex: 1; /* Cho phép nội dung chính mở rộng để đẩy footer xuống dưới */
+  padding-top: 80px; /* Khoảng đệm phía trên để tránh bị chồng lên navbar */
+  padding-bottom: 40px; /* Khoảng đệm phía dưới để tạo không gian với footer */
+}
 
     a {
       color: var(--primary-color);
@@ -173,6 +173,7 @@ nav {
   top: 0;
   z-index: 1000;
   transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+  height: 70px;
 }
 
 nav.scrolled {
@@ -1350,23 +1351,19 @@ button:focus, input:focus, textarea:focus {
     padding-right: 20px; /* Khoảng cách giữa đường viền và nội dung */
   }
 }
-</style>
-
     </style>
   </head>
   <body>
-   
-
     <!-- Back to Top Button -->
     <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
-      <!-- <svg
+      <svg
         width="24"
         height="24"
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M12 4l-8 8h5v8h6v-8h5z" />
-      </svg> -->
+      </svg>
     </div>
 
 <!-- Navbar -->
@@ -1405,484 +1402,209 @@ button:focus, input:focus, textarea:focus {
   </div>
 </nav>
 
-
-
-    <!-- Header -->
-<!-- Header -->
-<header id="home">
-  <div class="header-content" data-aos="fade-in">
-    <!-- Phần Intro -->
-    <article class="Intro">
-      <!-- Mô tả -->
-      <p class="Description">Hello, What Do You Want To Learn?</p>
-      
-      <!-- Thanh Tìm Kiếm -->
-      <form class="search-bar" action="/search" method="GET" autocomplete="off">
-        <div class="search-container">
-          <svg class="search-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85zm-5.442 1.398a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
-          </svg>
-          <input type="text" name="query" placeholder="Search..." id="searchInput" aria-label="Search" oninput="showSuggestions(this.value)">
-          <div id="autocomplete-list" class="autocomplete-suggestions"></div>
-        </div>
-      </form>
-      
-      <!-- Hình ảnh -->
-      <img src="../img/63921-developer.gif" alt="Animated Gif" />
-    </article>
-  </div>
-</header>
-
-
-
-
-    <!-- Main Content -->
-    <div class="container">
-  
-  
-      <!-- Explore Section -->
-      <section id="Explore" class="section" data-aos="fade-up">
-          <h2>Explore</h2>
-          <div class="Explore-grid">
-              <div class="Box" data-language="c">
-                  <p class="boxtitle">Semester - 1</p>
-                  <h1 class="boxheader">The Problem Solving Through C</h1>
-                  <p class="topics">Variables, Control Constructs, Loops, Arrays, Pointers</p>
-                  <div class="Btns">
-                      <a class="Btn" href="c_programming.html">Start Learning</a>
-                  </div>
-                  <img class="c-adjust" src="../img/C.png" alt="C">
-                  <p class="status completed">Completed</p> <!-- Status Label -->
-              </div>
-  
-              <div class="Box" data-language="cpp">
-                  <p class="boxtitle">Semester - 2</p>
-                  <h1 class="boxheader">OOP with C++</h1>
-                  <p class="topics">Classes, Objects, Inheritance, Polymorphism, Encapsulation</p>
-                  <div class="Btns">
-                      <a class="Btn" href="cpp_programming.html">Start Learning</a>
-                  </div>
-                  <img class="Boximg" src="../img/C++.png" alt="C++">
-                  <p class="status in-progress">In Progress</p> <!-- Status Label -->
-              </div>
-  
-              <div class="Box" data-language="java">
-                  <p class="boxtitle">Semester - 3</p>
-                  <h1 class="boxheader">Programming With Java</h1>
-                  <p class="topics">Java Basics, OOP in Java, Collections, Exception Handling, Streams</p>
-                  <div class="Btns">
-                      <a class="Btn" href="java_programming.html">Start Learning</a>
-                  </div>
-                  <img class="Boximg" src="../img/Java.png" alt="Java">
-                  <p class="status not-started">Not Started</p> <!-- Status Label -->
-              </div>
-  
-              <div class="Box" data-language="python">
-                  <p class="boxtitle">Semester - 4</p>
-                  <h1 class="boxheader">Python Programming</h1>
-                  <p class="topics">Python Basics, Data Structures, Libraries, Web Development, Data Analysis</p>
-                  <div class="Btns">
-                      <a class="Btn" href="python_programming.html">Start Learning</a>
-                  </div>
-                  <img class="Boximg" src="../img/Python.png" alt="Python">
-                  <p class="status not-started">Not Started</p> <!-- Status Label -->
-              </div>
-          </div>
-          <hr id="Dotted-hr">
+    <!-- Nội dung chính -->
+    <main>
+      <section id="main-content">
+        <iframe src="test.html" width="100%" height="800px" frameborder="0" style="border: none;"></iframe>
       </section>
-  </div>
-  
+    </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-container">
-    <!-- About Section -->
-    <div class="footer-section about">
-      <h3>About</h3>
-      <p>
-        Passionate software developer with experience in building web
-        applications using modern technologies. Dedicated to continuous
-        learning and improvement.
-      </p>
-    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
 
-    <!-- Quick Links -->
-    <div class="footer-section links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#Explore">Explore</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
 
-    <!-- Contact Information -->
-    <div class="footer-section contact">
-      <h3>Contact Info</h3>
-      <p>
-        <i class="fas fa-envelope"></i>
-        <a href="mailto:youremail@example.com">youremail@example.com</a>
-      </p>
-      <p>Phone: +1 234 567 890</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="mailto:youremail@example.com" aria-label="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form class="newsletter-form" action="https://formspree.io/f/yourformid" method="POST">
+            <input type="email" name="_replyto" placeholder="Your Email" required aria-label="Your Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
       </div>
-    </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
 
-    <!-- Newsletter Subscription -->
-    <div class="footer-section newsletter">
-      <h3>Newsletter</h3>
-      <p>
-        Subscribe to our newsletter to receive the latest updates and
-        offers.
-      </p>
-      <form class="newsletter-form" action="https://formspree.io/f/yourformid" method="POST">
-        <input type="email" name="_replyto" placeholder="Your Email" required aria-label="Your Email" />
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2023 Nabhag Motivaras. All rights reserved.
-  </div>
-</footer>
-
-
-    <!-- Scripts for Navbar Toggle, Dark Mode, Back to Top Button, and AOS -->
+    <!-- Scripts for Navbar Toggle and Back to Top Button -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
+      crossorigin="anonymous"
+    ></script>
+<!-- Thêm JavaScript để gửi chiều cao của nội dung đến parent -->
+<script>
+  function sendHeight() {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ height: height }, window.location.origin);
+  }
+
+  window.addEventListener('load', sendHeight);
+  window.addEventListener('resize', sendHeight);
+</script>
+    
     <script>
-// Initialize AOS
-AOS.init({
-  duration: 1000,
-  once: true,
-});
-
-// Display Back to Top Button và Thay đổi Navbar khi cuộn
-window.addEventListener("scroll", function () {
-  const backToTop = document.querySelector(".back-to-top");
-  const navbar = document.getElementById("navbar");
-
-  if (window.pageYOffset > 300) {
-    backToTop.style.display = "flex";
-  } else {
-    backToTop.style.display = "none";
-  }
-
-  if (window.pageYOffset > 100) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled");
-  }
-});
-
-// Scroll to Top Function
-function scrollToTop() {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-}
-
-// Light/Dark Mode Toggle
-const toggleSwitch = document.getElementById("theme-toggle");
-const currentTheme = localStorage.getItem("theme");
-
-if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  if (currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-}
-
-if (toggleSwitch) { // Kiểm tra xem toggleSwitch có tồn tại không
-  toggleSwitch.addEventListener("change", function (e) {
-    if (e.target.checked) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
-    }
-  });
-}
-
-// Navbar Hamburger Toggle
-function toggleHamburger() {
-  const navLinks = document.querySelector(".nav-links");
-  if (navLinks) { // Kiểm tra xem navLinks có tồn tại không
-    navLinks.classList.toggle("active");
-  }
-}
-
-// Dropdown Menu Toggle for Mobile (Nếu có dropdown)
-const dropdowns = document.querySelectorAll(".nav-links .dropdown");
-dropdowns.forEach((dropdown) => {
-  dropdown.addEventListener("click", (e) => {
-    e.preventDefault();
-    dropdown.classList.toggle("active");
-  });
-});
-
-// Form Validation cho Contact Form (Nếu có)
-const contactForm = document.querySelector(".contact-form");
-if (contactForm) { // Kiểm tra xem contactForm có tồn tại không
-  contactForm.addEventListener("submit", function (e) {
-    const name = contactForm.name ? contactForm.name.value.trim() : "";
-    const email = contactForm._replyto ? contactForm._replyto.value.trim() : "";
-    const message = contactForm.message ? contactForm.message.value.trim() : "";
-
-    if (!name || !email || !message) {
-      e.preventDefault();
-      alert("Please fill in all fields.");
-      return;
-    }
-
-    // Email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      e.preventDefault();
-      alert("Please enter a valid email address.");
-    }
-  });
-}
-
-// Search exercises by title or topics with suggestions
-const searchInput = document.getElementById('searchInput');
-const autocompleteList = document.getElementById('autocomplete-list');
-
-// Danh sách các ngôn ngữ lập trình
-const programmingLanguages = [
-  { name: "Python", url: "python_programming.html" },
-  { name: "Java", url: "java_programming.html" },
-  { name: "C++", url: "cpp_programming.html" },
-  { name: "C", url: "c_programming.html" }
-];
-
-// Danh sách các bài tập
-const exercises = [
-  {
-    title: "The Problem Solving Through C",
-    description: "Variables, Control Constructs, Loops, Arrays, Pointers",
-    difficulty: "Easy",
-    timeLimit: "30s",
-    points: 10,
-    language: "c",
-    url: "c_programming.html"
-  },
-  {
-    title: "OOP with C++",
-    description: "Classes, Objects, Inheritance, Polymorphism, Encapsulation",
-    difficulty: "Medium",
-    timeLimit: "1m",
-    points: 20,
-    language: "cpp",
-    url: "cpp_programming.html"
-  },
-  {
-    title: "Programming With Java",
-    description: "Java Basics, OOP in Java, Collections, Exception Handling, Streams",
-    difficulty: "Hard",
-    timeLimit: "2m",
-    points: 30,
-    language: "java",
-    url: "java_programming.html"
-  },
-  {
-    title: "Python Programming",
-    description: "Python Basics, Data Structures, Libraries, Web Development, Data Analysis",
-    difficulty: "Easy",
-    timeLimit: "30s",
-    points: 15,
-    language: "python",
-    url: "python_programming.html"
-  }
-  // Thêm các bài tập khác nếu cần
-];
-
-// Hàm để hiển thị gợi ý ngôn ngữ lập trình và bài tập
-function showSuggestions(value) {
-  autocompleteList.innerHTML = ''; // Xóa gợi ý cũ
-
-  if (!value) {
-    autocompleteList.classList.remove('active');
-    return;
-  }
-
-  const searchTerm = value.toLowerCase();
-  let hasSuggestions = false;
-
-  // Tìm kiếm ngôn ngữ lập trình bắt đầu bằng searchTerm
-  const matchedLanguages = programmingLanguages.filter(lang => 
-    lang.name.toLowerCase().startsWith(searchTerm)
-  );
-
-  if (matchedLanguages.length > 0) {
-    // Thêm tiêu đề cho phần ngôn ngữ lập trình
-    const langHeader = document.createElement('div');
-    langHeader.classList.add('suggestion-category');
-    langHeader.textContent = 'Ngôn ngữ lập trình';
-    autocompleteList.appendChild(langHeader);
-
-    matchedLanguages.forEach(lang => {
-      const suggestion = document.createElement('div');
-      suggestion.classList.add('autocomplete-suggestion');
-      suggestion.innerHTML = `
-        <span>${lang.name}</span>
-        <i class="fas fa-arrow-right"></i>
-      `;
-      suggestion.addEventListener('click', function() {
-        window.location.href = lang.url;
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
       });
-      autocompleteList.appendChild(suggestion);
-    });
 
-    hasSuggestions = true;
-  }
+      // Display Back to Top Button and Change Navbar on Scroll
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.getElementById("navbar");
 
-  // Tìm kiếm bài tập chứa searchTerm trong tiêu đề hoặc mô tả
-  const matchedExercises = exercises.filter(exercise => 
-    exercise.title.toLowerCase().includes(searchTerm) ||
-    exercise.description.toLowerCase().includes(searchTerm)
-  );
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
 
-  if (matchedExercises.length > 0) {
-    // Thêm tiêu đề cho phần bài tập
-    const exerciseHeader = document.createElement('div');
-    exerciseHeader.classList.add('suggestion-category');
-    exerciseHeader.textContent = 'Bài tập';
-    autocompleteList.appendChild(exerciseHeader);
-
-    matchedExercises.forEach(exercise => {
-      const suggestion = document.createElement('div');
-      suggestion.classList.add('autocomplete-suggestion');
-      suggestion.innerHTML = `
-        <span>${exercise.title}</span>
-        <i class="fas fa-arrow-right"></i>
-      `;
-      suggestion.addEventListener('click', function() {
-        window.location.href = exercise.url;
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
       });
-      autocompleteList.appendChild(suggestion);
-    });
 
-    hasSuggestions = true;
-  }
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
 
-  if (hasSuggestions) {
-    autocompleteList.classList.add('active');
-  } else {
-    autocompleteList.classList.remove('active');
-  }
-}
+      // Light/Dark Mode Toggle
+      const toggleSwitch = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
 
-// Ẩn danh sách gợi ý khi nhấp chuột ngoài
-document.addEventListener('click', function(e) {
-  if (!searchInput.contains(e.target) && !autocompleteList.contains(e.target)) {
-    autocompleteList.classList.remove('active');
-    autocompleteList.innerHTML = '';
-  }
-});
+      if (currentTheme) {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          toggleSwitch.checked = true;
+        }
+      }
 
-// Xử lý sự kiện Submit Form Tìm Kiếm
-const searchForm = document.querySelector('.search-bar');
-if (searchForm) {
-  searchForm.addEventListener('submit', function(e) {
-    const query = searchInput ? searchInput.value.trim() : '';
-    if (query === '') {
-      e.preventDefault();
-      alert('Vui lòng nhập từ khóa tìm kiếm.');
-      return;
-    }
-
-    // Tìm ngôn ngữ lập trình
-    const selectedLanguage = programmingLanguages.find(lang => 
-      lang.name.toLowerCase() === query.toLowerCase()
-    );
-
-    if (selectedLanguage) {
-      // Nếu từ khóa trùng với ngôn ngữ lập trình, chuyển hướng đến trang ngôn ngữ đó
-      window.location.href = selectedLanguage.url;
-    } else {
-      // Lọc và hiển thị các bài tập phù hợp
-      const filteredExercises = exercises.filter(exercise =>
-        exercise.title.toLowerCase().includes(query.toLowerCase()) ||
-        exercise.description.toLowerCase().includes(query.toLowerCase())
-      );
-
-      if (filteredExercises.length > 0) {
-        // Hiển thị các bài tập phù hợp
-        const boxes = document.querySelectorAll('.Box');
-
-        boxes.forEach(box => {
-          const titleElement = box.querySelector('.boxheader');
-          const topicsElement = box.querySelector('.topics');
-          const title = titleElement ? titleElement.innerText.toLowerCase() : "";
-          const topics = topicsElement ? topicsElement.innerText.toLowerCase() : "";
-
-          if (title.includes(query.toLowerCase()) || topics.includes(query.toLowerCase())) {
-            box.style.display = 'block';
+      if (toggleSwitch) { // Check if toggleSwitch exists
+        toggleSwitch.addEventListener("change", function (e) {
+          if (e.target.checked) {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
           } else {
-            box.style.display = 'none';
+            document.documentElement.setAttribute("data-theme", "light");
+            localStorage.setItem("theme", "light");
           }
         });
-
-        // Đừng chuyển hướng, chỉ lọc các bài tập hiển thị
-      } else {
-        alert('Không tìm thấy bài tập phù hợp với từ khóa của bạn.');
-        e.preventDefault();
       }
-    }
-  });
-}
 
-
-// Hàm Submit Code
-function submitCode() {
-    const iframe = document.querySelector('.editor-container iframe');
-    // Không thể lấy mã từ iframe do cross-origin, bạn cần người dùng copy mã vào một textarea khác hoặc cung cấp khu vực nhập mã
-    const code = prompt('Vui lòng sao chép mã của bạn vào đây để nộp:');
-    const language = 'python';
-
-    if (code) {
-      fetch('https://localhost:3000/api/run', { // Thay đổi URL nếu backend chạy ở nơi khác
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ code, language })
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) {
-          document.getElementById('output-result').textContent = `Lỗi: ${data.error}`;
-        } else {
-          document.getElementById('output-result').textContent = `Kết quả: ${data.output}`;
+      // Navbar Hamburger Toggle
+      function toggleHamburger() {
+        const navLinks = document.querySelector(".nav-links");
+        if (navLinks) { // Check if navLinks exists
+          navLinks.classList.toggle("active");
         }
-      })
-      .catch(error => {
-        document.getElementById('output-result').textContent = `Lỗi kết nối: ${error}`;
+      }
+
+      // Dropdown Menu Toggle for Mobile (If any dropdown exists)
+      const dropdowns = document.querySelectorAll(".nav-links .dropdown");
+      dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener("click", (e) => {
+          e.preventDefault();
+          dropdown.classList.toggle("active");
+        });
       });
-    }
-  }
 
+      // Optional: Implement Search Functionality
+      const searchInput = document.querySelector('.search-container input');
+      const suggestionsBox = document.querySelector('.autocomplete-suggestions');
 
-  // Auto-focus vào thanh tìm kiếm khi trang được tải
-window.onload = function() {
-  const searchInput = document.getElementById('searchInput');
-  if (searchInput) {
-    searchInput.focus();
-  }
-};
+      // Sample data for autocomplete
+      const suggestions = [
+        { category: 'Algorithms', text: 'Binary Tree Vertical Order Traversal' },
+        { category: 'Data Structures', text: 'Array' },
+        { category: 'System Design', text: 'Design a URL Shortener' },
+        // Add more suggestions as needed
+      ];
+
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        if (query.length === 0) {
+          suggestionsBox.classList.remove('active');
+          suggestionsBox.innerHTML = '';
+          return;
+        }
+        const filtered = suggestions.filter(s => s.text.toLowerCase().includes(query));
+        if (filtered.length > 0) {
+          suggestionsBox.innerHTML = filtered.map(s => `
+            <div class="autocomplete-suggestion">
+              <a href="#">${s.text}</a>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          `).join('');
+          suggestionsBox.classList.add('active');
+        } else {
+          suggestionsBox.classList.remove('active');
+          suggestionsBox.innerHTML = '';
+        }
+      });
+
+      // Hide suggestions when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) {
+          suggestionsBox.classList.remove('active');
+        }
+      });
 
 
     </script>

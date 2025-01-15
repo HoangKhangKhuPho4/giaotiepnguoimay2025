@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0" />
+    <title>OnlineJudgeSystem</title>
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pVn1C6BV1eJhNJ0pu6Fk9qg6vYRV8oA25I3gOPCvj+qKLMH6TqbeNqzXhPmgaxdG6lroVJEEgHojzwMl9kIYQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- AOS Library for Animations on Scroll -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-p4jxXl5h9AmKJDYnq9uI9YzOjBHI2X6BQq3n8QoFZfRkzyC5xXRhN6H7+5SRxqI59PbG+/D0L2OHS0k4l1lCpw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      /* ==============================
+      Reset and Base Styles
+      ============================== */
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        /* Color Palette */
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --text-light-color: #7f8c8d;
+        --accent-color: #e74c3c;
+        --footer-bg: #34495e;
+
+        /* Typography */
+        --font-family: 'Montserrat', sans-serif;
+        --heading-font: 'Poppins', sans-serif;
+
+        /* Transitions */
+        --transition-speed: 0.3s;
+
+        /* Other */
+        --border-radius: 8px;
+      }
+
+      body {
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+        transition: background-color var(--transition-speed), color var(--transition-speed);
+      }
+
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--heading-font);
+        color: inherit;
+        font-weight: normal;
+      }
+
+      p {
+        color: var(--text-color);
+        font-weight: normal;
+      }
+
+      /* ==============================
+        Theme Toggle Switch
+      ============================== */
+      .theme-switch {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .theme-switch input {
+        display: none;
+      }
+
+      .slider {
+        width: 50px;
+        height: 25px;
+        background-color: #ccc;
+        border-radius: 25px;
+        position: relative;
+        transition: background-color var(--transition-speed);
+      }
+
+      .slider::before {
+        content: "";
+        position: absolute;
+        width: 21px;
+        height: 21px;
+        background-color: #fff;
+        border-radius: 50%;
+        top: 2px;
+        left: 2px;
+        transition: transform var(--transition-speed);
+      }
+
+      input:checked + .slider {
+        background-color: var(--accent-color);
+      }
+
+      input:checked + .slider::before {
+        transform: translateX(25px);
+      }
+
+      /* ==============================
+        Navbar Styles with Animated Underline
+      ============================== */
+      nav {
+        background-color: rgba(44, 62, 80, 0.95);
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+      }
+
+      nav.scrolled {
+        background-color: var(--secondary-color);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-logo img {
+        height: 40px;
+        margin-right: 15px;
+        width: auto;
+      }
+
+      .nav-logo h1 {
+        font-size: 24px;
+        color: #fff;
+        font-weight: bold;
+        margin-left: 10px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-links li {
+        margin-left: 30px;
+        position: relative;
+      }
+
+      .nav-links li a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 16px;
+        position: relative;
+        padding: 8px 0;
+        display: inline-block;
+        transition: color var(--transition-speed);
+        outline: none;
+        border: none;
+        box-shadow: none;
+      }
+
+      .nav-links li a::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        left: 50%;
+        bottom: -5px;
+        transform: translateX(-50%);
+        transition: width var(--transition-speed) ease-in-out;
+      }
+
+      .nav-links li a:hover::after,
+      .nav-links li a.active::after {
+        width: 100%;
+      }
+
+      .nav-links li a:hover,
+      .nav-links li a.active {
+        color: var(--accent-color);
+      }
+
+      .nav-hamburger {
+        display: none;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      /* ==============================
+        Responsive Navbar Styles
+      ============================== */
+      @media (max-width: 768px) {
+        .nav-hamburger {
+          display: block;
+        }
+
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          width: 250px;
+          background-color: var(--secondary-color);
+          flex-direction: column;
+          align-items: flex-start;
+          padding-top: 100px;
+          transition: right var(--transition-speed);
+        }
+
+        .nav-links.active {
+          right: 0;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+          width: 100%;
+        }
+
+        .nav-links li a {
+          padding: 10px 20px;
+          width: 100%;
+          text-align: left;
+        }
+
+        .nav-links li a::after {
+          left: 0;
+          transform: translateX(0);
+        }
+
+        .nav-links .dropdown .dropdown-content {
+          position: static;
+          box-shadow: none;
+          background-color: var(--secondary-color);
+          border-radius: 0;
+        }
+
+        .nav-links .dropdown:hover .dropdown-content {
+          display: none;
+        }
+
+        .nav-links .dropdown.active .dropdown-content {
+          display: block;
+        }
+
+        .nav-links .dropdown > a::after {
+          content: "\f078";
+          font-family: "Font Awesome 5 Free";
+          font-weight: 900;
+          margin-left: 5px;
+          transition: transform var(--transition-speed);
+        }
+
+        .nav-links .dropdown.active > a::after {
+          transform: rotate(180deg);
+        }
+
+        .nav-links .dropdown .dropdown-content li a {
+          padding: 12px 20px;
+        }
+
+        /* Adjust Authentication Links in Mobile */
+        .nav-links .auth-links {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          margin-top: 20px;
+        }
+
+        .nav-links .auth-links a {
+          margin-left: 0;
+          padding: 10px 20px;
+          width: 100%;
+          text-align: left;
+        }
+
+        .nav-links .auth-links a.btn {
+          padding: 12px 24px;
+        }
+      }
+
+      /* ==============================
+        Footer Styles
+      ============================== */
+      footer {
+        background-color: var(--footer-bg);
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+        margin-top: 80px; /* To avoid overlapping with fixed navbar */
+      }
+
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+      }
+
+      .footer-section h3 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 600;
+        position: relative;
+      }
+
+      .footer-section h3::after {
+        content: "";
+        width: 50px;
+        height: 3px;
+        background-color: var(--accent-color);
+        position: absolute;
+        left: 0;
+        bottom: -5px;
+        border-radius: 2px;
+      }
+
+      .footer-section p,
+      .footer-section li {
+        font-size: 16px;
+        color: #ddd;
+        line-height: 1.8;
+      }
+
+      .footer-section ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 12px;
+      }
+
+      .footer-section ul li a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color var(--transition-speed);
+      }
+
+      .footer-section ul li a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer-section .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-section .social-links a {
+        color: #ddd;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color var(--transition-speed), transform var(--transition-speed);
+      }
+
+      .footer-section .social-links a:hover {
+        color: var(--accent-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 16px;
+        color: #bbb;
+      }
+
+      .newsletter-form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .newsletter-form input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        margin-bottom: 10px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 300px;
+        transition: box-shadow var(--transition-speed);
+      }
+
+      .newsletter-form input[type="email"]:focus {
+        outline: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .newsletter-form button {
+        padding: 10px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color var(--transition-speed), transform var(--transition-speed);
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .newsletter-form button:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.05);
+      }
+
+      /* ==============================
+        Media Queries for Footer
+      ============================== */
+      @media (max-width: 768px) {
+        .footer-container {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .footer-section {
+          margin: 20px 0;
+          align-items: center;
+          text-align: center;
+        }
+
+        .footer-section .social-links {
+          justify-content: center;
+        }
+
+        .newsletter-form input[type="email"],
+        .newsletter-form button {
+          max-width: 100%;
+        }
+      }
+
+      /* ==============================
+        Back to Top Button
+      ============================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
+        color: #fff;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed), transform var(--transition-speed);
+        z-index: 1000;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      /* ==============================
+        Additional Enhancements
+      ============================== */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      a:focus,
+      button:focus,
+      input:focus,
+      textarea:focus {
+        outline: 2px solid var(--accent-color);
+        outline-offset: 2px;
+      }
+
+      * {
+        transition: all var(--transition-speed) ease-in-out;
+      }
+
+      /* ==============================
+        Light/Dark Mode Specific Styles
+      ============================== */
+      [data-theme="dark"] body {
+        background-color: #121212;
+        color: #ffffff;
+      }
+
+      [data-theme="dark"] nav {
+        background-color: #1f1f1f;
+      }
+
+      [data-theme="dark"] footer {
+        background-color: #1f1f1f;
+      }
+
+      /* Loại bỏ outline và box-shadow trên tất cả các phần tử có thể nhận focus */
+      *:focus {
+        outline: none !important;
+        box-shadow: none !important;
+      }
+
+      /* Đảm bảo rằng button và input không có border khi được click */
+      button:focus, input:focus, textarea:focus {
+        border: none !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        width="24"
+        height="24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="../img/logo2.png" alt="Logo">
+        <h1>Học Lập Trình</h1>
+      </div>
+
+      <!-- Nhóm Menu -->
+      <div class="nav-menu">
+        <!-- Thanh điều hướng (Navbar Links) -->
+        <ul class="nav-links">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+          <li><a href="#dsa">DSA</a></li>
+          <li><a href="#data-science">Data Science</a></li>
+          <li><a href="#web-tech">Web Tech</a></li>
+          <li><a href="#discuss">Discuss</a></li> 
+
+          <!-- Authentication Links as List Items -->
+          <li class="auth-links">
+            <a href="../SignUp/index.html">Đăng ký</a>
+            <a href="../Login/index.html" class="btn">Đăng nhập</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hamburger Menu (Nếu cần cho responsive) -->
+      <div class="nav-hamburger" onclick="toggleHamburger()" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form class="newsletter-form" action="https://formspree.io/f/yourformid" method="POST">
+            <input type="email" name="_replyto" placeholder="Your Email" required aria-label="Your Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts for Navbar Toggle and Back to Top Button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Display Back to Top Button and Change Navbar on Scroll
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.getElementById("navbar");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Light/Dark Mode Toggle
+      const toggleSwitch = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme) {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          toggleSwitch.checked = true;
+        }
+      }
+
+      if (toggleSwitch) { // Check if toggleSwitch exists
+        toggleSwitch.addEventListener("change", function (e) {
+          if (e.target.checked) {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            localStorage.setItem("theme", "light");
+          }
+        });
+      }
+
+      // Navbar Hamburger Toggle
+      function toggleHamburger() {
+        const navLinks = document.querySelector(".nav-links");
+        if (navLinks) { // Check if navLinks exists
+          navLinks.classList.toggle("active");
+        }
+      }
+
+      // Dropdown Menu Toggle for Mobile (If any dropdown exists)
+      const dropdowns = document.querySelectorAll(".nav-links .dropdown");
+      dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener("click", (e) => {
+          e.preventDefault();
+          dropdown.classList.toggle("active");
+        });
+      });
+    </script>
+  </body>
+</html>

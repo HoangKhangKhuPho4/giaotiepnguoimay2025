@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Interview Questions</title>
+  
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"/>
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  
+  <style>
+    body, html {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    .content {
+      padding: 20px;
+    }
+    .alert-warning {
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+      color: #856404;
+      border-radius: 0.375rem;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    .cards-container .card {
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .cards-container .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #343a40;
+    }
+    .question-item {
+      background-color: #ffffff;
+      border: 1px solid #e9ecef;
+      border-radius: 0.375rem;
+      padding: 15px;
+      margin-bottom: 20px;
+      transition: box-shadow 0.2s;
+    }
+    .question-item:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+    .question-item .tags a {
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .badge-light {
+      background-color: #e2e6ea;
+      color: #495057;
+    }
+    .badge-dark {
+      background-color: #343a40;
+      color: #ffffff;
+    }
+    .pagination .page-link {
+      border-radius: 0.375rem;
+    }
+    /* Responsive Card Adjustments */
+    @media (min-width: 992px) {
+      .cards-container .col-lg-4 {
+        max-width: 16.666667%;
+        flex: 0 0 16.666667%;
+      }
+    }
+    @media (max-width: 991.98px) {
+      .cards-container .col-md-6 {
+        max-width: 50%;
+        flex: 0 0 50%;
+      }
+    }
+    @media (max-width: 575.98px) {
+      .cards-container .col-sm-12 {
+        max-width: 100%;
+        flex: 0 0 100%;
+      }
+    }
+    /* Thêm CSS cho phần avatar trong phản hồi */
+    .last-reply {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .last-reply img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .last-reply .reply-info {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Main Content -->
+  <div class="content container-fluid">
+    
+    <!-- Alert -->
+    <div class="alert alert-warning text-center" role="alert">
+      <strong>Attention!</strong> Please verify your email to unlock all features and services on Học Lập Trình.
+    </div>
+    
+    <!-- Cards Section -->
+    <div class="mt-5">
+      <div class="row cards-container">
+        
+        <!-- Card Template -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex align-items-center justify-content-center">
+              <i class="fas fa-question-circle fa-2x text-primary mb-3"></i>
+              <h5 class="card-title">Interview Question</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 1: Interview Question -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-question-circle fa-2x text-primary mb-3"></i>
+              <h5 class="card-title">Interview Question</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2: Interview Experience -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-briefcase fa-2x text-success mb-3"></i>
+              <h5 class="card-title">Interview Experience</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 3: Compensation -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-dollar-sign fa-2x text-warning mb-3"></i>
+              <h5 class="card-title">Compensation</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 4: Career -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-user-tie fa-2x text-info mb-3"></i>
+              <h5 class="card-title">Career</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 5: Study Guide -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-book-reader fa-2x text-secondary mb-3"></i>
+              <h5 class="card-title">Study Guide</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 6: General Discussion -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-comments fa-2x text-danger mb-3"></i>
+              <h5 class="card-title">General Discussion</h5>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 7: Support & Feedback -->
+        <div class="col-6 col-md-6 col-lg-3 col-xl-2 mb-4">
+          <div class="card h-100 text-center">
+            <div class="card-body d-flex flex-column align-items-center justify-content-center">
+              <i class="fas fa-life-ring fa-2x text-success mb-3"></i>
+              <h5 class="card-title">Support &amp; Feedback</h5>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <!-- Tab Content (Nâng Cấp) -->
+    <div class="tab-content container-fluid">
+      <div class="tab-pane fade show active" id="interview-question">
+        
+        <!-- Header với tiêu đề và nút tạo mới -->
+        <div class="d-flex justify-content-between align-items-center mt-4 mb-3">
+          <h2 class="h5 mb-0">All Interview Questions</h2>
+          <button class="btn btn-primary d-flex align-items-center">
+            <i class="fas fa-plus me-2"></i> New Question
+          </button>
+        </div>
+        
+        <!-- Bộ lọc câu hỏi và tìm kiếm -->
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+          <ul class="nav nav-pills mb-2 mb-md-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Hot</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Newest</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Oldest</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Most Votes</a>
+            </li>
+          </ul>
+      
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-8">
+            <!-- Question Items -->
+            <div class="question-item">
+              <h5>
+                <a href="#" class="text-dark text-decoration-none">Google Online Assessment Questions</a>
+              </h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="d-flex align-items-center">
+                  <img src="../img/Sinha2.webp" alt="Sinha" class="rounded-circle me-2">
+                  <span class="text-muted">Sinha</span>
+                </div>
+                <span class="text-muted">August 6, 2019</span>
+              </div>
+              <!-- Phần Phản Hồi với Avatar -->
+              <div class="last-reply">
+                <img src="https://via.placeholder.com/30" alt="Nandhu">
+                <div class="reply-info">
+                  <span class="text-muted">Last Reply: Nandhu</span>
+                  <span class="text-muted">16 hours ago</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <div class="tags">
+                  <a href="#" class="badge bg-secondary me-1">google</a>
+                  <a href="#" class="badge bg-secondary">online assessment</a>
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="me-3"><i class="fas fa-comment-alt me-1"></i>3.1K</span>
+                  <span><i class="fas fa-eye me-1"></i>837.9K</span>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Ví dụ thêm question-item -->
+            <div class="question-item">
+              <h5>
+                <a href="#" class="text-dark text-decoration-none">How to write an Interview Question post</a>
+              </h5>
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div class="d-flex align-items-center">
+                  <img src="https://via.placeholder.com/30" alt="LeetCode" class="rounded-circle me-2">
+                  <span class="text-muted">LeetCode</span>
+                </div>
+                <span class="text-muted">April 28, 2018</span>
+              </div>
+              <!-- Phần Phản Hồi với Avatar -->
+              <div class="last-reply">
+                <img src="https://via.placeholder.com/30" alt="Priyanshu Ranjan">
+                <div class="reply-info">
+                  <span class="text-muted">Last Reply: Priyanshu Ranjan</span>
+                  <span class="text-muted">January 12, 2023</span>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mt-2">
+                <div class="tags">
+                  <a href="#" class="badge bg-secondary me-1">guide</a>
+                </div>
+                <div class="d-flex align-items-center">
+                  <span class="me-3"><i class="fas fa-comment-alt me-1"></i>638</span>
+                  <span><i class="fas fa-eye me-1"></i>178.7K</span>
+                </div>
+              </div>
+            </div>
+            <!-- Tiếp tục thêm các question-item khác theo nhu cầu -->
+          </div>
+          
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <!-- Search Tags -->
+            <div class="mb-4">
+              <div class="input-group">
+                <input type="text" class="form-control rounded-pill" placeholder="Search for tags..." aria-label="Search for tags">
+                <button class="btn btn-outline-secondary" type="button">
+                  <i class="fas fa-search text-muted"></i>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Tags Card -->
+            <div class="card mb-4">
+              <div class="card-header bg-primary text-white">
+                Tags
+              </div>
+              <div class="card-body">
+                <div class="d-flex flex-wrap">
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    google <span class="badge bg-dark ms-1">2615</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    amazon <span class="badge bg-dark ms-1">2313</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    facebook <span class="badge bg-dark ms-1">1332</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    interview <span class="badge bg-dark ms-1">1064</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    online assessment <span class="badge bg-dark ms-1">1042</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    meta <span class="badge bg-dark ms-1">958</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    phone screen <span class="badge bg-dark ms-1">946</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    microsoft <span class="badge bg-dark ms-1">736</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    onsite <span class="badge bg-dark ms-1">720</span>
+                  </a>
+                  <a href="#" class="badge bg-light text-dark me-2 mb-2">
+                    system design <span class="badge bg-dark ms-1">717</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Có thể thêm các card hoặc thông tin bổ sung khác -->
+          </div>
+        </div>
+        
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- Bootstrap JS và các phụ thuộc -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoOqH6V5FY3p7x4O4N5CTeZMoC1PEaX14lZ6owkDf7R43H+" crossorigin="anonymous"></script>
+    
+    <!-- Script gửi chiều cao -->
+    <script>
+      function sendHeight() {
+        const body = document.body;
+        const html = document.documentElement;
+        const height = Math.max(
+          body.scrollHeight, body.offsetHeight,
+          html.clientHeight, html.scrollHeight, html.offsetHeight
+        );
+        parent.postMessage({ height: height }, window.location.origin);
+      }
+    
+      // Gửi chiều cao khi tải trang và khi thay đổi kích thước
+      window.addEventListener('load', sendHeight);
+      window.addEventListener('resize', sendHeight);
+    
+      // Kiểm tra định kỳ các thay đổi nội dung động
+      setInterval(sendHeight, 1000);
+    </script>
+    
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="google-site-verification" content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnlineJudgeSystem - Interview Questions</title>
+    
+    <!-- Font Awesome for Icons (Using version 6.4.0) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pVn1C6BV1eJhNJ0pu6Fk9qg6vYRV8oA25I3gOPCvj+qKLMH6TqbeNqzXhPmgaxdG6lroVJEEgHojzwMl9kIYQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- AOS Library for Animations on Scroll -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-p4jxXl5h9AmKJDYnq9uI9YzOjBHI2X6BQq3n8QoFZfRkzyC5xXRhN6H7+5SRxqI59PbG+/D0L2OHS0k4l1lCpw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- Custom CSS -->
+    <style>
+      /* ==============================
+    Reset and Base Styles
+    ============================== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* Color Palette */
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --background-color: #f4f6f8;
+      --text-color: #2c3e50;
+      --text-light-color: #7f8c8d;
+      --accent-color: #e74c3c;
+      --footer-bg: #34495e;
+
+      /* Typography */
+      --font-family: 'Montserrat', sans-serif;
+      --heading-font: 'Poppins', sans-serif;
+
+      /* Transitions */
+      --transition-speed: 0.3s;
+
+      /* Other */
+      --border-radius: 8px;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      transition: background-color var(--transition-speed), color var(--transition-speed);
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+
+    a:hover {
+      color: var(--accent-color);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: var(--heading-font);
+      color: inherit;
+      font-weight: normal; /* Đặt font-weight thành normal */
+    }
+
+    p {
+      color: var(--text-color);
+      font-weight: normal; /* Đặt font-weight thành normal */
+    }
+
+      /* ==============================
+      Các lớp không cần đậm
+    ============================== */
+    .boxtitle, .boxheader, .suggestion-category {
+      font-weight: normal; /* Đặt font-weight thành normal */
+    }
+
+/* ==============================
+  Theme Toggle Switch
+============================== */
+.theme-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  transition: background-color var(--transition-speed);
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  background-color: #fff;
+  border-radius: 50%;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--transition-speed);
+}
+
+input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+input:checked + .slider::before {
+  transform: translateX(25px);
+}
+
+/* ==============================
+  Navbar Styles with Animated Underline
+============================== */
+nav {
+  background-color: rgba(44, 62, 80, 0.95);
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: background-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+nav.scrolled {
+  background-color: var(--secondary-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-logo img {
+  height: 40px; /* Updated as per previous instructions */
+  margin-right: 15px;
+  width: auto;
+}
+
+.nav-logo h1 {
+  font-size: 24px; /* Updated */
+  color: #fff;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  margin-left: 30px;
+  position: relative;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  padding: 8px 0;
+  display: inline-block;
+  transition: color var(--transition-speed);
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: width var(--transition-speed) ease-in-out;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--accent-color);
+}
+
+.nav-hamburger {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ------------------------------
+  Dropdown Menu Styles
+------------------------------ */
+.nav-links .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.nav-links .dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--secondary-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 35px;
+  left: 0;
+  border-radius: var(--border-radius);
+}
+
+.nav-links .dropdown .dropdown-content li {
+  width: 100%;
+}
+
+.nav-links .dropdown .dropdown-content li a {
+  padding: 12px 16px;
+  display: block;
+  color: #fff;
+  position: relative;
+  transition: color var(--transition-speed);
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.nav-links .dropdown .dropdown-content li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  transition: width var(--transition-speed) ease-in-out;
+}
+
+.nav-links .dropdown .dropdown-content li a:hover::after,
+.nav-links .dropdown .dropdown-content li a.active::after {
+  width: 100%;
+}
+
+.nav-links .dropdown .dropdown-content li a:hover,
+.nav-links .dropdown .dropdown-content li a.active {
+  color: var(--accent-color);
+}
+
+/* ==============================
+  Responsive Navbar Styles
+============================== */
+@media (max-width: 768px) {
+  .nav-hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 250px;
+    background-color: var(--secondary-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 100px;
+    transition: right var(--transition-speed);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-links li {
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  .nav-links li a {
+    padding: 10px 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .nav-links li a::after {
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .nav-links .dropdown .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background-color: var(--secondary-color);
+    border-radius: 0;
+  }
+
+  .nav-links .dropdown:hover .dropdown-content {
+    display: none;
+  }
+
+  .nav-links .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .nav-links .dropdown > a::after {
+    content: "\f078";
+    font-family: "Font Awesome 6 Free"; /* Updated for FA6 */
+    font-weight: 900;
+    margin-left: 5px;
+    transition: transform var(--transition-speed);
+  }
+
+  .nav-links .dropdown.active > a::after {
+    transform: rotate(180deg);
+  }
+
+  .nav-links .dropdown .dropdown-content li a {
+    padding: 12px 20px;
+  }
+}
+
+/* ==============================
+  Header Section
+============================== */
+header {
+  background-image: url("../img/OnlineSystem.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 150px 20px 100px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  transition: padding var(--transition-speed);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 62, 80, 0.6);
+  z-index: 1;
+  transition: background-color var(--transition-speed);
+}
+
+[data-theme="dark"] header::before {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+}
+
+.header-content .Intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px; /* Tạo khoảng cách 40px giữa các phần tử */
+  padding: 20px; /* Thêm padding để tạo không gian xung quanh */
+}
+
+
+
+/* Tùy chỉnh văn bản mô tả */
+.header-content .Intro .Description {
+  font-size: 32px;
+  font-weight: 500;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 800px; /* Giới hạn chiều rộng tối đa */
+  text-align: center; /* Căn giữa văn bản */
+}
+
+
+.header-content .Intro img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed);
+}
+
+.header-content .Intro img:hover {
+  transform: scale(1.05);
+}
+
+/* ==============================
+  Explore Section
+============================== */
+#Explore {
+  padding: 60px 20px;
+  background-color: var(--background-color);
+}
+
+#Explore h2 {
+  text-align: center;
+  margin: 0 auto 40px auto;
+  font-size: 36px;
+  color: var(--text-color);
+  position: relative;
+  display: block;
+}
+
+#Explore h2::after {
+  content: "";
+  width: 100px;
+  height: 4px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 2px;
+}
+
+.Explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.Box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  min-height: 450px;
+}
+
+.Box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.boxtitle {
+  font-size: 18px;
+  color: var(--text-light-color);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.boxheader {
+  font-size: 24px;
+  color: var(--secondary-color);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.topics {
+  font-size: 16px;
+  color: var(--text-color);
+  margin-bottom: 20px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.Btns {
+  margin-bottom: 20px;
+}
+
+.Btn {
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  cursor: pointer;
+}
+
+.Btn:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+.Boximg, .c-adjust {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-top: 15px;
+  transition: transform var(--transition-speed);
+}
+
+.Boximg:hover,
+.c-adjust:hover {
+  transform: scale(1.1);
+}
+
+/* ==============================
+  Contact Section
+============================== */
+.contact-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: var(--background-color);
+}
+
+.contact-section .section-title {
+  margin-bottom: 40px;
+  font-size: 36px;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--text-color);
+  font-weight: 600;
+  display: inline-block;
+}
+
+.contact-section .section-title::after {
+  content: "";
+  width: 100px;
+  height: 4px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 2px;
+}
+
+.contact-section p {
+  font-size: 20px;
+  color: var(--text-light-color);
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  line-height: 1.8;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 30px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  resize: none;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-speed);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form button {
+  padding: 15px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.contact-form button:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-2px);
+}
+
+/* ==============================
+  Footer Styles
+============================== */
+footer {
+  background-color: var(--footer-bg);
+  color: #fff;
+  padding: 60px 20px;
+  font-family: var(--font-family);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  border-radius: 2px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.8;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.footer-section ul li a:hover {
+  color: var(--accent-color);
+}
+
+.footer-section .social-links {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-section .social-links a {
+  color: #ddd;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.footer-section .social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 16px;
+  color: #bbb;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  transition: box-shadow var(--transition-speed);
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form button {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  width: 100%;
+  max-width: 300px;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* ==============================
+  Media Queries for Footer
+============================== */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-section {
+    margin: 20px 0;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section .social-links {
+    justify-content: center;
+  }
+
+  .newsletter-form input[type="email"],
+  .newsletter-form button {
+    max-width: 100%;
+  }
+}
+
+/* ==============================
+  Back to Top Button
+============================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+/* ==============================
+  Media Queries for Enhanced Responsiveness
+============================== */
+@media (max-width: 768px) {
+  header {
+    padding: 100px 20px 80px 20px;
+  }
+
+  .Box {
+    padding: 20px;
+    min-height: 400px;
+  }
+
+  .boxheader {
+    font-size: 20px;
+  }
+
+  .topics {
+    font-size: 14px;
+  }
+
+  .Btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .Boximg,
+  .c-adjust {
+    width: 80px;
+    height: 80px;
+  }
+
+  footer {
+    padding: 40px 20px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section .social-links {
+    justify-content: center;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .Explore-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+}
+
+/* ==============================
+  Additional Enhancements
+============================== */
+html {
+  scroll-behavior: smooth;
+}
+
+a:focus,
+button:focus,
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+* {
+  transition: all var(--transition-speed) ease-in-out;
+}
+
+/* ==============================
+  Search Bar Styles
+============================== */
+.search-container {
+  position: relative;
+  width: 500px; /* Adjusted width */
+  transition: width var(--transition-speed);
+}
+
+.search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  color: #7f8c8d;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 20px 12px 45px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+}
+
+.search-container input::placeholder {
+  color: #bdc3c7;
+  font-size: 12px;
+}
+
+/* Tăng kích thước và chiều dài nút Đăng ký và Đăng nhập */
+.auth-links a {
+  margin-left: 16px;
+  text-decoration: none;
+  font-size: 16px;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  display: inline-block;
+}
+
+.auth-links .btn {
+  background-color: #f39c12;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.auth-links .btn:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}
+
+/* Shift the search bar slightly to the left */
+.shift-left {
+  transform: translateX(-10px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-container {
+    width: 200px;
+  }
+
+  .shift-left {
+    transform: translateX(-5px);
+  }
+}
+
+/* ==============================
+  Autocomplete Suggestions Styles
+============================== */
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1001;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.autocomplete-suggestions.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.autocomplete-suggestion {
+  padding: 10px 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  color: var(--text-color);
+  font-weight: normal;
+}
+
+.autocomplete-suggestion:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-suggestion:hover {
+  background-color: var(--background-color);
+  color: var(--accent-color);
+}
+
+.autocomplete-suggestion i {
+  color: var(--accent-color);
+}
+
+.suggestion-category {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  font-weight: normal;
+  border-bottom: 1px solid #e0e0e0;
+  color: var(--text-color);
+}
+
+.suggestion-category + .autocomplete-suggestion {
+  border-top: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .autocomplete-suggestions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .suggestion-category-container {
+    margin: 5px 0;
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+/* Thêm đường viền ngăn cách giữa các danh mục trên màn hình lớn */
+@media (min-width: 769px) {
+  .suggestion-category-container:first-child {
+    border-right: 1px solid var(--accent-color);
+    padding-right: 20px;
+  }
+}
+
+/* ==============================
+  Autocomplete Suggestions Flex Layout
+============================== */
+.autocomplete-suggestions {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap;
+  max-height: none;
+  overflow: visible;
+}
+
+.suggestion-category-container {
+  flex: 1;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+/* ==============================
+  Focus and Accessibility Enhancements
+============================== */
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+button:focus, input:focus, textarea:focus {
+  border: none !important;
+}
+    </style>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        width="24"
+        height="24"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav id="navbar">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="../img/logo2.png" alt="Logo">
+        <h1>Học Lập Trình</h1>
+      </div>
+
+      <!-- Nhóm Menu -->
+      <div class="nav-menu">
+        <!-- Thanh điều hướng (Navbar Links) -->
+        <ul class="nav-links">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#tutorials">Tutorials</a></li>
+          <li><a href="#dsa">DSA</a></li>
+          <li><a href="#data-science">Data Science</a></li>
+          <li><a href="#web-tech">Web Tech</a></li>
+          <li><a href="#discuss">Discuss</a></li> 
+
+          <!-- Authentication Links as List Items -->
+          <li class="auth-links">
+            <a href="../SignUp/index.html">Đăng ký</a>
+            <a href="../Login/index.html" class="btn">Đăng nhập</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Hamburger Menu (Nếu cần cho responsive) -->
+      <div class="nav-hamburger" onclick="toggleHamburger()" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <div style="margin-top: 80px;"> <!-- Adjust margin to prevent content being hidden behind the fixed navbar -->
+      <!-- Inserted "Interview Questions" Content Starts Here -->
+
+      <div class="content container">
+        <div class="alert alert-warning text-center" role="alert">
+          Please verify your email to unlock all features and services on LeetCode.
+        </div>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              Interview Question
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Interview Experience
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Compensation
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Career
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Study Guide
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              General Discussion
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              Support &amp; Feedback
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="interview-question">
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <h5>
+                All Interview Questions
+              </h5>
+              <button class="btn btn-primary">
+                New +
+              </button>
+            </div>
+            <ul class="nav nav-pills mt-3">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  Hot
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Newest
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Oldest
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  Most Votes
+                </a>
+              </li>
+            </ul>
+            <div class="row mt-3">
+              <div class="col-md-9">
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Google Online Assessment Questions
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Sinha on August 6, 2019 6:16 PM | Last Reply: Nandhu 16 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        google
+                      </span>
+                      <span>
+                        online assessment
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        3.1K
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        837.9K
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      How to write an Interview Question post
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by LeetCode created at April 28, 2018 4:41 AM | Last Reply: Priyanshu Ranjan January 12, 2023 5:57 AM
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        guide
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        638
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        178.7K
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Meta E4 Phone Screen | Pass
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 2 days ago | Last Reply: Nick 3 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        89
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        6.3K
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Did you complete Meta onsite loop? If Yes! Click If Yes!
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 2 days ago | Last Reply: Nick 3 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                      <span>
+                        new grad
+                      </span>
+                      <span>
+                        3 more
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        21
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        1.4K
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Meta E3 NG USA | Offer
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 2 days ago | Last Reply: vaibhav mishra 9 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        16
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        1.4K
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Meta screening Interview
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 16 hours ago | Last Reply: Sudo Surfer an hour ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        6
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        563
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      E4 Meta Phone Screen
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by James V created at 8 hours ago | Last Reply: L.C.P 3 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        3
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        223
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      1762. Buildings With an Ocean View (All Follow Ups)
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Ananya Pal created at 3 hours ago | No replies yet.
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        array
+                      </span>
+                      <span>
+                        easy
+                      </span>
+                      <span>
+                        easy-understanding
+                      </span>
+                      <span>
+                        4 more
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        1
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        27
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      314. Binary Tree Vertical Order Traversal
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Ananya Pal created at 3 hours ago | No replies yet.
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        easy
+                      </span>
+                      <span>
+                        easy-understanding
+                      </span>
+                      <span>
+                        explained-fully
+                      </span>
+                      <span>
+                        1 more
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        1
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        17
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      1570. Dot Product of Two Sparse Vectors (All Follow Ups)
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Ananya Pal created at 4 hours ago | No replies yet.
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        dot product
+                      </span>
+                      <span>
+                        easy
+                      </span>
+                      <span>
+                        easy-understanding
+                      </span>
+                      <span>
+                        4 more
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        1
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        14
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Meta | Phone Screen | Custom Sort String and Minimum Flight Cost
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 16 hours ago | Last Reply: Anonymous 4 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        java
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                      <span>
+                        1 more
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        2
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        224
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Feature Request: LLM chat to report interview problems as seen from description
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by GlassHunter created at 16 hours ago | No replies yet.
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        feature-request
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        2
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        38
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Meta's Variant for Merge Intervals (LC56)
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Minime created at a day ago | Last Reply: Minime 4 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        interview experience
+                      </span>
+                      <span>
+                        leetcode 56
+                      </span>
+                      <span>
+                        7 more
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        4
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        281
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Google L4 Technical Screen US
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 2 days ago | Last Reply: Albert T 15 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        google
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        13
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        2.3K
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <h6>
+                    <a href="#">
+                      Meta E4 Virtual Onsite
+                    </a>
+                  </h6>
+                  <p>
+                    Posted by Anonymous User created at 2 days ago | Last Reply: engineer123 20 hours ago
+                  </p>
+                  <div class="d-flex justify-content-between">
+                    <div class="tags">
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        meta
+                      </span>
+                    </div>
+                    <div>
+                      <span>
+                        12
+                      </span>
+                      <i class="fas fa-comment">
+                      </i>
+                      <span>
+                        914
+                      </span>
+                      <i class="fas fa-eye">
+                      </i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="mb-3">
+                  <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input class="form-control" placeholder="Search topics or comments..." type="text" aria-label="Search" />
+                    <div class="autocomplete-suggestions">
+                      <!-- Autocomplete suggestions will be dynamically inserted here -->
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header">
+                    Tags
+                  </div>
+                  <div class="card-body">
+                    <div class="tags">
+                      <span>
+                        google
+                      </span>
+                      <span>
+                        2815
+                      </span>
+                      <br/>
+                      <span>
+                        amazon
+                      </span>
+                      <span>
+                        2311
+                      </span>
+                      <br/>
+                      <span>
+                        facebook
+                      </span>
+                      <span>
+                        1132
+                      </span>
+                      <br/>
+                      <span>
+                        interview
+                      </span>
+                      <span>
+                        1064
+                      </span>
+                      <br/>
+                      <span>
+                        online assessment
+                      </span>
+                      <span>
+                        1042
+                      </span>
+                      <br/>
+                      <span>
+                        meta
+                      </span>
+                      <span>
+                        958
+                      </span>
+                      <br/>
+                      <span>
+                        phone screen
+                      </span>
+                      <span>
+                        946
+                      </span>
+                      <br/>
+                      <span>
+                        microsoft
+                      </span>
+                      <span>
+                        736
+                      </span>
+                      <br/>
+                      <span>
+                        onsite
+                      </span>
+                      <span>
+                        720
+                      </span>
+                      <br/>
+                      <span>
+                        system design
+                      </span>
+                      <span>
+                        717
+                      </span>
+                      <br/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav aria-label="Page navigation example" class="mt-3">
+              <ul class="pagination">
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    1
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    2
+                  </a>
+                </li>
+                <li class="page-item">
+                  <a class="page-link" href="#">
+                    3
+                  </a>
+                </li>
+                <!-- Add more pagination items as needed -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inserted "Interview Questions" Content Ends Here -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form class="newsletter-form" action="https://formspree.io/f/yourformid" method="POST">
+            <input type="email" name="_replyto" placeholder="Your Email" required aria-label="Your Email" />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts for Navbar Toggle and Back to Top Button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Display Back to Top Button and Change Navbar on Scroll
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.getElementById("navbar");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Light/Dark Mode Toggle
+      const toggleSwitch = document.getElementById("theme-toggle");
+      const currentTheme = localStorage.getItem("theme");
+
+      if (currentTheme) {
+        document.documentElement.setAttribute("data-theme", currentTheme);
+        if (currentTheme === "dark") {
+          toggleSwitch.checked = true;
+        }
+      }
+
+      if (toggleSwitch) { // Check if toggleSwitch exists
+        toggleSwitch.addEventListener("change", function (e) {
+          if (e.target.checked) {
+            document.documentElement.setAttribute("data-theme", "dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            document.documentElement.setAttribute("data-theme", "light");
+            localStorage.setItem("theme", "light");
+          }
+        });
+      }
+
+      // Navbar Hamburger Toggle
+      function toggleHamburger() {
+        const navLinks = document.querySelector(".nav-links");
+        if (navLinks) { // Check if navLinks exists
+          navLinks.classList.toggle("active");
+        }
+      }
+
+      // Dropdown Menu Toggle for Mobile (If any dropdown exists)
+      const dropdowns = document.querySelectorAll(".nav-links .dropdown");
+      dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener("click", (e) => {
+          e.preventDefault();
+          dropdown.classList.toggle("active");
+        });
+      });
+
+      // Optional: Implement Search Functionality
+      const searchInput = document.querySelector('.search-container input');
+      const suggestionsBox = document.querySelector('.autocomplete-suggestions');
+
+      // Sample data for autocomplete
+      const suggestions = [
+        { category: 'Algorithms', text: 'Binary Tree Vertical Order Traversal' },
+        { category: 'Data Structures', text: 'Array' },
+        { category: 'System Design', text: 'Design a URL Shortener' },
+        // Add more suggestions as needed
+      ];
+
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase();
+        if (query.length === 0) {
+          suggestionsBox.classList.remove('active');
+          suggestionsBox.innerHTML = '';
+          return;
+        }
+        const filtered = suggestions.filter(s => s.text.toLowerCase().includes(query));
+        if (filtered.length > 0) {
+          suggestionsBox.innerHTML = filtered.map(s => `
+            <div class="autocomplete-suggestion">
+              <a href="#">${s.text}</a>
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          `).join('');
+          suggestionsBox.classList.add('active');
+        } else {
+          suggestionsBox.classList.remove('active');
+          suggestionsBox.innerHTML = '';
+        }
+      });
+
+      // Hide suggestions when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.search-container')) {
+          suggestionsBox.classList.remove('active');
+        }
+      });
+    </script>
+  </body>
+</html>
