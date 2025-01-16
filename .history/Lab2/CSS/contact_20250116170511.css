@@ -1,0 +1,75 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat-Bold", sans-serif;
+}
+
+p {
+  color: #8f8f8f;
+}
+
+/* Containers */
+.container-fluid {
+  padding: 5% 15%;
+}
+
+/* Sections */
+.white-section {
+  background-color: #fff;
+  padding: 60px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 30px auto;
+  max-width: 1200px;
+}
+
+/* Contact Form */
+.contact-form {
+  padding: 20px;
+}
+
+.contact-form h4 {
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.contact-form .form-group label {
+  font-weight: 600;
+}
+
+.contact-form .btn-info {
+  background-color: #ff4c68;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form .btn-info:hover {
+  background-color: #e0435c;
+}
+
+/* Map Section */
+.map-container {
+  padding: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .container-fluid {
+    padding: 5% 5%;
+  }
+
+  .white-section {
+    padding: 40px 20px;
+  }
+}

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaderboard và Feedback</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../CSS/ranking.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+          alt="Python Logo"
+        />
+        <h1>Python Hub</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Phần leaderboard -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+
+        <!-- Mục 1 -->
+        <div class="leaderboard-item">
+          <img
+            alt="Gold medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/l0QQsOP6capBEZPJHuLNswGAe8m8G1xXKYW40ZFaJQfaNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player1.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Nguyễn Trọng Nhân</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2980</div>
+        </div>
+
+        <!-- Mục 2 -->
+        <div class="leaderboard-item">
+          <img
+            alt="Silver medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player2.jpg"
+            />
+            <div class="leaderboard-item">
+              <img
+                alt="Silver medal"
+                class="medal"
+                src="https://storage.googleapis.com/a1aa/image/5dliUfq0Bp3tUyi2levPkNVPappxbk3ZyHJljSFzoXBbNTkTA.jpg"
+              />
+              <div class="player-info">
+                <!-- Thay thế avatar bằng biểu tượng Font Awesome -->
+                <i class="fas fa-user-circle avatar-icon" title="Lê Bá Khánh Duy"></i>
+                <div class="player-details">
+                  <div class="player-name">Lê Bá Khánh Duy</div>
+                  <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="score">2721</div>
+            </div>
+            
+          </div>
+          <div class="score">2721</div>
+        </div>
+
+        <!-- Mục 3 -->
+        <div class="leaderboard-item">
+          <img
+            alt="Bronze medal"
+            class="medal"
+            src="https://storage.googleapis.com/a1aa/image/kqNrh2AR4pKkAtA4PNmffegoT74MNyYxi4LZT14FYxg6amInA.jpg"
+          />
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player3.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Nguyễn Lê Hoàng Khang</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2579</div>
+        </div>
+
+        <!-- Mục 4 -->
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player4.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Võ Khắc Thiên Lộc</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">1874</div>
+        </div>
+
+        <!-- Mục 5 -->
+        <div class="leaderboard-item">
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/player5.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Võ Duy Khánh</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">1756</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phần feedback -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">Feedback</div>
+        <table class="info-table">
+          <tr>
+            <th>Tên Chiến Dịch hoặc Dự Án:</th>
+            <td>Viết tiêu đề ở đây</td>
+            <th class="due-date">Hạn Chót:</th>
+            <td>MM/DD/YYYY</td>
+          </tr>
+          <tr>
+            <th>Người Yêu Cầu Feedback:</th>
+            <td>Thêm tên ở đây</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents">
+          <h4>Tài Liệu Liên Quan</h4>
+          <ul>
+            <li><a href="#">Liên kết đến bộ bài thuyết trình</a></li>
+            <li>
+              <a href="#">Liên kết đến bản ghi cuộc họp</a>
+              <span class="blue-text">và mật khẩu: 123456</span>
+            </li>
+            <li><a href="#">Đánh giá các liên kết khác cần feedback</a></li>
+          </ul>
+        </div>
+        <table class="feedback-table">
+          <tr>
+            <th>Tên</th>
+            <th>Liên Kết Tài Liệu và Số Trang</th>
+            <th>Phản Hồi</th>
+            <th>Đã Được Giải Quyết?</th>
+          </tr>
+          <tr>
+            <td>Nguyễn Văn A</td>
+            <td><a href="#">Tài liệu 1 - Trang 5</a></td>
+            <td>Vui lòng thêm phần giới thiệu chi tiết hơn.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Trần Thị B</td>
+            <td><a href="#">Tài liệu 2 - Trang 12</a></td>
+            <td>Phần kết luận chưa rõ ràng.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Lê Văn C</td>
+            <td><a href="#">Tài liệu 3 - Trang 8</a></td>
+            <td>Cần sửa lỗi chính tả.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <tr>
+            <td>Phạm Thị D</td>
+            <td><a href="#">Tài liệu 4 - Trang 20</a></td>
+            <td>Thêm ví dụ minh họa.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+        </table>
+
+        <!-- Phần nhập phản hồi -->
+        <div class="feedback-form">
+          <h3>Nhập Phản Hồi</h3>
+          <select>
+            <option value="">Chọn bài tập Python</option>
+            <option value="easy">Bài Tập Easy</option>
+            <option value="medium">Bài Tập Medium</option>
+            <option value="hard">Bài Tập Hard</option>
+          </select>
+          <textarea placeholder="Nhập phản hồi của bạn ở đây..."></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Đã Gửi Phản Hồi</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='python_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Quay Về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="https://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+  </body>
+</html>

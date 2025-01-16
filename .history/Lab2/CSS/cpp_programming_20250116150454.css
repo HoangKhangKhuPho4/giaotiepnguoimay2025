@@ -1,0 +1,657 @@
+/* ==============================
+         CSS Variables
+      ============================== */
+:root {
+  /* Color Palette */
+  --primary-color: #3498db;
+  --secondary-color: #2c3e50;
+  --accent-color: #e74c3c;
+  --background-color: #f4f6f8;
+  --text-color: #2c3e50;
+  --text-light-color: #7f8c8d;
+  --footer-bg: #34495e;
+
+  /* Typography */
+  --font-family: "Montserrat", sans-serif;
+  --heading-font: "Poppins", sans-serif;
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+
+  /* Other */
+  --border-radius: 8px;
+}
+
+/* ==============================
+      Reset và Base Styles
+      ============================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  margin: 0;
+  padding-top: 80px; /* Adjust padding to match navbar height */
+  scroll-behavior: smooth;
+  transition: background-color var(--transition-speed),
+    color var(--transition-speed);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--heading-font);
+  color: inherit;
+  font-weight: normal;
+}
+
+p {
+  color: var(--text-color);
+  font-weight: normal;
+}
+
+/* ==============================
+      Navbar Styles
+      ============================== */
+nav {
+  background-color: var(--secondary-color);
+  color: #3498db; /* Change text color to blue */
+  padding: 15px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo img {
+  height: 40px;
+}
+
+.nav-logo h1 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.nav-links li a {
+  color: #3498db; /* Change text color to blue */
+  text-decoration: none;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: color var(--transition-speed),
+    background-color var(--transition-speed);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  position: relative; /* For pseudo-element */
+}
+
+/* Pseudo-element để tạo đường kẻ đỏ */
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  left: 0;
+  bottom: 0;
+  background-color: red; /* Màu đỏ cho đường kẻ */
+  transition: width var(--transition-speed) ease;
+}
+
+/* Mở rộng đường kẻ khi hover */
+.nav-links li a:hover::after {
+  width: 100%; /* Mở rộng đường kẻ khi hover */
+}
+
+/* Các hiệu ứng hover hiện tại (bỏ box-shadow và background-color) */
+.nav-links li a:hover {
+  color: var(--primary-color);
+  background-color: transparent; /* Loại bỏ màu nền */
+  box-shadow: none; /* Bỏ hiệu ứng bóng đổ */
+}
+
+/* Phone Number Styling */
+.phone-number a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.phone-number a:hover {
+  color: var(--accent-color);
+}
+
+/* Social Links Styling */
+.nav-social a {
+  color: #fff;
+  margin-left: 10px;
+  font-size: 18px;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.nav-social a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* ==============================
+      Responsive Navbar Styles
+      ============================== */
+.menu-toggle {
+  display: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    width: 250px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li a {
+    padding: 10px 15px;
+  }
+
+  /* Show phone number in mobile menu */
+  .nav-links .phone-number {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* Show social links in mobile menu */
+  .nav-links .nav-social {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* ==============================
+      Back to Top Button
+      ============================== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  z-index: 1000;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ==============================
+      Header Styling
+      ============================== */
+header {
+  background-image: linear-gradient(
+      to bottom,
+      rgba(44, 62, 80, 0.7),
+      rgba(44, 62, 80, 0.9)
+    ),
+    url("https://source.unsplash.com/1600x900/?cpp,code");
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  text-align: center;
+  padding: 150px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  position: relative;
+  margin-top: 60px; /* To avoid overlap with navbar */
+  border-radius: var(--border-radius);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(44, 62, 80, 0.6);
+  z-index: 1;
+  border-radius: var(--border-radius);
+}
+
+.header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  text-align: center;
+}
+
+.header-content h1 {
+  font-family: var(--heading-font);
+  font-size: 48px;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.header-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #ffffff; /* Đổi màu chữ thành trắng */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Thêm bóng đổ để tăng độ tương phản */
+}
+
+.header-content button {
+  padding: 12px 30px;
+  background-color: var(--primary-color);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.header-content button:hover {
+  background-color: var(--accent-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================
+      Difficulty Selection Buttons
+      ============================== */
+.difficulty-selector {
+  margin: 100px auto 50px auto;
+  text-align: center;
+  max-width: 800px;
+}
+
+.difficulty-button {
+  padding: 15px 30px;
+  background: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: background var(--transition-speed),
+    box-shadow var(--transition-speed);
+  margin: 0 20px;
+}
+
+.difficulty-button:hover {
+  background: var(--accent-color);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ==============================
+      Problem Section Styling
+      ============================== */
+.ProblemSet {
+  max-width: 900px;
+  margin: 100px auto 40px auto; /* Added top margin to avoid overlap with navbar */
+  padding: 30px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: none;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.ProblemSet.active {
+  display: block;
+}
+
+.ProblemHeader {
+  font-size: 28px;
+  font-family: var(--heading-font);
+  margin-bottom: 20px;
+  color: var(--secondary-color);
+}
+
+.Difficulty {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+}
+
+.ProblemStatement {
+  font-size: 18px;
+  color: var(--text-light-color);
+  margin-bottom: 20px;
+}
+
+hr.ProblemSections {
+  border: none;
+  height: 1px;
+  background-color: #ecf0f1;
+  margin: 20px 0;
+}
+
+.Example {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+}
+
+.Example p {
+  font-size: 16px;
+  color: var(--secondary-color);
+}
+
+.Constraints {
+  list-style: disc inside;
+  color: var(--text-light-color);
+}
+
+/* ==============================
+      Embedded JDoodle IDE Styling
+      ============================== */
+.editor-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #2c3e50;
+  border-radius: var(--border-radius);
+  color: #ecf0f1;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.editor-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.editor-container iframe {
+  width: 100%;
+  height: 800px; /* Increased height */
+  border: none;
+  margin: 20px 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  font-size: 16px;
+}
+
+.controls button:hover {
+  background-color: #2980b9;
+}
+
+.output {
+  margin-top: 20px;
+  background-color: #34495e;
+  padding: 15px;
+  border-radius: 4px;
+  min-height: 100px;
+  color: #ecf0f1;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  border: 1px solid #ddd;
+}
+
+/* ==============================
+      Footer Styling
+      ============================== */
+footer {
+  background-color: var(--footer-bg);
+  color: #fff;
+  padding: 60px 20px;
+  font-family: var(--font-family);
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.footer-section h3 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-section h3::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent-color);
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  border-radius: 2px;
+}
+
+.footer-section p,
+.footer-section li {
+  font-size: 16px;
+  color: #ddd;
+  line-height: 1.8;
+  font-weight: normal; /* Ensure text is not bold */
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+  color: #ddd;
+  text-decoration: none;
+  transition: color var(--transition-speed);
+  font-weight: normal; /* Ensure links are not bold */
+}
+
+.footer-section ul li a:hover {
+  color: var(--accent-color);
+}
+
+/* Social Links in Footer */
+.footer-section .social-links {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-section .social-links a {
+  color: #ddd;
+  margin-right: 15px;
+  font-size: 20px;
+  transition: color var(--transition-speed), transform var(--transition-speed);
+}
+
+.footer-section .social-links a:hover {
+  color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Newsletter Form */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.newsletter-form input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
+  transition: box-shadow var(--transition-speed);
+}
+
+.newsletter-form input[type="email"]:focus {
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form button {
+  padding: 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed),
+    transform var(--transition-speed);
+  width: 100%;
+  max-width: 300px;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
+/* ==============================
+      Fade-in Animation
+      ============================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==============================
+      Navbar khi cuộn trang
+      ============================== */
+nav.scrolled {
+  background-color: rgba(44, 62, 80, 0.95); /* Màu nền thay đổi khi cuộn */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Thêm bóng đổ */
+  transition: background-color var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+body {
+  padding: 5px;
+}

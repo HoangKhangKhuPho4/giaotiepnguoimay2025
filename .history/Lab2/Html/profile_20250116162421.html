@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
+    <title>profile with data and skills - Bootdey.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+    	body{
+    margin-top:20px;
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="data:image/jpeg;base64,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" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>John Doe</h4>
+                      <p class="text-secondary mb-1">Full Stack Developer</p>
+                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      <button class="btn btn-primary">Follow</button>
+                      <button class="btn btn-outline-primary">Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
+                    <span class="text-secondary">https://bootdey.com</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
+                    <span class="text-secondary">bootdey</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+                    <span class="text-secondary">@bootdey</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
+                    <span class="text-secondary">bootdey</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
+                    <span class="text-secondary">bootdey</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Kenneth Valdez
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="46202f36062c332d2b332e68272a">[email&#160;protected]</a>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (239) 816-9029
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (320) 380-4539
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters-sm">
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                      <small>Web Design</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Website Markup</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>One Page</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Mobile Template</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Backend API</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                      <small>Web Design</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Website Markup</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>One Page</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Mobile Template</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Backend API</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+
+        </div>
+    </div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>

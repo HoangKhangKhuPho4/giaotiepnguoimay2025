@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++ Programming Practice</title>
+
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- External CSS (Consider moving all styles to this file for better maintenance) -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop()" aria-label="Back to Top">
+      <svg
+        xmlns="https://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
+          alt="C++ Logo"
+        />
+        <span>Learn C++</span>
+      </div>
+      <button
+        class="menu-toggle"
+        onclick="toggleMenu()"
+        aria-label="Toggle navigation menu"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking4.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>C++ Programming Practice</h1>
+        <p>
+          Enhance your C++ skills with interactive exercises and coding
+          challenges!
+        </p>
+        <button onclick="scrollToContent()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Difficulty Selection Buttons -->
+      <section class="difficulty-selector" id="difficulty-selector">
+        <button class="difficulty-button" onclick="loadExercise('easy')">
+          Easy
+        </button>
+        <button class="difficulty-button" onclick="loadExercise('medium')">
+          Medium
+        </button>
+        <button class="difficulty-button" onclick="loadExercise('hard')">
+          Hard
+        </button>
+      </section>
+
+      <!-- Problem Sections -->
+      <section id="easy" class="ProblemSet active">
+        <h2 class="ProblemHeader">Sum of Two Numbers</h2>
+        <ul class="Difficulty">
+          <li>Difficulty: <strong> Easy</strong></li>
+          <li>Accuracy: <strong> 75%</strong></li>
+        </ul>
+        <hr class="ProblemSections" />
+        <p class="ProblemStatement">
+          Write a C++ program that takes two integers as input and outputs their
+          sum.
+        </p>
+        <hr class="ProblemSections" />
+        <h4>Example:</h4>
+        <div class="Example">
+          <p><strong>Input:</strong> 3 5</p>
+          <p><strong>Output:</strong> 8</p>
+        </div>
+        <hr />
+        <h4>Constraints:</h4>
+        <ul class="Constraints">
+          <li>-10<sup>9</sup> ≤ a, b ≤ 10<sup>9</sup></li>
+        </ul>
+      </section>
+
+      <section id="medium" class="ProblemSet">
+        <h2 class="ProblemHeader">Check for Prime Numbers</h2>
+        <ul class="Difficulty">
+          <li>Difficulty: <strong> Medium</strong></li>
+          <li>Accuracy: <strong> 55%</strong></li>
+        </ul>
+        <hr class="ProblemSections" />
+        <p class="ProblemStatement">
+          Write a C++ program to check whether a number is prime or not.
+        </p>
+        <hr class="ProblemSections" />
+        <h4>Examples:</h4>
+        <div class="Example">
+          <p><strong>Input:</strong> 17</p>
+          <p><strong>Output:</strong> Prime</p>
+        </div>
+        <div class="Example">
+          <p><strong>Input:</strong> 18</p>
+          <p><strong>Output:</strong> Not Prime</p>
+        </div>
+        <hr />
+        <h4>Constraints:</h4>
+        <ul class="Constraints">
+          <li>1 ≤ n ≤ 10<sup>6</sup></li>
+        </ul>
+      </section>
+
+      <section id="hard" class="ProblemSet">
+        <h2 class="ProblemHeader">Find the Nth Prime Number</h2>
+        <ul class="Difficulty">
+          <li>Difficulty: <strong> Hard</strong></li>
+          <li>Accuracy: <strong> 35%</strong></li>
+        </ul>
+        <hr class="ProblemSections" />
+        <p class="ProblemStatement">
+          Write a C++ program to find the Nth prime number. The program should
+          take an integer N as input and output the Nth prime number.
+        </p>
+        <hr class="ProblemSections" />
+        <h4>Examples:</h4>
+        <div class="Example">
+          <p><strong>Input:</strong> 10</p>
+          <p><strong>Output:</strong> 29</p>
+        </div>
+        <div class="Example">
+          <p><strong>Input:</strong> 5</p>
+          <p><strong>Output:</strong> 11</p>
+        </div>
+        <hr />
+        <h4>Constraints:</h4>
+        <ul class="Constraints">
+          <li>1 ≤ N ≤ 10<sup>5</sup></li>
+        </ul>
+      </section>
+
+      <!-- Embedded C++ IDE (JDoodle Embed) -->
+      <div class="editor-container">
+        <h2>Chỉnh sửa mã của bạn</h2>
+        <iframe
+          src="https://www.online-ide.com/xFBUeQcXRi"
+          title="C++ IDE"
+        ></iframe>
+
+        <div class="controls">
+          <button onclick="runCode()">Run Code</button>
+          <button onclick="clearCode()">Clear Code</button>
+          <button onclick="submitCode()">Submit</button>
+        </div>
+        <div class="output" id="output-result">
+          Kết quả sẽ hiển thị ở đây...
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Function to change exercise content based on difficulty level
+      function loadExercise(difficulty) {
+        // Hide all problem sets
+        document.querySelectorAll(".ProblemSet").forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // Show the selected problem set
+        const selectedSection = document.getElementById(difficulty);
+        if (selectedSection) {
+          selectedSection.classList.add("active");
+          // Scroll to the selected problem
+          selectedSection.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Reset the embedded IDE to default or specific code
+        const jdoodleIframe = document.querySelector(
+          ".editor-container iframe"
+        );
+        jdoodleIframe.src = jdoodleIframe.src; // Reload iframe to reset code
+        document.getElementById("output-result").textContent =
+          "Kết quả sẽ hiển thị ở đây...";
+      }
+
+      // Automatically show the 'Easy' problem when the page loads
+      window.onload = function () {
+        loadExercise("easy");
+      };
+
+      // Toggle Navbar for Mobile View
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("open");
+        const hamburger = document.querySelector(".menu-toggle");
+        hamburger.classList.toggle("active");
+      }
+
+      // Scroll to Content
+      function scrollToContent() {
+        const selector = document.querySelector(".difficulty-selector");
+        window.scrollTo({
+          top: selector.offsetTop - 70, // Adjust to avoid overlapping with navbar
+          behavior: "smooth",
+        });
+      }
+
+      // Clear Code Function
+      function clearCode() {
+        const jdoodleIframe = document.querySelector(
+          ".editor-container iframe"
+        );
+        jdoodleIframe.src = jdoodleIframe.src; // Reload iframe to clear code
+        document.getElementById("output-result").textContent =
+          "Kết quả sẽ hiển thị ở đây...";
+      }
+
+      // Run Code Function
+      function runCode() {
+        // JDoodle Embedded IDE handles run internally. Inform the user to run code within the iframe.
+        alert("Vui lòng nhấn nút Run trong IDE để chạy mã.");
+      }
+
+      // Submit Code Function (Requires Backend Integration)
+      function submitCode() {
+        // Placeholder for code submission logic
+        alert("Tính năng Submit Code cần được tích hợp với backend.");
+      }
+
+      // Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        // Add or remove 'scrolled' class for Navbar
+        const navbar = document.querySelector("nav");
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".menu-toggle");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

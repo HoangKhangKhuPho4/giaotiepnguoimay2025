@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search in a Rotated Array</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/java_programming.css"/>
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+          alt="Java Logo"
+        />
+        <h1>Learn Java</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking2.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-content">
+        <h1>Search in a Rotated Array</h1>
+        <p>
+          Enhance your algorithm skills by solving challenges related to rotated
+          arrays.
+        </p>
+        <button onclick="scrollToExercises()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Difficulty Selection Buttons -->
+    <div class="difficulty-selector">
+      <button class="difficulty-button" onclick="showProblem('easy')">
+        Easy
+      </button>
+      <button class="difficulty-button" onclick="showProblem('medium')">
+        Medium
+      </button>
+      <button class="difficulty-button" onclick="showProblem('hard')">
+        Hard
+      </button>
+    </div>
+
+    <!-- Easy Problem -->
+    <section id="easy" class="ProblemSet active">
+      <h2 class="ProblemHeader">Easy Problem: Find Minimum in Rotated Array</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Easy</strong></li>
+        <li>Accuracy: <strong>50%</strong></li>
+      </ul>
+      <hr class="ProblemSections" />
+      <p class="ProblemStatement">
+        Given a sorted array that has been rotated, find the minimum element.
+        The array does not contain duplicates.
+      </p>
+      <hr class="ProblemSections" />
+
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [3,4,5,1,2]</p>
+        <p><strong>Output:</strong> 1</p>
+      </div>
+    </section>
+
+    <!-- Medium Problem -->
+    <section id="medium" class="ProblemSet">
+      <h2 class="ProblemHeader">Medium Problem: Search in Rotated Array</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Medium</strong></li>
+        <li>Accuracy: <strong>35.5%</strong></li>
+      </ul>
+      <hr class="ProblemSections" />
+      <p class="ProblemStatement">
+        There is an integer array nums sorted in ascending order (with distinct
+        values) that is rotated at an unknown pivot. Find the target in this
+        array using a binary search algorithm.
+      </p>
+      <hr class="ProblemSections" />
+
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0</p>
+        <p><strong>Output:</strong> 4</p>
+      </div>
+    </section>
+
+    <!-- Hard Problem -->
+    <section id="hard" class="ProblemSet">
+      <h2 class="ProblemHeader">Hard Problem: Find Kth Smallest Element</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Hard</strong></li>
+        <li>Accuracy: <strong>25%</strong></li>
+      </ul>
+      <hr class="ProblemSections" />
+      <p class="ProblemStatement">
+        Given a sorted array that is rotated, write an algorithm to find the
+        k-th smallest element in the array with O(log n) complexity.
+      </p>
+      <hr class="ProblemSections" />
+
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], k = 3</p>
+        <p><strong>Output:</strong> 2</p>
+      </div>
+    </section>
+
+    <!-- Embedded IDE Section -->
+    <div class="editor-container">
+      <h2>Edit Your Code</h2>
+      <iframe
+        src="https://www.online-ide.com/xFBUeQcXRi"
+        title="Java IDE"
+      ></iframe>
+      <div class="controls">
+        <button onclick="runCode()" class="btn btn-primary">Run Code</button>
+        <button onclick="clearCode()" class="btn btn-secondary">
+          Clear Code
+        </button>
+        <button onclick="submitCode()" class="btn btn-success">Submit</button>
+      </div>
+      <div class="output" id="output-result">
+        Results will be displayed here...
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      // Function to show the problem based on difficulty level
+      function showProblem(difficulty) {
+        // Hide all problem sets
+        document.querySelectorAll(".ProblemSet").forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // Show the selected problem set
+        const selected = document.getElementById(difficulty);
+        if (selected) {
+          selected.classList.add("active");
+          // Scroll to the selected problem
+          selected.scrollIntoView({ behavior: "smooth" });
+        }
+
+        // Reset IDE iframe for new problem
+        const ideIframe = document.querySelector(".editor-container iframe");
+        ideIframe.src = ideIframe.src;
+        document.getElementById("output-result").textContent =
+          "Results will be displayed here...";
+      }
+
+      // Automatically show the 'Easy' problem when the page loads
+      window.onload = function () {
+        showProblem("easy");
+      };
+
+      // Function to clear the IDE code
+      function clearCode() {
+        const ideIframe = document.querySelector(".editor-container iframe");
+        ideIframe.src = ideIframe.src; // Reload iframe to clear code
+        document.getElementById("output-result").textContent =
+          "Results will be displayed here...";
+      }
+
+      // Function to run the code
+      function runCode() {
+        // If the embedded IDE supports API calls, integrate here
+        // Currently, prompt user to run within the iframe
+        alert(
+          "Please click the Run button within the IDE to execute your code."
+        );
+      }
+
+      // Function to submit the code (Requires backend integration)
+      function submitCode() {
+        // Placeholder for submitting code to backend
+        alert("Submit Code feature needs to be integrated with the backend.");
+      }
+
+      // Function to scroll to exercises
+      function scrollToExercises() {
+        const exercisesSection = document.querySelector(".difficulty-selector");
+        exercisesSection.scrollIntoView({ behavior: "smooth" });
+      }
+
+      // Hamburger Menu Toggle
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      // Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

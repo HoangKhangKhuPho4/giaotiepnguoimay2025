@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Montserrat-Bold", sans-serif;
+        }
+
+        p {
+            color: #8f8f8f;
+        }
+
+        /* Headings */
+        .big-heading {
+            font-family: "Montserrat-Black", sans-serif;
+            font-size: 3.5rem;
+            line-height: 1.5;
+        }
+
+        .section-heading {
+            font-size: 3rem;
+            line-height: 1.5;
+        }
+
+        /* Containers */
+        .container-fluid{
+            padding: 7% 15%;
+        }
+
+        /* Sections */
+        .colored-section {
+            background-color: #ff4c68;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .white-section {
+            background-color: #fff;
+            padding: 60px 0;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            padding: 20px 0;
+        }
+
+        .navbar-brand {
+            font-family: "Ubuntu", sans-serif;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .nav-item {
+            padding: 0 18px;
+        }
+
+        .nav-link {
+            font-size: 1.2rem;
+            font-family: "Montserrat-Light", sans-serif;
+            color: #333 !important;
+        }
+
+        /* Buttons */
+        .download-button {
+            margin: 5% 3% 5% 0;
+        }
+
+        /* Title Section */
+        #title {
+            background-color: #ff4c68;
+            color: #fff;
+            text-align: left;
+            position: relative;
+        }
+
+        #title .container-fluid {
+            padding: 3% 15% 7%;
+        }
+
+        /* Title Image */
+        .title-image {
+            width: 60%;
+            transform: rotate(25deg);
+            position: absolute;
+            right: 30%;
+            top: 50%;
+            transform: translateY(-50%) rotate(25deg);
+        }
+
+        /* Features Section */
+        #features {
+            position: relative;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-box {
+            padding: 4.5%;
+        }
+
+        .icon {
+            color: #ef8172;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+        }
+
+        .icon:hover {
+            color: #ff4c68;
+        }
+
+        /* Testimonial Section */
+        #testimonials {
+            background-color: #ef8172;
+            padding: 60px 0;
+        }
+
+        .testimonial-text {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 100%;
+            margin: 20px;
+            object-fit: cover;
+        }
+
+        /* Press Section */
+        #press {
+            background-color: #ef8172;
+            padding-bottom: 3%;
+        }
+
+        .press-logo {
+            width: 15%;
+            margin: 20px 20px 50px;
+        }
+
+        /* Pricing Section */
+        #pricing {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+
+        .price-text {
+            font-size: 3rem;
+            line-height: 1.5;
+        }
+
+        .pricing-column {
+            padding: 3% 2%;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0;
+        }
+
+        .social-icon {
+            margin: 20px 10px;
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        .social-icon:hover {
+            color: #ff4c68;
+        }
+
+        @media (max-width: 1028px) {
+            #title {
+                text-align: center;
+            }
+
+            .title-image {
+                position: static;
+                transform: rotate(0);
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">YourBrand</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#title">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact Us</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Title Section -->
+    <section id="title" class="colored-section">
+        <div class="container-fluid">
+            <h1 class="big-heading">Welcome to Our Company</h1>
+            <p class="lead">We provide the best services to help you grow your business.</p>
+            <img src="your-image-url.jpg" alt="Title Image" class="title-image">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="white-section">
+        <div class="container-fluid">
+            <h2 class="section-heading">Our Features</h2>
+            <div class="row">
+                <div class="col-md-4 feature-box">
+                    <i class="icon fas fa-cogs"></i>
+                    <h3 class="feature-title">Feature One</h3>
+                    <p>Detailed description of feature one.</p>
+                </div>
+                <div class="col-md-4 feature-box">
+                    <i class="icon fas fa-cloud"></i>
+                    <h3 class="feature-title">Feature Two</h3>
+                    <p>Detailed description of feature two.</p>
+                </div>
+                <div class="col-md-4 feature-box">
+                    <i class="icon fas fa-lock"></i>
+                    <h3 class="feature-title">Feature Three</h3>
+                    <p>Detailed description of feature three.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container-fluid">
+            <h2 class="section-heading">What Our Clients Say</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <p class="testimonial-text">"This company provided excellent services and helped our business grow significantly."</p>
+                    <img src="client1.jpg" alt="Client 1" class="testimonial-image">
+                    <p><strong>John Doe</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Section -->
+    <section id="press" class="white-section">
+        <div class="container-fluid">
+            <h2 class="section-heading">As Seen In</h2>
+            <div class="row justify-content-center">
+                <img src="press-logo1.png" alt="Press Logo 1" class="press-logo">
+                <img src="press-logo2.png" alt="Press Logo 2" class="press-logo">
+                <img src="press-logo3.png" alt="Press Logo 3" class="press-logo">
+                <img src="press-logo4.png" alt="Press Logo 4" class="press-logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="colored-section">
+        <div class="container-fluid">
+            <h2 class="section-heading">Our Pricing</h2>
+            <div class="row">
+                <div class="col-md-4 pricing-column">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Basic</h3>
+                            <p class="price-text">$19/month</p>
+                            <ul class="list-unstyled">
+                                <li>Feature A</li>
+                                <li>Feature B</li>
+                                <li>Feature C</li>
+                            </ul>
+                            <button class="btn btn-info">Choose Plan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 pricing-column">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Standard</h3>
+                            <p class="price-text">$49/month</p>
+                            <ul class="list-unstyled">
+                                <li>Feature A</li>
+                                <li>Feature B</li>
+                                <li>Feature C</li>
+                                <li>Feature D</li>
+                            </ul>
+                            <button class="btn btn-info">Choose Plan</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 pricing-column">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Premium</h3>
+                            <p class="price-text">$99/month</p>
+                            <ul class="list-unstyled">
+                                <li>Feature A</li>
+                                <li>Feature B</li>
+                                <li>Feature C</li>
+                                <li>Feature D</li>
+                                <li>Feature E</li>
+                            </ul>
+                            <button class="btn btn-info">Choose Plan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="white-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h4 class="display-4 text-center">Contact Us</h4>
+                    <hr class="my-4">
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <form class="mb-sm-4" id="form">
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput2">Name</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="User Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlInput1">Email address</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </form>
+                </div>
+
+                <div class="col-xs-12 col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115806.34359550575!2d91.79094155131145!3d24.899747201107232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375054d3d270329f%3A0xf58ef93431f67382!2sSylhet!5e0!3m2!1sen!2sbd!4v1516883061409"
+                        width="100%" height="400" frameborder="0" style="border:0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>&copy; 2025 Your Company. All rights reserved.</p>
+                </div>
+                <div class="col-md-6">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies (jQuery and Popper.js) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

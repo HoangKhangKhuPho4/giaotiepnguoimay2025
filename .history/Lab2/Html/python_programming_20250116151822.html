@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Programming</title>
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+          alt="Python Logo"
+        />
+        <h1>Python Hub</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>Learn Python Programming</h1>
+        <p>
+          Explore Python tutorials and challenges to enhance your coding skills!
+        </p>
+        <button onclick="scrollToContent()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Difficulty Selection Buttons -->
+    <div class="difficulty-selector">
+      <button class="difficulty-button" onclick="showProblem('easy')">
+        Easy
+      </button>
+      <button class="difficulty-button" onclick="showProblem('medium')">
+        Medium
+      </button>
+      <button class="difficulty-button" onclick="showProblem('hard')">
+        Hard
+      </button>
+    </div>
+
+    <!-- Easy Problem -->
+    <section id="easy" class="ProblemSet">
+      <h2 class="ProblemHeader">Fibonacci Sequence</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong> Easy</strong></li>
+        <li>Accuracy: <strong> 75%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Write a Python program that generates the first n Fibonacci numbers,
+        where n is provided by the user.
+      </p>
+      <hr />
+      <h4>Examples:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> 5</p>
+        <p><strong>Output:</strong> [0, 1, 1, 2, 3]</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 10</p>
+        <p><strong>Output:</strong> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ n ≤ 10<sup>4</sup></li>
+      </ul>
+    </section>
+
+    <!-- Medium Problem -->
+    <section id="medium" class="ProblemSet">
+      <h2 class="ProblemHeader">Check Prime Numbers</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong> Medium</strong></li>
+        <li>Accuracy: <strong> 55%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Write a Python program to check if a given number is prime. The program
+        should return True if the number is prime, and False otherwise.
+      </p>
+      <hr />
+      <h4>Examples:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> 29</p>
+        <p><strong>Output:</strong> True</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 15</p>
+        <p><strong>Output:</strong> False</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ n ≤ 10<sup>6</sup></li>
+      </ul>
+    </section>
+
+    <!-- Hard Problem -->
+    <section id="hard" class="ProblemSet">
+      <h2 class="ProblemHeader">Find the Nth Prime Number</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong> Hard</strong></li>
+        <li>Accuracy: <strong> 35%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Write a Python program to find the Nth prime number, where N is provided
+        by the user.
+      </p>
+      <hr />
+      <h4>Examples:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> 10</p>
+        <p><strong>Output:</strong> 29</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 5</p>
+        <p><strong>Output:</strong> 11</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ N ≤ 10<sup>5</sup></li>
+      </ul>
+    </section>
+
+    <!-- Embedded Python IDE (Trinket Embed) -->
+    <div class="editor-container">
+      <h2>Chỉnh sửa mã của bạn</h2>
+      <iframe
+        src="https://trinket.io/embed/python/47c704ccc556"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginwidth="0"
+        marginheight="0"
+        allowfullscreen
+      ></iframe>
+      <div class="controls">
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="clearCode()">Clear Code</button>
+        <button onclick="submitCode()">Submit</button>
+      </div>
+      <div class="output" id="output-result">Kết quả sẽ hiển thị ở đây...</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      function showProblem(difficulty) {
+        // Hide all problem sets
+        document.querySelectorAll(".ProblemSet").forEach(function (el) {
+          el.classList.remove("active");
+        });
+
+        // Show the selected problem set
+        document.getElementById(difficulty).classList.add("active");
+      }
+
+      // Automatically show the 'Easy' problem when the page loads
+      window.onload = function () {
+        showProblem("easy");
+      };
+
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      function scrollToContent() {
+        window.scrollTo({
+          top: document.querySelector(".difficulty-selector").offsetTop - 70,
+          behavior: "smooth",
+        });
+      }
+
+      // Hàm Clear Code
+      function clearCode() {
+        const iframe = document.querySelector(".editor-container iframe");
+        // Reload iframe để clear code
+        iframe.src = iframe.src;
+        document.getElementById("output-result").textContent =
+          "Kết quả sẽ hiển thị ở đây...";
+      }
+
+      // Hàm Run Code
+      function runCode() {
+        // Với Trinket, Run Code được tích hợp trong iframe, bạn không thể kích hoạt từ parent
+        // Do đó, nút Run Code sẽ hiển thị thông báo hướng dẫn người dùng chạy mã trực tiếp trong iframe
+        alert("Vui lòng nhấn nút Run trong IDE để chạy mã.");
+      }
+
+      // Hàm Submit Code (Cần Backend để xử lý)
+      function submitCode() {
+        // Đây là nơi bạn có thể thêm logic để nộp mã, ví dụ:
+        // Lấy mã từ Trinket (có thể thông qua API nếu Trinket hỗ trợ)
+        // Gửi mã đến backend để đánh giá và nhận điểm
+        alert("Tính năng Submit Code cần được tích hợp với backend.");
+      }
+
+      // Nút Back to Top Button Logic
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top Function
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Accessibility: Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

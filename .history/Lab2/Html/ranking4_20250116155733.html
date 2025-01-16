@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C++ Programming Leaderboard & Feedback</title>
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../CSS/ranking4.css" />
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg"
+          alt="C++ Logo"
+          style="height: 40px;"
+        />
+        <h1>Learn C++</h1>
+      </div>
+
+      <!-- Hamburger Menu for Mobile -->
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking4.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-content">
+        <h1>Welcome to Learn C++</h1>
+        <p>
+          Begin your journey to learn C++ programming with interactive lessons and
+          projects.
+        </p>
+        <button onclick="scrollToLeaderboard()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Leaderboard Section -->
+    <div class="leaderboard-section">
+      <div class="leaderboard-container">
+        <div class="leaderboard-header">LEADERBOARD</div>
+
+        <!-- Item 1 -->
+        <div class="leaderboard-item">
+          <div class="rank">1</div>
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Truong Ngoc Vinh</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2980</div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="leaderboard-item">
+          <div class="rank">2</div>
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Hoang Le Nguyen Manh</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2721</div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="leaderboard-item">
+          <div class="rank">3</div>
+          <div class="player-info">
+            <img
+              alt="Player avatar"
+              class="avatar"
+              src="https://storage.googleapis.com/a1aa/image/g0yCbVkQncalKJ2RnTpZ4lNb9nE2hvSuTDhXGPfcveJZNTkTA.jpg"
+            />
+            <div class="player-details">
+              <div class="player-name">Ong Thi Anh Thu</div>
+              <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+          <div class="score">2579</div>
+        </div>
+
+        <!-- Add more leaderboard items if needed -->
+      </div>
+    </div>
+
+    <!-- Feedback Section -->
+    <div class="feedback-section">
+      <div class="container">
+        <div class="title">FEEDBACK</div>
+        <table class="info-table">
+          <tr>
+            <th>Project Name:</th>
+            <td>C++ Programming Leaderboard Feedback</td>
+            <th class="due-date">Deadline:</th>
+            <td>31/12/2024</td>
+          </tr>
+          <tr>
+            <th>Feedback Requested By:</th>
+            <td>Admin Team</td>
+            <td colspan="2"></td>
+          </tr>
+        </table>
+        <div class="related-documents">
+          <h4>Related Documents</h4>
+          <ul>
+            <li><a href="#">Link to presentation decks</a></li>
+            <li>
+              <a href="#">Link to meeting recordings and passwords</a>
+            </li>
+            <li><a href="#">Additional links needing feedback</a></li>
+          </ul>
+        </div>
+        <table class="feedback-table">
+          <tr>
+            <th>Name</th>
+            <th>Document Link and Page Number</th>
+            <th>Feedback</th>
+            <th>Addressed?</th>
+          </tr>
+          <tr>
+            <td>John Doe</td>
+            <td><a href="#">Project Proposal (pg. 5)</a></td>
+            <td>Great initiative, but need more details on the scoring system.</td>
+            <td class="checkbox">
+              <input type="checkbox" />
+            </td>
+          </tr>
+          <!-- Add more feedback rows if needed -->
+        </table>
+
+        <!-- Feedback Form -->
+        <div class="feedback-form">
+          <h3>Submit Feedback</h3>
+          <select id="exerciseSelect">
+            <option value="">Select C++ Exercise</option>
+            <option value="basic">Basic Exercises</option>
+            <option value="intermediate">Intermediate Exercises</option>
+            <option value="advanced">Advanced Exercises</option>
+          </select>
+          <textarea
+            id="feedbackText"
+            placeholder="Enter your feedback here..."
+          ></textarea>
+          <div class="button-group">
+            <button onclick="submitFeedback()">Submit Feedback</button>
+            <button
+              class="back-button"
+              onclick="window.location.href='cpp_programming.html'"
+            >
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            We are a community dedicated to learning C++ programming, helping you
+            enhance your skills through lessons and real-world projects.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contact@learncpp.vn">contact@learncpp.vn</a>
+          </p>
+          <p>Phone: +84 123 456 789</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:contact@learncpp.vn" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest lessons and news.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Learn C++. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+      /* Navbar Toggle Function */
+      function toggleMenu() {
+        const navLinks = document.querySelector(".nav-links");
+        const hamburger = document.querySelector(".hamburger");
+        navLinks.classList.toggle("open");
+        hamburger.classList.toggle("active");
+      }
+
+      // Close mobile menu when a link is clicked
+      document.querySelectorAll(".nav-links a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          const navLinks = document.querySelector(".nav-links");
+          const hamburger = document.querySelector(".hamburger");
+          if (navLinks.classList.contains("open")) {
+            navLinks.classList.remove("open");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+
+      /* Scroll to Top Function */
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      /* Back to Top Button Logic */
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.querySelector("nav");
+
+        if (window.pageYOffset > 300) {
+          backToTop.classList.add("show");
+        } else {
+          backToTop.classList.remove("show");
+        }
+
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Function to scroll to leaderboard
+      function scrollToLeaderboard() {
+        const leaderboardSection = document.querySelector(".leaderboard-section");
+        if (leaderboardSection) {
+          leaderboardSection.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+
+      /* Feedback Submission Function */
+      function submitFeedback() {
+        const textarea = document.getElementById("feedbackText");
+        const feedback = textarea.value;
+        const selectedExercise = document.getElementById("exerciseSelect").value;
+
+        if (feedback.trim() === "" || selectedExercise === "") {
+          alert("Please select an exercise and enter your feedback before submitting.");
+          return;
+        }
+
+        // Handle feedback submission (e.g., API call or storage)
+        alert(
+          "Your feedback has been saved for " + selectedExercise + ": " + feedback
+        );
+        textarea.value = ""; // Clear textarea after submission
+        document.getElementById("exerciseSelect").selectedIndex = 0; // Reset selection
+      }
+    </script>
+  </body>
+</html>
