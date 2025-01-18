@@ -1,0 +1,376 @@
+/* Căn giữa thanh tìm kiếm và giới hạn chiều rộng */
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 20px;
+}
+
+/* Biểu tượng kính lúp nằm bên trong thanh tìm kiếm */
+.search-container .search-icon {
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #28a745;
+  font-size: 1.2rem;
+  pointer-events: none; /* Đảm bảo biểu tượng không chặn thao tác với input */
+}
+
+/* Tùy chỉnh input field */
+.search-input {
+  width: 100%;
+  height: 50px;
+  border: 2px solid #28a745;
+  border-radius: 50px;
+  padding: 0 15px 0 45px; /* Padding trái để tạo không gian cho biểu tượng */
+  font-size: 1rem;
+  transition: box-shadow 0.3s, background-color 0.3s;
+}
+
+/* Tùy chỉnh thanh tìm kiếm khi focus */
+.search-input:focus {
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.3);
+  background-color: #ffffff;
+  outline: none;
+}
+
+/* Tùy chỉnh hộp gợi ý */
+.suggestion-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 250px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  font-size: 0.9rem;
+  padding: 5px 0;
+}
+
+/* Hiệu ứng hiển thị hộp gợi ý */
+.suggestion-box.show {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tùy chỉnh các mục gợi ý */
+.suggestion-item {
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestion-item:hover {
+  background-color: #f1f1f1;
+}
+
+/* Các phần khác trong CSS của bạn */
+.page-content {
+  margin-top: 100px;
+}
+
+.page-content h2 {
+  color: #d94f5c; /* Màu tiêu đề chính */
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.page-content .divider-custom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.page-content .divider-custom-line {
+  flex: 1;
+  height: 2px;
+  background-color: #28a745; /* Màu xanh lá cây cho divider */
+}
+
+.page-content .divider-custom-icon {
+  margin: 0 15px;
+  color: #28a745; /* Màu xanh lá cây cho biểu tượng */
+  font-size: 1.5rem;
+}
+
+/* CSS cho các tab */
+.page-content .d-flex.justify-content-center.flex-wrap {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.page-content .tab-block {
+  width: 220px;
+  height: 220px;
+  background: #e0e0e0;
+  border: 2px solid #28a745;
+  border-radius: 15px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+}
+
+.page-content .tab-block i {
+  color: #28a745;
+  margin-bottom: 15px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.page-content .tab-block span {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.page-content .tab-block:not(.active):hover {
+  background: linear-gradient(135deg, #28a745 0%, #5cd65c 100%);
+  color: #fff;
+  box-shadow: 0 8px 12px rgba(0, 128, 0, 0.2);
+  transform: scale(1.07);
+}
+
+.page-content .tab-block.active {
+  background: linear-gradient(135deg, #28a745 0%, #5cd65c 100%);
+  color: #fff;
+  box-shadow: 0 8px 12px rgba(0, 128, 0, 0.4);
+}
+
+.page-content .tab-block.active i {
+  color: #fff;
+}
+
+/* CSS cho bảng */
+.page-content .table-hover tbody tr {
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.page-content .table-hover tbody tr:hover {
+  background-color: #d4f5d4;
+  transform: scale(1.02);
+}
+
+.page-content .table-responsive {
+  max-height: 800px;
+  overflow-y: auto;
+}
+
+.page-content .table thead th {
+  background-color: #28a745;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  padding: 15px;
+}
+
+.page-content .table tbody td {
+  padding: 12px;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+
+.page-content .table tbody tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.page-content .table tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+/* CSS cho nút */
+.page-content .btn-info,
+.page-content .btn-danger,
+.page-content .btn-success {
+  background-color: #28a745 !important;
+  color: #fff !important;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s, color 0.3s;
+}
+
+.page-content .btn-info:hover,
+.page-content .btn-danger:hover,
+.page-content .btn-success:hover {
+  background-color: #218838 !important;
+  color: #ffc107 !important;
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(0, 128, 0, 0.4);
+}
+
+/* Đảm bảo nội dung không bị che bởi header */
+body,
+main.page-content {
+  margin-top: 120px; /* Khoảng cách lớn hơn header */
+}
+
+/* Hoặc bạn có thể sử dụng padding-top cho toàn bộ body */
+body {
+  padding-top: 80px; /* Giúp tất cả các nội dung được đẩy xuống */
+}
+
+/* Điều chỉnh chiều rộng và chiều cao của Document Preview */
+#documentPreview {
+  width: 100%; /* Đảm bảo iframe chiếm toàn bộ chiều rộng */
+  height: 90vh; /* Tăng chiều cao lên 90% chiều cao màn hình */
+  border-radius: 0 0 15px 15px; /* Giữ lại bo góc nếu cần */
+}
+/* Điều chỉnh modal dialog để mở rộng toàn bộ màn hình */
+#previewModal .modal-dialog {
+  max-width: 100%; /* Đảm bảo modal chiếm toàn bộ chiều rộng màn hình */
+  width: 100%; /* Đặt modal rộng 100% */
+  height: 100vh; /* Chiều cao modal chiếm toàn bộ chiều cao màn hình */
+  margin: 0; /* Bỏ khoảng cách xung quanh modal */
+  padding: 0;
+}
+
+#previewModal .modal-content {
+  height: 100vh; /* Đặt chiều cao modal 100% */
+  width: 100%; /* Đặt chiều rộng modal 100% */
+}
+#previewModal .modal-body {
+  padding: 0; /* Bỏ padding để iframe chiếm toàn bộ diện tích */
+  height: 100%; /* Đảm bảo chiều cao modal không bị giới hạn */
+}
+@media (max-width: 768px) {
+  #documentPreview {
+    height: 80vh; /* Giảm chiều cao trên thiết bị nhỏ */
+  }
+
+  #previewModal .modal-dialog {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  #previewModal .modal-content {
+    height: 90vh; /* Điều chỉnh cho di động */
+  }
+}
+
+.modal-content {
+  border-radius: 10px;
+  animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-header {
+  background-color: #28a745;
+  color: white;
+  border-bottom: none;
+}
+
+.modal-footer {
+  border-top: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.modal-title {
+  font-weight: 600;
+}
+
+#documentFile {
+  margin-top: 10px;
+}
+
+.close {
+  color: #fff; /* Biểu tượng màu trắng */
+  background-color: #000; /* Nền màu đen đậm */
+  border: 2px solid #fff; /* Đường viền trắng */
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: #f00; /* Khi hover, chuyển thành màu đỏ */
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Đảm bảo input[type="file"] bị ẩn và chỉ có label hiển thị */
+.custom-file-container input[type="file"] {
+  display: none;
+}
+
+/* Tùy chỉnh label như một nút */
+.custom-file-label {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid transparent;
+  margin-right: 10px;
+}
+
+.custom-file-label:hover {
+  background-color: #218838;
+  color: #ffc107;
+}
+
+/* Hiển thị tên file đã chọn */
+.selected-file-name {
+  font-size: 1rem;
+  color: #333;
+  margin-left: 10px;
+  font-style: italic;
+}
+
+/* Nút Upload và Close trong Modal */
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+
+.close i {
+  color: #fff; /* Màu của biểu tượng */
+  font-size: 2rem; /* Tăng kích thước của biểu tượng */
+}

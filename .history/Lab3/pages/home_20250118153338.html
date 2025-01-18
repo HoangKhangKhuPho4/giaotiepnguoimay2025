@@ -21,9 +21,15 @@
       rel="stylesheet"
     />
     <style>
-      .animate__slower {
-        --animate-duration: 3s; /* Đặt thời gian animation thành 3 giây */
-      }
+/* Tùy chỉnh thời gian animation cho Animate.css */
+.animate__slow {
+  --animate-duration: 2s; /* Đặt thời gian animation thành 2 giây */
+}
+
+.animate__slower {
+  --animate-duration: 3s; /* Đặt thời gian animation thành 3 giây */
+}
+  
     </style>
   </head>
 
@@ -243,10 +249,7 @@
       </div>
     </footer>
 
-    <button
-      class="back-to-top animate__animated animate__fadeIn"
-      onclick="scrollToTop()"
-    >
+    <button class="back-to-top animate__animated animate__fadeIn" onclick="scrollToTop()">
       <i class="fas fa-arrow-up"></i>
     </button>
 
