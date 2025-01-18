@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register HoangKhang</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="login-form/css/style.css"/>
+  </head>
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+        <!-- Header -->
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Register HoangKhang</h2>
+          </div>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap py-5">
+              <!-- Profile Image -->
+              <div
+                class="img d-flex align-items-center justify-content-center"
+                style="background-image: url(../assets/img/Profile.png)"
+              ></div>
+              <h3 class="text-center mb-0">Welcome</h3>
+              <p class="text-center">
+                Create an account by filling the information below
+              </p>
+
+              <!-- Registration Form -->
+              <form id="registerForm" class="register-form">
+                <!-- Username -->
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-user"></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Username"
+                    required
+                  />
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-envelope"></span>
+                  </div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+
+                <!-- Password -->
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-lock"></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-lock"></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </div>
+
+                <!-- Register Button -->
+                <div class="form-group">
+                  <button
+                    type="submit"
+                    id="registerButton"
+                    class="btn form-control btn-primary rounded submit px-3"
+                  >
+                    Register
+                  </button>
+                </div>
+              </form>
+
+              <!-- Redirect to Login -->
+              <div class="w-100 text-center mt-4 text">
+                <p class="mb-0">Already have an account?</p>
+                <a href="login-form/index.html">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JavaScript Files -->
+    <script src="login-form/js/jquery.min.js"></script>
+    <script src="login-form/js/popper.js"></script>
+    <script src="login-form/js/bootstrap.min.js"></script>
+    <script src="login-form/js/main.js"></script>
+
+    <!-- Event Handling Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const registerForm = document.getElementById("registerForm");
+
+        if (registerForm) {
+          registerForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Retrieve input values
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            // Basic Validation
+            if (!username || !email || !password || !confirmPassword) {
+              alert("Please fill in all fields.");
+              return;
+            }
+
+            if (username.length < 3) {
+              alert("Username must be at least 3 characters long.");
+              return;
+            }
+
+            if (password.length < 6) {
+              alert("Password must be at least 6 characters long.");
+              return;
+            }
+
+            if (password !== confirmPassword) {
+              alert("Passwords do not match.");
+              return;
+            }
+
+            // If all validations pass, show success message and redirect
+            alert("Registration successful! Redirecting to login page.");
+            window.location.href = "login-form/index.html"; // Ensure this path is correct
+          });
+        } else {
+          console.error("Register form not found!");
+        }
+      });
+    </script>
+  </body>
+</html>

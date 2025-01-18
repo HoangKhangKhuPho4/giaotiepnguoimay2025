@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register HoangKhang</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="login-form/css/style.css"/>
+  </head>
+  <body>
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-6 text-center mb-5">
+            <h2 class="heading-section">Register HoangKhang</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="login-wrap py-5">
+              <div
+                class="img d-flex align-items-center justify-content-center"
+                style="background-image: url(../assets/img/Profile.png)"
+              ></div>
+              <h3 class="text-center mb-0">Welcome</h3>
+              <p class="text-center">
+                Create an account by filling the information below
+              </p>
+              <form id="registerForm" class="register-form">
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-user"></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Username"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-envelope"></span>
+                  </div>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-lock"></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <div class="icon d-flex align-items-center justify-content-center">
+                    <span class="fa fa-lock"></span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <button
+                    type="submit"
+                    id="registerButton"
+                    class="btn form-control btn-primary rounded submit px-3"
+                  >
+                    Register
+                  </button>
+                </div>
+              </form>
+              <div class="w-100 text-center mt-4 text">
+                <p class="mb-0">Already have an account?</p>
+                <a href="login.html">Login</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const registerForm = document.getElementById("registerForm");
+        const registerButton = document.getElementById("registerButton");
+
+        registerForm.addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const username = document.getElementById("username").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value.trim();
+          const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+          if (!username || !email || !password || !confirmPassword) {
+            alert("Please fill in all fields.");
+            return;
+          }
+
+          if (username.length < 3) {
+            alert("Username must be at least 3 characters long.");
+            return;
+          }
+
+          if (password.length < 6) {
+            alert("Password must be at least 6 characters long.");
+            return;
+          }
+
+          if (password !== confirmPassword) {
+            alert("Passwords do not match.");
+            return;
+          }
+
+          try {
+            const response = await fetch("http://localhost:5000/api/users/register", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ username, email, password }),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              alert(data.message);
+              window.location.href = "login.html";
+            } else {
+              alert(data.message || "An error occurred. Please try again.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("An error occurred. Please check your connection and try again.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
