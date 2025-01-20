@@ -337,6 +337,9 @@
           list-style: none;
           display: flex;
           align-items: center;
+
+          /* Thêm dòng này: */
+          gap: 20px; /* hoặc 15px, tuỳ độ rộng bạn muốn */
         }
 
         .nav-links.active {
@@ -344,13 +347,8 @@
         }
 
         .nav-links li {
-          /* Mặc định không margin. Sẽ dùng thủ thuật li + li */
-          margin-left: 0;
-        }
-
-        /* Liên tục: li + li nghĩa là mọi <li> sau 1 <li> khác */
-        .nav-links li + li {
-          margin-left: 20px;
+          margin: 20px 0;
+          width: 100%;
         }
 
         .nav-links li a {
@@ -358,16 +356,19 @@
           width: 100%;
           text-align: left;
         }
-        /* .auth-links là <li> cuối cùng, chỉ cần alignment */
+
         .auth-links {
           display: flex;
           align-items: center;
-          margin-left: 0; /* Bỏ hẳn hoặc để = 0 */
-        }
 
+          /* Nếu muốn chúng gần hơn hoặc bằng với nav-links, tuỳ ý */
+          gap: 15px;
+
+          /* Xoá hoặc đặt lại margin-left nếu không còn cần */
+          margin-left: 0;
+        }
         .auth-links a {
-          /* Nếu cần tách 2 nút “Đăng ký” và “Đăng nhập”: */
-          margin-left: 10px;
+          margin-left: 0; /* Hoặc bỏ dòng này để tránh mâu thuẫn với gap */
         }
 
         .nav-links .dropdown .dropdown-content {

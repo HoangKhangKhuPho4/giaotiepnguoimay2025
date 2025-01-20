@@ -198,9 +198,9 @@
       }
 
       .nav-links li {
-        margin-left: 20px;
-        position: relative;
-      }
+  margin-left: 20px;
+  position: relative;
+}
 
       .nav-links li a {
         color: #fff;
@@ -234,17 +234,14 @@
         color: var(--accent-color);
       }
 
-      /* Remove margin from .auth-links and adjust spacing between links */
       .auth-links {
         display: flex;
         align-items: center;
-        /* Remove or adjust the margin if necessary */
         margin-left: 20px;
       }
 
       .auth-links a {
-        /* Adjust margin to ensure consistent spacing */
-        margin-left: 10px;
+        margin-left: 15px;
         text-decoration: none;
         font-size: 16px;
         color: #fff;
@@ -334,9 +331,16 @@
         }
 
         .nav-links {
-          list-style: none;
-          display: flex;
-          align-items: center;
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100vh;
+          width: 250px;
+          background-color: var(--secondary-color);
+          flex-direction: column;
+          align-items: flex-start;
+          padding-top: 80px;
+          transition: right var(--transition-speed);
         }
 
         .nav-links.active {
@@ -344,13 +348,8 @@
         }
 
         .nav-links li {
-          /* Mặc định không margin. Sẽ dùng thủ thuật li + li */
-          margin-left: 0;
-        }
-
-        /* Liên tục: li + li nghĩa là mọi <li> sau 1 <li> khác */
-        .nav-links li + li {
-          margin-left: 20px;
+          margin: 20px 0;
+          width: 100%;
         }
 
         .nav-links li a {
@@ -358,16 +357,19 @@
           width: 100%;
           text-align: left;
         }
-        /* .auth-links là <li> cuối cùng, chỉ cần alignment */
+
         .auth-links {
-          display: flex;
-          align-items: center;
-          margin-left: 0; /* Bỏ hẳn hoặc để = 0 */
+          flex-direction: column;
+          align-items: flex-start;
+          margin-left: 0;
+          width: 100%;
+          padding: 0 20px;
         }
 
         .auth-links a {
-          /* Nếu cần tách 2 nút “Đăng ký” và “Đăng nhập”: */
-          margin-left: 10px;
+          margin: 10px 0;
+          width: 100%;
+          text-align: center;
         }
 
         .nav-links .dropdown .dropdown-content {
