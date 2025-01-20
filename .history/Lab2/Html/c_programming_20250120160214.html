@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C Programming</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-dym5f1b1jvFQpZJpD7nkgPuvS3wbfqIt4vVZp1QYZZJfVbJfIuEX8sFnUZtTnIykx0uj0JnlrG0Q9sZd2L5R5w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../CSS/main.css" />
+    <link rel="stylesheet" href="../CSS/c_programming.css">
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        xmlns="https://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 12a.5.5 0 0 0 .5-.5V3.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 3.707V11.5A.5.5 0 0 0 8 12z"
+        />
+      </svg>
+    </div>
+
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-logo">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/3/35/The_C_Programming_Language_logo.svg"
+          alt="C Logo"
+        />
+        <h1>C Programming Hub</h1>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <!-- Removed class="active" -->
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="ranking3.html">Ranking</a></li>
+        <li class="phone-number">
+          <a href="tel:+1234567890">
+            <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
+          </a>
+        </li>
+        <li class="nav-social">
+          <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com" target="_blank" aria-label="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <div class="header-content">
+        <h1>Learn C Programming</h1>
+        <p>Explore C programming challenges and enhance your coding skills!</p>
+        <button onclick="scrollToContent()">Get Started</button>
+      </div>
+    </header>
+
+    <!-- Difficulty Selection Buttons -->
+    <div class="difficulty-selector" id="difficulty-selector">
+      <button class="difficulty-button" onclick="showProblem('easy')">
+        Easy
+      </button>
+      <button class="difficulty-button" onclick="showProblem('medium')">
+        Medium
+      </button>
+      <button class="difficulty-button" onclick="showProblem('hard')">
+        Hard
+      </button>
+    </div>
+
+    <!-- Easy Problem -->
+    <section id="easy" class="ProblemSet active">
+      <h2 class="ProblemHeader">Easy Problem: Find Minimum in Rotated Array</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Easy</strong></li>
+        <li>Accuracy: <strong>50%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Given a sorted array that has been rotated, find the minimum element.
+        The array does not contain duplicates.
+      </p>
+      <hr />
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [3,4,5,1,2]</p>
+        <p><strong>Output:</strong> 1</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ n ≤ 10<sup>4</sup></li>
+      </ul>
+    </section>
+
+    <!-- Medium Problem -->
+    <section id="medium" class="ProblemSet">
+      <h2 class="ProblemHeader">Medium Problem: Search in Rotated Array</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Medium</strong></li>
+        <li>Accuracy: <strong>35.5%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        There is an integer array nums sorted in ascending order (with distinct
+        values) that is rotated at an unknown pivot. Find the target in this
+        array using a binary search algorithm.
+      </p>
+      <hr />
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0</p>
+        <p><strong>Output:</strong> 4</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ n ≤ 10<sup>6</sup></li>
+      </ul>
+    </section>
+
+    <!-- Hard Problem -->
+    <section id="hard" class="ProblemSet">
+      <h2 class="ProblemHeader">Hard Problem: Find Kth Smallest Element</h2>
+      <ul class="Difficulty">
+        <li>Difficulty: <strong>Hard</strong></li>
+        <li>Accuracy: <strong>25%</strong></li>
+      </ul>
+      <hr />
+      <p class="ProblemStatement">
+        Given a sorted array that is rotated, write an algorithm to find the
+        k-th smallest element in the array with O(log n) complexity.
+      </p>
+      <hr />
+      <h4>Example 1:</h4>
+      <div class="Example">
+        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], k = 3</p>
+        <p><strong>Output:</strong> 2</p>
+      </div>
+      <hr />
+      <h4>Constraints:</h4>
+      <ul class="Constraints">
+        <li>1 ≤ N ≤ 10<sup>5</sup></li>
+      </ul>
+    </section>
+
+    <!-- Embedded IDE Section -->
+    <div class="editor-container">
+      <h2>Chỉnh sửa mã của bạn</h2>
+      <iframe
+        src="https://www.online-ide.com/xFBUeQcXRi"
+        title="C IDE"
+      ></iframe>
+      <div class="controls">
+        <button onclick="runCode()">Run Code</button>
+        <button onclick="clearCode()">Clear Code</button>
+        <button onclick="submitCode()">Submit</button>
+      </div>
+      <div class="output" id="output-result">Kết quả sẽ hiển thị ở đây...</div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+    <script src="../Js/c_programming.js"></script>
+  </body>
+</html>

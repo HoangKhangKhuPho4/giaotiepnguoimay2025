@@ -103,13 +103,8 @@ nav {
 .nav-logo h1 {
   font-size: 24px;
   font-weight: 600;
-  
+  color: #ffffff;
 }
-
-.nav-logo span {
-  color: #ffffff; /* màu trắng */
-}
-
 
 .nav-links {
   list-style: none;
