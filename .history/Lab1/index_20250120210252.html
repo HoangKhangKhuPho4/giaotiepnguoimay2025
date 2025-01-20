@@ -566,6 +566,41 @@
           }
         });
       });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const deleteButton = document.getElementById("deleteButton");
+        const profileImage = document.getElementById("profileImage");
+        const uploadPicture = document.getElementById("uploadPicture");
+        const pictureUrl = document.getElementById("pictureUrl");
+        const uploadFeedback = document.getElementById("uploadFeedback");
+
+        const placeholderImage = "https://via.placeholder.com/150"; // Replace with your placeholder image URL
+
+        deleteButton.addEventListener("click", function () {
+          // Reset the profile image to the placeholder
+          profileImage.src = placeholderImage;
+
+          // Clear the file input value
+          uploadPicture.value = "";
+
+          // Clear the URL input field
+          pictureUrl.value = "";
+
+          // Provide immediate feedback to the user
+          uploadFeedback.textContent = "Đã xóa ảnh thành công.";
+          uploadFeedback.style.color = "green";
+
+          // Optionally, remove any stored image data
+          // For example, if you're using localStorage
+          // localStorage.removeItem('profileImage');
+
+          // Hide the "Delete" button if no image is present
+          // deleteButton.style.display = "none";
+        });
+
+        // Optional: Handle Upload Feedback Reset
+        // If you have an upload function, ensure that feedback messages are cleared appropriately
+      });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

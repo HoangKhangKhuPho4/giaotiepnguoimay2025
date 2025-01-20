@@ -3,12 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 8 - Responsive Web Design Techniques</title>
-    <meta
-      name="description"
-      content="Lab 8: Responsive Web Design Techniques"
-    />
-    <meta name="keywords" content="CSS, Responsive Design, Web Development" />
+    <title>Lab 5 - LearningHub Responsive Web</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -568,6 +565,158 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
+
+      /* Card Hover Effect */
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+        width: 100%;
+        height: auto;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column; /* Sắp xếp theo cột */
+        justify-content: space-between; /* Tách đều nội dung trong card */
+        height: 100%; /* Giữ card đồng đều */
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Đảm bảo văn bản và nút không chèn lấn */
+        flex-grow: 1; /* Cho phép nội dung phát triển */
+      }
+
+      .card-title {
+        margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
+        text-align: center; /* Căn giữa tiêu đề */
+      }
+
+      .card-text {
+        flex-grow: 1; /* Đảm bảo nội dung chiếm khoảng trống */
+        text-align: justify; /* Căn đều nội dung văn bản */
+      }
+
+      .btn-view-details {
+        align-self: center; /* Đảm bảo nút ở giữa ngang hàng */
+        margin-top: auto; /* Đẩy nút xuống cuối card */
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 16px;
+        color: #ffffff;
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        border: none;
+      }
+
+      .btn-view-details:hover {
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-view-details:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5);
+      }
+
+   /* 1. Uniform Image Sizes */
+.card-img-top {
+  width: 100%;
+  height: 200px; /* Set a fixed height for all images */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  object-position: center;
+  border-radius: 5px;
+  display: block;
+}
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+      }
+      /* Card Hover Effect */
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      /* Card Layout */
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-text {
+        margin-bottom: 15px;
+      }
+
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      .card .card-body {
+        text-align: center;
+      }
+
+      .card .btn {
+        background-color: #1e88e5;
+        color: #ffffff;
+        transition: background-color 0.3s;
+      }
+
+      .card .btn:hover {
+        background-color: #1565c0;
+      }
     </style>
   </head>
 
@@ -605,9 +754,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">
-          Lab 8 - Responsive Web Design Techniques
-        </h2>
+        <h2 class="text-center mb-4">Lab 5 - LearningHub Responsive Web</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -623,7 +770,10 @@
           <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
             <i class="bi bi-book"></i> Lab 4
           </a>
-          <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
+          <a
+            href="lab5.html"
+            class="btn btn-warning-custom lab5 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 5
           </a>
           <a href="lab6.html" class="btn btn-info-custom lab6 lab-button">
@@ -632,10 +782,7 @@
           <a href="lab7.html" class="btn btn-light-custom lab7 lab-button">
             <i class="bi bi-book"></i> Lab 7
           </a>
-          <a
-            href="lab8.html"
-            class="btn btn-dark-custom lab8 lab-button active"
-          >
+          <a href="lab8.html" class="btn btn-dark-custom lab8 lab-button">
             <i class="bi bi-book"></i> Lab 8
           </a>
         </div>
@@ -656,95 +803,64 @@
           <div class="tab-content">
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
-              <h3>Yêu cầu Lab 8</h3>
-              <p>
-                Giảng viên yêu cầu thiết kế và triển khai các kỹ thuật
-                Responsive Web Design cho dự án như sau. Các em cần nộp lại
-                đường link GitHub trước 11h59 ngày hôm nay dưới dạng:
-                <em>XXX.github.com/lab8.html</em>
-              </p>
-              <h4>Responsive Web Design Requirements:</h4>
+              <h3>Chào các em,</h3>
+              <p>Cô gửi bài tập làm trên lớp:</p>
               <ul>
-                <li>
-                  <strong>Fluid Layouts:</strong>
-                  <ul>
-                    <li>
-                      Sử dụng các đơn vị linh hoạt như %, em, rem để xây dựng
-                      layout.
-                    </li>
-                    <li>
-                      Đảm bảo các thành phần trên trang tự điều chỉnh theo kích
-                      thước màn hình.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Media Queries:</strong>
-                  <ul>
-                    <li>
-                      Sử dụng media queries để thay đổi layout và phong cách cho
-                      các thiết bị khác nhau (di động, tablet, desktop).
-                    </li>
-                    <li>
-                      Tạo ít nhất 3 breakpoint khác nhau để tối ưu giao diện.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Responsive Images and Media:</strong>
-                  <ul>
-                    <li>
-                      Sử dụng hình ảnh linh hoạt và các kỹ thuật như `srcset` để
-                      tải hình ảnh phù hợp với kích thước màn hình.
-                    </li>
-                    <li>
-                      Đảm bảo video và iframe đều có khả năng đáp ứng với các
-                      kích thước màn hình khác nhau.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Flexbox and Grid:</strong>
-                  <ul>
-                    <li>
-                      Áp dụng Flexbox và CSS Grid để xây dựng layout linh hoạt
-                      và dễ dàng điều chỉnh.
-                    </li>
-                    <li>
-                      Kết hợp hai công nghệ này để tối ưu hóa giao diện cho các
-                      thiết bị khác nhau.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <strong>Navigation Adaptation:</strong>
-                  <ul>
-                    <li>
-                      Thiết kế thanh điều hướng (navbar) linh hoạt, có thể
-                      chuyển đổi thành menu hamburger trên các thiết bị di động.
-                    </li>
-                    <li>
-                      Đảm bảo người dùng dễ dàng truy cập các liên kết điều
-                      hướng trên mọi thiết bị.
-                    </li>
-                  </ul>
-                </li>
+                <li><strong>Nhóm 1:</strong> yêu cầu Req1 và Req2</li>
+                <li><strong>Nhóm 2:</strong> yêu cầu Req3, 4, 5</li>
               </ul>
-              <h4>Additional Considerations:</h4>
-              <ul>
+              <h4>Yêu Cầu Hoàn Thành:</h4>
+              <ol>
+                <li>Đẩy dự án lên GitHub.</li>
                 <li>
-                  Kiểm tra tính tương thích của giao diện trên các trình duyệt
-                  phổ biến.
+                  Cho toàn bộ nội dung vào thư mục
+                  <code>lab5_MaSV_HoTen</code> và nén lại thành tệp
+                  <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
                 </li>
                 <li>
-                  Tối ưu hóa thời gian tải trang bằng cách giảm kích thước tệp
-                  CSS và hình ảnh.
+                  Nếu làm sai yêu cầu, bài tập sẽ bị tính
+                  <strong>0 điểm</strong>.
                 </li>
-                <li>
-                  Đảm bảo mã HTML và CSS được viết sạch sẽ, có tổ chức và dễ bảo
-                  trì.
-                </li>
-              </ul>
+              </ol>
+
+              <!-- Card Container -->
+              <div class="row mt-4">
+                <!-- Card 1 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/5.Req1.png"
+                      class="card-img-top"
+                      alt="Hình ảnh yêu cầu 1"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Yêu cầu 1</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 1 trong bài tập.
+                      </p>
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a></a>
+                    </div>
+                  </div>
+                </div>
+ 
+                <!-- Card 2 -->
+                <div class="col-md-6 mb-4">
+                  <div class="card hover-card">
+                    <img
+                      src="assets/img/5.Req2.png"
+                      class="card-img-top"
+                      alt="Hình ảnh yêu cầu 2"
+                    />
+                    <div class="card-body">
+                      <h5 class="card-title">Yêu cầu 2</h5>
+                      <p class="card-text">
+                        Đây là hình ảnh minh họa cho yêu cầu 2 trong bài tập.
+                      </p>
+                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <!-- Tab Design -->
@@ -755,13 +871,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab8.jpg"
-                    alt="Design On Paper Lab8"
+                    src="assets/img/DesignOnPaperLab5.jpg"
+                    alt="Design On Paper Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab8.jpg"
+                      href="assets/img/DesignOnPaperLab5.jpg"
                       download
                       class="download-btn"
                     >
@@ -774,20 +890,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignLab8.png"
-                    alt="Design On Figma Lab8"
+                    src="assets/img/DesignOnFigmaLab5.png"
+                    alt="Design On Figma Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignLab8.png"
+                      href="assets/img/DesignOnFigmaLab5.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/your-figma-link-lab8"
+                      href="https://www.figma.com/your-figma-link-lab5"
                       target="_blank"
                       class="view-btn"
                     >
@@ -803,14 +919,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab8/responsive_design.html"
+                  src="Lab5/index.html"
                   title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab8/Html/index.html" class="lab-button">
+                <a href="Lab5/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -998,20 +1114,18 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab 8
+      // Hàm thay đổi tab trong Lab 5
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
         tabItems.forEach((item) => {
           item.style.display = "none";
-          item.classList.remove("active");
         });
 
         // Hiển thị tab được chọn
         const selectedTab = document.getElementById(tabId);
         if (selectedTab) {
           selectedTab.style.display = "block";
-          selectedTab.classList.add("active");
         }
 
         // Xóa class active khỏi tất cả các tab

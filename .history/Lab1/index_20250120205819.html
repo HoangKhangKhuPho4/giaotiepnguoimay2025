@@ -68,10 +68,7 @@
               aria-label="Search settings"
               autofocus
             />
-            <div
-              id="autocomplete-list"
-              class="list-group position-absolute w-100"
-            ></div>
+            <div id="autocomplete-list" class="list-group position-absolute w-100"></div>
           </div>
 
           <ul class="nav flex-column" id="menuItems">
@@ -234,9 +231,7 @@
 
                 <!-- New Password -->
                 <div class="mb-3">
-                  <label for="newPassword" class="form-label"
-                    >New Password</label
-                  >
+                  <label for="newPassword" class="form-label">New Password</label>
                   <div class="input-group">
                     <input
                       type="password"
@@ -269,9 +264,7 @@
 
                 <!-- Confirm New Password -->
                 <div class="mb-3">
-                  <label for="confirmPassword" class="form-label"
-                    >Confirm New Password</label
-                  >
+                  <label for="confirmPassword" class="form-label">Confirm New Password</label>
                   <div class="input-group">
                     <input
                       type="password"
@@ -315,9 +308,7 @@
 
                 <!-- Full Name (Optional) -->
                 <div class="mb-3">
-                  <label for="fullName" class="form-label"
-                    >Full Name (optional)</label
-                  >
+                  <label for="fullName" class="form-label">Full Name (optional)</label>
                   <input
                     type="text"
                     class="form-control"
@@ -347,9 +338,7 @@
                 <!-- Integrated Account Section -->
                 <h5>Integrated Accounts</h5>
                 <div class="card">
-                  <div
-                    class="card-body d-flex justify-content-between align-items-center"
-                  >
+                  <div class="card-body d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                       <img
                         src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png"
@@ -362,9 +351,7 @@
                   </div>
                 </div>
                 <div class="card">
-                  <div
-                    class="card-body d-flex justify-content-between align-items-center"
-                  >
+                  <div class="card-body d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                       <img
                         src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png"
@@ -467,9 +454,7 @@
             <div class="modal-body">
               <!-- Username -->
               <div class="mb-3">
-                <label for="loginUsername" class="form-label"
-                  >Tên đăng nhập</label
-                >
+                <label for="loginUsername" class="form-label">Tên đăng nhập</label>
                 <input
                   type="text"
                   class="form-control"
@@ -523,35 +508,28 @@
         const autocompleteList = document.getElementById("autocomplete-list");
 
         // Lấy danh sách các mục menu
-        const menuItems = Array.from(menuLinks).map((link) =>
-          link.textContent.trim()
-        );
+        const menuItems = Array.from(menuLinks).map(link => link.textContent.trim());
 
         searchInput.addEventListener("input", function () {
           const query = this.value.toLowerCase();
-          autocompleteList.innerHTML = ""; // Xóa các gợi ý cũ
+          autocompleteList.innerHTML = ''; // Xóa các gợi ý cũ
 
           if (!query) return;
 
           // Tìm các mục menu phù hợp
-          const filtered = menuItems.filter((item) =>
-            item.toLowerCase().includes(query)
-          );
+          const filtered = menuItems.filter(item => item.toLowerCase().includes(query));
 
           // Hiển thị các gợi ý
-          filtered.forEach((item) => {
+          filtered.forEach(item => {
             const itemElement = document.createElement("button");
             itemElement.type = "button";
-            itemElement.classList.add(
-              "list-group-item",
-              "list-group-item-action"
-            );
+            itemElement.classList.add("list-group-item", "list-group-item-action");
             itemElement.textContent = item;
-
+            
             // Khi click vào gợi ý, điền giá trị vào trường tìm kiếm
             itemElement.addEventListener("click", function () {
               searchInput.value = item;
-              autocompleteList.innerHTML = "";
+              autocompleteList.innerHTML = '';
               // Có thể thêm hành động khi chọn gợi ý nếu cần
             });
 
@@ -562,10 +540,13 @@
         // Đóng danh sách gợi ý khi click ra ngoài
         document.addEventListener("click", function (e) {
           if (e.target !== searchInput) {
-            autocompleteList.innerHTML = "";
+            autocompleteList.innerHTML = '';
           }
         });
       });
+
+
+      
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

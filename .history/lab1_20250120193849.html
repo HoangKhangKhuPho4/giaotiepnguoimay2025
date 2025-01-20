@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 4 - LearnSync</title>
+    <title>Lab 1 - User Interface</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -565,87 +565,6 @@
       .footer-contact p a:hover {
         color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
       }
-
-      /* Card Hover Effect */
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-        overflow: hidden;
-      }
-
-      .hover-card img {
-        transition: transform 0.3s, filter 0.3s;
-      }
-
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-
-      .card {
-        display: flex;
-        flex-direction: column; /* Sắp xếp nội dung theo cột */
-        justify-content: space-between; /* Đảm bảo các phần tách đều */
-        height: 100%; /* Giữ chiều cao thẻ đồng đều */
-      }
-
-      .card-text {
-        flex-grow: 1; /* Cho phép nội dung chiếm khoảng trống */
-        text-align: justify; /* Căn lề đều nội dung */
-      }
-      .card-img-top {
-        width: 100%;
-        height: 200px; /* Chiều cao cố định */
-        object-fit: cover; /* Đảm bảo hình ảnh vừa với khung */
-        border-radius: 5px; /* Giữ bo góc nếu cần */
-      }
-
-      .hover-card {
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
-
-      .hover-card img {
-        transition: transform 0.3s, filter 0.3s;
-      }
-
-      .hover-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .hover-card:hover img {
-        filter: brightness(1.2);
-        transform: scale(1.05);
-      }
-      .card-body {
-        display: flex;
-        flex-direction: column; /* Nội dung trong card sắp xếp theo cột */
-        justify-content: space-between; /* Đảm bảo căn đều nội dung và nút */
-        flex-grow: 1; /* Đảm bảo nội dung kéo dài nếu cần */
-      }
-
-      .card-title {
-        margin-bottom: 15px; /* Thêm khoảng cách dưới tiêu đề */
-        text-align: center; /* Căn giữa tiêu đề nếu cần */
-      }
-
-      .card .btn {
-        background-color: #1e88e5;
-        color: #ffffff;
-        transition: background-color 0.3s;
-      }
-
-      .card .btn:hover {
-        background-color: #1565c0;
-      }
-      .btn {
-        align-self: center; /* Đảm bảo nút ở giữa card */
-        margin-top: auto; /* Đẩy nút xuống cuối card */
-      }
     </style>
   </head>
 
@@ -683,11 +602,14 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 4 - LearnSync</h2>
+        <h2 class="text-center mb-4">Lab 1 - User Interface</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
+          <a
+            href="lab1.html"
+            class="btn btn-primary-custom lab1 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 1
           </a>
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
@@ -696,10 +618,7 @@
           <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
             <i class="bi bi-book"></i> Lab 3
           </a>
-          <a
-            href="lab4.html"
-            class="btn btn-danger-custom lab4 lab-button active"
-          >
+          <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
             <i class="bi bi-book"></i> Lab 4
           </a>
           <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
@@ -734,62 +653,132 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Req4
-                ghép lại thành 1 trang).
+                Cô gửi yêu cầu lab1, thiết kế giao diện cho chức năng user như
+                sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
+                github dạng: <em>XXX.github.com/lab1.html</em>
               </p>
-              <h4>Yêu Cầu Hoàn Thành:</h4>
-              <ol>
-                <li>Đẩy dự án lên GitHub.</li>
+              <h4>User Interface Design Requirements:</h4>
+              <ul>
                 <li>
-                  Cho toàn bộ nội dung vào thư mục
-                  <code>lab4_MaSV_HoTen</code> và nén lại thành tệp
-                  <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
+                  <strong>Text Input (Single-line):</strong> “Username”
+                  <ul>
+                    <li>Must be unique, maximum 255 characters.</li>
+                    <li>
+                      A text box with a hint (placeholder) like "Enter your
+                      username."
+                    </li>
+                  </ul>
                 </li>
                 <li>
-                  Nếu làm sai yêu cầu, bài tập sẽ bị tính
-                  <strong>0 điểm</strong>.
+                  <strong
+                    >Password Input (Single-line with hidden text):</strong
+                  >
+                  “Password”
+                  <ul>
+                    <li>
+                      Minimum password strength check, maximum 255 characters.
+                    </li>
+                    <li>
+                      A text box that hides the text input, with a “Show/Hide”
+                      toggle.
+                    </li>
+                  </ul>
                 </li>
-              </ol>
-
-              <!-- Row chứa 2 card -->
-              <div class="row mt-4">
-                <!-- Card 1 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req1.png"
-                      class="card-img-top"
-                      alt="Card Image 1"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 1</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
-                        với nội dung dài hơn một chút để kiểm tra.
-                      </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req2.png"
-                      class="card-img-top"
-                      alt="Card Image 2"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 2</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh thứ hai. Đây là một ví dụ.
-                      </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <li>
+                  <strong>Email Input:</strong> “Email Address”
+                  <ul>
+                    <li>
+                      Must be a valid email format and unique, maximum 255
+                      characters.
+                    </li>
+                    <li>
+                      A text box with a placeholder like "Enter your email."
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Text Input (Single-line):</strong> “Full Name”
+                  <em>(optional)</em>
+                  <ul>
+                    <li>
+                      A regular text box, with a placeholder like "Enter your
+                      full name."
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Dropdown / Select Menu:</strong> “Role”
+                  <ul>
+                    <li>Required field.</li>
+                    <li>
+                      A dropdown menu listing the available roles fetched from
+                      the system (e.g., Admin, User, etc.).
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>File Upload or URL Input (for image URL):</strong>
+                  “Profile Picture”
+                  <ul>
+                    <li>
+                      An upload button or URL field that allows users to upload
+                      or enter a URL for their profile picture, with a preview
+                      box for the image.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Text or Date Display (Read-only):</strong> “Account
+                  Created At”
+                  <ul>
+                    <li>
+                      Automatically populated field, no input needed. Display
+                      this as a timestamp or date.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Text or Date Display (Read-only):</strong> “Last
+                  Updated At”
+                  <ul>
+                    <li>
+                      Automatically updated field when the user’s information is
+                      edited. Display this as a timestamp or date.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Button:</strong> “Create Account” / “Save Changes”
+                  (depending on context)
+                  <ul>
+                    <li>
+                      A primary action button that submits the form. Ensure it's
+                      disabled until all required fields are validated.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Button <em>(Optional)</em>:</strong> “Cancel”
+                  <ul>
+                    <li>
+                      A secondary action button that cancels the form submission
+                      and returns the user to the previous page.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <h4>Additional Considerations:</h4>
+              <ul>
+                <li>
+                  Use inline validation messages under each input field for
+                  errors like "Username is already taken" or "Invalid email
+                  format."
+                </li>
+                <li>
+                  Ensure the form is responsive, working well on both desktop
+                  and mobile.
+                </li>
+              </ul>
             </div>
 
             <!-- Tab Design -->
@@ -800,13 +789,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
-                    alt="Design On Paper Lab4"
+                    src="assets/img/DesignPaperUser.jpg"
+                    alt="Design On Paper"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
+                      href="assets/img/DesignPaperUser.jpg"
                       download
                       class="download-btn"
                     >
@@ -819,20 +808,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignFigmaLab4.png"
-                    alt="Design On Figma Lab4"
+                    src="assets/img/DesignUser.png"
+                    alt="Design On Figma"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignFigmaLab4.png"
+                      href="assets/img/DesignUser.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/design/3TEmoeO2EAMf7Lf2UK1tYE/lab4.html?node-id=0-1&t=BV3n3q53BlWoIJ4R-1"
+                      href="https://www.figma.com/design/9ZbI2z9SIc5ouBDAX2aPn1/lab1.html?node-id=0-1&t=m5bpMzLL7evHxWFH-1"
                       target="_blank"
                       class="view-btn"
                     >
@@ -848,14 +837,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab4/index.html"
-                  title="data_visualization"
+                  src="Lab1/index.html"
+                  title="user_interface"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab4/index.html" class="lab-button">
+                <a href="Lab1/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -864,6 +853,24 @@
         </div>
       </div>
     </main>
+    <div id="implement" class="tab-item">
+      <h3>Implement</h3>
+      <div class="iframe-container">
+        <iframe
+          src="Lab1/index.html"
+          title="user_interface"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <!-- Review Pages Button -->
+      <div class="button-group" style="margin-top: 20px">
+        <div class="button-group" style="margin-top: 20px">
+          <a href="Lab1/index.html" id="review-btn">
+            <i class="bi bi-eye"></i> Review Pages
+          </a>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -1043,7 +1050,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab
+      // Hàm thay đổi tab trong Lab 1
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");

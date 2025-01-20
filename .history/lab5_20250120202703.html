@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 4 - LearnSync</title>
+    <title>Lab 5 - LearningHub Responsive Web</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -574,6 +574,8 @@
 
       .hover-card img {
         transition: transform 0.3s, filter 0.3s;
+        width: 100%;
+        height: auto;
       }
 
       .hover-card:hover {
@@ -588,20 +590,97 @@
 
       .card {
         display: flex;
-        flex-direction: column; /* Sắp xếp nội dung theo cột */
-        justify-content: space-between; /* Đảm bảo các phần tách đều */
-        height: 100%; /* Giữ chiều cao thẻ đồng đều */
+        flex-direction: column; /* Sắp xếp theo cột */
+        justify-content: space-between; /* Tách đều nội dung trong card */
+        height: 100%; /* Giữ card đồng đều */
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Đảm bảo văn bản và nút không chèn lấn */
+        flex-grow: 1; /* Cho phép nội dung phát triển */
+      }
+
+      .card-title {
+        margin-bottom: 15px; /* Khoảng cách dưới tiêu đề */
+        text-align: center; /* Căn giữa tiêu đề */
       }
 
       .card-text {
-        flex-grow: 1; /* Cho phép nội dung chiếm khoảng trống */
-        text-align: justify; /* Căn lề đều nội dung */
+        flex-grow: 1; /* Đảm bảo nội dung chiếm khoảng trống */
+        text-align: justify; /* Căn đều nội dung văn bản */
       }
-      .card-img-top {
-        width: 100%;
-        height: 200px; /* Chiều cao cố định */
-        object-fit: cover; /* Đảm bảo hình ảnh vừa với khung */
-        border-radius: 5px; /* Giữ bo góc nếu cần */
+
+      .btn-view-details {
+        align-self: center; /* Đảm bảo nút ở giữa ngang hàng */
+        margin-top: auto; /* Đẩy nút xuống cuối card */
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 16px;
+        color: #ffffff;
+        background: linear-gradient(45deg, #1e90ff, #1565c0);
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+        border: none;
+      }
+
+      .btn-view-details:hover {
+        background: linear-gradient(45deg, #1565c0, #0d47a1);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .btn-view-details:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5);
+      }
+
+  /* Ảnh có chiều cao cố định và cắt vừa khung */
+.card-img-top {
+  width: 100%;
+  height: 250px; /* Chọn chiều cao phù hợp, 250px, 300px... */
+  object-fit: cover; 
+}
+
+      .footer-contact p a:hover {
+        color: hsl(220, 100%, 60%); /* Màu xanh nhạt hơn khi hover */
+      }
+      /* Card Hover Effect */
+      .hover-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+      }
+
+      .hover-card img {
+        transition: transform 0.3s, filter 0.3s;
+      }
+
+      .hover-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .hover-card:hover img {
+        filter: brightness(1.2);
+        transform: scale(1.05);
+      }
+
+      /* Card Layout */
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-text {
+        margin-bottom: 15px;
       }
 
       .hover-card {
@@ -621,16 +700,9 @@
         filter: brightness(1.2);
         transform: scale(1.05);
       }
-      .card-body {
-        display: flex;
-        flex-direction: column; /* Nội dung trong card sắp xếp theo cột */
-        justify-content: space-between; /* Đảm bảo căn đều nội dung và nút */
-        flex-grow: 1; /* Đảm bảo nội dung kéo dài nếu cần */
-      }
 
-      .card-title {
-        margin-bottom: 15px; /* Thêm khoảng cách dưới tiêu đề */
-        text-align: center; /* Căn giữa tiêu đề nếu cần */
+      .card .card-body {
+        text-align: center;
       }
 
       .card .btn {
@@ -641,10 +713,6 @@
 
       .card .btn:hover {
         background-color: #1565c0;
-      }
-      .btn {
-        align-self: center; /* Đảm bảo nút ở giữa card */
-        margin-top: auto; /* Đẩy nút xuống cuối card */
       }
     </style>
   </head>
@@ -683,7 +751,7 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 4 - LearnSync</h2>
+        <h2 class="text-center mb-4">Lab 5 - LearningHub Responsive Web</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
@@ -696,13 +764,13 @@
           <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
             <i class="bi bi-book"></i> Lab 3
           </a>
-          <a
-            href="lab4.html"
-            class="btn btn-danger-custom lab4 lab-button active"
-          >
+          <a href="lab4.html" class="btn btn-danger-custom lab4 lab-button">
             <i class="bi bi-book"></i> Lab 4
           </a>
-          <a href="lab5.html" class="btn btn-warning-custom lab5 lab-button">
+          <a
+            href="lab5.html"
+            class="btn btn-warning-custom lab5 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 5
           </a>
           <a href="lab6.html" class="btn btn-info-custom lab6 lab-button">
@@ -733,16 +801,17 @@
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
-              <p>
-                Cô gửi bài tập làm trên lớp của nhóm 2 (yêu cầu Req3 và Req4
-                ghép lại thành 1 trang).
-              </p>
+              <p>Cô gửi bài tập làm trên lớp:</p>
+              <ul>
+                <li><strong>Nhóm 1:</strong> yêu cầu Req1 và Req2</li>
+                <li><strong>Nhóm 2:</strong> yêu cầu Req3, 4, 5</li>
+              </ul>
               <h4>Yêu Cầu Hoàn Thành:</h4>
               <ol>
                 <li>Đẩy dự án lên GitHub.</li>
                 <li>
                   Cho toàn bộ nội dung vào thư mục
-                  <code>lab4_MaSV_HoTen</code> và nén lại thành tệp
+                  <code>lab5_MaSV_HoTen</code> và nén lại thành tệp
                   <code>.zip</code> (chỉ chấp nhận tệp <code>.zip</code>).
                 </li>
                 <li>
@@ -750,46 +819,44 @@
                   <strong>0 điểm</strong>.
                 </li>
               </ol>
+<!-- Thêm class row-equal-height hoặc tuỳ bạn đặt tên -->
+<div class="row row-equal-height mt-4">
+  <!-- Mỗi cột cũng d-flex để ép Card full-height -->
+  <div class="col-md-6 mb-4 d-flex">
+    <div class="card hover-card">
+      <img
+        src="assets/img/5.Req1.png"
+        class="card-img-top"
+        alt="Hình ảnh yêu cầu 1"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Yêu cầu 1</h5>
+        <p class="card-text">
+          Đây là hình ảnh minh họa cho yêu cầu 1 trong bài tập.
+        </p>
+        <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+      </div>
+    </div>
+  </div>
 
-              <!-- Row chứa 2 card -->
-              <div class="row mt-4">
-                <!-- Card 1 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req1.png"
-                      class="card-img-top"
-                      alt="Card Image 1"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 1</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh đầu tiên. Đây là một ví dụ
-                        với nội dung dài hơn một chút để kiểm tra.
-                      </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
-                    </div>
-                  </div>
-                </div>
+  <div class="col-md-6 mb-4 d-flex">
+    <div class="card hover-card">
+      <img
+        src="assets/img/5.Req2.png"
+        class="card-img-top"
+        alt="Hình ảnh yêu cầu 2"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Yêu cầu 2</h5>
+        <p class="card-text">
+          Đây là hình ảnh minh họa cho yêu cầu 2 trong bài tập.
+        </p>
+        <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
+      </div>
+    </div>
+  </div>
+</div>
 
-                <!-- Card 2 -->
-                <div class="col-md-6 mb-4">
-                  <div class="card hover-card">
-                    <img
-                      src="assets/img/Req2.png"
-                      class="card-img-top"
-                      alt="Card Image 2"
-                    />
-                    <div class="card-body">
-                      <h5 class="card-title">Hình Ảnh 2</h5>
-                      <p class="card-text">
-                        Mô tả ngắn gọn về hình ảnh thứ hai. Đây là một ví dụ.
-                      </p>
-                      <a href="#" class="btn btn-primary">Xem Chi Tiết</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <!-- Tab Design -->
@@ -800,13 +867,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="assets/img/DesignPaperLab4_Nhom1.jpg"
-                    alt="Design On Paper Lab4"
+                    src="assets/img/DesignOnPaperLab5.jpg"
+                    alt="Design On Paper Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignPaperLab4_Nhom1.jpg"
+                      href="assets/img/DesignOnPaperLab5.jpg"
                       download
                       class="download-btn"
                     >
@@ -819,20 +886,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="assets/img/DesignFigmaLab4.png"
-                    alt="Design On Figma Lab4"
+                    src="assets/img/DesignOnFigmaLab5.png"
+                    alt="Design On Figma Lab5"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="assets/img/DesignFigmaLab4.png"
+                      href="assets/img/DesignOnFigmaLab5.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/design/3TEmoeO2EAMf7Lf2UK1tYE/lab4.html?node-id=0-1&t=BV3n3q53BlWoIJ4R-1"
+                      href="https://www.figma.com/your-figma-link-lab5"
                       target="_blank"
                       class="view-btn"
                     >
@@ -848,14 +915,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab4/index.html"
-                  title="data_visualization"
+                  src="Lab5/index.html"
+                  title="responsive_design"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab4/index.html" class="lab-button">
+                <a href="Lab5/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -1043,7 +1110,7 @@
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
     <script>
-      // Hàm thay đổi tab trong Lab
+      // Hàm thay đổi tab trong Lab 5
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
