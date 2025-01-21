@@ -1,0 +1,35 @@
+/* Scroll Top Button */
+.scroll-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  background-color: var(
+    --accent-color,
+    #007bff
+  ); /* Sử dụng biến màu hoặc màu mặc định */
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s, background-color 0.3s;
+  z-index: 1000;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background-color: #0056b3; /* Màu nền khi hover */
+}
+
+.scroll-top i {
+  font-size: 24px;
+}
