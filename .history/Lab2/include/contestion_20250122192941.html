@@ -454,6 +454,10 @@
       </div>
     </div>
 
+    <div class="footer">
+      &copy; 2023 Code Ninjas Contest. All rights reserved.
+    </div>
+
     <!-- Script gửi chiều cao -->
     <script>
       function sendHeight() {
@@ -479,7 +483,7 @@
 
     <!-- Bootstrap JS Bundle (bao gồm Popper) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    
     <!-- Script Phân Trang -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -494,62 +498,48 @@
 
         // Hàm hiển thị các mục thuộc trang hiện tại
         function displayPage(page) {
-          const listItems = document.querySelectorAll(
-            ".past-contests .list-group-item"
-          );
-          const paginatedItems = paginate(
-            Array.from(listItems),
-            page,
-            itemsPerPage
-          );
+          const listItems = document.querySelectorAll('.past-contests .list-group-item');
+          const paginatedItems = paginate(Array.from(listItems), page, itemsPerPage);
 
           listItems.forEach((item) => {
             if (paginatedItems.includes(item)) {
-              item.style.display = "flex";
+              item.style.display = 'flex';
             } else {
-              item.style.display = "none";
+              item.style.display = 'none';
             }
           });
 
           // Cập nhật active page
-          const paginationLinks = document.querySelectorAll(
-            ".pagination .page-link"
-          );
-          paginationLinks.forEach((link) => {
-            link.parentElement.classList.remove("active");
+          const paginationLinks = document.querySelectorAll('.pagination .page-link');
+          paginationLinks.forEach(link => {
+            link.parentElement.classList.remove('active');
             if (parseInt(link.textContent) === page) {
-              link.parentElement.classList.add("active");
+              link.parentElement.classList.add('active');
             }
           });
         }
 
         // Hàm tạo các nút phân trang động
         function setupPagination() {
-          const listItems = document.querySelectorAll(
-            ".past-contests .list-group-item"
-          );
+          const listItems = document.querySelectorAll('.past-contests .list-group-item');
           const totalPages = Math.ceil(listItems.length / itemsPerPage);
-          const pagination = document.querySelector(".pagination");
+          const pagination = document.querySelector('.pagination');
 
-          pagination.innerHTML = ""; // Xóa nội dung phân trang hiện tại
+          pagination.innerHTML = ''; // Xóa nội dung phân trang hiện tại
 
           // Tạo nút "Trước" nếu cần
           if (totalPages > 1) {
-            const prevLi = document.createElement("li");
-            prevLi.classList.add("page-item");
+            const prevLi = document.createElement('li');
+            prevLi.classList.add('page-item');
 
-            const prevLink = document.createElement("a");
-            prevLink.classList.add("page-link");
-            prevLink.href = "#";
-            prevLink.textContent = "Previous";
-            prevLink.addEventListener("click", (e) => {
+            const prevLink = document.createElement('a');
+            prevLink.classList.add('page-link');
+            prevLink.href = '#';
+            prevLink.textContent = 'Previous';
+            prevLink.addEventListener('click', (e) => {
               e.preventDefault();
-              const currentActive = document.querySelector(
-                ".pagination .active .page-link"
-              );
-              let currentPage = currentActive
-                ? parseInt(currentActive.textContent)
-                : 1;
+              const currentActive = document.querySelector('.pagination .active .page-link');
+              let currentPage = currentActive ? parseInt(currentActive.textContent) : 1;
               if (currentPage > 1) {
                 displayPage(currentPage - 1);
               }
@@ -561,14 +551,14 @@
 
           // Tạo các nút số trang
           for (let i = 1; i <= totalPages; i++) {
-            const li = document.createElement("li");
-            li.classList.add("page-item");
+            const li = document.createElement('li');
+            li.classList.add('page-item');
 
-            const a = document.createElement("a");
-            a.classList.add("page-link");
-            a.href = "#";
+            const a = document.createElement('a');
+            a.classList.add('page-link');
+            a.href = '#';
             a.textContent = i;
-            a.addEventListener("click", (e) => {
+            a.addEventListener('click', (e) => {
               e.preventDefault();
               displayPage(i);
             });
@@ -579,21 +569,17 @@
 
           // Tạo nút "Sau" nếu cần
           if (totalPages > 1) {
-            const nextLi = document.createElement("li");
-            nextLi.classList.add("page-item");
+            const nextLi = document.createElement('li');
+            nextLi.classList.add('page-item');
 
-            const nextLink = document.createElement("a");
-            nextLink.classList.add("page-link");
-            nextLink.href = "#";
-            nextLink.textContent = "Next";
-            nextLink.addEventListener("click", (e) => {
+            const nextLink = document.createElement('a');
+            nextLink.classList.add('page-link');
+            nextLink.href = '#';
+            nextLink.textContent = 'Next';
+            nextLink.addEventListener('click', (e) => {
               e.preventDefault();
-              const currentActive = document.querySelector(
-                ".pagination .active .page-link"
-              );
-              let currentPage = currentActive
-                ? parseInt(currentActive.textContent)
-                : 1;
+              const currentActive = document.querySelector('.pagination .active .page-link');
+              let currentPage = currentActive ? parseInt(currentActive.textContent) : 1;
               if (currentPage < totalPages) {
                 displayPage(currentPage + 1);
               }
