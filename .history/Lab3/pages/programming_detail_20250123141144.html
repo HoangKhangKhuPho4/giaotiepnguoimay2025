@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <script src="./js/bootstrap.bundle.min.js"></script> -->
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="../css/lab3.css">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Lab 3</title>
+</head>
+
+<body class="bg-gray">
+    
+    <div class="center pb-5">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb bg-white py-2 px-3 border shadow">
+                <li class="breadcrumb-item"><a href="share_learning_overview.html" class="text-decoration-none text-blue-color">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Detail</li>
+            </ol>
+        </nav>
+        
+
+        <div class="container">
+            <div class="lab3_content row my-5 mx-4">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10 bg-white dark-shadow p-0">
+                    <!-- noi dung Java -->
+                    <div class="lesson_detail_content" id="Java" style="display: none;">
+                        <header class="container border-bottom">
+                            <div class="row text-center  align-items-center p-3">
+                                <a href="./Lab3_cardMenu.html" class="col-1 fs-3"><i class="fa fa-chevron-left"></i></a>
+                                <h3 class="col-10 m-0 p-0 fw-bold">Ngôn ngữ Java</h3>
+                            </div>
+                            
+                        </header>
+                        
+                        <div class="container mb-2 border-bottom">
+                            <div class="row">
+                                <div class="navigation-bar flex-shrink-0 bg-white col-sm-3 p-0 border-end sticky-top">
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-1">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center"
+                                                data-bs-toggle="collapse" data-bs-target="#java-collapse" aria-expanded="true">
+                                                <span class="fw-bold">Bài giảng</span>
+                                                <i class="fas fa-angle-down rotate-icon "></i>
+                                            </a>
+                                            <div class="collapse show" id="java-collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small text-center">
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link active"
+                                                            href="#Java1_1" onclick="changeMenu_link(event)">Java là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Java1_2" onclick="changeMenu_link(event)">Ngôn ngữ lập trình Java có công dụng gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Java1_3" onclick="changeMenu_link(event)">Vì sao Java lại trở thành một lựa chọn phổ biến của
+                                                            các nhà phát triển phần mềm hiện đại?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Java1_4" onclick="changeMenu_link(event)">Java hoạt động như thế nào?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Java1_5" onclick="changeMenu_link(event)">API Java là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Java1_6" onclick="changeMenu_link(event)">Máy ảo Java là gì?</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#Java2" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Bài tập</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#Java3" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Tài liệu tham khảo</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="col-sm-9" style="height: 600px;">
+                                    <div class="overflow-auto h-100">
+                                        <div id="Java1" class="section border-top mt-3">
+                                            <h3 class="fw-bold"><em>Bài giảng</em></h3>
+                                            <div id="Java1_1" class="section_sub">
+                                                <h4 class="fw-bold">Java là gì?</h4>
+                                                <p>Java là một ngôn ngữ lập trình được sử dụng rộng rãi để viết mã cho các ứng dụng web. Ngôn ngữ
+                                                    này là lựa chọn phổ
+                                                    biến của các nhà phát triển trong hơn 2 thập niên. Hiện nay có hàng triệu ứng dụng Java đang
+                                                    được sử dụng. Java là
+                                                    một ngôn ngữ đa nền tảng, hướng đến đối tượng, lấy mạng làm trung tâm và có thể được sử dụng như
+                                                    một nền tảng. Đây
+                                                    là một ngôn ngữ lập trình nhanh, bảo mật, đáng tin cậy dùng để viết mã cho mọi thứ từ ứng dụng
+                                                    di động, phần mềm
+                                                    doanh nghiệp cho đến các ứng dụng dữ liệu lớn và công nghệ phía máy chủ.</p>
+                                            </div>
+                            
+                                            <div id="Java1_2" class="section_sub">
+                                                <h3 class="fw-bold">Ngôn ngữ lập trình Java có công dụng gì?</h3>
+                                                <h4 class="fw-bold">Ngôn ngữ lập trình Java có công dụng gì?</h4>
+                                                <p>Vì Java là một ngôn ngữ miễn phí và linh hoạt, nó có thể được dùng để phát triển các phần mềm cục
+                                                    bộ và phân tán.
+                                                    Một số công dụng phổ biến của Java bao gồm:</p>
+                                                <h4 class="fw-bold">1. &nbsp; &nbsp; Phát triển trò chơi</h4>
+                                                <p>Nhiều trò chơi điện tử, trò chơi máy tính và di động nổi tiếng được phát triển bằng Java. Ngay cả
+                                                    những trò chơi
+                                                    hiện đại được tích hợp công nghệ tiên tiến như máy học hay thực tế
+                                                    ảo cũng được xây dựng bằng công nghệ Java.</p>
+                                                <h4 class="fw-bold">2. &nbsp; &nbsp; Điện toán đám mây</h4>
+                                                <p>Java thường được gọi là ngôn ngữ WORA (Viết một lần, chạy ở mọi nơi), khiến nó trở thành ngôn ngữ
+                                                    lý tưởng cho
+                                                    các ứng dụng phi tập trung dựa trên đám mây. Các nhà cung cấp đám mây chọn ngôn ngữ Java để chạy
+                                                    các chương
+                                                    trình trên nhiều nền tảng cơ sở khác nhau.</p>
+                                                <h4 class="fw-bold">3. &nbsp; &nbsp; Dữ liệu lớn</h4>
+                                                <p>Java được dùng cho các công cụ xử lý dữ liệu có thể làm việc với những tập dữ liệu phức tạp và số
+                                                    lượng dữ liệu
+                                                    thời gian thực khổng lồ.</p>
+                                                <h4 class="fw-bold">4. &nbsp; &nbsp; Trí tuệ nhân tạo</h4>
+                                                <p>Java là một trung tâm thư viện máy học đồ sộ. Sự ổn định và tốc độ của ngôn ngữ này rất lý tưởng
+                                                    cho việc phát
+                                                    triển ứng dụng trí tuệ nhân tạo như xử lý ngôn ngữ tự nhiên và học sâu.</p>
+                                                <h4 class="fw-bold">5. &nbsp; &nbsp; Internet of Things</h4>
+                                                <p>Java đã được sử dụng để lập trình các cảm biến và phần cứng trong thiết bị biên có thể kết nối
+                                                    một cách độc lập
+                                                    với Internet.</p>
+                                            </div>
+                            
+                                            <div id="Java1_3" class="section_sub">
+                                                <h3 class="fw-bold">Vì sao Java lại trở thành một lựa chọn phổ biến của các nhà phát triển phần mềm hiện đại?</h3>
+                                                <p>Java phổ biến vì nó được thiết kế để có thể dễ dàng sử dụng. Một số lý do mà nhà phát triển tiếp
+                                                    tục chọn Java
+                                                    thay vì những ngôn ngữ lập trình khác bao gồm:</p>
+                                                <h4 class="fw-bold">Tài nguyên học tập chất lượng cao</h4>
+                                                <p>Java đã ra mắt từ lâu nên các nhà phát triển mới có thể tiếp cận rất nhiều tài nguyên học tập.
+                                                    Tài liệu chi tiết,
+                                                    những cuốn sách toàn diện và các khóa học sẽ&nbsp;hỗ trợ nhà phát triển trong quá trình học hỏi.
+                                                    Ngoài ra, người
+                                                    mới làm quen có thể bắt đầu viết mã bằng Java Cơ bản trước khi chuyển sang Java Nâng cao.</p>
+                                                <h4 class="fw-bold">Các chức năng và thư viện sẵn có</h4>
+                                                <p>Khi sử dụng Java, nhà phát triển không cần phải viết mọi chức năng mới từ đầu. Thay vào đó, Java
+                                                    cung cấp một hệ
+                                                    sinh thái phong phú gồm các chức năng và thư viện sẵn có để phát triển hàng loạt ứng dụng đa
+                                                    dạng.&nbsp;</p>
+                                                <h4 class="fw-bold">Sự hỗ trợ tích cực của cộng đồng</h4>
+                                                <p>Java có rất nhiều người dùng hoạt động và một cộng đồng có thể hỗ trợ nhà phát triển khi họ đối
+                                                    mặt với các thách
+                                                    thức trong việc viết mã. Phần mềm nền tảng Java cũng được duy trì và cập nhật thường xuyên.</p>
+                                                <h4 class="fw-bold">Công cụ phát triển chất lượng cao</h4>
+                                                <p>Java cung cấp nhiều công cụ khác nhau để hỗ trợ chỉnh sửa tự động, gỡ lỗi, thử nghiệm, triển khai
+                                                    và quản lý thay
+                                                    đổi. Những công cụ này khiến việc lập trình bằng Java tiết kiệm thời gian và chi phí.</p>
+                                                <h4 class="fw-bold">Độc lập với nền tảng</h4>
+                                                <p>Mã Java có thể chạy trên bất kỳ nền tảng cơ sở nào như Windows, Linux, iOS hoặc Android mà không
+                                                    cần viết lại.
+                                                    Đây là điều khiến ngôn ngữ này trở nên đặc biệt mạnh mẽ trong môi trường hiện nay khi chúng ta
+                                                    muốn chạy ứng
+                                                    dụng trên nhiều thiết bị.</p>
+                                                <h4 class="fw-bold">Bảo mật</h4>
+                                                <p>Người dùng có thể tải mã Java không tin cậy từ trên mạng xuống và chạy mã này trong môi trường
+                                                    bảo mật để nó
+                                                    không thể gây hại. Mã không tin cậy sẽ không thể lây nhiễm vi-rút cho hệ thống máy chủ và cũng
+                                                    không thể đọc
+                                                    hoặc ghi tệp từ ổ cứng. Bạn cũng có thể cấu hình nhiều cấp độ và hạn chế bảo mật trong Java.</p>
+                                            </div>
+                            
+                                            <div id="Java1_4" class="section_sub">
+                                                <h3 class="fw-bold">Java hoạt động như thế nào?</h3>
+                                                <p>Mọi ngôn ngữ lập trình đều là phương thức để giao tiếp với máy. Phần cứng của máy chỉ phản hồi
+                                                    thông tin giao
+                                                    tiếp điện tử. Các ngôn ngữ lập trình cấp độ cao như Java đóng vai trò là cầu nối giữa ngôn ngữ
+                                                    con người và ngôn
+                                                    ngữ phần cứng. Để sử dụng Java, nhà phát triển cần phải hiểu được 2 điều:</p>
+                                                <h4 class="fw-bold">1. Ngôn ngữ và API Java</h4>
+                                                <p>Đây là hoạt động giao tiếp front-end giữa nhà phát triển và nền tảng Java.</p>
+                                                <h4 class="fw-bold">2. Máy ảo Java</h4>
+                                                <p>Đây là hoạt động giao tiếp back-end giữa nền tảng Java và phần cứng cơ sở. Hãy cùng xem xét chi
+                                                    tiết từng yếu tố
+                                                    này ở bên dưới.</p>
+                                            </div>
+                            
+                                            <div id="Java1_5" class="section_sub">
+                                                <h3 class="fw-bold">API Java là gì?</h3>
+                                                <p>Java xác định cú pháp và ngữ nghĩa của ngôn ngữ lập trình Java. Ngôn ngữ này bao gồm từ vựng và
+                                                    quy tắc cơ bản
+                                                    được sử dụng để viết thuật toán như kiểu dữ liệu nguyên thủy, khối if/else, vòng lặp, v.v.</p>
+                                                <p>API là các thành phần phần mềm quan trọng đi kèm với Nền tảng Java. Đây là những chương trình
+                                                    Java viết sẵn có
+                                                    thể “cắm vào là chạy” chức năng hiện tại trong mã của riêng bạn. Ví dụ: Bạn có thể dùng API Java
+                                                    để nhận ngày
+                                                    giờ, thực hiện các phép toán hoặc điều chỉnh văn bản.&nbsp;</p>
+                                                <p>Mọi mã ứng dụng Java do nhà phát triển viết ra thường sẽ kết hợp cả mã mới và cũ từ API và thư
+                                                    viện Java.</p>
+                                            </div>
+                            
+                                            <div id="Java1_6" class="section_sub">
+                                                <h3 class="fw-bold">Máy ảo Java là gì?</h3>
+                                                <p>Máy ảo Java đóng vai trò là một lớp trừu tượng bổ sung giữa nền tảng Java và phần cứng máy cơ sở.
+                                                    Mã nguồn Java
+                                                    chỉ có thể chạy trên những máy cài đặt JVM. Câu trả lời cho câu hỏi vì sao lại cần đến Máy ảo
+                                                    Java nằm ở lịch sử
+                                                    lập trình.</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="Java2" class="section border-top">
+                                            <h3 class="fw-bold"><em>Bài tập</em></h3>
+                                            <div id="Java2_1" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 1:</h4>
+                                                <p>Viết chương trình Java mà khi chạy, màn hình console sẽ cho phép ta nhập vào một số nguyên, in ra
+                                                    màn hình “Đây
+                                                    là số nguyên dương”. Nếu số vừa nhập vào là một số lớn hơn hoặc bằng 0, ngược lại in ra “Đây là
+                                                    số nguyên âm”.
+                                                </p>
+                            
+                                            </div>
+                                            <div id="Java2_2" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 2:</h4>
+                                                <p>Viết chương trình cho phép nhập vào một số nguyên dạng số, sau khi chạy thì chương trình sẽ ghi
+                                                    số đó ra dưới
+                                                    dạng chữ. VD: 1 -> Một, 2 -> Hai, …</p>
+                                            </div>
+                                            <div id="Java2_3" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 3:</h4>
+                                                <p>Viết chương trình cho phép nhập vào một số nguyên dương n, tính tổng tất cả số chẵn trong khoảng
+                                                    từ 0 - n.
+                                                </p>
+                                            </div>
+                                            <div id="Java2_4" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 4:</h4>
+                                                <p>Viết chương trình để nhập nhập một số nguyên, tìm kết quả phép nhân của số đó với các số từ 1 -
+                                                    20 , sau đó in
+                                                    kết quả ra màn hình.</p>
+                                            </div>
+                                        </div>
+                                        <div id="Java3" class="section border-top">
+                                            <h3 class="fw-bold"><em>Tài liệu tham khảo</em></h3>
+                                            <p>
+                                                Khi học ngôn ngữ lập trình Java, có nhiều tài liệu tham khảo phong phú và hữu ích, bao gồm sách,
+                                                trang web, và
+                                                các khóa học trực tuyến. Dưới đây là một số tài liệu mà bạn có thể tham khảo:</p>
+                                            <h4 class="fw-bold">1. <strong>Sách học Java:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>"Head First Java" (by Kathy Sierra, Bert Bates)</strong><br>Đây là một trong những
+                                                        cuốn sách kinh
+                                                        điển cho người mới bắt đầu học Java. Cách tiếp cận sinh động, hình ảnh trực quan và các ví
+                                                        dụ thực tiễn
+                                                        giúp người đọc dễ hiểu.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Effective Java" (by Joshua Bloch)</strong><br>Cuốn sách này dành cho những người đã
+                                                        nắm cơ bản
+                                                        về Java và muốn nâng cao kỹ năng lập trình. Nó cung cấp nhiều nguyên tắc và mẹo lập trình
+                                                        Java hiệu quả,
+                                                        thực tế.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Java: The Complete Reference" (by Herbert Schildt)</strong><br>Đây là một tài liệu
+                                                        toàn diện cho
+                                                        việc học và tham khảo về Java, từ cơ bản đến nâng cao, bao gồm cả các khái niệm về Java SE
+                                                        (Standard
+                                                        Edition).</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Java Concurrency in Practice" (by Brian Goetz)</strong><br>Cuốn sách này đi sâu vào
+                                                        lập trình đa
+                                                        luồng và song song, là một tài liệu tham khảo rất giá trị cho lập trình viên Java muốn hiểu
+                                                        rõ về đồng
+                                                        thời (Concurrency).</p>
+                                                </li>
+                                            </ul>
+                            
+                                            <h4 class="fw-bold">2. <strong>Trang web học Java:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>Oracle Java Documentation</strong><br>Đây là tài liệu chính thức của Oracle về Java.
+                                                        Bạn có thể tìm
+                                                        thấy mọi thứ liên quan đến API, ngôn ngữ, và các phiên bản Java khác nhau tại đây.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>JavaTpoint</strong><br>Đây là một trang web có nhiều tài liệu học Java từ cơ bản đến
+                                                        nâng cao. Các ví
+                                                        dụ minh họa cụ thể giúp bạn dễ dàng tiếp cận ngôn ngữ này.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>w3schools Java Tutorial</strong><br>Trang web này nổi tiếng với các khóa học về nhiều
+                                                        ngôn ngữ lập
+                                                        trình, bao gồm Java. Đây là nguồn tài liệu dễ tiếp cận với nhiều ví dụ đơn giản.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>GeeksforGeeks - Java Programming Language</strong><br>Cung cấp tài liệu và bài viết
+                                                        về nhiều chủ đề
+                                                        khác nhau trong Java, từ cơ bản đến các kỹ thuật phức tạp.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Noi dung Python -->
+                    <div class="lesson_detail_content" id="Python" style="display: none;">
+                        <header class="container border-bottom">
+                            <div class="row text-center  align-items-center p-3">
+                                <a href="./Lab3_cardMenu.html" class="col-1 fs-3"><i class="fa fa-chevron-left"></i></a>
+                                <h3 class="col-10 m-0 p-0 fw-bold">Ngôn ngữ Python</h3>
+                            </div>
+                            
+                        </header>
+                        
+                        <div class="container mb-2 border-bottom">
+                            <div class="row">
+                                <div class="navigation-bar flex-shrink-0 bg-white col-sm-3 p-0 border-end sticky-top">
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-1">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center"
+                                                data-bs-toggle="collapse" data-bs-target="#java-collapse" aria-expanded="true">
+                                                <span class="fw-bold">Bài giảng</span>
+                                                <i class="fas fa-angle-down rotate-icon "></i>
+                                            </a>
+                                            <div class="collapse show" id="java-collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small text-center">
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a
+                                                            class="link-dark rounded text-decoration-none fw-bold submenu_link active" href="#Python1_1"
+                                                            onclick="changeMenu_link(event)">Python là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Python1_2" onclick="changeMenu_link(event)">Python mang lại những lợi ích gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Python1_3" onclick="changeMenu_link(event)">Python được sử dụng như thế nào?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Python1_4" onclick="changeMenu_link(event)">Python có lịch sử như thế nào?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Python1_5" onclick="changeMenu_link(event)">Python có những đặc điểm gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Python1_6" onclick="changeMenu_link(event)">Thư viện Python là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#Python1_7" onclick="changeMenu_link(event)">Python IDE là gì?</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#Python2" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Bài tập</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#Python3" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Tài liệu tham khảo</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="col-sm-9" style="height: 600px;">
+                                    <div class="overflow-auto h-100">
+                                        <div id="Python1" class="section">
+                                            <h3 class="fw-bold"><em>Bài giảng</em></h3>
+                                            <div id="Python1_1" class="section_sub">
+                                                <h3 class="fw-bold">Python là gì?</h3>
+                                                <p>JPython là một ngôn ngữ lập trình được sử dụng rộng rãi trong các ứng dụng web, phát triển phần mềm, khoa học dữ
+                                                    liệu và máy học (ML). Các nhà phát triển sử dụng Python vì nó hiệu quả, dễ học và có thể chạy trên nhiều nền
+                                                    tảng khác nhau. Phần mềm Python được tải xuống miễn phí, tích hợp tốt với tất cả các loại hệ thống và tăng tốc
+                                                    độ phát triển.</p>
+                                            </div>
+                            
+                                            <div id="Python1_2" class="section_sub">
+                                                <h3 class="fw-bold">Python mang lại những lợi ích gì?</h3>
+                                                <p>Những lợi ích của Python bao gồm:</p>
+                                                <ul>
+                                                    <li>Các nhà phát triển có thể dễ dàng đọc và hiểu một chương trình Python vì ngôn ngữ này có cú pháp cơ bản
+                                                        giống tiếng Anh.&nbsp;</li>
+                                                    <li>Python giúp cải thiện năng suất làm việc của các nhà phát triển vì so với những ngôn ngữ khác, họ có thể sử
+                                                        dụng ít dòng mã hơn để viết một chương trình Python.</li>
+                                                    <li>Python có một thư viện tiêu chuẩn lớn, chứa nhiều dòng mã có thể tái sử dụng cho hầu hết mọi tác vụ. Nhờ đó,
+                                                        các nhà phát triển sẽ không cần phải viết mã từ đầu.</li>
+                                                    <li>Các nhà phát triển có thể dễ dàng sử dụng Python với các ngôn ngữ lập trình phổ biến khác như Java, C và
+                                                        C++.</li>
+                                                    <li>Cộng đồng Python tích cực hoạt động bao gồm hàng triệu nhà phát triển nhiệt tình hỗ trợ trên toàn thế giới.
+                                                        Nếu gặp phải vấn đề, bạn sẽ có thể nhận được sự hỗ trợ nhanh chóng từ cộng đồng.</li>
+                                                    <li>Trên Internet có rất nhiều tài nguyên hữu ích nếu bạn muốn học Python. Ví dụ: bạn có thể dễ dàng tìm thấy
+                                                        video, chỉ dẫn, tài liệu và hướng dẫn dành cho nhà phát triển.</li>
+                                                    <li>Python có thể được sử dụng trên nhiều hệ điều hành máy tính khác nhau, chẳng hạn như Windows, macOS, Linux
+                                                        và Unix.</li>
+                                                </ul>
+                                            </div>
+                            
+                                            <div id="Python1_3" class="section_sub">
+                                                <h3 class="fw-bold">Python được sử dụng như thế nào?</h3>
+                                                <div>
+                                                    <p>Ngôn ngữ Python được sử dụng nhiều trong lĩnh vực phát triển ứng dụng, bao gồm những ví dụ sau:</p>
+                                                </div>
+                                                <h4 class="fw-bold">Phát triển web phía máy chủ</h4>
+                                                <div>
+                                                    <p>Phát triển web phía máy chủ bao gồm những hàm backend phức tạp mà các trang web thực hiện để hiển thị thông tin
+                                                        cho người dùng. Ví dụ: các trang web phải tương tác với cơ sở dữ liệu, giao tiếp với các trang web khác và bảo
+                                                        vệ dữ liệu khi truyền qua mạng.&nbsp;</p>
+                                                    <p>Python hữu ích trong việc lập trình mã phía máy chủ bởi vì ngôn ngữ này cung cấp nhiều thư viện bao gồm mã viết
+                                                        sẵn cho các hàm backend phức tạp. Các nhà phát triển cũng sử dụng một loạt các khung Python cung cấp tất cả
+                                                        những công cụ cần thiết để xây dựng ứng dụng web một cách nhanh chóng và dễ dàng hơn. Ví dụ: các nhà phát triển
+                                                        có thể tạo ứng dụng web khung trong nháy mắt bởi vì họ không cần phải lập trình nó từ đầu. Sau đó, họ có thể
+                                                        kiểm tra ứng dụng web này bằng cách sử dụng các công cụ kiểm thử của khung, mà không cần phụ thuộc vào những
+                                                        công cụ kiểm thử bên ngoài.</p>
+                                                </div>
+                                                <h4 class="fw-bold">Tự động hóa bằng các tập lệnh Python</h4>
+                                                <div>
+                                                    <p>Ngôn ngữ tập lệnh là một ngôn ngữ lập trình tự động hóa các tác vụ mà thường được con người thực hiện. Các lập
+                                                        trình viên thường xuyên sử dụng các tập lệnh Python để tự động hóa nhiều tác vụ hàng ngày như:</p>
+                                                    <ul>
+                                                        <li>Đổi tên một số lượng lớn tệp cùng lúc</li>
+                                                        <li>Chuyển đổi một tệp sang một loại tệp khác</li>
+                                                        <li>Loại bỏ các từ trùng lặp trong tệp văn bản</li>
+                                                        <li>Thực hiện các phép tính toán cơ bản</li>
+                                                        <li>Gửi email</li>
+                                                        <li>Tải xuống nội dung</li>
+                                                        <li>Thực hiện phân tích nhật ký cơ bản</li>
+                                                        <li>Tìm kiếm lỗi trong nhiều tệp</li>
+                                                    </ul>
+                                                </div>
+                                                <h4 class="fw-bold">Khoa học dữ liệu và máy học</h4>
+                                                <div>
+                                                    <p>Khoa học dữ liệu trích
+                                                        xuất thông tin quý giá từ dữ liệu và máy học (ML) dạy máy tính tự động học hỏi từ dữ liệu và đưa ra các dự đoán chính xác. Các
+                                                        nhà khoa học dữ liệu sử dụng Python cho các tác vụ khoa học dữ liệu sau:</p>
+                                                    <ul>
+                                                        <li>Sửa và loại bỏ dữ liệu không chính xác, hay còn được gọi là làm sạch dữ liệu&nbsp;</li>
+                                                        <li>Trích xuất và chọn lọc các đặc điểm đa dạng của dữ liệu</li>
+                                                        <li>Ghi nhãn dữ liệu gán tên có ý nghĩa cho dữ liệu</li>
+                                                        <li>Tìm các số liệu thống kê khác nhau từ dữ liệu</li>
+                                                        <li>Trực quan hóa dữ liệu bằng cách sử dụng các biểu đồ và đồ thị, chẳng hạn như biểu đồ đường, biểu đồ cột,
+                                                            biểu đồ tần suất và biểu đồ tròn</li>
+                                                    </ul>
+                                                    <div>
+                                                        &nbsp;
+                                                    </div>
+                                                    <p>
+                                                        Các nhà khoa học dữ liệu sử dụng những thư viện ML của Python để đào tạo các mô hình ML và xây dựng các công cụ
+                                                        phân loại giúp phân loại dữ liệu một cách chính xác. Các chuyên gia từ nhiều lĩnh vực sử dụng những công cụ phân
+                                                        loại dựa trên Python để thực hiện các tác vụ phân loại, chẳng hạn như phân loại hình ảnh, văn bản cũng như lưu
+                                                        lượng truy cập mạng, nhận dạng giọng nói và nhận diện khuôn mặt. Các nhà khoa học dữ liệu cũng sử dụng Python
+                                                        cho deep learning, một kỹ thuật ML nâng cao.
+                                                    </p>
+                                                </div>
+                                                <h4 class="fw-bold">Phát triển phần mềm</h4>
+                                                <div>
+                                                    <p>Các nhà phát triển phần mềm thường sử dụng Python cho những tác vụ phát triển và ứng dụng phần mềm khác nhau,
+                                                        chẳng hạn như:</p>
+                                                    <ul>
+                                                        <li>Theo dõi lỗi trong mã của phần mềm</li>
+                                                        <li>Tự động xây dựng phần mềm</li>
+                                                        <li>Đảm nhận quản lý dự án phần mềm</li>
+                                                        <li>Phát triển nguyên mẫu phần mềm</li>
+                                                        <li>Phát triển các ứng dụng máy tính bằng cách sử dụng những thư viện Giao diện đồ họa người dùng (GUI)</li>
+                                                        <li>Phát triển từ các trò chơi văn bản đơn giản cho đến những trò chơi điện tử phức tạp</li>
+                                                    </ul>
+                                                </div>
+                                                <h4 class="fw-bold">Tự động hóa kiểm thử phần mềm</h4>
+                                                <div>
+                                                    <p>Kiểm thử phần mềm là quy trình kiểm tra xem kết quả thực tế từ phần mềm có khớp với kết quả mong đợi không để đảm
+                                                        bảo rằng phần mềm không có lỗi.&nbsp;</p>
+                                                    <ul>
+                                                        <li>Các nhà phát triển sử dụng khung kiểm thử đơn vị Python, chẳng hạn như Unittest, Robot và PyUnit, để kiểm
+                                                            thử các hàm do họ viết.&nbsp;</li>
+                                                        <li>Các kỹ sư kiểm thử phần mềm sử dụng Python để viết các trường hợp kiểm thử cho nhiều tình huống khác nhau.
+                                                            Ví dụ: họ sử dụng ngôn ngữ này để kiểm thử giao diện người dùng của một ứng dụng web, nhiều thành phần của
+                                                            phần mềm và những tính năng mới.&nbsp;</li>
+                                                    </ul>
+                                                    <p>Các nhà phát triển có thể sử dụng một số công cụ để tự động chạy tập lệnh kiểm thử. Những công cụ này có tên gọi
+                                                        là công cụ Tích hợp liên tục/Triển khai liên tục (CI/CD). Các kỹ sư kiểm thử phần mềm cũng như những nhà phát
+                                                        triển sử dụng các công cụ CI/CD như Travis CI và Jenkins để tự động hóa quy trình kiểm thử. Công cụ CI/CD tự
+                                                        động chạy các tập lệnh kiểm thử Python và báo cáo kết quả kiểm thử bất kỳ khi nào nhà phát triển thêm vào những
+                                                        dòng mã mới.</p>
+                                                </div>
+                                            </div>
+                            
+                                            <div id="Python1_4" class="section_sub">
+                                                <h3 class="fw-bold">Python có lịch sử như thế nào?</h3>
+                                                <p>Guido Van Rossum, một lập trình viên máy tính ở Hà Lan, đã tạo ra Python. Ông bắt đầu phát triển ngôn ngữ này vào
+                                                    năm 1989 tại Centrum Wiskunde &amp; Informatica (CWI), ban đầu chỉ là một dự án tiêu khiển để giúp ông giết thời
+                                                    gian trong dịp Giáng sinh. Tên gọi của ngôn ngữ này được lấy cảm hứng từ chương trình truyền hình Monty Python's
+                                                    Flying Circus của đài BBC vì Guido Van Rossum là một “fan cứng” của chương trình này.&nbsp;</p>
+                                                <h4 class="fw-bold">Lịch sử các phiên bản Python</h4>
+                                                <div>
+                                                    <ul>
+                                                        <li>Guido Van Rossum cho ra mắt phiên bản đầu tiên của ngôn ngữ Python (phiên bản 0.9.0) vào năm 1991. Ngôn
+                                                            ngữ này đã bao gồm các tính năng hữu ích như một số kiểu dữ liệu và hàm để xử lý lỗi.&nbsp;</li>
+                                                        <li>Python 1.0 đã được ra mắt vào năm 1994 với các hàm mới để dễ dàng xử lý danh sách dữ liệu, chẳng hạn như
+                                                            ánh xạ, lọc và lược bỏ.</li>
+                                                        <li>Python 2.0 đã được ra mắt vào ngày 16 tháng 10 năm 2000, với các tính năng hữu ích mới cho lập trình
+                                                            viên, chẳng hạn như hỗ trợ ký tự Unicode và cách xử lý chi tiết một danh sách nhanh chóng hơn.</li>
+                                                        <li>Python 3.0 đã được ra mắt vào ngày 3 tháng 12 năm 2008. Phiên bản này bao gồm các tính năng như hàm in
+                                                            và hỗ trợ nhiều hơn cho việc phân chia số và xử lý lỗi.&nbsp;</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                            
+                                            <div id="Python1_5" class="section_sub">
+                                                <h3 class="fw-bold">Python có những đặc điểm gì?</h3>
+                                                <p>Các đặc điểm sau tạo nên sự độc đáo của ngôn ngữ lập trình Python:</p>
+                                                <h5 class="fw-bold">Python là một ngôn ngữ thông dịch</h5>
+                                                <p>Python là một ngôn ngữ thông dịch, điều này nghĩa là ngôn ngữ này trực tiếp chạy từng dòng mã. Nếu có lỗi trong
+                                                    mã chương trình, nó sẽ ngừng chạy. Do đó, lập trình viên có thể nhanh chóng tìm ra lỗi trong đoạn mã.</p>
+                                                <h5 class="fw-bold">Python là một ngôn ngữ dễ sử dụng</h5>
+                                                <p>Python sử dụng từ ngữ giống trong tiếng Anh. Không giống như các ngôn ngữ lập trình khác, Python không sử dụng
+                                                    dấu ngoặc ôm. Thay vào đó, ngôn ngữ này sử dụng thụt đầu dòng.&nbsp;</p>
+                                                <h5 class="fw-bold">Python là một ngôn ngữ linh hoạt</h5>
+                                                <p>Các lập trình viên không cần phải khai báo loại biến khi viết mã bởi vì Python sẽ xác định chúng vào thời điểm
+                                                    chạy. Vì vậy, bạn có thể viết các chương trình Python một cách nhanh chóng hơn.</p>
+                                                <h5 class="fw-bold">Python là một ngôn ngữ cấp cao</h5>
+                                                <p>Python gần gũi với ngôn ngữ con người hơn các ngôn ngữ lập trình khác. Do đó, các lập trình viên không cần phải
+                                                    lo lắng về những chức năng cơ bản của nó như kiến trúc và quản lý bộ nhớ.</p>
+                                                <h5 class="fw-bold">Python là một ngôn ngữ lập trình hướng đối tượng</h5>
+                                                <p>Python coi mọi thứ đều là đối tượng, nhưng ngôn ngữ này cũng hỗ trợ các phương thức lập trình khác như lập trình
+                                                    hàm và lập trình cấu trúc.</p>
+                                            </div>
+                            
+                                            <div id="Python1_6" class="section_sub">
+                                                <h3 class="fw-bold">Thư viện Python là gì?</h3>
+                                                <p>Thư viện là một tập hợp các mã thường xuyên được sử dụng mà các nhà phát triển có thể bao gồm trong những chương
+                                                    trình Python của họ để không phải lập trình từ đầu. Theo mặc định, Python đi kèm với Thư viện chuẩn, chứa rất
+                                                    nhiều các hàm có thể tái sử dụng. Ngoài ra, hơn 137.000 thư viện Python có sẵn cho các ứng dụng khác nhau, bao
+                                                    gồm phát triển web, khoa học dữ liệu và máy học (ML).</p>
+                                            
+                                                <h3 class="fw-bold">Thư viện Python nào phổ biến nhất?</h3>
+                                                <h4 class="fw-bold">Matplotlib</h4>
+                                            
+                                                <p>Các nhà phát triển sử dụng Matplotlib để hiển thị dữ liệu dưới dạng đồ họa hai và ba chiều (2D và 3D) chất lượng
+                                                    cao. Thư viện này thường được sử dụng trong các ứng dụng khoa học. Với Matplotlib, bạn có thể trực quan hóa dữ
+                                                    liệu bằng cách hiển thị dữ liệu dưới dạng các biểu đồ khác nhau, chẳng hạn như biểu đồ cột và biểu đồ đường. Bạn
+                                                    cũng có thể hiển thị nhiều biểu đồ cùng lúc và các chi tiết đồ họa có thể được di chuyển qua mọi nền tảng.</p>
+                                            
+                                                <h4 class="fw-bold">Pandas</h4>
+                                            
+                                                <p>Pandas cung cấp cấu trúc dữ liệu được tối ưu hóa và linh hoạt mà bạn có thể sử dụng để thao tác với dữ liệu chuỗi
+                                                    thời gian và dữ liệu có cấu trúc, chẳng hạn như bảng và nhóm. Ví dụ, bạn có thể sử dụng Pandas để đọc, ghi, hợp
+                                                    nhất, lọc và nhóm dữ liệu. Thư viện này được nhiều người sử dụng cho các tác vụ khoa học dữ liệu, phân tích dữ
+                                                    liệu và ML.</p>
+                                            
+                                                <h4 class="fw-bold">NumPy</h4>
+                                            
+                                                <p>NumPy là một thư viện phổ biến mà các nhà phát triển sử dụng để dễ dàng tạo và quản lý nhóm, thao tác với các
+                                                    hình dạng logic và thực hiện các phép toán đại số tuyến tính. NumPy hỗ trợ tích hợp với nhiều ngôn ngữ như C và
+                                                    C ++.</p>
+                                            
+                                                <h4 class="fw-bold">Requests</h4>
+                                            
+                                                <p>Thư viện Requests cung cấp nhiều hàm hữu ích cần thiết để phát triển web. Bạn có thể sử dụng thư viện này để gửi
+                                                    các yêu cầu HTTP, bổ sung tiêu đề, thêm tham số URL, bổ sung dữ liệu và thực hiện nhiều tác vụ khác khi giao
+                                                    tiếp với các ứng dụng web.&nbsp;</p>
+                                            
+                                                <h4 class="fw-bold">OpenCV-Python</h4>
+                                            
+                                                <p>OpenCV-Python là một thư viện mà các nhà phát triển sử dụng để xử lý hình ảnh cho các ứng dụng thị giác máy tính.
+                                                    Thư viện này cung cấp nhiều hàm cho các tác vụ xử lý hình ảnh như đọc và ghi hình ảnh cùng lúc, xây dựng môi
+                                                    trường 3D từ môi trường 2D cũng như chụp và phân tích hình ảnh từ video.</p>
+                                            
+                                                <h4 class="fw-bold">Keras</h4>
+                                            
+                                                <p>Keras là thư viện mạng nơ-ron chuyên sâu của Python với khả năng hỗ trợ tuyệt vời cho việc xử lý dữ liệu, trực
+                                                    quan hóa và hơn thế nữa. Keras hỗ trợ nhiều mạng nơ-ron. Thư viện này có cấu trúc mô-đun mang lại sự linh hoạt
+                                                    cho việc lập trình các ứng dụng sáng tạo.</p>
+                                            </div>
+                    
+                                            <div id="Python1_7" class="section_sub">
+                                                <h3 class="fw-bold">Python IDE là gì?</h3>
+                                            
+                                                <p>Môi trường phát triển tích hợp (IDE) là phần mềm cung cấp cho các nhà phát triển công cụ duy nhất họ cần để viết,
+                                                    chỉnh sửa, kiểm tra và gỡ lỗi mã.&nbsp;</p>
+                                            
+                                                <h4 class="fw-bold">Python IDE nào phổ biến nhất?</h4>
+                                                <h5 class="fw-bold">PyCharm</h5>
+                                                <div>
+                                                    <p>JetBrains, một công ty phát triển công cụ phần mềm tại Séc, đã tạo ra PyCharm. Nó có một phiên bản cộng đồng
+                                                        miễn phí phù hợp với các ứng dụng Python nhỏ và một phiên bản chuyên nghiệp trả phí dành cho việc xây dựng
+                                                        các ứng dụng Python quy mô lớn, với đầy đủ những tính năng sau:</p>
+                                                    <ul>
+                                                        <li>Tự động hoàn thành và kiểm tra mã</li>
+                                                        <li>Xử lý lỗi và sửa lỗi nhanh chóng</li>
+                                                        <li>Làm sạch mã mà không thay đổi chức năng</li>
+                                                        <li>Hỗ trợ các khung ứng dụng web như Django và Flask</li>
+                                                        <li>Hỗ trợ các ngôn ngữ lập trình khác, chẳng hạn như JavaScript, CoffeeScript, TypeScript, AngularJS và
+                                                            Node</li>
+                                                        <li>Các công cụ và thư viện khoa học như Matplotlib và NumPy</li>
+                                                        <li>Khả năng chạy, gỡ lỗi, kiểm thử và triển khai các ứng dụng trong máy ảo từ xa</li>
+                                                        <li>Trình gỡ lỗi để tìm lỗi trong mã, trình kiểm tra để xác định các vấn đề về hiệu suất trong mã và trình
+                                                            chạy thử nghiệm để chạy các bài kiểm thử đơn vị</li>
+                                                        <li>Hỗ trợ cơ sở dữ liệu</li>
+                                                    </ul>
+                                                </div>
+                                                <h5 class="fw-bold">IDLE</h5>
+                                                <div>
+                                                    <p>
+                                                        Môi trường phát triển và học hỏi tích hợp (IDLE) là Python IDE được cài đặt theo mặc định. Nó chỉ được phát
+                                                        triển với Python bằng bộ công cụ Tkinter GUI và cung cấp các tính năng sau:
+                                                        <br> &nbsp;
+                                                    </p>
+                                                    <ul>
+                                                        <li>Hoạt động trên nhiều hệ điều hành như Windows, Unix và macOS</li>
+                                                        <li>Cung cấp một cửa sổ shell để chạy các lệnh và hiển thị kết quả</li>
+                                                        <li>Cung cấp trình soạn thảo văn bản trên nhiều cửa sổ với khả năng đánh dấu cú pháp mã và hoàn thành mã tự
+                                                            động</li>
+                                                        <li>Có trình gỡ lỗi riêng&nbsp;</li>
+                                                    </ul>
+                                                </div>
+                                                <h5 class="fw-bold">Spyder</h5>
+                                                <div>
+                                                    <p>Spyder là một IDE nguồn mở được nhiều nhà khoa học và nhà phân tích dữ liệu sử dụng. Nó cung cấp trải nghiệm
+                                                        phát triển toàn diện với các tính năng phân tích dữ liệu nâng cao, trực quan hóa dữ liệu và gỡ lỗi. Spyder
+                                                        cũng bao gồm các tính năng sau:</p>
+                                                    <ul>
+                                                        <li>Trình chỉnh sửa mã hỗ trợ nhiều ngôn ngữ</li>
+                                                        <li>Bảng điều khiển IPython tương tác</li>
+                                                        <li>Trình gỡ lỗi cơ bản</li>
+                                                        <li>Thư viện khoa học như Matplotlib, SciPy và NumPy</li>
+                                                        <li>Khả năng khám phá các biến trong mã</li>
+                                                        <li>Khả năng xem tài liệu trong thời gian thực</li>
+                                                    </ul>
+                                                </div>
+                                                <h5 class="fw-bold">Atom</h5>
+                                                <div>
+                                                    <p>Atom là một trình soạn thảo miễn phí do GitHub phát triển, hỗ trợ viết mã bằng nhiều ngôn ngữ lập trình, bao
+                                                        gồm cả Python. Sử dụng Atom, các nhà phát triển có thể trực tiếp làm việc với GitHub, trang web nơi bạn có
+                                                        thể lưu mã của mình một cách tập trung.&nbsp;Atom cung cấp các tính năng sau:</p>
+                                                    <ul>
+                                                        <li>Khả năng hoạt động trên nhiều hệ điều hành&nbsp;</li>
+                                                        <li>Dễ dàng cài đặt hoặc tạo các gói mới</li>
+                                                        <li>Hoàn thành mã tự động nhanh chóng hơn</li>
+                                                        <li>Khả năng tìm kiếm tệp và dự án</li>
+                                                        <li>Tùy chỉnh giao diện dễ dàng</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="Python2" class="section">
+                                            <h3 class="fw-bold"><em>Bài tập</em></h3>
+                                            <div id="Python2_1" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 1:</h4>
+                                                <p>Viết chương trình tìm tất cả các số chia hết cho 7 nhưng không phải bội số của 5, nằm trong đoạn 2000 và 3200 (tính
+                                                    cả 2000 và 3200). Các số thu được sẽ được in thành chuỗi trên một dòng, cách nhau bằng dấu phẩy.
+                                                </p>
+                            
+                                            </div>
+                                            <div id="Python2_2" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 2:</h4>
+                                                <p>Viết một chương trình có thể tính giai thừa của một số cho trước. Kết quả được in thành chuỗi trên một dòng, phân
+                                                    tách bởi dấu phẩy. Ví dụ, số cho trước là 8 thì kết quả đầu ra phải là 40320.</p>
+                                            </div>
+                                            <div id="Python2_3" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 3:</h4>
+                                                <p>Với số nguyên n nhất định, hãy viết chương trình để tạo ra một dictionary chứa (i, i*i) như là số nguyên từ 1 đến n
+                                                    (bao gồm cả 1 và n) sau đó in ra dictionary này.
+                                                    <br>
+                                                    Ví dụ: Giả sử số n là 8 thì đầu ra sẽ là: {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64}.
+                                                </p>
+                                            </div>
+                                            <div id="Python2_4" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 4:</h4>
+                                                <p>Viết chương trình chấp nhận một chuỗi số, phân tách bằng dấu phẩy từ giao diện điều khiển, tạo ra một danh sách
+                                                    và một tuple chứa mọi số.</p>
+                                                <p>Ví dụ: Đầu vào được cung cấp là 34,67,55,33,12,98 thì đầu ra là:</p>
+                                                <p>['34', '67', '55', '33', '12', '98']<br>('34', '67', '55', '33', '12', '98')</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="Python3" class="section">
+                                            <h3 class="fw-bold"><em>Tài liệu tham khảo</em></h3>
+                                            <p>Python là một ngôn ngữ lập trình mạnh mẽ và phổ biến, có cộng đồng hỗ trợ lớn và nhiều tài liệu phong phú. Dưới
+                                                đây là một số tài liệu tham khảo khi học Python:</p>
+                                            <h4>1. <strong>Sách học Python:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>"Python Crash Course" (by Eric Matthes)</strong><br>Đây là một cuốn sách tuyệt vời cho người mới
+                                                        bắt đầu học Python. Nó bao gồm các khái niệm cơ bản về Python và giúp bạn xây dựng các dự án thực tiễn.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Automate the Boring Stuff with Python" (by Al Sweigart)</strong><br>Cuốn sách này dành cho những
+                                                        ai muốn học Python để tự động hóa các công việc lặp đi lặp lại như xử lý tệp, web scraping, và xử lý dữ
+                                                        liệu. Phù hợp với người mới bắt đầu và trung cấp.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Fluent Python" (by Luciano Ramalho)</strong><br>Dành cho những người muốn học Python ở cấp độ
+                                                        nâng cao, cuốn sách này giúp bạn hiểu rõ cách tận dụng những đặc tính mạnh mẽ nhất của ngôn ngữ Python.
+                                                    </p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Python Cookbook" (by David Beazley, Brian K. Jones)</strong><br>Đây là một tài liệu hữu ích cho
+                                                        lập trình viên Python có kinh nghiệm. Nó bao gồm các giải pháp thiết kế và phát triển ứng dụng Python
+                                                        chuyên sâu.</p>
+                                                </li>
+                                            </ul>
+                                            <h4>2. <strong>Trang web học Python:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>Official Python Documentation</strong><br>Đây là tài liệu chính thức của Python, giúp bạn nắm
+                                                        vững cú pháp, thư viện chuẩn, và nhiều chủ đề chuyên sâu khác.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Real Python</strong><br>Một trang web tuyệt vời với nhiều bài hướng dẫn từ cơ bản đến
+                                                        nâng cao về Python. Real Python có các hướng dẫn chi tiết, dễ hiểu và bao gồm cả các bài thực hành.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>W3Schools Python Tutorial</strong><br>Trang này cung cấp tài liệu học Python từ cơ bản đến trung
+                                                        cấp với các ví dụ cụ thể và dễ hiểu.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>GeeksforGeeks - Python Programming Language</strong><br>Trang web này có nhiều bài viết về các
+                                                        khía cạnh khác nhau
+                                                        của Python, từ cú pháp cơ bản đến các thuật toán phức tạp và các chủ đề nâng cao như Machine Learning và
+                                                        Web Development.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Programiz Python</strong><br>Cung cấp các bài viết hướng dẫn Python từ cơ bản đến nâng cao
+                                                        với các ví dụ dễ hiểu và trực quan.</p>
+                                                </li>
+                                            </ul>
+                                            <h4>3. <strong>Kênh YouTube học Python:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>Corey Schafer YouTube Channel</strong><br>Đây là kênh YouTube nổi tiếng với nhiều video hướng dẫn về Python
+                                                        và các thư viện phổ biến như Flask, Django, và Pandas.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Tech With Tim</strong><br>Kênh này có nhiều video hướng dẫn về Python, đặc biệt là về các dự án
+                                                        như phát triển trò chơi, Machine Learning, và phát triển ứng dụng web với Flask và Django.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Sentdex</strong><br>Một
+                                                        kênh YouTube phổ biến với các video về Python dành cho Machine Learning, AI, và phân tích dữ liệu.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--Noi dung C-->
+                    <div class="lesson_detail_content" id="C" style="display: none;">
+                        <header class="container border-bottom">
+                            <div class="row text-center  align-items-center p-3">
+                                <a href="./Lab3_cardMenu.html" class="col-1 fs-3"><i class="fa fa-chevron-left"></i></a>
+                                <h3 class="col-10 m-0 p-0 fw-bold">Ngôn ngữ C</h3>
+                            </div>
+                            
+                        </header>
+                        
+                        <div class="container mb-2 border-bottom">
+                            <div class="row">
+                                <div class="navigation-bar flex-shrink-0 bg-white col-sm-3 p-0 border-end sticky-top">
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-1">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center"
+                                                data-bs-toggle="collapse" data-bs-target="#java-collapse" aria-expanded="true">
+                                                <span class="fw-bold">Bài giảng</span>
+                                                <i class="fas fa-angle-down rotate-icon "></i>
+                                            </a>
+                                            <div class="collapse show" id="java-collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small text-center">
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a
+                                                            class="link-dark rounded text-decoration-none fw-bold submenu_link active" href="#C1_1"
+                                                            onclick="changeMenu_link(event)">Ngôn ngữ lập trình C là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#C1_2" onclick="changeMenu_link(event)">Đặc điểm của ngôn ngữ lập trình C</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#C1_3" onclick="changeMenu_link(event)">Ưu nhược điểm của ngôn ngữ lập trình C</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#C1_4" onclick="changeMenu_link(event)">Sự khác biệt giữa 2 ngôn ngữ C và C++</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#C1_5" onclick="changeMenu_link(event)">Một số câu hỏi thường gặp về ngôn ngữ lập trình C</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#C2" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Bài tập</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#C3" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Tài liệu tham khảo</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="col-sm-9" style="height: 600px;">
+                                    <div class="overflow-auto h-100">
+                                        <div id="C1" class="section">
+                                            <h3 class="fw-bold"><em>Bài giảng</em></h3>
+                                            <div id="C1_1" class="section_sub">
+                                                <h3 class="fw-bold">Ngôn ngữ lập trình C là gì?</h3>
+                                                <p>C là một ngôn ngữ lập trình hướng thủ tục (POP) giúp lập trình viên tạo ra các hệ thống phần mềm phức tạp với mục
+                                                    đích chung. Một chương trình viết bằng C phải được chạy qua trình biên dịch C để chuyển đổi nó thành tệp thực
+                                                    thi mà máy tính có thể chạy. Hiện nay trình biên dịch C là có sẵn trên hầu hết các kiến trúc máy tính và hệ điều
+                                                    hành hiện đại.</p>
+                                            
+                                                <p>Vì ngôn ngữ này lập trình theo hướng thủ tục nên C sẽ dễ dàng xác định cấu trúc mã hơn và giải quyết bất kỳ vấn
+                                                    đề nào trong một chuỗi mã cụ thể. Trong lập trình thủ tục, các biến và hàm C được khai báo trước khi sử dụng.
+                                                </p>
+                                            
+                                                <p>Trong lập trình, C là một ngôn ngữ lập trình cấp trung, có nghĩa là nó hỗ trợ lập trình cấp cao cũng như lập
+                                                    trình cấp thấp. C hỗ trợ việc sử dụng hạt nhân và trình điều khiển trong lập trình cấp thấp và cũng hỗ trợ các
+                                                    ứng dụng phần mềm hệ thống bằng ngôn ngữ lập trình cấp cao.</p>
+                                            
+                                                <p>Một số trường hợp cần sử dụng ngôn ngữ C:</p>
+                                            
+                                                <ul>
+                                                    <li>Các hệ điều hành như Unix và tất cả các ứng dụng Unix;</li>
+                                                    <li>Cơ sở dữ liệu, bao gồm Oracle, MySQL&nbsp;, Microsoft SQL Server và PostgreSQL, một phần được viết bằng C;
+                                                    </li>
+                                                    <li>Trình biên dịch ngôn ngữ, bao gồm trình biên dịch C;</li>
+                                                    <li>Soạn thảo văn bản;</li>
+                                                    <li>Bộ đệm in;</li>
+                                                    <li>Người lắp ráp;</li>
+                                                    <li>Trình điều khiển mạng;</li>
+                                                    <li>Các chương trình hiện đại như Git và FreeBSD;</li>
+                                                    <li>Thông dịch viên ngôn ngữ;</li>
+                                                    <li>Tiện ích, chẳng hạn như trình điều khiển mạng, trình điều khiển chuột và trình điều khiển bàn phím.</li>
+                                                </ul>
+                                                
+                                                <p>Thêm nữa trong thực tế hiện nay ứng dụng của ngôn ngữ C mà bạn có thể tham khảo:</p>
+                                                <ul>
+                                                    <li>Áp dụng rộng rãi trong các hệ thống Nhúng;</li>
+                                                    <li>Sử dụng để phát triển System Apps;</li>
+                                                    <li>Sử dụng rộng rãi để phát triển các ứng dụng máy tính để bàn;</li>
+                                                    <li>Phát triển các phần mềm ứng dụng nổi tiếng như Adobe, trình duyệt Chromium của Google, MySQL,…;</li>
+                                                    <li>Phát triển các hệ điều hành OSX của Apple, Windows của Microsoft và Symbian được phát triển bằng ngôn ngữ C;
+                                                    </li>
+                                                    <li>Ngoài các phần mềm, hệ điều hành C còn được sử dụng để phát triển máy tính bàn, sản xuất trình biên dịch và sử
+                                                        dụng rộng rãi trong các ứng dụng IOT;</li>
+                                                    <li>…</li>
+                                                </ul>
+                                                <p>Ngôn ngữ này được gọi là C bởi nó là <strong>sự kế thừa của ngôn ngữ lập trình
+                                                        B</strong>, ngôn ngữ C được tạo ra vào những năm 1970 bởi&nbsp;<strong>Dennis Ritchie</strong>, vẫn được sử dụng, có ảnh hưởng rộng rãi tới hiện tại và nhiều ngôn ngữ khác cũng được
+                                                    bắt nguồn từ nó.</p>
+                                                <p>Ví dụ như C++, JAVA là 2 phương ngữ hiện đại phổ biến của C. Ngoài ra, có nhiều ngôn ngữ
+                                                    khác mượn trực tiếp hoặc gián tiếp từ C có thể kể đến: C#&nbsp;, Unix’s&nbsp;C shell&nbsp;,&nbsp;D&nbsp;,&nbsp;Go,
+                                                    PHP , Python , Ruby,… Do vậy C được ví như là “ngôn ngữ mẹ” mà nếu lập trình viên học lập trình C giỏi thì rất dễ
+                                                    dàng để nắm bắt các ngôn ngữ thông dụng khác như JAVA, C++, C#.</p>
+                                                <p>Một điều thú vị nữa về C, <strong>ví dụ “hello, world”</strong> được viết bằng ngôn ngữ
+                                                    lập trình C xuất hiện trong ấn bản đầu tiên của cuốn sách <strong>“The C Programming Language“</strong> còn được biết đến với cái tên K&amp;R nói về ngôn ngữ lập trình C trở
+                                                    thành chương trình mẫu trong hầu hết các sách giáo khoa lập trình cho thấy sự.</p>
+                                            </div>
+                            
+                                            <div id="C1_2" class="section_sub">
+                                                <h3 class="fw-bold">Đặc điểm của ngôn ngữ lập trình C</h3>
+                                                <p>C là ngôn ngữ lập trình máy tính có mục đích chung để quản trị hệ thống, lập trình
+                                                    mạng và phần mềm nhúng, do vậy nó có một số đặc điểm khiến nó trở nên hấp dẫn đối với các ứng dụng này:</p>
+                                                <ul>
+                                                    <li><strong>Dễ học, dễ đọc:</strong> Cú pháp chương trình C dễ học và dễ đọc làm cho mã gỡ lỗi dễ truy cập hơn
+                                                        và nhanh hơn;</li>
+                                                    <li><strong>Ngắn gọn:</strong> Các chương trình C tương đối ngắn so với các ngôn ngữ khác, giúp giảm thời gian
+                                                        cần thiết để hoàn thành chúng;</li>
+                                                    <li><strong>Mạnh mẽ:</strong> C là ngôn ngữ lập trình mạnh mẽ cho phép các nhà phát triển tạo ra các hệ thống
+                                                        phần mềm phức tạp;</li>
+                                                    <li><strong>Nhanh, hiệu quả cao:</strong> Ngôn ngữ này nhanh, hiệu quả và dễ học, khiến nó trở thành lựa chọn
+                                                        phổ biến cho nhiều ứng dụng;</li>
+                                                    <li><strong>Tính di động:</strong> C cũng có tính di động, nghĩa là các chương trình viết bằng C có thể dễ dàng
+                                                        chuyển sang các nền tảng khác;</li>
+                                                    <li><strong>Phổ biến rộng rãi:</strong> C đã tồn tại được nhiều năm (được phát hành lần đầu tiên vào năm 1979),
+                                                        rất nhiều thư viện và công cụ có sẵn hỗ trợ việc sử dụng nó.</li>
+                                                </ul>
+                                            
+                                            </div>
+                            
+                                            <div id="C1_3" class="section_sub">
+                                                <h3 class="fw-bold">Ưu nhược điểm của ngôn ngữ lập trình C</h3>
+                                                <p>Là ngôn ngữ lập trình đã có từ lâu đời và vẫn được ứng dụng trong thực tế hiện nay thì C cũng có những ưu, nhược
+                                                    điểm nhất định mà bạn học nên cân nhắc khi lựa chọn mà CodeGym sẽ đưa ra cho bạn ngay dưới đây.</p>
+                                                <h4 class="fw-bold">1.  Ưu điểm:</h4>
+                                                <p>C là ngôn ngữ lập trình mạnh mẽ được ứng dụng rộng rãi bởi những ưu điểm cũng như lợi ích nó mang lại mà bạn có
+                                                    thể tham khảo:</p>
+                                                <ul>
+                                                    <li><strong>Ngôn ngữ mạnh mẽ và hiệu quả:</strong> C là một ngôn ngữ mạnh mẽ vì nó chứa nhiều loại dữ liệu và
+                                                        toán tử để cung cấp cho bạn một nền tảng rộng lớn để thực hiện tất cả các loại hoạt động;</li>
+                                                    <li><strong>Dễ hiểu:</strong> C là ngôn ngữ có tính di động cao, các chương trình được mã hóa trong đó nhanh hơn
+                                                        và hiệu quả hơn nhiều ứng dụng trên nhiều nền tảng, điều này làm cho việc học C dễ dàng hơn bất kỳ ngôn ngữ
+                                                        lập trình nào khác. Người học có thể dễ dàng nắm bắt các khái niệm đằng sau C vì không có nhiều từ khóa hoặc
+                                                        ký hiệu liên quan;</li>
+                                                    <li><strong>Có nhiều thư viện kèm theo:</strong> Với bề dày lịch sử phát triển, C cung cấp rất nhiều hàm tích
+                                                        hợp bao gồm các hàm do hệ thống tạo và các hàm do người dùng xác định. Nhiều hàm chung có thể được sử dụng
+                                                        để phát triển chương trình trong trình biên dịch C;</li>
+                                                    <li><strong>Dễ viết:</strong> Một lý do khiến C trở nên phổ biến như một ngôn ngữ dễ hiểu, dễ sử dụng và hiệu
+                                                        quả chỉ có 32 từ khóa trong ANSI, C cho phép bạn lập trình mà không phải lo lắng nhiều về lỗi cú pháp;</li>
+                                                    <li><strong>Tốc độ thực hiện nhanh:</strong> C sử dụng ít lệnh hơn nên nó thực thi nhanh hơn các ngôn ngữ lập
+                                                        trình khác như Java, Ruby, PHP,… và nó cũng được biết là một ngôn ngữ có tốc độ nhanh hàng đầu;</li>
+                                                    <li><strong>Tính di động:</strong> C dựa trên các ký tự ASCII nên nó hoạt động tốt trên nhiều nền tảng khác nhau
+                                                        bao gồm Windows, Linux, Mac OS X, Android, iOS,… nhờ đó bạn hầu như có thể sử dụng C ở bất cứ thiết bị nào;
+                                                    </li>
+                                                    <li><strong>Ngôn ngữ lập trình có cấu trúc:</strong> C dựa trên cấu trúc, có nghĩa là các vấn đề hoặc vấn đề
+                                                        phức tạp được chia thành các khối hoặc chức năng nhỏ hơn. Cấu trúc mô-đun này giúp việc kiểm tra và bảo trì
+                                                        dễ dàng và đơn giản hơn;</li>
+                                                    <li><strong>Dễ dàng gỡ lỗi:</strong> Vì C không yêu cầu các câu lệnh phức tạp như vòng lặp, điều kiện, biến,
+                                                        hàm, mảng , con trỏ,… nên bạn có thể gỡ lỗi mã của mình một cách dễ dàng. Ví dụ: Nếu bạn gặp sự cố khi thực
+                                                        hiện chương trình, chỉ cần nhấn CTRL+D để dừng quá trình ngay lập tức. Sau đó, bạn có thể chỉ cần lùi lại
+                                                        một dòng và tiếp tục làm việc cho đến khi đạt được câu lệnh có vấn đề;</li>
+                                                    <li><strong>Tốc độ biên dịch cực nhanh:</strong> Trình biên dịch C tạo mã máy rất nhanh, gần một nghìn dòng mã
+                                                        có thể được ghép lại với nhau trong vài giây;</li>
+                                                    <li><strong>Thực thi thuật toán và cấu trúc dữ liệu hiệu quả:</strong> Việc sử dụng các thuật toán và cấu trúc
+                                                        dữ liệu trong C đã giúp cho việc tính toán chương trình trở nên cực kỳ nhanh chóng và mượt mà, do vậy ngôn
+                                                        ngữ C có thể được sử dụng trong các tác vụ và ước tính phức tạp như MATLAB;</li>
+                                                    <li><strong>Cấp phát bộ nhớ động linh hoạt:</strong> Trong Ngôn ngữ C, bạn có thể phân bổ bộ nhớ động hoặc tĩnh
+                                                        làm cho lập trình viên linh hoạt hơn trong việc sử dụng bộ nhớ so với các ngôn ngữ khác như Java;</li>
+                                                    <li><strong>Mã nguồn mở:</strong> Ngôn ngữ C là ngôn ngữ lập trình mã nguồn mở và miễn phí, có thể truy cập công
+                                                        khai và có sẵn trên tất cả các nền tảng mã hóa và lập trình. Mã của ngôn ngữ C cũng được cung cấp công khai.
+                                                        Người ta có thể dễ dàng tải xuống trình biên dịch ngôn ngữ và có thể bắt đầu làm việc;</li>
+                                                    <li><strong>Khả năng tự mở rộng:</strong> Với khả năng tự mở rộng, bạn có thể tự thêm các hàm của mình vào thư
+                                                        viện C. Ngoài ra, thư viện C cũng chứa lượng lớn các hàm, nên mọi thác tác rất dễ để thực hiện.</li>
+                                                </ul>
+                                                <h4 class="fw-bold">2.  Nhược điểm:</h4>
+                                                <p>Ngoài những ưu điểm tạo nên ngôn ngữ lập trình C mạnh mẽ thì cũng không thể bỏ qua những hạn chế của ngôn ngữ lập
+                                                    trình này, cụ thể:</p>
+                                                <ul>
+                                                    <li><strong>Thiếu định hướng đối tượng:</strong> C không mở rộng hỗ trợ cho khái niệm OOP (Kế thừa, Đa hình,
+                                                        Đóng gói, Trừu tượng, Ẩn dữ liệu). Thực tế khi sử dụng C, bạn không thể tạo một lớp có nhiều kế thừa các
+                                                        phương thức từ lớp cha nên việc sử dụng lại các mã hiện có trở nên khó khăn;</li>
+                                                    <li><strong>Quản lý bộ nhớ kém hiệu quả:</strong> Trong ngôn ngữ C, bạn không cần bất kỳ kỹ thuật quản lý bộ nhớ
+                                                        nào vì nó tự động quản lý tất cả tài nguyên được phân bổ cho bạn. Nhưng nếu bạn muốn sử dụng phân bổ động
+                                                        thì bạn nên phân bổ động theo hàm malloc và nếu bạn thực hiện việc này theo cách thủ công thì bạn sẽ gặp lỗi
+                                                        phân đoạn, vì vậy bạn phải luôn nhớ về Kỹ thuật quản lý bộ nhớ trong C;</li>
+                                                    <li><strong>Không thu gom rác để giải phóng bộ nhớ:</strong> Trong ngôn ngữ C, không có tính năng thu gom rác vì
+                                                        văn hóa của ngôn ngữ này là giao việc quản lý bộ nhớ cho nhà phát triển hoặc lập trình viên. Do đó, việc
+                                                        triển khai trình thu gom rác chính xác cho C / C++ sẽ khá kém và khắc nghiệt về mặt kỹ thuật;</li>
+                                                    <li><strong>Kiểm tra lỗi theo thời gian chạy:</strong> Lỗi trong C không được phát hiện sau mỗi dòng mã, trình
+                                                        biên dịch hiển thị tất cả các lỗi code trong thời gian chạy toàn bộ, điều này khiến cho việc kiểm tra mã (gỡ
+                                                        lỗi) trở nên đặc biệt phức tạp trong các dự án lớn;</li>
+                                                    <li><strong>Không có khái niệm namespace:</strong> C không thực hiện ý tưởng về namespace, một không gian tên
+                                                        được tổ chức dưới dạng một chuỗi lệnh để cho phép sử dụng lại tên trong các cài đặt khác nhau. Không có
+                                                        namespace bạn không thể phát âm hai yếu tố có cùng tên;</li>
+                                                    <li><strong>Thiếu xử lý ngoại lệ:</strong> Xử lý trường hợp đặc biệt có lẽ là yếu tố chính của phương ngữ lập
+                                                        trình. Trong khi biên dịch mã, các lỗi khác nhau có thể xảy ra, xử lý ngoại lệ cho phép bạn xác định lỗi và
+                                                        khắc phục chúng. Tuy nhiên, C không thể hiện được tính năng quan trọng này;</li>
+                                                    <li><strong>Thiếu hàm tạo và hàm hủy:</strong> C không có bất kỳ chức năng hướng đối tượng nào và do đó, nó
+                                                        không có tính năng Hàm tạo và Hàm hủy. Vì vậy, trong Ngôn ngữ C, bạn cần thực hiện việc xây dựng và/hoặc hủy
+                                                        biến theo cách thủ công, bằng cách sử dụng một hàm hoặc bằng các phương tiện khác.</li>
+                                                </ul>
+                                            </div>
+                            
+                                            <div id="C1_4" class="section_sub">
+                                                <h3 class="fw-bold">Sự khác biệt giữa 2 ngôn ngữ C và C++</h3>
+                                                <p>Nhiều bạn đọc khi tìm hiểu về C nhầm tưởng rằng C và C++ giống nhau nhưng điều này hoàn toàn không chính xác, hãy
+                                                    để mình bật mí cho bạn về sự khác nhau giữa chúng nhé:</p>
+                                                <h4 class="fw-bold">1. Khác biệt:</h4>
+                                                <ul>
+                                                    <li>C++ hỗ trợ các lớp, là một loại đối tượng có thể được sử dụng để nhóm dữ liệu và phương thức lại với
+                                                        nhau.&nbsp;C không hỗ trợ các lớp;</li>
+                                                    <li>C++ hỗ trợ tính kế thừa, cho phép một lớp kế thừa các thuộc tính của lớp khác.&nbsp;C không hỗ trợ kế thừa;
+                                                    </li>
+                                                    <li>C++ hỗ trợ tính đa hình, cho phép các đối tượng thuộc các loại khác nhau được xử lý tương tự.&nbsp;C không
+                                                        hỗ trợ đa hình;</li>
+                                                    <li>C++ là ngôn ngữ được biên dịch, trong khi C là ngôn ngữ phiên dịch. Điều này có nghĩa là mã C++ được chuyển
+                                                        đổi thành mã máy trước khi nó được thực thi, trong khi mã C được diễn giải theo từng dòng;</li>
+                                                    <li>C++ là ngôn ngữ phức tạp hơn C. Điều này là do C++ có nhiều tính năng hơn, chẳng hạn như lớp, kế thừa và đa
+                                                        hình.</li>
+                                                </ul>
+                                                <h4 class="fw-bold">2. Giống nhau:</h4>
+                                                <p>Nói C và C++ giống nhau là không đúng và nó chỉ có một số điểm tương đồng mà bạn có thể biết như sau:</p>
+                                                <ul>
+                                                    <li><strong>Cú pháp:</strong> C++ là phiên bản mở rộng của C, do đó cả hai đều có cú pháp, biên dịch và cấu trúc
+                                                        mã tương tự nhau;</li>
+                                                    <li><strong>Từ khóa:</strong> Hầu hết các từ khóa và toán tử của C đều được sử dụng trong C++ và thực hiện cùng
+                                                        chức năng;</li>
+                                                    <li><strong>Thực thi:</strong> C và C++ đều tuân theo việc thực thi mã từ trên xuống;</li>
+                                                    <li><strong>Chú thích:</strong> Chú thích nội tuyến trong cả C và C++ đều được đánh dấu bằng //;</li>
+                                                    <li><strong>Mảng đa chiều:</strong> Cả C và C++ đều hỗ trợ mảng đa chiều;</li>
+                                                    <li><strong>Mảng kích thước động:</strong> Không có mảng nào hỗ trợ mảng có kích thước động;</li>
+                                                    <li><strong>Bộ kết thúc câu lệnh:</strong> Cả C và C++ đều sử dụng dấu chấm phẩy (;) để kết thúc một câu lệnh;
+                                                    </li>
+                                                    <li><strong>Chỉ thị tiền xử lý:</strong>&nbsp;#include được sử dụng trong cả C và C++ để bao gồm/nhập tệp tiêu
+                                                        đề.</li>
+                                                </ul>
+                                            </div>
+                            
+                                            <div id="C1_5" class="section_sub">
+                                                <h3 class="fw-bold">Một số câu hỏi thường gặp về ngôn ngữ lập trình C</h3>
+                                                <p>Có nhiều thắc mắc về ngôn ngữ C khi bạn đọc tìm hiểu và phổ biến trong đó có một số thắc mắc như sau:</p>
+                                                <h4 class="fw-bold">1. Tại sao C được gọi là C mà không phải ký tự khác?</h4>
+                                                <p>Theo Wikipedia, Nó được đặt tên là “C” vì các tính năng của nó bắt nguồn từ một ngôn ngữ trước đó có tên là “B” ,
+                                                    mà theo Ken Thompson là phiên bản rút gọn của ngôn ngữ lập trình BCPL.</p>
+                                                <h4 class="fw-bold">2. Ai là người tạo ra ngôn ngữ lập trình C?</h4>
+                                                <p>C được tạo ra bởi Dennis Ritchie tại Bell Labs vào đầu những năm 1970 như một phiên bản mở rộng của B của Ken
+                                                    Thompson. Một nhân viên khác của Bell Labs, Brian Kernighan, đã viết bài hướng dẫn C đầu tiên và ông đã thuyết
+                                                    phục Ritchie làm đồng tác giả một cuốn sách về ngôn ngữ này.</p>
+                                                <h4 class="fw-bold">3. C ban đầu được gọi là gì?</h4>
+                                                <p>K&R C. Năm 1978, Brian Kernighan và Dennis Ritchie xuất bản ấn bản đầu tiên của cuốn “The C Programming
+                                                    Language”. Được biết đến với cái tên K&R theo tên viết tắt của các tác giả, cuốn sách này đã được dùng trong
+                                                    nhiều năm như một bản mô tả không chính thức về ngôn ngữ.</p>    
+                                                <p>Phiên bản C mà nó mô tả thường được gọi là “K&R C”.</p>
+                                                
+                                            
+                                            </div>
+                                        </div>
+                                        
+                                        <div id="C2" class="section">
+                                            <h3 class="fw-bold"><em>Bài tập</em></h3>
+                                            <div id="C2_1" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 1:</h4>
+                                                <p>Viết một chương trình C in ra dãy số Fibonacci</p>
+                            
+                                            </div>
+                                            <div id="C2_2" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 2:</h4>
+                                                <p>Viết một chương tình C kiểm tra số nguyên tố.</p>
+                                            </div>
+                                            <div id="C2_3" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 3:</h4>
+                                                <p>Viết một chương trình C tính giai thừa của một số bằng cách không sử dụng đệ quy và có sử dụng đệ quy.</p>
+                                            </div>
+                                            <div id="C2_4" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 4:</h4>
+                                                <p>Viết một chương trình C để chuyển đổi số nguyên N sang hệ cơ số B (2 <= B <= 32) bất kỳ.</p>
+                                            </div>
+                                        </div>
+                                        <div id="C3" class="section">
+                                            <h3 class="fw-bold"><em>Tài liệu tham khảo</em></h3>
+                                            <p>
+                                                Ngôn ngữ C là một trong những ngôn ngữ lập trình lâu đời và mạnh mẽ, là nền tảng của nhiều ngôn ngữ hiện đại như
+                                                C++, Java, và Python. Dưới đây là một số tài liệu tham khảo giúp bạn học và thành thạo ngôn ngữ C:</p>
+                                            <h4>1. <strong>Sách học C:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>"The C Programming Language" (by Brian W. Kernighan, Dennis M. Ritchie)</strong><br>Đây là cuốn sách
+                                                        kinh điển về ngôn ngữ C, được viết bởi chính Dennis Ritchie, người đã phát minh ra C. Cuốn sách này bao quát
+                                                        mọi thứ từ cơ bản đến nâng cao, và là tài liệu không thể bỏ qua nếu bạn nghiêm túc học C.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"C Programming: A Modern Approach" (by K. N. King)</strong><br>Một cuốn sách dành cho người mới bắt
+                                                        đầu với cách trình bày rõ ràng, dễ hiểu. Nó bao gồm nhiều bài tập và ví dụ thực tiễn, giúp bạn học và hiểu
+                                                        sâu hơn về C.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Programming in C" (by Stephen G. Kochan)</strong><br>Cuốn sách này cũng là một lựa chọn tuyệt vời
+                                                        cho người mới học C. Tác giả giải thích rất kỹ các khái niệm quan trọng, kèm theo ví dụ và bài tập thực
+                                                        hành.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"C Primer Plus" (by Stephen Prata)</strong><br>Đây là một cuốn sách hay dành cho lập trình viên muốn
+                                                        nắm vững ngôn ngữ C từ cơ bản đến nâng cao. Nội dung phong phú và bài tập chi tiết giúp củng cố kiến thức
+                                                        lập trình.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"Expert C Programming: Deep C Secrets" (by Peter Van der Linden)</strong><br>Cuốn sách này dành cho
+                                                        những người đã có nền tảng vững chắc về C và muốn hiểu sâu hơn về cách ngôn ngữ này hoạt động ở mức thấp.
+                                                        Các "bí mật" về C được giải thích rất thú vị.</p>
+                                                </li>
+                                            </ul>
+                                            
+                                            <h4>2. <strong>Trang web học C:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>Cprogramming.com</strong><br>Trang
+                                                        web này cung cấp các tài liệu học C (và C++) từ cơ bản đến nâng cao, bao gồm cả các hướng dẫn chi tiết về
+                                                        cách viết mã, quản lý bộ nhớ, và lập trình con trỏ.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>GeeksforGeeks - C Programming Language</strong><br>GeeksforGeeks cung cấp nhiều tài liệu, bài viết và ví dụ thực
+                                                        tiễn về lập trình C, từ các khái niệm cơ bản đến các chủ đề nâng cao.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Learn-C.org</strong><br>Đây
+                                                        là một trang web học C hoàn toàn miễn phí với các bài học ngắn gọn và bài tập thực hành ngay trong trình
+                                                        duyệt. Rất phù hợp cho người mới bắt đầu.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>TutorialsPoint - C Tutorial</strong><br>Cung cấp một khóa học miễn phí về C với nội dung rất chi tiết,
+                                                        từ các khái niệm cơ bản đến lập trình nâng cao.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Programiz - C Programming</strong><br>Trang này cung cấp tài liệu học C với rất nhiều ví dụ minh
+                                                        họa, bài tập, và các mẹo lập trình hữu ích.</p>
+                                                </li>
+                                            </ul>
+                    
+                                            <h4>3. <strong>Kênh YouTube học C:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>freeCodeCamp - C Programming Tutorial for Beginners</strong><br>
+                                                        freeCodeCamp cung cấp khóa học C hoàn chỉnh miễn phí cho người mới bắt đầu với các ví dụ thực tiễn.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>The Cherno</strong><br>Kênh YouTube này có các bài giảng chi tiết về C và lập trình hệ thống, phù hợp
+                                                        với cả người mới và người có kinh nghiệm.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>ProgrammingKnowledge</strong><br>
+                                                        Cung cấp nhiều video hướng dẫn về lập trình C, từ cơ bản đến nâng cao.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Noi dung SQL-->
+                    <div class="lesson_detail_content" id="SQL" style="display: none;">
+                        <header class="container border-bottom">
+                            <div class="row text-center  align-items-center p-3">
+                                <a href="./Lab3_cardMenu.html" class="col-1 fs-3"><i class="fa fa-chevron-left"></i></a>
+                                <h3 class="col-10 m-0 p-0 fw-bold">SQL (Ngôn ngữ truy vấn có cấu trúc)</h3>
+                            </div>
+                            
+                        </header>
+                        
+                        <div class="container mb-2 border-bottom">
+                            <div class="row">
+                                <div class="navigation-bar flex-shrink-0 bg-white col-sm-3 p-0 border-end sticky-top">
+                                    <ul class="list-unstyled ps-0">
+                                        <li class="mb-1">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center"
+                                                data-bs-toggle="collapse" data-bs-target="#java-collapse" aria-expanded="true">
+                                                <span class="fw-bold">Bài giảng</span>
+                                                <i class="fas fa-angle-down rotate-icon "></i>
+                                            </a>
+                                            <div class="collapse show" id="java-collapse">
+                                                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small text-center">
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a
+                                                            class="link-dark rounded text-decoration-none fw-bold submenu_link active" href="#SQL1_1"
+                                                            onclick="changeMenu_link(event)">SQL là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#SQL1_2" onclick="changeMenu_link(event)">Tại sao SQL lại quan trọng?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#SQL1_3" onclick="changeMenu_link(event)">Một hệ thống SQL gồm những thành phần gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#SQL1_4" onclick="changeMenu_link(event)">SQL hoạt động như thế nào? </a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#SQL1_5" onclick="changeMenu_link(event)">MySQL là gì?</a></li>
+                                                    <li class="py-2 my-1 mx-2 border-bottom"><a class="link-dark rounded text-decoration-none fw-bold submenu_link"
+                                                            href="#SQL1_6" onclick="changeMenu_link(event)">NoSQL là gì?</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#SQL2" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Bài tập</span>
+                                            </a>
+                                            
+                                        </li>
+                                        <li class="mb-1 border-bottom">   
+                                            <a class="btn btn-toggle rounded-0 w-100 caret d-flex justify-content-between align-items-center menu_link" href="#SQL3" onclick="changeMenu_link(event)">
+                                                <span class="fw-bold">Tài liệu tham khảo</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+    
+                                <div class="col-sm-9" style="height: 600px;">
+                                    <div class="overflow-auto h-100">
+                                        <div id="SQL1" class="section">
+                                            <h3 class="fw-bold"><em>Bài giảng</em></h3>
+                                            <div id="SQL1_1" class="section_sub">
+                                                <h3 class="fw-bold">SQL là gì?</h3>
+                                                <p>Ngôn ngữ truy vấn có cấu trúc (SQL) là một ngôn ngữ lập trình phục vụ việc lưu trữ và xử lý thông tin trong cơ sở
+                                                    dữ liệu quan hệ. Cơ sở dữ liệu quan hệ lưu trữ thông tin dưới dạng bảng có các hàng và cột đại diện cho những
+                                                    thuộc tính dữ liệu và nhiều mối quan hệ khác nhau giữa các giá trị dữ liệu. Bạn có thể sử dụng các câu lệnh SQL
+                                                    để lưu trữ, cập nhật, loại bỏ, tìm kiếm và truy xuất thông tin từ cơ sở dữ liệu. Bạn cũng có thể sử dụng SQL để
+                                                    duy trì và tối ưu hóa hiệu suất cơ sở dữ liệu.</p>
+                                            </div>
+                            
+                                            <div id="SQL1_2" class="section_sub">
+                                                <h3 class="fw-bold">Tại sao SQL lại quan trọng?</h3>
+                                                <p>Ngôn ngữ truy vấn có cấu trúc (SQL) là một ngôn ngữ truy vấn phổ biến thường được sử dụng trong tất cả các loại
+                                                    ứng dụng. Các nhà phân tích và phát triển dữ liệu tìm hiểu và sử dụng SQL do ngôn ngữ này tích hợp hiệu quả với
+                                                    nhiều ngôn ngữ lập trình khác nhau. Ví dụ: họ có thể nhúng truy vấn SQL với ngôn ngữ lập trình Java để xây dựng
+                                                    ứng dụng xử lý dữ liệu hiệu năng cao có các hệ thống cơ sở dữ liệu SQL chính như Oracle hoặc MS SQL Server. SQL
+                                                    cũng khá dễ tìm hiểu do nó sử dụng những từ khóa tiếng Anh phổ biến trong các câu lệnh</p>
+                                                <h4><strong>Lịch sử của SQL</strong></h4>
+                                                <p>SQL ra đời vào những năm 1970 dựa trên mô hình dữ liệu quan hệ. Ban đầu nó được gọi là ngôn ngữ truy vấn tiếng
+                                                    Anh có cấu trúc (SEQUEL). Thuật ngữ này sau đó được rút ngắn thành SQL. Oracle, trước đây được gọi là Relational
+                                                    Software, đã trở thành nhà cung cấp đầu tiên mang đến một hệ thống quản lý cơ sở dữ liệu quan hệ SQL thương mại.
+                                                </p>
+                                            
+                                            
+                                            </div>
+                            
+                                            <div id="SQL1_3" class="section_sub">
+                                                <h3 class="fw-bold">Một hệ thống SQL gồm những thành phần gì?</h3>
+                                                <p>Hệ thống quản lý cơ sở dữ liệu quan hệ sử dụng ngôn ngữ truy vấn có cấu trúc (SQL) để lưu trữ và quản lý dữ liệu.
+                                                    Hệ thống này lưu trữ nhiều bảng cơ sở dữ liệu có liên quan đến nhau. MS SQL Server, MySQL hoặc MS Access là
+                                                    những ví dụ về hệ thống quản lý cơ sở dữ liệu quan hệ. Một hệ thống như vậy có các thành phần sau.</p>
+                                                <h4 class="fw-bold">1. Bảng SQL</h4>
+                                                <p>Bảng SQL là phần tử cơ bản của cơ sở dữ liệu quan hệ. Bảng cơ sở dữ liệu SQL bao gồm các hàng và cột. Kỹ
+                                                    sư cơ sở dữ liệu tạo ra các mối quan hệ giữa nhiều bảng cơ sở dữ liệu để tối ưu hóa không gian kho lưu trữ dữ
+                                                    liệu.</p>
+                                                <h4 class="fw-bold">2. Câu lệnh SQL</h4>
+                                                <p>Câu lệnh SQL, hoặc truy vấn SQL, là các lệnh hướng dẫn hợp lệ mà hệ thống quản lý cơ sở dữ liệu quan hệ hiểu
+                                                    được. Nhà phát triển phần mềm xây dựng các câu lệnh SQL bằng nhiều phần tử ngôn ngữ SQL khác nhau. Phần tử ngôn
+                                                    ngữ SQL là các thành phần như mã định danh, biến và điều kiện tìm kiếm tạo thành một câu lệnh SQL đúng.</p>
+                                                <h4 class="fw-bold">2. Câu lệnh SQL</h4>
+                                                <p>Câu lệnh SQL, hoặc truy vấn SQL, là các lệnh hướng dẫn hợp lệ mà hệ thống quản lý cơ sở dữ liệu quan hệ hiểu
+                                                    được. Nhà phát triển phần mềm xây dựng các câu lệnh SQL bằng nhiều phần tử ngôn ngữ SQL khác nhau. Phần tử ngôn
+                                                    ngữ SQL là các thành phần như mã định danh, biến và điều kiện tìm kiếm tạo thành một câu lệnh SQL đúng.</p>
+                                                <p>Giả sử câu lệnh SQL sau sử dụng lệnh SQL INSERT để lưu trữ <em>Đệm thương hiệu A </em><em>có giá 499 USD</em> vào
+                                                    bảng có tên <em>Mattress_table </em>với các cột tên <em>brand_name </em>và<em> cost:</em></p>
+                                                <p>INSERT INTO <em>Mattress_table (brand_name, cost)</em></p>
+                                                <p>VALUES('A','499');</p>
+                                                <h4><strong>Quy trình được lưu trữ</strong></h4>
+                                                <p>Quy trình được lưu trữ là tập hợp bao gồm một hoặc nhiều câu lệnh SQL được lưu trữ trong cơ sở dữ liệu quan hệ.
+                                                    Nhà phát triển phần mềm sử dụng các quy trình được lưu trữ để cải thiện hiệu quả và hiệu suất. Ví dụ: họ có thể
+                                                    tạo một quy trình được lưu trữ để cập nhật bảng bán hàng thay vì viết cùng một câu lệnh SQL trong nhiều ứng dụng
+                                                    khác nhau.&nbsp;</p>
+                                            
+                                            </div>
+                            
+                                            <div id="SQL1_4" class="section_sub">
+                                                <h3 class="fw-bold">SQL hoạt động như thế nào?</h3>
+                                                <p>Việc triển khai ngôn ngữ truy vấn có cấu trúc (SQL) liên quan đến một máy chủ xử lý truy vấn cơ sở dữ liệu và trả
+                                                    về kết quả. Quá trình SQL đi qua một số thành phần phần mềm, bao gồm những thành phần sau.&nbsp;</p>
+                                                <h4><strong>Trình phân tích cú pháp</strong></h4>
+                                                <p>Trình phân tích cú pháp bắt đầu bằng cách token hóa hoặc thay thế một số từ trong câu lệnh SQL bằng các ký hiệu
+                                                    đặc biệt. Sau đó, nó sẽ kiểm tra câu lệnh để tìm kiếm những yếu tố sau:</p>
+                                                <h5><strong><strong><em>Tính đúng đắn</em></strong></strong></h5>
+                                                <p>Trình phân tích cú pháp xác minh rằng câu lệnh SQL tuân theo ngữ nghĩa SQL, hay các quy tắc, đảm bảo tính đúng
+                                                    đắn của câu lệnh truy vấn. Ví dụ: trình phân tích cú pháp kiểm tra xem lệnh SQL có kết thúc bằng dấu chấm phẩy
+                                                    hay không. Nếu thiếu dấu chấm phẩy, trình phân tích cú pháp sẽ trả về lỗi.</p>
+                                                <h5><strong><strong><em>Quyền hạn</em></strong></strong></h5>
+                                                <p>Trình phân tích cú pháp cũng xác thực rằng người dùng đang chạy truy vấn có quyền cần thiết để thao tác với dữ
+                                                    liệu tương ứng. Ví dụ: chỉ người dùng quản trị mới có quyền xóa dữ liệu.&nbsp;</p>
+                                                <h4><strong>Công cụ quan hệ</strong></h4>
+                                                <p>Công cụ quan hệ, hay bộ xử lý truy vấn, tạo kế hoạch truy xuất, ghi hoặc cập nhật dữ liệu tương ứng theo cách
+                                                    hiệu quả nhất. Ví dụ: công cụ này kiểm tra các truy vấn tương tự, sử dụng lại các phương pháp thao tác dữ liệu
+                                                    trước đó hoặc tạo một phương pháp mới. Công cụ quan hệ viết kế hoạch trong mã byte, một dạng biểu diễn trung cấp
+                                                    của câu lệnh SQL. Cơ sở dữ liệu quan hệ sử dụng mã byte để thực hiện tìm kiếm và điều chỉnh cơ sở dữ liệu một
+                                                    cách hiệu quả.&nbsp;</p>
+                                                <h4><strong>Công cụ lưu trữ</strong></h4>
+                                                <p>Công cụ lưu trữ, hoặc công cụ cơ sở dữ liệu, là thành phần phần mềm xử lý mã byte và chạy câu lệnh SQL dự định.
+                                                    Công cụ này đọc và lưu trữ dữ liệu trong các tệp cơ sở dữ liệu trên ổ đĩa lưu trữ vật lý. Sau khi hoàn tất, công
+                                                    cụ lưu trữ trả về kết quả cho ứng dụng yêu cầu.</p>
+                                            
+                                            </div>
+                            
+                                            <div id="SQL1_5" class="section_sub">
+                                                <h3 class="fw-bold">MySQL là gì?</h3>
+                                                <p>MySQL là một hệ thống quản lý cơ sở dữ liệu quan hệ nguồn mở do Oracle cung cấp. Nhà phát triển có thể tải xuống
+                                                    và sử dụng MySQL mà không phải trả phí cấp phép. Họ có thể cài đặt MySQL trên nhiều hệ điều hành hoặc máy chủ
+                                                    đám mây khác nhau. MySQL là một hệ thống cơ sở dữ liệu phổ biến cho các ứng dụng web.&nbsp;</p>
+                                                <h4><strong>SQL so với MySQL</strong></h4>
+                                                <p>Ngôn ngữ truy vấn có cấu trúc (SQL) là một ngôn ngữ tiêu chuẩn để tạo và thao tác với cơ sở dữ liệu. MySQL là một
+                                                    chương trình cơ sở dữ liệu quan hệ sử dụng các truy vấn SQL. Các lệnh SQL được quy định theo tiêu chuẩn quốc tế,
+                                                    còn phần mềm MySQL thì được nâng cấp và cải tiến liên tục.</p>
+                                            
+                                            </div>
+                                            <div id="SQL1_6" class="section_sub">
+                                                <h3 class="fw-bold">NoSQL là gì?</h3>
+                                                <p>NoSQL là cơ sở dữ liệu phi quan hệ không sử dụng bảng để
+                                                    lưu trữ dữ liệu. Nhà phát triển lưu trữ thông tin trong nhiều loại cơ sở dữ liệu NoSQL khác nhau, bao gồm đồ
+                                                    thị, tài liệu và dạng khóa-giá trị. Cơ sở dữ liệu NoSQL rất phổ biến đối với các ứng dụng hiện đại nhờ khả năng
+                                                    thay đổi quy mô theo chiều ngang. Thay đổi quy mô theo chiều ngang tức là tăng khả năng xử lý bằng cách bổ sung
+                                                    thêm nhiều máy tính chạy phần mềm NoSQL.</p>
+                                                <h4><strong>SQL so với NoSQL</strong></h4>
+                                                <p>Ngôn ngữ truy vấn có cấu trúc (SQL) cung cấp một ngôn ngữ thao tác dữ liệu thống nhất, tuy nhiên việc triển khai
+                                                    NoSQL lại phụ thuộc vào nhiều công nghệ khác nhau. Nhà phát triển sử dụng SQL cho các ứng dụng giao dịch và phân
+                                                    tích, trong khi NoSQL lại phù hợp cho các ứng dụng phản hồi, thiên về mức sử dụng.&nbsp;</p>
+                                            </div>
+                    
+                                        </div>
+                                        
+                                        <div id="SQL2" class="section">
+                                            <h3 class="fw-bold"><em>Bài tập</em></h3>
+                                            <div id="SQL2_1" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 1:</h4>
+                                                <p>Hiển thị danh sách gồm: MaSV, HoTen, MaLop, NgaySinh(dd/mm/yyyy), GioiTinh (Nam, Nữ) , Namsinh của những sinh viên có họ không bắt đầu bằng chữ N,L,T</p>
+                            
+                                            </div>
+                                            <div id="SQL2_2" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 2:</h4>
+                                                <p>Cho biết MaLop, TenLop, tổng số sinh viên của mỗi lớp.</p>
+                                            </div>
+                                            <div id="SQL2_3" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 3:</h4>
+                                                <p>Cho biết MaSV, HoTen, Số các học phần thiếu điểm (DiemHP<5) của mỗi sinh viên.</p>
+                                            </div>
+                                            <div id="SQL2_4" class="section_sub">
+                                                <h4 class="fw-bold">Bài tập 4:</h4>
+                                                <p>Cho biết Họ tên sinh viên CHƯA học học phần có mã '001'</p>
+                                            </div>
+                                        </div>
+
+                                        <div id="SQL3" class="section">
+                                            <h3 class="fw-bold"><em>Tài liệu tham khảo</em></h3>
+                                            <p>SQL (Structured Query Language) là ngôn ngữ quan trọng trong việc làm việc với cơ sở dữ liệu. Học SQL giúp bạn có thể
+                                                truy vấn, thao tác và quản lý dữ liệu một cách hiệu quả. Dưới đây là một số tài liệu tham khảo khi học SQL:</p>
+                                            <h4>1. <strong>Sách học SQL:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>"Learning SQL" (by Alan Beaulieu)</strong><br>Cuốn sách này là một lựa chọn tuyệt vời cho những người
+                                                        mới bắt đầu học SQL. Nó bao gồm tất cả các khái niệm cơ bản về SQL như tạo bảng, truy vấn dữ liệu, kết hợp
+                                                        bảng và các phép tính dữ liệu.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"SQL for Data Analytics" (by Upom Malik, Matt Goldwasser, Benjamin Johnston)</strong><br>Sách này
+                                                        không chỉ dạy về các câu lệnh SQL cơ bản mà còn tập trung vào cách sử dụng SQL trong việc phân tích dữ liệu.
+                                                        Rất phù hợp cho những ai quan tâm đến Data Science.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"SQL in 10 Minutes, Sams Teach Yourself" (by Ben Forta)</strong><br>Đây là một cuốn sách ngắn gọn, dễ
+                                                        hiểu dành cho những ai muốn học nhanh về SQL. Mỗi chương chỉ kéo dài khoảng 10 phút và bao gồm nhiều bài
+                                                        thực hành hữu ích.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"SQL Cookbook" (by Anthony Molinaro)</strong><br>Cuốn sách này giống như một cuốn "bí kíp" dành cho
+                                                        các lập trình viên SQL. Nó bao gồm nhiều ví dụ và giải pháp thực tế cho các vấn đề SQL thường gặp.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>"The Art of SQL" (by Stéphane Faroult)</strong><br>Cuốn sách này không chỉ nói về cú pháp SQL mà còn
+                                                        giúp bạn học cách tối ưu hóa các truy vấn và cải thiện hiệu suất của hệ thống cơ sở dữ liệu.</p>
+                                                </li>
+                                            </ul>
+                                            <h4>2. <strong>Trang web học SQL:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>W3Schools - SQL Tutorial</strong><br>W3Schools cung cấp tài liệu học SQL trực tuyến miễn phí, rất dễ
+                                                        tiếp cận và đầy đủ. Các bài học bao gồm từ cơ bản đến nâng cao với các ví dụ trực quan và thực hành ngay
+                                                        trên trình duyệt.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>SQLZoo</strong><br>SQLZoo
+                                                        là một trang web tương tác, nơi bạn có thể thực hành SQL trực tiếp. Nó có nhiều bài tập và các bài hướng dẫn
+                                                        cho người mới học SQL.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Mode Analytics SQL Tutorial</strong><br>Trang này cung cấp một khóa học SQL tương tác dành cho phân
+                                                        tích
+                                                        dữ liệu. Mỗi bài học đi kèm với các bài tập thực hành cụ thể và hướng dẫn chi tiết.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>LeetCode - SQL Problems</strong><br>LeetCode là một trang web giúp bạn luyện tập các bài tập SQL qua
+                                                        các vấn đề cụ thể, rất phù hợp cho việc chuẩn bị cho các cuộc phỏng vấn liên quan đến SQL.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>GeeksforGeeks - SQL Tutorial</strong><br>GeeksforGeeks có nhiều bài viết chi tiết và giải thích các
+                                                        khái
+                                                        niệm SQL từ cơ bản đến nâng cao, rất phù hợp cho lập trình viên muốn tìm hiểu sâu về SQL.</p>
+                                                </li>
+                                            </ul>
+                                            
+                                            <h4>3. <strong>Kênh YouTube học SQL:</strong></h4>
+                                            <ul>
+                                                <li>
+                                                    <p><strong>freeCodeCamp - SQL Full Course for Beginners</strong><br>Đây là một khóa học SQL đầy đủ dành cho người mới bắt đầu, cung
+                                                        cấp từ các khái niệm cơ bản đến nâng cao. Khóa học này giúp bạn hiểu rõ cách viết các truy vấn SQL và tối ưu
+                                                        hóa chúng.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Programming with Mosh - SQL Tutorial for Beginners</strong><br>Kênh YouTube này có nhiều video hướng dẫn SQL dễ hiểu và cụ
+                                                        thể, giúp bạn học các câu lệnh và truy vấn cơ bản trong SQL.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>The Net Ninja - SQL Tutorials for Beginners</strong><br>The Net Ninja có một playlist gồm nhiều bài giảng ngắn về SQL,
+                                                        rất phù hợp cho người mới bắt đầu và muốn học nhanh các khái niệm cơ bản.</p>
+                                                </li>
+                                                <li>
+                                                    <p><strong>Simplilearn - SQL Full Course</strong><br>Đây là khóa học đầy đủ về SQL, bao gồm cả lý thuyết và thực hành.
+                                                        Video này giúp bạn làm quen với các câu lệnh SQL và cách làm việc với cơ sở dữ liệu.</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-sm-1"></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        function changeMenu_link(evt){
+        var menuLink, submenu_link;
+        menuLink = document.getElementsByClassName("menu_link");
+        submenu_link =document.getElementsByClassName("submenu_link");
+        for(var i = 0; i< menuLink.length; i++){
+            menuLink[i].className = menuLink[i].className.replace(" active", "");
+        }
+
+        for(var j = 0; j< submenu_link.length; j++){
+            submenu_link[j].className = submenu_link[j].className.replace(" active", "");
+        }
+        evt.currentTarget.className += " active";
+       }
+
+       // Hàm để lấy và hiển thị dữ liệu từ URL
+       function displayDataFromURL() {
+            // Lấy query string từ URL
+            const params = new URLSearchParams(window.location.search);
+
+            // Kiểm tra nếu có tham số nào được truyền
+            if (params.has('page')) {
+                // Lấy giá trị của tham số 'page'
+                const data = params.get('page');
+                
+                // Hiển thị giá trị lên phần tử HTML
+                console.log(data);
+                document.getElementById(data+"").style.display ="block"
+            } else {
+                console.log("Không có dữ liệu nào trong URL.");
+            }
+        }
+
+        // Gọi hàm khi trang được load
+        window.onload = displayDataFromURL;
+    </script>
+</body>
+
+</html>

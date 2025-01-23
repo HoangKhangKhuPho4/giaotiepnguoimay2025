@@ -1,0 +1,332 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+/**lab 5**/
+.nav-link-bg-inherit-white-text {
+    background-color: inherit !important;
+    color: white !important;
+    border: none !important;
+}
+
+.nav-link-bg-inherit-white-text.active {
+    border-bottom: 4px solid white !important;
+}
+
+.rating_star_red {
+    color: #b37d19;
+}
+
+.border_black {
+    border-color: #000;
+    border-radius: 0;
+}
+
+.bg-gray-black-text{
+    background-color: #ede8e8;
+    color:black;
+}
+
+.dark-shadow{
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 9);
+}
+/**Home**/
+* {
+    box-sizing: border-box;
+}
+
+.home_title{
+    animation: showtitle 3s ;
+}
+@keyframes showtitle {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+/*menu bar*/
+.nav-bar-color {
+    background-color: #2892ee !important;
+}
+
+.header .nav-link.text-white.active {
+    /* color:black !important; */
+    font-weight: bold;
+    font-size: large;
+}
+
+.text-blue-color {
+    color: #2892ee !important;
+}
+
+.bg-blue-color {
+    color:white !important;
+    background-color: #2892ee!important;
+}
+
+.border-blue-color {
+    border-color: #2892ee!important;
+}
+.bg-blue-color:hover{
+    opacity: 0.6;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url("../img/office-desk-background.jpg");
+
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.bg-text {
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/opacity/see-through */
+    color: white;
+    font-weight: bold;
+    border: 3px solid #f1f1f1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 70%;
+    padding: 20px;
+}
+
+
+.center .introduct p{
+    padding:0;
+    margin:0;
+}
+
+/**ABOUT**/
+.skill_detail{
+    margin-bottom:1em;
+}
+
+.process-bar-animations{
+    background-color: #2892ee;
+    animation: progressBar 1s ease-in-out;
+    animation-fill-mode:both; 
+}
+
+@keyframes progressBar {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+
+/**RESULT**/
+.title_introduction{
+    font-size:1.5em;
+}
+
+/**Lab**/
+.bg-gray{
+    background-color: #edf4f7;
+}
+
+.ratio_custome{
+    --bs-aspect-ratio: 56.25%;
+}
+
+@media screen and (max-width: 700px) {
+    .ratio_custome{
+        --bs-aspect-ratio: 156.25%;
+    }
+}
+
+.img_requirement{
+    aspect-ratio: 4/2;
+}
+
+/**lab 1**/
+.nav-project .nav-link.active{
+    background-color: #2892ee !important;
+}
+
+
+/**create user**/
+.input-border-bottom{
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+
+/**lab 2**/
+.lab2_content .form .inputBox {
+    position: relative;
+    width: 100%;
+}
+
+.lab2_content .form .inputBox input {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    border: none;
+    outline: none;
+    padding: 25px 10px 7.5px;
+    border-radius: 4px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1em;
+    border-bottom: 2px solid #d9d9d9;
+}
+  
+.lab2_content .form .inputBox i {
+    position: absolute;
+    left: 0;
+    padding: 15px 10px;
+    font-style: normal;
+    color: #aaa;
+    transition: 0.5s;
+    pointer-events: none;
+}
+
+.lab2_content .form .inputBox input:focus {
+    border-bottom: 2px solid #2fbed1;;
+}
+  
+.lab2_content .form .inputBox input:focus~i,
+.lab2_content .form .inputBox input:valid~i {
+    transform: translateY(-7.5px);
+    font-size: 0.8em;
+    color: #2fbed1;;
+}
+
+
+
+/**Navigation bar vertical**/
+/**cái này để nhấn thì icon mũi tên sẽ quay**/
+.caret {
+    transition: 0.5s;
+}
+.caret i{
+    transform: rotate(0deg);
+}
+
+.caret:not(.collapsed) i{
+    transform: rotate(180deg);
+}
+.caret:is(.collapsed) i{
+    transform: rotate(0deg);
+}
+
+
+/**Lab 3 **/
+
+/* @media screen and (max-width: 500px) {
+    .fa.fa-book{
+        font-size: 117px !important;
+    }
+} */
+
+html{
+    scroll-behavior: smooth;
+}
+.grid-item{
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.lab3_content li a.active {
+    color: #a64bf4 !important;
+}
+
+@media screen and (max-width: 500px) {
+    .lab3_content .navigation-bar{
+        display:none !important;
+    }
+}
+
+
+.Lab4_content header .nav-link:hover{
+    background:#ddd;
+}
+
+.Lab4_content .tab-bellow a.nav-link{
+    color: #6e7377 !important;
+}
+
+.Lab4_content .tab-bellow a.active{
+    color: black !important;
+    border-bottom: 1px solid black !important;
+}
+
+
+@media screen and (min-width:576px){
+    .Lab4_content .carousel-inner{
+        display:flex;
+    }
+
+    .Lab4_content .carousel-item{
+        display:block;
+        margin-right: 0;
+        flex: 0 0 calc(100%/3);
+    }
+}
+
+.Lab4_content2 .carousel-inner{
+    padding:1em;
+}
+
+.Lab4_content2 .carousel-inner .card{
+    margin: 0 .5em;
+}
+
+
+@media screen and (min-width:576px){
+    .Lab4_content2 .carousel-inner{
+        display:flex;
+    }
+
+    .Lab4_content2 .carousel-item{
+        display:block;
+        margin-right: 0;
+        flex: 0 0 calc(100%/4);
+    }
+}
+
+.Lab4_content2 .carousel-inner{
+    padding:1em;
+}
+
+.Lab4_content2 .carousel-inner .card{
+    margin: 0 .5em;
+}
+
+
+/**Lab 6**/
+.lab_6_bg_blue{
+    background-color:#3987dd !important;
+}
+
+.lab_6_bg_gray{
+    background-color:#f5f7fa !important;
+}
+
+.text-format *{
+    margin:0px 6px;
+}
+
+.btn:active{
+    opacity: 0.6;
+}
+
+.arrow {
+    position: absolute;
+    top: 44%;
+    right: -10px;
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Kích thước của mũi tên */
+}
