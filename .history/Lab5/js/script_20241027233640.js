@@ -37,19 +37,6 @@ const courseTitles = [
 const searchInput = document.getElementById("search-input");
 const suggestionsBox = document.getElementById("suggestions");
 
-// Hàm lọc khóa học dựa trên truy vấn tìm kiếm
-function filterCourses(query) {
-  const courses = document.querySelectorAll('.course');
-  courses.forEach(course => {
-    const title = course.querySelector('.course-content h3').textContent.toLowerCase();
-    if (title.includes(query.toLowerCase())) {
-      course.style.display = 'flex';
-    } else {
-      course.style.display = 'none';
-    }
-  });
-}
-
 searchInput.addEventListener("input", function () {
   const input = this.value.toLowerCase();
   suggestionsBox.innerHTML = "";
@@ -64,7 +51,6 @@ searchInput.addEventListener("input", function () {
         li.addEventListener("click", function () {
           searchInput.value = title;
           suggestionsBox.style.display = "none";
-          filterCourses(title); // Áp dụng lọc khi chọn gợi ý
         });
         suggestionsBox.appendChild(li);
       });
@@ -74,11 +60,6 @@ searchInput.addEventListener("input", function () {
     }
   } else {
     suggestionsBox.style.display = "none";
-    // Hiển thị tất cả khóa học khi ô tìm kiếm được xóa
-    const courses = document.querySelectorAll('.course');
-    courses.forEach(course => {
-      course.style.display = 'flex';
-    });
   }
 });
 
@@ -92,18 +73,13 @@ document.addEventListener("click", function (event) {
 // Reset Functionality
 const resetLink = document.querySelector(".reset-link");
 resetLink.addEventListener("click", function (event) {
-  event.preventDefault(); // Ngăn chặn hành vi mặc định của liên kết
-  // Reset tất cả các trường lọc về giá trị mặc định
+  event.preventDefault(); // Prevent default link behavior
+  // Reset all filter inputs to their default values
   document.getElementById("sort-by").selectedIndex = 0;
   document.getElementById("categories").selectedIndex = 0;
   document.getElementById("progress").selectedIndex = 0;
   document.getElementById("instructor").selectedIndex = 0;
-  // Xóa nội dung ô tìm kiếm và ẩn hộp gợi ý
+  // Clear the search input and hide suggestions
   searchInput.value = "";
   suggestionsBox.style.display = "none";
-  // Hiển thị tất cả khóa học khi reset
-  const courses = document.querySelectorAll('.course');
-  courses.forEach(course => {
-    course.style.display = 'flex';
-  });
 });
