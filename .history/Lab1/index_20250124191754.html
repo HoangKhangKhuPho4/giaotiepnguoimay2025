@@ -9,6 +9,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Bootstrap Icons -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
@@ -19,6 +20,7 @@
         border-radius: 8px;
         transition: background-color 0.3s;
       }
+
       #dropArea.highlight {
         background-color: rgba(0, 123, 255, 0.1);
       }
@@ -31,6 +33,8 @@
         <!-- Sidebar -->
         <nav class="col-lg-3 col-md-4 sidebar">
           <h4>Settings</h4>
+
+          <!-- Search Bar -->
           <div class="mb-3">
             <input
               type="text"
@@ -38,10 +42,11 @@
               class="form-control"
               placeholder="Search settings..."
               aria-label="Search settings"
-              autofocus
             />
           </div>
+
           <ul class="nav flex-column" id="menuItems">
+            <!-- General Section -->
             <li class="nav-item">
               <a class="nav-link active" href="#">
                 <span class="icon">🔑</span> Account
@@ -68,6 +73,7 @@
               </a>
             </li>
 
+            <!-- System Section -->
             <li class="nav-item mt-4">
               <h4>System</h4>
             </li>
@@ -81,7 +87,7 @@
                 <span class="icon">⚙️</span> Preferences
               </a>
             </li>
-            <!-- Login/Logout -->
+            <!-- Nút Đăng Nhập/Đăng Xuất -->
             <li class="nav-item mt-4">
               <button class="btn btn-outline-primary w-100" id="loginButton">
                 Đăng Nhập
@@ -103,12 +109,12 @@
         <main class="col-lg-9 col-md-8 content">
           <h2>Account Settings</h2>
           <div class="row">
-            <!-- Profile Picture -->
+            <!-- Profile Picture Section -->
             <div class="col-md-4 text-center">
               <div class="profile-picture">
                 <img
                   id="profileImage"
-                  src="https://media.istockphoto.com/id/954281130/vi/vec-to/man-user-icon-vector-person-symbol-profile-stroke-circle-avatar-sign-in-flat-color-glyph.jpg?s=612x612&w=is&k=20&c=ChH-38JB83GXcJ1hA63L4tpmU3-7Y8CLIGIPMPiNiAY="
+                  src="https://via.placeholder.com/120"
                   alt="Profile"
                   class="img-fluid"
                 />
@@ -151,6 +157,7 @@
             <!-- Form Section -->
             <div class="col-md-8">
               <form id="accountForm" novalidate>
+                <!-- Username -->
                 <div class="mb-3">
                   <label for="username" class="form-label">Username</label>
                   <input
@@ -167,10 +174,11 @@
                   </div>
                 </div>
 
+                <!-- Current Password -->
                 <div class="mb-3">
-                  <label for="currentPassword" class="form-label">
-                    Current Password
-                  </label>
+                  <label for="currentPassword" class="form-label"
+                    >Current Password</label
+                  >
                   <div class="input-group">
                     <input
                       type="password"
@@ -195,10 +203,11 @@
                   </div>
                 </div>
 
+                <!-- New Password -->
                 <div class="mb-3">
-                  <label for="newPassword" class="form-label">
-                    New Password
-                  </label>
+                  <label for="newPassword" class="form-label"
+                    >New Password</label
+                  >
                   <div class="input-group">
                     <input
                       type="password"
@@ -229,10 +238,11 @@
                   <div class="invalid-feedback">New password is required.</div>
                 </div>
 
+                <!-- Confirm New Password -->
                 <div class="mb-3">
-                  <label for="confirmPassword" class="form-label">
-                    Confirm New Password
-                  </label>
+                  <label for="confirmPassword" class="form-label"
+                    >Confirm New Password</label
+                  >
                   <div class="input-group">
                     <input
                       type="password"
@@ -257,6 +267,7 @@
                   </div>
                 </div>
 
+                <!-- Email -->
                 <div class="mb-3">
                   <label for="email" class="form-label">Email Address</label>
                   <input
@@ -273,10 +284,11 @@
                   </div>
                 </div>
 
+                <!-- Full Name (Optional) -->
                 <div class="mb-3">
-                  <label for="fullName" class="form-label">
-                    Full Name (optional)
-                  </label>
+                  <label for="fullName" class="form-label"
+                    >Full Name (optional)</label
+                  >
                   <input
                     type="text"
                     class="form-control"
@@ -287,6 +299,7 @@
                   />
                 </div>
 
+                <!-- Role Dropdown -->
                 <div class="mb-3">
                   <label for="role" class="form-label">Role</label>
                   <select
@@ -302,6 +315,7 @@
                   <div class="invalid-feedback">Please select a role.</div>
                 </div>
 
+                <!-- Integrated Account Section -->
                 <h5>Integrated Accounts</h5>
                 <div class="card">
                   <div
@@ -334,6 +348,7 @@
                   </div>
                 </div>
 
+                <!-- Read-only Fields -->
                 <div class="mb-3">
                   <label class="form-label">Account Created At</label>
                   <input
@@ -354,6 +369,7 @@
                   />
                 </div>
 
+                <!-- Save and Cancel Buttons -->
                 <button
                   type="submit"
                   class="btn btn-primary"
@@ -369,6 +385,8 @@
                 >
                   Cancel
                 </button>
+
+                <!-- Back Button -->
                 <a
                   href="../lab1.html"
                   class="btn btn-outline-secondary"
@@ -418,8 +436,11 @@
               ></button>
             </div>
             <div class="modal-body">
+              <!-- Username -->
               <div class="mb-3">
-                <label for="loginUsername" class="form-label">Tên đăng nhập</label>
+                <label for="loginUsername" class="form-label"
+                  >Tên đăng nhập</label
+                >
                 <input
                   type="text"
                   class="form-control"
@@ -427,6 +448,7 @@
                   required
                 />
               </div>
+              <!-- Password -->
               <div class="mb-3">
                 <label for="loginPassword" class="form-label">Mật khẩu</label>
                 <input
@@ -455,12 +477,15 @@
     </button>
 
     <script src="assets/js/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Add event listener to the login button to navigate to login.html
-      document.getElementById("loginButton").addEventListener("click", function () {
-        window.location.href = "login.html";
-      });
+      document
+        .getElementById("loginButton")
+        .addEventListener("click", function () {
+          // Thay đổi đường dẫn đến trang bạn muốn điều hướng
+          window.location.href = "login-form/index.html"; // Đường dẫn đến trang đăng nhập
+        });
     </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
