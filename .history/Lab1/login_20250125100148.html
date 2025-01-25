@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Center Icon in Input</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      /* Reset cơ bản */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-container {
+        background: #fff;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        width: 400px;
+      }
+      .form-group {
+        margin-bottom: 20px;
+        position: relative; /* Để đặt icon tuyệt đối */
+      }
+      .form-label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+      .form-control {
+        width: 100%;
+        height: 48px;
+        padding-left: 48px;  /* Chừa chỗ bên trái cho icon */
+        font-size: 16px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+      .form-control:focus {
+        outline: none;
+        border-color: #ff3b3f; /* Màu nổi bật khi focus */
+        box-shadow: 0 0 3px rgba(255, 59, 63, 0.3);
+      }
+      /* Icon canh chính giữa theo chiều dọc */
+      .input-icon-left {
+        position: absolute;
+        left: 12px;               /* canh lề trái */
+        top: 50%;                 /* đưa icon xuống giữa */
+        transform: translateY(-50%); 
+        color: #888;
+        font-size: 18px;
+      }
+      /* Nếu có icon bên phải (toggle mắt) */
+      .input-icon-right {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #888;
+        font-size: 18px;
+      }
+      .input-icon-right:hover {
+        color: #555;
+      }
+      .btn-submit {
+        background-color: #ff3b3f;
+        color: #fff;
+        border: none;
+        width: 100%;
+        height: 48px;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn-submit:hover {
+        background-color: #e32e2e;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h3 style="text-align:center; margin-bottom: 30px;">
+        Login
+      </h3>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <!-- Icon bên trái -->
+        <i class="fas fa-envelope input-icon-left"></i>
+        <!-- Thêm padding-left 48px để text không đè lên icon -->
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="Enter your email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="form-label">Password</label>
+        <!-- Icon ổ khóa bên trái -->
+        <i class="fas fa-lock input-icon-left"></i>
+        <input
+          type="password"
+          id="password"
+          class="form-control"
+          placeholder="Enter your password"
+          style="padding-right: 48px;" 
+          <!-- padding-right nếu có icon mắt bên phải -->
+        />
+        <!-- Icon mắt bên phải để toggle password -->
+        <i
+          class="fas fa-eye input-icon-right"
+          id="togglePassword"
+          title="Show/Hide Password"
+        ></i>
+      </div>
+
+      <button class="btn-submit" type="button">
+        Login
+      </button>
+    </div>
+
+    <script>
+      // Toggle ẩn/hiện password
+      const togglePassword = document.getElementById("togglePassword");
+      const passwordField = document.getElementById("password");
+
+      togglePassword.addEventListener("click", function () {
+        const isPassword = passwordField.type === "password";
+        passwordField.type = isPassword ? "text" : "password";
+        // Đổi icon khi toggle
+        this.classList.toggle("fa-eye");
+        this.classList.toggle("fa-eye-slash");
+      });
+    </script>
+  </body>
+</html>

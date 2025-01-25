@@ -1,0 +1,164 @@
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.container-fluid {
+  height: 100%;
+}
+
+.row {
+  height: 100%;
+}
+
+.left-side {
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 0, 150, 0.5),
+    rgba(0, 0, 255, 0.5)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.left-side img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.left-side img:hover {
+  transform: scale(1.03);
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.form-container {
+  width: 100%;
+  /* Loại bỏ hoặc tăng giá trị max-width */
+  /* max-width: 500px; */
+  background: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  /* Đảm bảo form chiếm toàn bộ chiều cao của cột */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-container h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.form-container .form-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.password-strength {
+  height: 5px;
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+
+.password-strength-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #ff4d4d;
+  transition: width 0.3s;
+}
+
+.password-strength.weak .password-strength-bar {
+  width: 33%;
+  background-color: #ff4d4d;
+}
+
+.password-strength.medium .password-strength-bar {
+  width: 66%;
+  background-color: #ffa500;
+}
+
+.password-strength.strong .password-strength-bar {
+  width: 100%;
+  background-color: #28a745;
+}
+
+.terms-text {
+  font-size: 14px;
+  color: #555;
+}
+
+.terms-text a {
+  color: #ff66cc;
+  text-decoration: none;
+}
+
+.terms-text a:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #ff0096, #ff66cc);
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: transform 0.2s, background 0.3s;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #ff66cc, #ff0096);
+  transform: translateY(-2px);
+}
+
+.sign-in-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.sign-in-link a {
+  color: #ff66cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sign-in-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .left-side {
+    display: none;
+  }
+  .form-container {
+    padding: 30px;
+  }
+}

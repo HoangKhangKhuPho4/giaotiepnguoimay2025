@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Settings</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auUkrRZC2m+1jkSNVhuqEw5cVQ5m1oB7yTePp6"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      /* Reset cơ bản */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        font-family: Arial, sans-serif;
+      }
+
+      .container-fluid {
+        height: 100%;
+      }
+
+      .row {
+        height: 100%;
+      }
+
+      /* Sidebar Styles */
+      .sidebar {
+        background-color: #f8f9fa;
+        padding: 20px;
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      .sidebar h4 {
+        margin-bottom: 20px;
+      }
+
+      .sidebar .nav-link {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+      }
+
+      .sidebar .nav-link:hover {
+        background-color: #e2e6ea;
+        text-decoration: none;
+      }
+
+      .sidebar .nav-link.active {
+        background-color: #007bff;
+        color: white;
+      }
+
+      .sidebar .nav-link .icon {
+        margin-right: 10px;
+        font-size: 1.2em;
+      }
+
+      .group-title {
+        padding-left: 15px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        color: #555;
+        font-size: 1.1em;
+      }
+
+      /* Main Content Styles */
+      .content {
+        padding: 20px;
+        overflow-y: auto;
+        height: 100vh;
+      }
+
+      .content h2 {
+        margin-bottom: 20px;
+      }
+
+      /* Profile Picture Section */
+      .profile-picture img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 2px solid #007bff;
+      }
+
+      .upload-section {
+        margin-top: 15px;
+      }
+
+      #dropArea {
+        border: 2px dashed #007bff;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+        cursor: pointer;
+        text-align: center;
+        padding: 20px;
+        color: #007bff;
+      }
+
+      #dropArea.highlight {
+        background-color: rgba(0, 123, 255, 0.1);
+      }
+
+      .upload-buttons {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+      }
+
+      /* Integrated Accounts */
+      .card {
+        margin-top: 10px;
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        display: none;
+        z-index: 1000;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .sidebar {
+          height: auto;
+          position: relative;
+        }
+        .content {
+          height: auto;
+        }
+      }
+
+      /* Styling for "No Results Found" */
+      #noResults .nav-link {
+        color: #888;
+        cursor: default;
+      }
+
+      /* Hiệu ứng mờ dần khi ẩn các mục */
+      #menuItems li {
+        transition: all 0.3s ease;
+      }
+
+      #menuItems li.hide {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-lg-3 col-md-4 sidebar">
+          <h4>Settings</h4>
+          <div class="mb-3">
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search settings..."
+              aria-label="Search settings"
+              autofocus
+            />
+          </div>
+          <ul class="nav flex-column" id="menuItems">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                <span class="icon">🔑</span> Account
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">💵</span> Financial & payments
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">📑</span> Tenant Management
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">🏠</span> Property Management
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">📜</span> Lease Management
+              </a>
+            </li>
+
+            <li class="nav-item mt-4">
+              <h4 class="group-title">System</h4>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">🔔</span> Notifications
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <span class="icon">⚙️</span> Preferences
+              </a>
+            </li>
+            <!-- Login/Logout -->
+            <li class="nav-item mt-4">
+              <button class="btn btn-outline-primary w-100" id="loginButton">
+                Đăng Nhập
+              </button>
+            </li>
+            <li class="nav-item mt-2">
+              <button
+                class="btn btn-outline-danger w-100"
+                id="logoutButton"
+                style="display: none"
+              >
+                Đăng Xuất
+              </button>
+            </li>
+            <!-- No Results Found -->
+            <li class="nav-item" id="noResults" style="display: none;">
+              <a class="nav-link disabled" href="#">Không tìm thấy kết quả.</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="col-lg-9 col-md-8 content">
+          <h2>Account Settings</h2>
+          <div class="row">
+            <!-- Profile Picture -->
+            <div class="col-md-4 text-center">
+              <div class="profile-picture">
+                <img
+                  id="profileImage"
+                  src="https://media.istockphoto.com/id/954281130/vi/vec-to/man-user-icon-vector-person-symbol-profile-stroke-circle-avatar-sign-in-flat-color-glyph.jpg?s=612x612&w=is&k=20&c=ChH-38JB83GXcJ1hA63L4tpmU3-7Y8CLIGIPMPiNiAY="
+                  alt="Profile"
+                  class="img-fluid"
+                />
+              </div>
+              <div class="upload-section">
+                <div
+                  id="dropArea"
+                  class="border border-dashed p-3 mt-3"
+                >
+                  Kéo và thả hình ảnh vào đây hoặc nhấp để chọn
+                </div>
+                <input
+                  type="file"
+                  id="uploadPicture"
+                  accept="image/*"
+                  style="display: none"
+                />
+                <input
+                  type="url"
+                  id="pictureUrl"
+                  placeholder="Enter image URL"
+                  class="form-control mt-2"
+                  aria-label="Profile picture URL"
+                />
+                <div class="upload-buttons">
+                  <button class="btn btn-outline-primary" id="uploadButton">
+                    Upload new picture
+                  </button>
+                  <button class="btn btn-danger" id="deleteButton">
+                    Delete
+                  </button>
+                </div>
+              </div>
+
+              <small>PNG, JPEG under 15MB</small>
+              <div id="uploadFeedback" class="mt-2"></div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="col-md-8">
+              <form id="accountForm" novalidate>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="username"
+                    placeholder="Enter your username"
+                    maxlength="255"
+                    required
+                    aria-describedby="usernameHelp"
+                  />
+                  <div class="invalid-feedback">
+                    Username is required and must be unique.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="currentPassword" class="form-label">
+                    Current Password
+                  </label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="currentPassword"
+                      placeholder="Enter your current password"
+                      maxlength="255"
+                      required
+                      aria-describedby="currentPasswordHelp"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="toggleCurrentPassword"
+                      aria-label="Toggle current password visibility"
+                    >
+                      Show
+                    </button>
+                  </div>
+                  <div class="invalid-feedback">
+                    Current password is required.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="newPassword" class="form-label">
+                    New Password
+                  </label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="newPassword"
+                      placeholder="Enter your new password"
+                      maxlength="255"
+                      required
+                      aria-describedby="newPasswordHelp"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="toggleNewPassword"
+                      aria-label="Toggle new password visibility"
+                    >
+                      Show
+                    </button>
+                  </div>
+                  <progress
+                    max="100"
+                    value="0"
+                    id="newStrengthMeter"
+                    class="w-100 mt-2"
+                    aria-label="Password strength meter"
+                  ></progress>
+                  <small id="newStrengthText"></small>
+                  <div class="invalid-feedback">New password is required.</div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label">
+                    Confirm New Password
+                  </label>
+                  <div class="input-group">
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="confirmPassword"
+                      placeholder="Confirm your new password"
+                      maxlength="255"
+                      required
+                      aria-describedby="confirmPasswordHelp"
+                    />
+                    <button
+                      class="btn btn-outline-secondary"
+                      type="button"
+                      id="toggleConfirmPassword"
+                      aria-label="Toggle confirm password visibility"
+                    >
+                      Show
+                    </button>
+                  </div>
+                  <div class="invalid-feedback">
+                    Please confirm your new password.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    placeholder="Enter your email"
+                    maxlength="255"
+                    required
+                    aria-describedby="emailHelp"
+                  />
+                  <div class="invalid-feedback">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="fullName" class="form-label">
+                    Full Name (optional)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    maxlength="255"
+                    aria-describedby="fullNameHelp"
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label for="role" class="form-label">Role</label>
+                  <select
+                    class="form-select"
+                    id="role"
+                    required
+                    aria-label="Role selection"
+                  >
+                    <option selected disabled value="">Select a role</option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a role.</div>
+                </div>
+
+                <h5>Integrated Accounts</h5>
+                <div class="card">
+                  <div
+                    class="card-body d-flex justify-content-between align-items-center"
+                  >
+                    <div class="d-flex align-items-center">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/09/Google_Analytics_logo.svg"
+                        alt="Google Analytics"
+                        class="me-2"
+                        width="30"
+                        height="30"
+                      />
+                      Google Analytics
+                    </div>
+                    <button class="btn btn-outline-primary">Connected</button>
+                  </div>
+                </div>
+                <div class="card">
+                  <div
+                    class="card-body d-flex justify-content-between align-items-center"
+                  >
+                    <div class="d-flex align-items-center">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Google_Ads_Logo.svg"
+                        alt="Google Ads"
+                        class="me-2"
+                        width="30"
+                        height="30"
+                      />
+                      Google Ads
+                    </div>
+                    <button class="btn btn-outline-primary">Connected</button>
+                  </div>
+                </div>
+
+                <div class="mb-3 mt-4">
+                  <label class="form-label">Account Created At</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="accountCreatedAt"
+                    readonly
+                  />
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Last Updated At</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastUpdatedAt"
+                    readonly
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="btn btn-primary me-2"
+                  id="saveButton"
+                  disabled
+                >
+                  Save Changes
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary me-2"
+                  id="cancelButton"
+                >
+                  Cancel
+                </button>
+                <a
+                  href="../lab1.html"
+                  class="btn btn-outline-secondary"
+                  id="backButton"
+                  aria-label="Go Back"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-arrow-left"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M12.5 8H1.5a.5.5 0 0 0 0 1h11l-3.5 3.5a.5.5 0 0 0 .707.707l4.5-4.5a.5.5 0 0 0 0-.707l-4.5-4.5a.5.5 0 0 0-.707.707L12.5 8z"
+                    />
+                  </svg>
+                  Back
+                </a>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="loginModal"
+      tabindex="-1"
+      aria-labelledby="loginModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="loginForm">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Đăng Nhập</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="mb-3">
+                <label for="loginUsername" class="form-label">Tên đăng nhập</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="loginUsername"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="loginPassword" class="form-label">Mật khẩu</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="loginPassword"
+                  required
+                />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Đăng Nhập</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button
+      class="btn btn-primary back-to-top"
+      id="backToTopButton"
+      aria-label="Back to Top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kae3tN5oOfy7pSwE5pm0JxjYagZvQvtIu4ChA3i7fEa6GAF3vsz0oG3ewBvPR4EW"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Custom JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Các phần tử trong form
+        const accountForm = document.getElementById("accountForm");
+        const saveButton = document.getElementById("saveButton");
+        const cancelButton = document.getElementById("cancelButton");
+        const loginButton = document.getElementById("loginButton");
+        const logoutButton = document.getElementById("logoutButton");
+        const backToTopButton = document.getElementById("backToTopButton");
+
+        // Các trường thông tin
+        const username = document.getElementById("username");
+        const currentPassword = document.getElementById("currentPassword");
+        const newPassword = document.getElementById("newPassword");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const email = document.getElementById("email");
+        const fullName = document.getElementById("fullName");
+        const role = document.getElementById("role");
+        const accountCreatedAt = document.getElementById("accountCreatedAt");
+        const lastUpdatedAt = document.getElementById("lastUpdatedAt");
+        const newStrengthMeter = document.getElementById("newStrengthMeter");
+        const newStrengthText = document.getElementById("newStrengthText");
+
+        // Các nút toggle password
+        const toggleCurrentPassword = document.getElementById("toggleCurrentPassword");
+        const toggleNewPassword = document.getElementById("toggleNewPassword");
+        const toggleConfirmPassword = document.getElementById("toggleConfirmPassword");
+
+        // Phần upload hình ảnh
+        const uploadPicture = document.getElementById("uploadPicture");
+        const uploadButton = document.getElementById("uploadButton");
+        const deleteButton = document.getElementById("deleteButton");
+        const dropArea = document.getElementById("dropArea");
+        const pictureUrl = document.getElementById("pictureUrl");
+        const profileImage = document.getElementById("profileImage");
+        const uploadFeedback = document.getElementById("uploadFeedback");
+
+        // Live Search Elements
+        const searchInput = document.getElementById("searchInput");
+        const menuItems = document.getElementById("menuItems").getElementsByTagName("li");
+        const groupTitles = document.querySelectorAll(".group-title");
+        const noResults = document.getElementById("noResults");
+
+        // Modal Elements
+        const loginModal = new bootstrap.Modal(document.getElementById("loginModal"));
+        const loginForm = document.getElementById("loginForm");
+
+        // Initialize Account Created At and Last Updated At
+        const currentDate = new Date();
+        if (!localStorage.getItem("accountSettings")) {
+          accountCreatedAt.value = currentDate.toLocaleString();
+          lastUpdatedAt.value = currentDate.toLocaleString();
+        }
+
+        // Function to toggle password visibility
+        function togglePasswordVisibility(button, input) {
+          button.addEventListener("click", function () {
+            const type = input.getAttribute("type") === "password" ? "text" : "password";
+            input.setAttribute("type", type);
+            this.textContent = type === "password" ? "Show" : "Hide";
+          });
+        }
+
+        togglePasswordVisibility(toggleCurrentPassword, currentPassword);
+        togglePasswordVisibility(toggleNewPassword, newPassword);
+        togglePasswordVisibility(toggleConfirmPassword, confirmPassword);
+
+        // Function to update Save Button state
+        function updateSaveButtonState() {
+          if (accountForm.checkValidity()) {
+            saveButton.disabled = false;
+          } else {
+            saveButton.disabled = true;
+          }
+
+          // Kiểm tra mật khẩu mới và xác nhận mật khẩu
+          if (newPassword.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+          } else {
+            confirmPassword.setCustomValidity("");
+          }
+        }
+
+        // Event listener cho form inputs
+        accountForm.addEventListener("input", updateSaveButtonState);
+
+        // Password Strength Meter
+        newPassword.addEventListener("input", function () {
+          const value = newPassword.value;
+          let strength = 0;
+
+          if (value.length >= 8) strength++;
+          if (/[A-Z]/.test(value)) strength++;
+          if (/[a-z]/.test(value)) strength++;
+          if (/[0-9]/.test(value)) strength++;
+          if (/[^A-Za-z0-9]/.test(value)) strength++;
+
+          // Cập nhật Strength Meter
+          if (strength <= 2) {
+            newStrengthMeter.value = 33;
+            newStrengthText.textContent = "Weak";
+            newStrengthText.style.color = "#ff4d4d";
+          } else if (strength === 3 || strength === 4) {
+            newStrengthMeter.value = 66;
+            newStrengthText.textContent = "Medium";
+            newStrengthText.style.color = "#ffa500";
+          } else if (strength === 5) {
+            newStrengthMeter.value = 100;
+            newStrengthText.textContent = "Strong";
+            newStrengthText.style.color = "#28a745";
+          } else {
+            newStrengthMeter.value = 0;
+            newStrengthText.textContent = "";
+          }
+        });
+
+        // Upload Picture
+        uploadButton.addEventListener("click", function () {
+          uploadPicture.click();
+        });
+
+        uploadPicture.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            if (!file.type.startsWith("image/")) {
+              uploadFeedback.textContent = "Vui lòng chọn tệp hình ảnh.";
+              uploadFeedback.style.color = "red";
+              return;
+            }
+            if (file.size > 15 * 1024 * 1024) {
+              uploadFeedback.textContent = "Kích thước tệp phải dưới 15MB.";
+              uploadFeedback.style.color = "red";
+              return;
+            }
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              profileImage.src = e.target.result;
+              uploadFeedback.textContent = "Hình ảnh đã được tải lên thành công.";
+              uploadFeedback.style.color = "green";
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+        // Delete Picture
+        deleteButton.addEventListener("click", function () {
+          profileImage.src =
+            "https://media.istockphoto.com/id/954281130/vi/vec-to/man-user-icon-vector-person-symbol-profile-stroke-circle-avatar-sign-in-flat-color-glyph.jpg?s=612x612&w=is&k=20&c=ChH-38JB83GXcJ1hA63L4tpmU3-7Y8CLIGIPMPiNiAY=";
+          uploadFeedback.textContent = "Hình ảnh đã được xóa.";
+          uploadFeedback.style.color = "orange";
+          pictureUrl.value = "";
+          uploadPicture.value = "";
+        });
+
+        // Drag & Drop Upload Area
+        ["dragenter", "dragover"].forEach((eventName) => {
+          dropArea.addEventListener(
+            eventName,
+            (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              dropArea.classList.add("highlight");
+            },
+            false
+          );
+        });
+
+        ["dragleave", "drop"].forEach((eventName) => {
+          dropArea.addEventListener(
+            eventName,
+            (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              dropArea.classList.remove("highlight");
+            },
+            false
+          );
+        });
+
+        dropArea.addEventListener("drop", (e) => {
+          const dt = e.dataTransfer;
+          const files = dt.files;
+          if (files.length > 0) {
+            uploadPicture.files = files;
+            const event = new Event("change");
+            uploadPicture.dispatchEvent(event);
+          }
+        });
+
+        // Handle Picture URL Input
+        pictureUrl.addEventListener("blur", function () {
+          const url = this.value;
+          if (url) {
+            profileImage.src = url;
+            uploadFeedback.textContent = "Hình ảnh đã được cập nhật từ URL.";
+            uploadFeedback.style.color = "green";
+            uploadPicture.value = "";
+          }
+        });
+
+        // Form Submission
+        accountForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (!accountForm.checkValidity()) {
+            accountForm.classList.add("was-validated");
+            return;
+          }
+
+          // Kiểm tra mật khẩu mới và xác nhận mật khẩu
+          if (newPassword.value !== confirmPassword.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+            confirmPassword.classList.add("is-invalid");
+            return;
+          } else {
+            confirmPassword.setCustomValidity("");
+            confirmPassword.classList.remove("is-invalid");
+            confirmPassword.classList.add("is-valid");
+          }
+
+          // Thu thập dữ liệu từ form
+          const formData = {
+            username: username.value.trim(),
+            currentPassword: currentPassword.value.trim(),
+            newPassword: newPassword.value.trim(),
+            email: email.value.trim(),
+            fullName: fullName.value.trim(),
+            role: role.value,
+            accountCreatedAt: accountCreatedAt.value,
+            lastUpdatedAt: new Date().toLocaleString(),
+            profileImage: profileImage.src
+          };
+
+          // Lưu dữ liệu vào localStorage
+          localStorage.setItem("accountSettings", JSON.stringify(formData));
+
+          // Cập nhật thông tin cập nhật lần cuối
+          lastUpdatedAt.value = formData.lastUpdatedAt;
+
+          // Hiển thị thông báo thành công
+          alert("Thay đổi tài khoản đã được lưu thành công!");
+
+          // Reset form và trạng thái
+          accountForm.reset();
+          accountForm.classList.remove("was-validated");
+          saveButton.disabled = true;
+          newStrengthMeter.value = 0;
+          newStrengthText.textContent = "";
+          confirmPassword.classList.remove("is-valid");
+          confirmPassword.classList.remove("is-invalid");
+          uploadFeedback.textContent = "";
+        });
+
+        // Cancel Button Functionality
+        cancelButton.addEventListener("click", function () {
+          if (confirm("Bạn có chắc chắn muốn hủy bỏ các thay đổi?")) {
+            // Load lại dữ liệu từ localStorage nếu có
+            const savedData = JSON.parse(localStorage.getItem("accountSettings"));
+            if (savedData) {
+              username.value = savedData.username;
+              email.value = savedData.email;
+              fullName.value = savedData.fullName;
+              role.value = savedData.role;
+              accountCreatedAt.value = savedData.accountCreatedAt;
+              lastUpdatedAt.value = savedData.lastUpdatedAt;
+              profileImage.src = savedData.profileImage || profileImage.src;
+              newPassword.value = "";
+              confirmPassword.value = "";
+              newStrengthMeter.value = 0;
+              newStrengthText.textContent = "";
+              saveButton.disabled = true;
+              accountForm.classList.remove("was-validated");
+              confirmPassword.classList.remove("is-valid");
+              confirmPassword.classList.remove("is-invalid");
+              uploadFeedback.textContent = "";
+            } else {
+              accountForm.reset();
+              accountForm.classList.remove("was-validated");
+              saveButton.disabled = true;
+              newStrengthMeter.value = 0;
+              newStrengthText.textContent = "";
+              confirmPassword.classList.remove("is-valid");
+              confirmPassword.classList.remove("is-invalid");
+              profileImage.src =
+                "https://media.istockphoto.com/id/954281130/vi/vec-to/man-user-icon-vector-person-symbol-profile-stroke-circle-avatar-sign-in-flat-color-glyph.jpg?s=612x612&w=is&k=20&c=ChH-38JB83GXcJ1hA63L4tpmU3-7Y8CLIGIPMPiNiAY=";
+              uploadFeedback.textContent = "";
+            }
+          }
+        });
+
+        // Login Button Functionality
+        loginButton.addEventListener("click", function () {
+          loginModal.show();
+        });
+
+        // Logout Button Functionality
+        logoutButton.addEventListener("click", function () {
+          localStorage.removeItem("accountSettings");
+          alert("Bạn đã đăng xuất thành công.");
+          logoutButton.style.display = "none";
+          loginButton.style.display = "block";
+          accountForm.reset();
+          accountForm.classList.remove("was-validated");
+          saveButton.disabled = true;
+          newStrengthMeter.value = 0;
+          newStrengthText.textContent = "";
+          confirmPassword.classList.remove("is-valid");
+          confirmPassword.classList.remove("is-invalid");
+          profileImage.src =
+            "https://media.istockphoto.com/id/954281130/vi/vec-to/man-user-icon-vector-person-symbol-profile-stroke-circle-avatar-sign-in-flat-color-glyph.jpg?s=612x612&w=is&k=20&c=ChH-38JB83GXcJ1hA63L4tpmU3-7Y8CLIGIPMPiNiAY=";
+          uploadFeedback.textContent = "";
+        });
+
+        // Login Form Submission (Example)
+        loginForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Simple login logic (for demonstration purposes)
+          const loginUsername = document.getElementById("loginUsername").value.trim();
+          const loginPassword = document.getElementById("loginPassword").value.trim();
+
+          if (loginUsername && loginPassword) {
+            // Simulate successful login
+            alert("Đăng nhập thành công!");
+            loginModal.hide();
+            logoutButton.style.display = "block";
+            loginButton.style.display = "none";
+          } else {
+            alert("Vui lòng nhập đầy đủ thông tin đăng nhập.");
+          }
+        });
+
+        // Back to Top Button Functionality
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 300) {
+            backToTopButton.style.display = "block";
+          } else {
+            backToTopButton.style.display = "none";
+          }
+        });
+
+        backToTopButton.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Live Search Functionality
+        searchInput.addEventListener("input", function () {
+          const filter = searchInput.value.toLowerCase();
+          let visibleCount = 0;
+
+          // Lặp qua tất cả các mục trong danh sách
+          for (let i = 0; i < menuItems.length; i++) {
+            const item = menuItems[i];
+            const link = item.querySelector(".nav-link");
+
+            // Kiểm tra nếu mục là tiêu đề nhóm
+            if (item.querySelector(".group-title")) {
+              const groupTitle = item.querySelector(".group-title").textContent.toLowerCase();
+              if (groupTitle.includes(filter)) {
+                item.classList.remove("hide");
+              } else {
+                item.classList.add("hide");
+              }
+              continue;
+            }
+
+            if (link) {
+              const text = link.textContent || link.innerText;
+              if (text.toLowerCase().includes(filter)) {
+                item.classList.remove("hide");
+                visibleCount++;
+              } else {
+                item.classList.add("hide");
+              }
+            }
+          }
+
+          // Ẩn các tiêu đề nhóm nếu không có mục nào bên trong nó hiển thị
+          groupTitles.forEach(function (group) {
+            const parentLi = group.parentElement;
+            let hasVisibleItem = false;
+
+            // Kiểm tra các mục bên dưới nhóm
+            let next = parentLi.nextElementSibling;
+            while (next && !next.querySelector(".group-title")) {
+              if (next.style.display !== "none" && !next.classList.contains("hide")) {
+                hasVisibleItem = true;
+                break;
+              }
+              next = next.nextElementSibling;
+            }
+
+            if (hasVisibleItem) {
+              parentLi.classList.remove("hide");
+            } else {
+              parentLi.classList.add("hide");
+            }
+          });
+
+          // Kiểm tra xem có kết quả nào không
+          if (visibleCount === 0 && filter !== "") {
+            noResults.style.display = "block";
+          } else {
+            noResults.style.display = "none";
+          }
+        });
+
+        // Load Saved Data on Page Load
+        const savedData = JSON.parse(localStorage.getItem("accountSettings"));
+        if (savedData) {
+          username.value = savedData.username;
+          email.value = savedData.email;
+          fullName.value = savedData.fullName;
+          role.value = savedData.role;
+          accountCreatedAt.value = savedData.accountCreatedAt;
+          lastUpdatedAt.value = savedData.lastUpdatedAt;
+          profileImage.src = savedData.profileImage || profileImage.src;
+          saveButton.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>

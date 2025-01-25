@@ -14,7 +14,225 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="stylesheet" href="assets/css/login.css"/>
+    <style>
+      /* Reset cơ bản */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ece9e6, #ffffff);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        transition: box-shadow 0.3s;
+      }
+      .container:hover {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Cột chứa form */
+      .form-container {
+        flex: 1;
+        padding: 40px 60px; /* Tăng padding cho rộng rãi */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      h2 {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+        text-align: center;
+      }
+
+      p.subtext {
+        font-size: 15px;
+        color: #6c757d;
+        margin-bottom: 35px;
+        text-align: center;
+      }
+
+      /* Khối input & label */
+      label.form-label {
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 8px;
+      }
+
+      /* Vị trí tương đối để đặt icon bên trong */
+      .position-relative {
+        position: relative;
+      }
+
+      /* Các ô input chung */
+      .form-control {
+        height: 50px;                /* Cao hơn mặc định, dễ nhìn */
+        padding-left: 45px;          /* Chừa chỗ cho icon trái */
+        padding-right: 45px;         /* Chừa chỗ cho icon phải (nếu có) */
+        font-size: 16px;             /* Font lớn hơn */
+        border-radius: 8px;          /* Bo góc mềm mại */
+        border: 1px solid #ced4da;
+        transition: border-color 0.3s, box-shadow 0.3s;
+      }
+      .form-control:focus {
+        border-color: #ff3b3f;       /* Tông màu nổi bật */
+        box-shadow: 0 0 4px rgba(255, 59, 63, 0.3);
+      }
+
+      /* Icon bên trái ô input - canh giữa theo chiều dọc */
+      .input-icon-left {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        font-size: 17px;    
+        pointer-events: none; /* Cho phép click xuyên qua icon vào input */
+        line-height: 1;       /* Giúp icon không bị lệch do line-height */
+      }
+
+      /* Icon toggle mắt bên phải ô password - canh giữa theo chiều dọc */
+      .toggle-password-icon {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #999;
+        font-size: 17px;
+        line-height: 1;
+      }
+      .toggle-password-icon:hover {
+        color: #333333;
+      }
+
+      /* Thông báo lỗi và thành công */
+      .invalid-feedback,
+      .valid-feedback {
+        display: none;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      .was-validated .form-control:invalid + .invalid-feedback {
+        display: block;
+      }
+      .was-validated .form-control:valid + .valid-feedback {
+        display: block;
+      }
+
+      /* Phần checkbox + link quên mật khẩu */
+      .extra-options {
+        font-size: 14px;
+      }
+
+      /* Nút Sign In */
+      .btn-primary {
+        background-color: #ff3b3f;
+        border: none;
+        border-radius: 8px;
+        height: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+      .btn-primary:hover {
+        background-color: #e32e2e;
+        transform: translateY(-2px);
+      }
+
+      /* Nút Google */
+      .btn-google {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        color: #6c757d;
+        border-radius: 8px;
+        height: 50px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
+      }
+      .btn-google:hover {
+        background-color: #f8f8f8;
+        border-color: #cccccc;
+        transform: translateY(-2px);
+      }
+      .btn-google i {
+        margin-right: 10px;
+      }
+
+      /* Link Quên mật khẩu & Đăng ký */
+      .forgot-password,
+      .signup-link {
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .forgot-password:hover,
+      .signup-link:hover {
+        color: #ff3b3f;
+        text-decoration: underline;
+      }
+
+      .footer-text {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      /* Cột chứa ảnh */
+      .image-container {
+        flex: 1;
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .image-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 0 10px 10px 0;
+        transition: transform 0.3s;
+      }
+      .image-container img:hover {
+        transform: scale(1.05);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        .image-container {
+          display: none;
+        }
+        .form-container {
+          padding: 40px 30px;
+        }
+      }
+    </style>
   </head>
 
   <body>
