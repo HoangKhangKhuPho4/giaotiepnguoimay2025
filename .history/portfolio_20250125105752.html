@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Portfolio - Hoang Khang</title>
+    <meta
+      name="description"
+      content="Hoang Khang's portfolio, a third-year Information Technology student, showcasing projects and skills."
+    />
+    <meta
+      name="keywords"
+      content="Hoang Khang, IT Student, Portfolio, Information Technology, Projects"
+    />
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/portfolio.css"/>
+  </head>
+
+  <body class="portfolio-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
+      >
+        <a href="index.html" class="logo d-flex align-items-center">
+          <!-- Add the logo image below -->
+          <img
+            src="assets/img/logoDt.png"
+            alt="Logo"
+            style="height: 60px; width: auto; margin-right: 10px"
+          />
+          <h1 class="sitename">Hoang Khang</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html" class="active">Portfolio</a></li>
+            <li><a href="result.html">Results</a></li>
+            <li><a href="lab1.html">My Labs</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Page Title -->
+      <div class="page-title" data-aos="fade">
+        <div class="heading">
+          <div class="container">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8">
+                <h1>Portfolio</h1>
+                <p class="mb-0">
+                  I am motivated by challenges and committed to excellence. I
+                  strive to deliver value through innovative solutions and a
+                  strong dedication to continuous improvement. My focus is on
+                  creating impactful results while always seeking opportunities
+                  to grow and learn.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <nav class="breadcrumbs">
+          <div class="container">
+            <ol>
+              <li><a href="index.html">Home</a></li>
+              <li class="current">Portfolio</li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+      <!-- End Page Title -->
+
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="portfolio section">
+        <div class="container">
+          <div
+            class="isotope-layout"
+            data-default-filter="*"
+            data-layout="masonry"
+            data-sort="original-order"
+          >
+            <ul
+              class="portfolio-filters isotope-filters"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-music">Music</li>
+              <li data-filter=".filter-shop">Shop</li>
+              <li data-filter=".filter-books">Books</li>
+              <!-- Bạn có thể thêm các bộ lọc mới ở đây -->
+            </ul>
+            <!-- End Portfolio Filters -->
+
+            <div
+              class="row gy-4 isotope-container"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <!-- Portfolio Item 1 -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
+              >
+                <div class="portfolio-content h-100">
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/portfolio/app-1.jpg"
+                      class="img-fluid portfolio-img"
+                      alt="App 1"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-app-1"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-info">
+                    <h4>App 1</h4>
+                    <p>Efficient Task Management</p>
+                    <a
+                      href="https://github.com/hoangkhangkhupho4/project-app-1"
+                      target="_blank"
+                      title="GitHub Repository"
+                      class="details-link"
+                    >
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Portfolio Item -->
+
+              <!-- Portfolio Item 2 -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-music"
+              >
+                <div class="portfolio-content h-100">
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/screencapture-hoangkhangkhupho4-github-io-WebNgheNhac-2024-09-30-23_13_12.png"
+                      class="img-fluid portfolio-img"
+                      alt="Music Streaming"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-music-streaming"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-info">
+                    <h4>Music Streaming</h4>
+                    <p>Music Listening Platform</p>
+                    <a
+                      href="https://github.com/hoangkhangkhupho4/project-music-streaming"
+                      target="_blank"
+                      title="GitHub Repository"
+                      class="details-link"
+                    >
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Portfolio Item -->
+
+              <!-- Portfolio Item 3 -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-shop"
+              >
+                <div class="portfolio-content h-100">
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/screencapture-hoangkhangkhupho4-github-io-WebBanHang-2024-09-30-23_10_01.png"
+                      class="img-fluid portfolio-img"
+                      alt="Shop Management"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-shop-management"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-info">
+                    <h4>Shop Management</h4>
+                    <p>E-commerce Management Platform</p>
+                    <a
+                      href="https://github.com/hoangkhangkhupho4/project-shop-management"
+                      target="_blank"
+                      title="GitHub Repository"
+                      class="details-link"
+                    >
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Portfolio Item -->
+
+              <!-- Portfolio Item 4 -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-books"
+              >
+                <div class="portfolio-content h-100">
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/screencapture-hoangkhangkhupho4-github-io-2024-09-30-23_21_38.png"
+                      class="img-fluid portfolio-img"
+                      alt="Books 1"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/books-project"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-info">
+                    <h4>Books 1</h4>
+                    <p>Writing and Publishing eBooks</p>
+                    <a
+                      href="https://github.com/hoangkhangkhupho4/books-project"
+                      target="_blank"
+                      title="GitHub Repository"
+                      class="details-link"
+                    >
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Portfolio Item -->
+
+              <!-- Portfolio Item 5 -->
+              <div
+                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app"
+              >
+                <div class="portfolio-content h-100">
+                  <div class="portfolio-img-container">
+                    <img
+                      src="assets/img/portfolio/app-2.jpg"
+                      class="img-fluid portfolio-img"
+                      alt="App 2"
+                    />
+                    <!-- Portfolio Overlay with GitHub Link -->
+                    <div class="portfolio-overlay">
+                      <a
+                        href="https://github.com/hoangkhangkhupho4/project-app-2"
+                        target="_blank"
+                        title="GitHub Repository"
+                        class="github-link"
+                      >
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="portfolio-info">
+                    <h4>App 2</h4>
+                    <p>Online Learning Application</p>
+                    <a
+                      href="https://github.com/hoangkhangkhupho4/project-app-2"
+                      target="_blank"
+                      title="GitHub Repository"
+                      class="details-link"
+                    >
+                      <i class="bi bi-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <!-- End Portfolio Item -->
+
+              <!-- Add more portfolio items similarly... -->
+            </div>
+            <!-- End Portfolio Container -->
+          </div>
+        </div>
+      </section>
+      <!-- End Portfolio Section -->
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <!-- Giới Thiệu -->
+            <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up">
+              <h4>Giới Thiệu</h4>
+              <p>
+                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
+                và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
+              </p>
+              <div class="social-links">
+                <a href="#" aria-label="Twitter"
+                  ><i class="bi bi-twitter"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/profile.php?id=100088292157574"
+                  aria-label="Facebook"
+                >
+                  <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" aria-label="Instagram"
+                  ><i class="bi bi-instagram"></i
+                ></a>
+                <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
+                <a href="#" aria-label="LinkedIn"
+                  ><i class="bi bi-linkedin"></i
+                ></a>
+              </div>
+            </div>
+
+            <!-- Liên Kết Nhanh -->
+            <div
+              class="col-lg-2 col-md-6 footer-links"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <h4>Liên Kết Nhanh</h4>
+              <ul>
+                <li>
+                  <a href="index.html"
+                    ><i class="bi bi-chevron-right"></i> Trang Chủ</a
+                  >
+                </li>
+                <li>
+                  <a href="about.html"
+                    ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
+                  >
+                </li>
+                <li>
+                  <a href="resume.html"
+                    ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
+                  >
+                </li>
+                <li>
+                  <a href="services.html"
+                    ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
+                  >
+                </li>
+                <li>
+                  <a href="portfolio.html"
+                    ><i class="bi bi-chevron-right"></i> Portfolio</a
+                  >
+                </li>
+                <li>
+                  <a href="contact.html"
+                    ><i class="bi bi-chevron-right"></i> Liên Hệ</a
+                  >
+                </li>
+              </ul>
+            </div>
+
+            <!-- Dịch Vụ -->
+            <div
+              class="col-lg-3 col-md-6 footer-services"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h4>Dịch Vụ</h4>
+              <ul>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
+                </li>
+                <li>
+                  <a href="#"
+                    ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
+                  >
+                </li>
+                <li>
+                  <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Thông Tin Liên Hệ -->
+            <div
+              class="col-lg-4 col-md-6 footer-contact"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <h4>Liên Hệ</h4>
+              <p>
+                <strong>Email:</strong>
+                <a href="mailto:22130116@st.hcmuaf.edu.vn"
+                  >22130116@st.hcmuaf.edu.vn</a
+                ><br />
+                <strong>Điện Thoại:</strong>
+                <a href="tel:+1234567890">+1 234 567 890</a><br />
+                <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
+              </p>
+              <!-- Đăng Ký Newsletter -->
+              <form action="#" method="post" class="newsletter-form">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email của bạn"
+                  aria-label="Email của bạn"
+                  required
+                />
+                <button type="submit" aria-label="Đăng Ký">
+                  <i class="bi bi-send"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-lg-6 text-center text-lg-start">
+              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
+              Mọi Quyền
+            </div>
+            <div class="col-lg-6 footer-credits text-center text-lg-end">
+              Thiết Kế Bởi
+              <a href="https://www.facebook.com/profile.php?id=100088292157574"
+                >Nguyễn Lê Hoàng Khang</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Custom JS for Scroll-to-Top Button and Portfolio Filtering -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Scroll-to-Top Button Functionality
+        const scrollTopBtn = document.getElementById("scroll-top");
+
+        // Hiển thị nút khi cuộn xuống hơn 100px
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            scrollTopBtn.classList.add("show");
+          } else {
+            scrollTopBtn.classList.remove("show");
+          }
+        });
+
+        // Cuộn mượt về đầu trang khi nhấp vào nút
+        scrollTopBtn.addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+
+        // Khởi tạo AOS (Animate On Scroll)
+        AOS.init();
+
+        // Khởi tạo Isotope
+        var iso = new Isotope(".isotope-container", {
+          itemSelector: ".portfolio-item",
+          layoutMode: "masonry",
+          masonry: {
+            columnWidth: ".portfolio-item",
+          },
+        });
+
+        // Lọc các mục portfolio khi click vào các tab
+        var filtersElem = document.querySelector(".portfolio-filters");
+        filtersElem.addEventListener("click", function (event) {
+          // Chỉ xử lý khi click vào phần tử li
+          if (!event.target.matches("li")) {
+            return;
+          }
+          var filterValue = event.target.getAttribute("data-filter");
+          iso.arrange({ filter: filterValue });
+
+          // Thêm class 'filter-active' cho tab được chọn
+          var filterActive = document.querySelector(
+            ".portfolio-filters .filter-active"
+          );
+          if (filterActive) {
+            filterActive.classList.remove("filter-active");
+          }
+          event.target.classList.add("filter-active");
+        });
+      });
+    </script>
+  </body>
+</html>

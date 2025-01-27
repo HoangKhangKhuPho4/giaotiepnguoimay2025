@@ -7,9 +7,9 @@
       content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnlineJudgeSystem - Assessment</title>
+    <title>OnlineJudgeSystem - Interview Questions</title>
 
-    <!-- Font Awesome for Icons (v6.4.0) -->
+    <!-- Font Awesome for Icons (Using version 6.4.0) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -35,48 +35,53 @@
       crossorigin="anonymous"
     />
 
-    <!-- File CSS riêng (nếu cần)
-    <link rel="stylesheet" href="../CSS/discuss.css"> 
+    <!-- 
+      Giả sử ta gộp CSS cho navbar & footer vào cùng file discuss.css
+      hoặc bạn có thể copy trực tiếp style vào đây.
     -->
+    <link rel="stylesheet" href="../CSS/discuss.css" />
 
-    <!-- =========================
-         CUSTOM CSS (Navbar, Footer, Back to Top)
-         ========================= -->
+    <!-- Hoặc bạn có thể chèn thẳng style vào file này (nếu muốn) -->
     <style>
-      /* ----- Reset & Base ----- */
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #2c3e50;
+        --background-color: #f4f6f8;
+        --text-color: #2c3e50;
+        --text-light-color: #7f8c8d;
+        --accent-color: #e74c3c;
+        --footer-bg: #34495e;
+        --font-family: "Montserrat", sans-serif;
+        --heading-font: "Poppins", sans-serif;
+        --transition-speed: 0.3s;
+        --border-radius: 8px;
+      }
+
+      /* Reset và các thiết lập cơ bản */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       body {
-        font-family: "Montserrat", sans-serif;
+        font-family: var(--font-family);
+        background-color: var(--background-color);
+        color: var(--text-color);
         line-height: 1.6;
         scroll-behavior: smooth;
       }
-
-      /* ----- Back to Top Button ----- */
-      .back-to-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background-color: #3498db; /* Màu chủ đạo */
-        color: #fff;
-        padding: 10px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s, transform 0.3s;
-        z-index: 1000;
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: color var(--transition-speed);
       }
-      .back-to-top:hover {
-        background-color: #e74c3c; /* accent color */
-        transform: scale(1.1);
+      a:hover {
+        color: var(--accent-color);
       }
 
-      /* ----- Navbar ----- */
+      /* =========================
+         NAVBAR STYLES
+      ========================== */
       nav {
         background-color: rgba(44, 62, 80, 0.95);
         color: #fff;
@@ -89,10 +94,12 @@
         width: 100%;
         top: 0;
         z-index: 1000;
-        transition: background-color 0.3s, box-shadow 0.3s;
+        transition: background-color var(--transition-speed),
+          box-shadow var(--transition-speed);
       }
+
       nav.scrolled {
-        background-color: #2c3e50; 
+        background-color: var(--secondary-color);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
@@ -127,7 +134,7 @@
         position: relative;
         padding: 8px 0;
         display: inline-block;
-        transition: color 0.3s;
+        transition: color var(--transition-speed);
       }
       /* Hiệu ứng gạch chân động */
       .nav-links li a::after {
@@ -135,11 +142,11 @@
         position: absolute;
         width: 0;
         height: 2px;
-        background-color: #e74c3c;
+        background-color: var(--accent-color);
         left: 50%;
         bottom: -5px;
         transform: translateX(-50%);
-        transition: width 0.3s ease-in-out;
+        transition: width var(--transition-speed) ease-in-out;
       }
       .nav-links li a:hover::after,
       .nav-links li a.active::after {
@@ -147,10 +154,10 @@
       }
       .nav-links li a:hover,
       .nav-links li a.active {
-        color: #e74c3c;
+        color: var(--accent-color);
       }
 
-      /* Auth links */
+      /* Auth links (Đăng ký, Đăng nhập) */
       .auth-links {
         display: flex;
         align-items: center;
@@ -163,11 +170,12 @@
         color: #fff;
         padding: 10px 20px;
         border-radius: 30px;
-        transition: background-color 0.3s, transform 0.3s;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
       }
       .auth-links .btn {
         background-color: #f39c12;
-        color: white;
+        color: #fff;
         padding: 10px 24px;
         font-size: 16px;
         border-radius: 30px;
@@ -175,70 +183,69 @@
         font-weight: bold;
       }
 
-      /* Hamburger Menu */
+      /* Hamburger Menu - responsive */
       .nav-hamburger {
         display: none;
         font-size: 24px;
         cursor: pointer;
         color: #fff;
       }
-
-      /* Responsive Nav */
-      @media (max-width: 1024px) {
-        nav {
-          padding: 10px 15px;
-        }
-        .nav-links li {
-          margin-left: 15px;
-        }
-        .auth-links {
-          margin-left: 15px;
-        }
-      }
       @media (max-width: 768px) {
         .nav-hamburger {
           display: block;
         }
         .nav-links {
-          display: none;
-          flex-direction: column;
+          display: none; /* Ẩn menu mặc định */
           position: absolute;
           top: 60px;
-          right: 0;
-          background-color: rgba(44, 62, 80, 0.95);
-          width: 200px;
-          border-radius: 0 0 8px 8px;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          transition: height 0.3s ease;
+          right: 20px;
+          background-color: var(--secondary-color);
+          flex-direction: column;
+          padding: 20px;
+          border-radius: var(--border-radius);
         }
         .nav-links.active {
           display: flex;
         }
         .nav-links li {
-          margin: 10px 0;
-        }
-        .nav-links li a {
-          width: 100%;
-          padding: 10px;
-        }
-        .auth-links {
           margin-left: 0;
-          flex-direction: column;
-          width: 100%;
-        }
-        .auth-links a {
-          margin-left: 0;
-          margin-top: 10px;
-          text-align: center;
+          margin-bottom: 10px;
         }
       }
 
-      /* ----- Footer ----- */
-      footer {
-        background-color: #34495e; /* Footer bg */
+      /* =========================
+         BACK TO TOP BUTTON
+      ========================== */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background-color: var(--primary-color);
         color: #fff;
-        padding: 50px 20px;
-        margin-top: 40px;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
+        z-index: 1000;
+      }
+      .back-to-top:hover {
+        background-color: var(--accent-color);
+        transform: scale(1.1);
+      }
+
+      /* =========================
+         FOOTER STYLES
+      ========================== */
+      footer {
+        background-color: var(--footer-bg); /* #34495e */
+        color: #fff;
+        padding: 60px 20px;
+        font-family: var(--font-family);
+        margin-top: 50px; /* để không bị dính sát nội dung chính */
       }
       .footer-container {
         display: flex;
@@ -247,16 +254,24 @@
         max-width: 1200px;
         margin: 0 auto;
       }
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+      }
       .footer-section h3 {
         margin-bottom: 20px;
         font-size: 24px;
+        color: #fff;
+        font-weight: 600;
         position: relative;
       }
       .footer-section h3::after {
         content: "";
         width: 50px;
         height: 3px;
-        background-color: #e74c3c;
+        background-color: var(--accent-color);
         position: absolute;
         left: 0;
         bottom: -5px;
@@ -265,6 +280,7 @@
       .footer-section p,
       .footer-section li {
         font-size: 16px;
+        color: #ddd;
         line-height: 1.8;
       }
       .footer-section ul {
@@ -277,20 +293,31 @@
       .footer-section ul li a {
         color: #ddd;
         text-decoration: none;
-        transition: color 0.3s;
+        transition: color var(--transition-speed);
       }
       .footer-section ul li a:hover {
-        color: #e74c3c;
+        color: var(--accent-color);
+      }
+      .social-links {
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
       }
       .social-links a {
         color: #ddd;
         margin-right: 15px;
         font-size: 20px;
-        transition: color 0.3s, transform 0.3s;
+        transition: color var(--transition-speed), transform var(--transition-speed);
       }
       .social-links a:hover {
-        color: #e74c3c;
+        color: var(--accent-color);
         transform: translateY(-3px);
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 40px;
+        font-size: 16px;
+        color: #bbb;
       }
       .newsletter-form {
         display: flex;
@@ -300,12 +327,12 @@
       .newsletter-form input[type="email"] {
         padding: 10px;
         border: none;
-        border-radius: 8px;
+        border-radius: var(--border-radius);
         margin-bottom: 10px;
         font-size: 16px;
         width: 100%;
         max-width: 300px;
-        transition: box-shadow 0.3s;
+        transition: box-shadow var(--transition-speed);
       }
       .newsletter-form input[type="email"]:focus {
         outline: none;
@@ -314,28 +341,27 @@
       .newsletter-form button {
         padding: 10px;
         border: none;
-        border-radius: 8px;
-        background-color: #3498db;
+        border-radius: var(--border-radius);
+        background-color: var(--primary-color);
         color: #fff;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
+        transition: background-color var(--transition-speed),
+          transform var(--transition-speed);
         width: 100%;
         max-width: 300px;
       }
       .newsletter-form button:hover {
-        background-color: #e74c3c;
+        background-color: var(--accent-color);
         transform: scale(1.05);
       }
-      .footer-bottom {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 16px;
-        color: #bbb;
+
+      /* Nếu cần thêm một ít khoảng trống cho main */
+      main {
+        margin-top: 80px; /* tránh navbar che mất nội dung ban đầu */
       }
     </style>
   </head>
-
   <body>
     <!-- Back to Top Button -->
     <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
@@ -353,11 +379,11 @@
     <nav id="navbar">
       <!-- Logo -->
       <div class="nav-logo">
-        <img src="../img/logo2.png" alt="Logo" width="40" height="40" />
+        <img src="../img/logo2.png" alt="Logo" />
         <h1>Code Ninjas</h1>
       </div>
 
-      <!-- Menu -->
+      <!-- Nhóm Menu -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="contest.html">Contest</a></li>
@@ -366,11 +392,11 @@
         <li><a href="data_science.html">Data Science</a></li>
         <li><a href="forum.html">Web Tech</a></li>
         <li><a href="discuss.html">Discuss</a></li>
-        <!-- Auth Links -->
-        <li class="auth-links">
+        <!-- Authentication Links -->
+        <div class="auth-links">
           <a href="../SignUp/index.html">Đăng ký</a>
           <a href="../Login/index.html" class="btn">Đăng nhập</a>
-        </li>
+        </div>
       </ul>
 
       <!-- Hamburger Menu -->
@@ -384,25 +410,29 @@
     </nav>
 
     <!-- Nội dung chính -->
-    <!-- Thêm margin-top: 80px để tránh bị navbar che khuất -->
-    <main style="margin-top: 80px;">
-      <section id="main-content">
+    <main>
+      <section id="main-content" class="container">
+        <h2 class="my-4">Interview Questions</h2>
+        <p>
+          Dưới đây là ví dụ nhúng iframe hiển thị nội dung trang
+          <strong>data_structures_and_algorithms.html</strong>:
+        </p>
         <iframe
           id="test-iframe"
-          src="../include/assessmention.html"
+          src="../include/data_structures_and_algorithms.html"
           width="100%"
           height="800px"
           frameborder="0"
-          style="border: none;"
+          style="border: none"
         ></iframe>
       </section>
     </main>
 
     <!-- Footer -->
     <footer>
-      <div class="footer-container container">
+      <div class="footer-container">
         <!-- About Section -->
-        <div class="footer-section about col-md-3">
+        <div class="footer-section about">
           <h3>About</h3>
           <p>
             Passionate software developer with experience in building web
@@ -412,7 +442,7 @@
         </div>
 
         <!-- Quick Links -->
-        <div class="footer-section links col-md-3">
+        <div class="footer-section links">
           <h3>Quick Links</h3>
           <ul>
             <li><a href="#about">About</a></li>
@@ -424,7 +454,7 @@
         </div>
 
         <!-- Contact Information -->
-        <div class="footer-section contact col-md-3">
+        <div class="footer-section contact">
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
@@ -454,8 +484,8 @@
           </div>
         </div>
 
-        <!-- Newsletter -->
-        <div class="footer-section newsletter col-md-3">
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
           <h3>Newsletter</h3>
           <p>
             Subscribe to our newsletter to receive the latest updates and
@@ -477,60 +507,22 @@
           </form>
         </div>
       </div>
-      <div class="footer-bottom text-center">
+      <div class="footer-bottom">
         &copy; 2023 Nabhag Motivaras. All rights reserved.
       </div>
     </footer>
 
-    <!-- AOS (Scroll Animations) -->
+    <!-- Scripts for Navbar Toggle and Back to Top Button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Bootstrap JS Bundle -->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
-      integrity="sha512-0XtLu3EbqZZggMZjbj7C8lgAH2QCmwlkkK5TT5zuC578V2QkCWXg2Mfu2FsG7JgO49naVdkXRbwDGEUs0WLBWw=="
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
     ></script>
+
     <script>
-      // Khởi tạo AOS
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
-
-      // Bắt sự kiện scroll: Hiện nút Back to Top & đổi màu navbar
-      window.addEventListener("scroll", function () {
-        const backToTop = document.querySelector(".back-to-top");
-        const navbar = document.getElementById("navbar");
-
-        if (window.pageYOffset > 300) {
-          backToTop.style.display = "flex";
-        } else {
-          backToTop.style.display = "none";
-        }
-
-        if (window.pageYOffset > 100) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
-      });
-
-      // Nút Back to Top
-      function scrollToTop() {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth",
-        });
-      }
-
-      // Hamburger Menu Toggle
-      function toggleHamburger() {
-        const navLinks = document.querySelector(".nav-links");
-        if (navLinks) {
-          navLinks.classList.toggle("active");
-        }
-      }
-
-      // Lắng nghe tin nhắn từ iframe (để điều chỉnh chiều cao nếu iframe gửi)
+      // Tự động điều chỉnh chiều cao iframe (nếu có lắng nghe postMessage từ iframe)
       window.addEventListener(
         "message",
         function (event) {
@@ -544,13 +536,39 @@
         },
         false
       );
-    </script>
 
-    <!-- Bootstrap JS Bundle -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7l+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
-      crossorigin="anonymous"
-    ></script>
+      // Hiển thị Back to Top khi cuộn
+      window.addEventListener("scroll", function () {
+        const backToTop = document.querySelector(".back-to-top");
+        const navbar = document.getElementById("navbar");
+
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
+        }
+
+        // Thêm class scrolled cho navbar khi cuộn xuống
+        if (window.pageYOffset > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll to Top
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Navbar Hamburger Toggle
+      function toggleHamburger() {
+        const navLinks = document.querySelector(".nav-links");
+        navLinks.classList.toggle("active");
+      }
+    </script>
   </body>
 </html>

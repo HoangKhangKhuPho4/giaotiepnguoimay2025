@@ -7,9 +7,9 @@
       content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnlineJudgeSystem - Assessment</title>
+    <title>OnlineJudgeSystem - Interview Questions</title>
 
-    <!-- Font Awesome for Icons (v6.4.0) -->
+    <!-- Font Awesome for Icons (Using version 6.4.0) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -35,15 +35,15 @@
       crossorigin="anonymous"
     />
 
-    <!-- File CSS riêng (nếu cần)
-    <link rel="stylesheet" href="../CSS/discuss.css"> 
-    -->
+    <!-- (Tùy chọn) File CSS riêng của bạn -->
+    <!-- <link rel="stylesheet" href="../CSS/discuss.css"> -->
 
-    <!-- =========================
-         CUSTOM CSS (Navbar, Footer, Back to Top)
-         ========================= -->
+    <!-- =======================
+         CUSTOM CSS CHO NAVBAR 
+         (và một số phần liên quan)
+         ======================= -->
     <style>
-      /* ----- Reset & Base ----- */
+      /* ----- Reset ----- */
       * {
         margin: 0;
         padding: 0;
@@ -55,12 +55,12 @@
         scroll-behavior: smooth;
       }
 
-      /* ----- Back to Top Button ----- */
+      /* Back to Top Button */
       .back-to-top {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background-color: #3498db; /* Màu chủ đạo */
+        background-color: #3498db; /* var(--primary-color) */
         color: #fff;
         padding: 10px;
         border-radius: 50%;
@@ -72,11 +72,11 @@
         z-index: 1000;
       }
       .back-to-top:hover {
-        background-color: #e74c3c; /* accent color */
+        background-color: #e74c3c; /* var(--accent-color) */
         transform: scale(1.1);
       }
 
-      /* ----- Navbar ----- */
+      /* Navbar */
       nav {
         background-color: rgba(44, 62, 80, 0.95);
         color: #fff;
@@ -91,8 +91,9 @@
         z-index: 1000;
         transition: background-color 0.3s, box-shadow 0.3s;
       }
+      /* Khi cuộn */
       nav.scrolled {
-        background-color: #2c3e50; 
+        background-color: #2c3e50; /* var(--secondary-color) */
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
@@ -102,6 +103,7 @@
         gap: 10px;
       }
       .nav-logo img {
+        /* Thêm width/height để tránh layout shift */
         width: 40px;
         height: 40px;
       }
@@ -135,7 +137,7 @@
         position: absolute;
         width: 0;
         height: 2px;
-        background-color: #e74c3c;
+        background-color: #e74c3c; /* var(--accent-color) */
         left: 50%;
         bottom: -5px;
         transform: translateX(-50%);
@@ -147,7 +149,7 @@
       }
       .nav-links li a:hover,
       .nav-links li a.active {
-        color: #e74c3c;
+        color: #e74c3c; /* var(--accent-color) */
       }
 
       /* Auth links */
@@ -183,7 +185,7 @@
         color: #fff;
       }
 
-      /* Responsive Nav */
+      /* Responsive Navbar */
       @media (max-width: 1024px) {
         nav {
           padding: 10px 15px;
@@ -200,6 +202,7 @@
           display: block;
         }
         .nav-links {
+          /* khi mở menu ở mobile => hiển thị dọc */
           display: none;
           flex-direction: column;
           position: absolute;
@@ -211,6 +214,7 @@
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           transition: height 0.3s ease;
         }
+        /* Khi .nav-links.active => show menu */
         .nav-links.active {
           display: flex;
         }
@@ -232,110 +236,8 @@
           text-align: center;
         }
       }
-
-      /* ----- Footer ----- */
-      footer {
-        background-color: #34495e; /* Footer bg */
-        color: #fff;
-        padding: 50px 20px;
-        margin-top: 40px;
-      }
-      .footer-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .footer-section h3 {
-        margin-bottom: 20px;
-        font-size: 24px;
-        position: relative;
-      }
-      .footer-section h3::after {
-        content: "";
-        width: 50px;
-        height: 3px;
-        background-color: #e74c3c;
-        position: absolute;
-        left: 0;
-        bottom: -5px;
-        border-radius: 2px;
-      }
-      .footer-section p,
-      .footer-section li {
-        font-size: 16px;
-        line-height: 1.8;
-      }
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-      }
-      .footer-section ul li {
-        margin-bottom: 12px;
-      }
-      .footer-section ul li a {
-        color: #ddd;
-        text-decoration: none;
-        transition: color 0.3s;
-      }
-      .footer-section ul li a:hover {
-        color: #e74c3c;
-      }
-      .social-links a {
-        color: #ddd;
-        margin-right: 15px;
-        font-size: 20px;
-        transition: color 0.3s, transform 0.3s;
-      }
-      .social-links a:hover {
-        color: #e74c3c;
-        transform: translateY(-3px);
-      }
-      .newsletter-form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      .newsletter-form input[type="email"] {
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        margin-bottom: 10px;
-        font-size: 16px;
-        width: 100%;
-        max-width: 300px;
-        transition: box-shadow 0.3s;
-      }
-      .newsletter-form input[type="email"]:focus {
-        outline: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      .newsletter-form button {
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        background-color: #3498db;
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
-        width: 100%;
-        max-width: 300px;
-      }
-      .newsletter-form button:hover {
-        background-color: #e74c3c;
-        transform: scale(1.05);
-      }
-      .footer-bottom {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 16px;
-        color: #bbb;
-      }
     </style>
   </head>
-
   <body>
     <!-- Back to Top Button -->
     <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
@@ -353,11 +255,17 @@
     <nav id="navbar">
       <!-- Logo -->
       <div class="nav-logo">
-        <img src="../img/logo2.png" alt="Logo" width="40" height="40" />
+        <!-- width/height đã quy định trong CSS, nhưng có thể ghi cụ thể -->
+        <img
+          src="../img/logo2.png"
+          alt="Logo"
+          width="40"
+          height="40"
+        />
         <h1>Code Ninjas</h1>
       </div>
 
-      <!-- Menu -->
+      <!-- Nhóm Menu -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="contest.html">Contest</a></li>
@@ -366,7 +274,7 @@
         <li><a href="data_science.html">Data Science</a></li>
         <li><a href="forum.html">Web Tech</a></li>
         <li><a href="discuss.html">Discuss</a></li>
-        <!-- Auth Links -->
+        <!-- Authentication Links -->
         <li class="auth-links">
           <a href="../SignUp/index.html">Đăng ký</a>
           <a href="../Login/index.html" class="btn">Đăng nhập</a>
@@ -384,22 +292,25 @@
     </nav>
 
     <!-- Nội dung chính -->
-    <!-- Thêm margin-top: 80px để tránh bị navbar che khuất -->
     <main style="margin-top: 80px;">
+      <!-- 
+        margin-top: 80px để tránh nội dung bị che bởi Navbar fixed 
+        (tùy chỉnh con số cho phù hợp chiều cao nav).
+      -->
       <section id="main-content">
         <iframe
           id="test-iframe"
-          src="../include/assessmention.html"
+          src="../include/contestion.html"
           width="100%"
           height="800px"
           frameborder="0"
-          style="border: none;"
+          style="border: none"
         ></iframe>
       </section>
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer style="margin-top: 40px;">
       <div class="footer-container container">
         <!-- About Section -->
         <div class="footer-section about col-md-3">
@@ -428,9 +339,7 @@
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
-            <a href="mailto:youremail@example.com"
-              >youremail@example.com</a
-            >
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </p>
           <p>Phone: +1 234 567 890</p>
           <div class="social-links">
@@ -454,7 +363,7 @@
           </div>
         </div>
 
-        <!-- Newsletter -->
+        <!-- Newsletter Subscription -->
         <div class="footer-section newsletter col-md-3">
           <h3>Newsletter</h3>
           <p>
@@ -477,12 +386,12 @@
           </form>
         </div>
       </div>
-      <div class="footer-bottom text-center">
+      <div class="footer-bottom text-center" style="margin-top: 20px;">
         &copy; 2023 Nabhag Motivaras. All rights reserved.
       </div>
     </footer>
 
-    <!-- AOS (Scroll Animations) -->
+    <!-- AOS (scroll animations) -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
       integrity="sha512-0XtLu3EbqZZggMZjbj7C8lgAH2QCmwlkkK5TT5zuC578V2QkCWXg2Mfu2FsG7JgO49naVdkXRbwDGEUs0WLBWw=="
@@ -490,13 +399,12 @@
       referrerpolicy="no-referrer"
     ></script>
     <script>
-      // Khởi tạo AOS
       AOS.init({
         duration: 1000,
         once: true,
       });
 
-      // Bắt sự kiện scroll: Hiện nút Back to Top & đổi màu navbar
+      // Xử lý nút Back to Top
       window.addEventListener("scroll", function () {
         const backToTop = document.querySelector(".back-to-top");
         const navbar = document.getElementById("navbar");
@@ -513,8 +421,6 @@
           navbar.classList.remove("scrolled");
         }
       });
-
-      // Nút Back to Top
       function scrollToTop() {
         window.scrollTo({
           top: 0,
@@ -530,11 +436,13 @@
         }
       }
 
-      // Lắng nghe tin nhắn từ iframe (để điều chỉnh chiều cao nếu iframe gửi)
+      // Lắng nghe tin nhắn từ iframe (để điều chỉnh chiều cao iframe nếu cần)
       window.addEventListener(
         "message",
         function (event) {
+          // Đảm bảo tin nhắn đến từ cùng một origin
           if (event.origin !== window.location.origin) return;
+
           if (event.data.height) {
             const iframe = document.getElementById("test-iframe");
             if (iframe) {
@@ -549,7 +457,7 @@
     <!-- Bootstrap JS Bundle -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7l+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
       crossorigin="anonymous"
     ></script>
   </body>

@@ -7,9 +7,9 @@
       content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnlineJudgeSystem - Assessment</title>
+    <title>OnlineJudgeSystem - Interview Questions</title>
 
-    <!-- Font Awesome for Icons (v6.4.0) -->
+    <!-- Font Awesome (v6.4.0) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -35,13 +35,14 @@
       crossorigin="anonymous"
     />
 
-    <!-- File CSS riêng (nếu cần)
-    <link rel="stylesheet" href="../CSS/discuss.css"> 
+    <!-- 
+      Bạn có thể đặt file CSS riêng của bạn (nếu có) ở đây
+      <link rel="stylesheet" href="../CSS/discuss.css"> 
     -->
 
-    <!-- =========================
+    <!-- =====================
          CUSTOM CSS (Navbar, Footer, Back to Top)
-         ========================= -->
+         ===================== -->
     <style>
       /* ----- Reset & Base ----- */
       * {
@@ -72,7 +73,7 @@
         z-index: 1000;
       }
       .back-to-top:hover {
-        background-color: #e74c3c; /* accent color */
+        background-color: #e74c3c; /* Màu accent */
         transform: scale(1.1);
       }
 
@@ -91,6 +92,7 @@
         z-index: 1000;
         transition: background-color 0.3s, box-shadow 0.3s;
       }
+      /* Navbar cuộn xuống */
       nav.scrolled {
         background-color: #2c3e50; 
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -102,6 +104,7 @@
         gap: 10px;
       }
       .nav-logo img {
+        /* Thêm width/height để tránh layout shift */
         width: 40px;
         height: 40px;
       }
@@ -147,7 +150,7 @@
       }
       .nav-links li a:hover,
       .nav-links li a.active {
-        color: #e74c3c;
+        color: #e74c3c; 
       }
 
       /* Auth links */
@@ -183,7 +186,7 @@
         color: #fff;
       }
 
-      /* Responsive Nav */
+      /* Navbar Responsive */
       @media (max-width: 1024px) {
         nav {
           padding: 10px 15px;
@@ -235,7 +238,7 @@
 
       /* ----- Footer ----- */
       footer {
-        background-color: #34495e; /* Footer bg */
+        background-color: #34495e; /* var(--footer-bg) */
         color: #fff;
         padding: 50px 20px;
         margin-top: 40px;
@@ -256,7 +259,7 @@
         content: "";
         width: 50px;
         height: 3px;
-        background-color: #e74c3c;
+        background-color: #e74c3c; /* accent */
         position: absolute;
         left: 0;
         bottom: -5px;
@@ -343,7 +346,7 @@
         width="24"
         height="24"
         fill="currentColor"
-        xmlns="https://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M12 4l-8 8h5v8h6v-8h5z" />
       </svg>
@@ -353,7 +356,12 @@
     <nav id="navbar">
       <!-- Logo -->
       <div class="nav-logo">
-        <img src="../img/logo2.png" alt="Logo" width="40" height="40" />
+        <img
+          src="../img/logo2.png"
+          alt="Logo"
+          width="40"
+          height="40"
+        />
         <h1>Code Ninjas</h1>
       </div>
 
@@ -383,17 +391,16 @@
       </div>
     </nav>
 
-    <!-- Nội dung chính -->
-    <!-- Thêm margin-top: 80px để tránh bị navbar che khuất -->
+    <!-- Nội dung chính (thêm margin-top để tránh navbar che) -->
     <main style="margin-top: 80px;">
       <section id="main-content">
         <iframe
           id="test-iframe"
-          src="../include/assessmention.html"
+          src="../include/contestion.html"
           width="100%"
           height="800px"
           frameborder="0"
-          style="border: none;"
+          style="border: none"
         ></iframe>
       </section>
     </main>
@@ -423,14 +430,12 @@
           </ul>
         </div>
 
-        <!-- Contact Information -->
+        <!-- Contact Info -->
         <div class="footer-section contact col-md-3">
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
-            <a href="mailto:youremail@example.com"
-              >youremail@example.com</a
-            >
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </p>
           <p>Phone: +1 234 567 890</p>
           <div class="social-links">
@@ -471,7 +476,6 @@
               name="_replyto"
               placeholder="Your Email"
               required
-              aria-label="Your Email"
             />
             <button type="submit">Subscribe</button>
           </form>
@@ -496,7 +500,7 @@
         once: true,
       });
 
-      // Bắt sự kiện scroll: Hiện nút Back to Top & đổi màu navbar
+      // Hiển thị Back to Top & đổi màu navbar khi cuộn
       window.addEventListener("scroll", function () {
         const backToTop = document.querySelector(".back-to-top");
         const navbar = document.getElementById("navbar");
@@ -530,7 +534,7 @@
         }
       }
 
-      // Lắng nghe tin nhắn từ iframe (để điều chỉnh chiều cao nếu iframe gửi)
+      // Nhận message từ iframe để điều chỉnh chiều cao (nếu cần)
       window.addEventListener(
         "message",
         function (event) {

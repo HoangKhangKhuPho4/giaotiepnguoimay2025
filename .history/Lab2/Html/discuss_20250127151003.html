@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="google-site-verification"
+      content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OnlineJudgeSystem - Interview Questions</title>
+
+    <!-- Font Awesome for Icons (Using version 6.4.0) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-pVn1C6BV1eJhNJ0pu6Fk9qg6vYRV8oA25I3gOPCvj+qKLMH6TqbeNqzXhPmgaxdG6lroVJEEgHojzwMl9kIYQw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- AOS Library for Animations on Scroll -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-p4jxXl5h9AmKJDYnq9uI9YzOjBHI2X6BQq3n8QoFZfRkzyC5xXRhN6H7+5SRxqI59PbG+/D0L2OHS0k4l1lCpw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../CSS/discuss.css">
+  </head>
+  <body>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" onclick="scrollToTop();" aria-label="Back to Top">
+      <svg
+        width="24"
+        height="24"
+        fill="currentColor"
+        xmlns="https://www.w3.org/2000/svg"
+      >
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
+      </svg>
+    </div>
+
+     <!-- Navbar -->
+     <nav id="navbar">
+      <!-- Logo -->
+      <div class="nav-logo">
+        <img src="../img/logo2.png" alt="Logo" />
+        <h1>Code Ninjas</h1>
+      </div>
+
+      <!-- Nhóm Menu -->
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="contest.html">Contest</a></li>
+        <li><a href="assessment.html">Assessment</a></li>
+        <li><a href="dsa.html">DSA</a></li>
+        <li><a href="data_science.html">Data Science</a></li>
+        <li><a href="forum.html">Web Tech</a></li>
+        <li><a href="discuss.html">Discuss</a></li>
+        <!-- Authentication Links -->
+        <div class="auth-links">
+          <a href="../SignUp/index.html">Đăng ký</a>
+          <a href="../Login/index.html" class="btn">Đăng nhập</a>
+        </div>
+      </ul>
+
+      <!-- Hamburger Menu -->
+      <div
+        class="nav-hamburger"
+        onclick="toggleHamburger()"
+        aria-label="Toggle Navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+
+    <!-- Nội dung chính -->
+    <main>
+      <section id="main-content">
+        <iframe
+          id="test-iframe"
+          src="../include/discussion.html"
+          width="100%"
+          height="800px"
+          frameborder="0"
+          style="border: none"
+        ></iframe>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
+        <!-- About Section -->
+        <div class="footer-section about">
+          <h3>About</h3>
+          <p>
+            Passionate software developer with experience in building web
+            applications using modern technologies. Dedicated to continuous
+            learning and improvement.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-section links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-section contact">
+          <h3>Contact Info</h3>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
+          </p>
+          <p>Phone: +1 234 567 890</p>
+          <div class="social-links">
+            <a
+              href="https://www.linkedin.com/in/yourprofile"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:youremail@example.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-section newsletter">
+          <h3>Newsletter</h3>
+          <p>
+            Subscribe to our newsletter to receive the latest updates and
+            offers.
+          </p>
+          <form
+            class="newsletter-form"
+            action="https://formspree.io/f/yourformid"
+            method="POST"
+          >
+            <input
+              type="email"
+              name="_replyto"
+              placeholder="Your Email"
+              required
+              aria-label="Your Email"
+            />
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2023 Nabhag Motivaras. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts for Navbar Toggle and Back to Top Button -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      window.addEventListener(
+        "message",
+        function (event) {
+          // Đảm bảo tin nhắn đến từ cùng một nguồn để bảo mật
+          if (event.origin !== window.location.origin) return;
+
+          if (event.data.height) {
+            const iframe = document.getElementById("test-iframe");
+            if (iframe) {
+              iframe.style.height = event.data.height + "px";
+            }
+          }
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

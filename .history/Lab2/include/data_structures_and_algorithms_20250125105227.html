@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Course Page</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .header {
+      background-color: #f8f9fa;
+      padding: 10px 0;
+    }
+    .header .nav-link {
+      color: #333;
+    }
+    .header .nav-link:hover {
+      color: #007bff;
+    }
+    .course-header {
+      background: #2c3d50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .course-header h1 {
+      font-size: 2rem;
+    }
+    .course-header .price {
+      font-size: 1.5rem;
+    }
+    .sidebar {
+      background-color: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .sidebar .nav-link {
+      color: #333;
+      font-size: 0.9rem;
+    }
+    .sidebar .nav-link.active {
+      background-color: #333;
+      color: white;
+    }
+    .content {
+      padding: 20px;
+    }
+    .content h2 {
+      font-size: 1.5rem;
+    }
+    .content p {
+      font-size: 1rem;
+    }
+    .content .list-group-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .content .list-group-item i {
+      color: #007bff;
+    }
+    .content .list-group-item.locked i {
+      color: #6c757d;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".sidebar" data-bs-offset="100">
+  <div class="course-header">
+    <h1>Code Ninjas Interview Crash Course</h1>
+    <h2>Data Structures and Algorithms</h2>
+    <p class="price">$89.99</p>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+      <!-- Toggle Button for Small Screens -->
+      <div class="col-12 d-md-none">
+        <button
+          class="btn btn-primary mb-3"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasSidebar"
+          aria-controls="offcanvasSidebar"
+        >
+          <i class="fas fa-bars"></i> Menu
+        </button>
+      </div>
+      <!-- Sidebar for Medium and Larger Screens -->
+      <div class="col-md-3 d-none d-md-block">
+        <div class="sidebar">
+          <nav class="nav flex-column">
+            <a class="nav-link" href="#overview">Overview</a>
+            <a class="nav-link" href="#introduction">Introduction</a>
+            <a class="nav-link active" href="#arrays-and-strings">Arrays and strings</a>
+            <a class="nav-link" href="#hashing">Hashing</a>
+            <!-- Add other links with corresponding hrefs -->
+          </nav>
+        </div>
+      </div>
+      <!-- Offcanvas Sidebar for Small Screens -->
+      <div
+        class="offcanvas offcanvas-start d-md-none"
+        tabindex="-1"
+        id="offcanvasSidebar"
+        aria-labelledby="offcanvasSidebarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasSidebarLabel">Course Navigation</h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <nav class="nav flex-column">
+            <a class="nav-link" href="#overview">Overview</a>
+            <a class="nav-link" href="#introduction">Introduction</a>
+            <a class="nav-link active" href="#arrays-and-strings">Arrays and strings</a>
+            <a class="nav-link" href="#hashing">Hashing</a>
+            <!-- Add other links with corresponding hrefs -->
+          </nav>
+        </div>
+      </div>
+      <!-- Main Content Area -->
+      <div class="col-md-9">
+        <div class="content">
+          <section id="overview">
+            <h2>Overview</h2>
+            <p>...</p>
+          </section>
+          <section id="introduction">
+            <h2>Introduction</h2>
+            <p>...</p>
+          </section>
+          <section id="arrays-and-strings">
+            <h2>Arrays and strings</h2>
+            <p>
+              Arrays and strings are two of the most fundamental data structures
+              seen in algorithm problems. They're very similar when it comes to
+              solving problems as they're both an ordered collection of elements
+              that can be iterated over.
+            </p>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <span>Arrays and strings</span>
+                <i class="fas fa-lock"></i>
+              </li>
+              <!-- Add other list items -->
+            </ul>
+          </section>
+          <!-- Add other sections -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap JS Bundle -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-..."
+    crossorigin="anonymous"
+  ></script>
+  <!-- Optional JavaScript for Active Link Management -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const navLinks = document.querySelectorAll('.sidebar .nav-link');
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.forEach(nav => nav.classList.remove('active'));
+          link.classList.add('active');
+        });
+      });
+    });
+  </script>
+  <!-- Script to Send Height -->
+  <script>
+    function sendHeight() {
+      const body = document.body;
+      const html = document.documentElement;
+      const height = Math.max(
+        body.scrollHeight, body.offsetHeight,
+        html.clientHeight, html.scrollHeight, html.offsetHeight
+      );
+      parent.postMessage({ height: height }, window.location.origin);
+    }
+
+    // Send height on load and resize
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    // Periodically check for dynamic content changes
+    setInterval(sendHeight, 1000);
+  </script>
+</body>
+</html>

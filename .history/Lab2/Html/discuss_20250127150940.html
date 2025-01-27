@@ -7,9 +7,9 @@
       content="9z_0SfNueQnwX6UTV8n0U95NUSoZCWX-vH7B9Hh0tJ0"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OnlineJudgeSystem - Assessment</title>
+    <title>OnlineJudgeSystem - Discussion</title>
 
-    <!-- Font Awesome for Icons (v6.4.0) -->
+    <!-- Font Awesome (v6.4.0) -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -35,7 +35,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- File CSS riêng (nếu cần)
+    <!-- (Tùy chọn) File CSS riêng của bạn
     <link rel="stylesheet" href="../CSS/discuss.css"> 
     -->
 
@@ -72,7 +72,7 @@
         z-index: 1000;
       }
       .back-to-top:hover {
-        background-color: #e74c3c; /* accent color */
+        background-color: #e74c3c; /* Màu accent */
         transform: scale(1.1);
       }
 
@@ -91,6 +91,7 @@
         z-index: 1000;
         transition: background-color 0.3s, box-shadow 0.3s;
       }
+      /* Thay đổi màu khi cuộn */
       nav.scrolled {
         background-color: #2c3e50; 
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -102,6 +103,7 @@
         gap: 10px;
       }
       .nav-logo img {
+        /* Đã có width/height để tránh layout shift */
         width: 40px;
         height: 40px;
       }
@@ -147,7 +149,7 @@
       }
       .nav-links li a:hover,
       .nav-links li a.active {
-        color: #e74c3c;
+        color: #e74c3c; 
       }
 
       /* Auth links */
@@ -183,7 +185,7 @@
         color: #fff;
       }
 
-      /* Responsive Nav */
+      /* Navbar Responsive */
       @media (max-width: 1024px) {
         nav {
           padding: 10px 15px;
@@ -235,7 +237,7 @@
 
       /* ----- Footer ----- */
       footer {
-        background-color: #34495e; /* Footer bg */
+        background-color: #34495e;
         color: #fff;
         padding: 50px 20px;
         margin-top: 40px;
@@ -343,7 +345,7 @@
         width="24"
         height="24"
         fill="currentColor"
-        xmlns="https://www.w3.org/2000/svg"
+        xmlns="http://www.w3.org/2000/svg"
       >
         <path d="M12 4l-8 8h5v8h6v-8h5z" />
       </svg>
@@ -383,13 +385,12 @@
       </div>
     </nav>
 
-    <!-- Nội dung chính -->
-    <!-- Thêm margin-top: 80px để tránh bị navbar che khuất -->
+    <!-- Nội dung chính (thêm margin-top để tránh Navbar che) -->
     <main style="margin-top: 80px;">
       <section id="main-content">
         <iframe
           id="test-iframe"
-          src="../include/assessmention.html"
+          src="../include/discussion.html"
           width="100%"
           height="800px"
           frameborder="0"
@@ -400,9 +401,9 @@
 
     <!-- Footer -->
     <footer>
-      <div class="footer-container container">
+      <div class="footer-container">
         <!-- About Section -->
-        <div class="footer-section about col-md-3">
+        <div class="footer-section about">
           <h3>About</h3>
           <p>
             Passionate software developer with experience in building web
@@ -412,7 +413,7 @@
         </div>
 
         <!-- Quick Links -->
-        <div class="footer-section links col-md-3">
+        <div class="footer-section links">
           <h3>Quick Links</h3>
           <ul>
             <li><a href="#about">About</a></li>
@@ -423,8 +424,8 @@
           </ul>
         </div>
 
-        <!-- Contact Information -->
-        <div class="footer-section contact col-md-3">
+        <!-- Contact Info -->
+        <div class="footer-section contact">
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
@@ -455,7 +456,7 @@
         </div>
 
         <!-- Newsletter -->
-        <div class="footer-section newsletter col-md-3">
+        <div class="footer-section newsletter">
           <h3>Newsletter</h3>
           <p>
             Subscribe to our newsletter to receive the latest updates and
@@ -477,7 +478,7 @@
           </form>
         </div>
       </div>
-      <div class="footer-bottom text-center">
+      <div class="footer-bottom">
         &copy; 2023 Nabhag Motivaras. All rights reserved.
       </div>
     </footer>
@@ -496,7 +497,7 @@
         once: true,
       });
 
-      // Bắt sự kiện scroll: Hiện nút Back to Top & đổi màu navbar
+      // Quản lý nút Back to Top & Navbar đổi màu khi cuộn
       window.addEventListener("scroll", function () {
         const backToTop = document.querySelector(".back-to-top");
         const navbar = document.getElementById("navbar");
@@ -530,7 +531,7 @@
         }
       }
 
-      // Lắng nghe tin nhắn từ iframe (để điều chỉnh chiều cao nếu iframe gửi)
+      // Lắng nghe message từ iframe (để điều chỉnh chiều cao, nếu cần)
       window.addEventListener(
         "message",
         function (event) {
