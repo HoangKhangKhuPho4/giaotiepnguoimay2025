@@ -33,17 +33,16 @@
         padding: 0;
       }
 
-      /*===== Banner / Course Header (giữ nguyên màu cũ, điều chỉnh xê xuống và thu hẹp nội dung) =====*/
+      /*===== Banner / Course Header (giữ nguyên màu cũ, điều chỉnh xê xuống) =====*/
       .course-header {
         background-color: var(--old-bg); /* Giữ màu nền cũ */
         color: var(--old-text-color); /* Giữ màu chữ cũ */
-        padding: 80px 20px; /* Tăng padding-top để xê xuống nhiều hơn */
+        padding: 80px 20px; /* Tăng padding-top lên 80px để xê xuống nhiều hơn */
         text-align: center;
       }
-      /* Container chứa nội dung banner được thu hẹp lại */
-      .banner-content {
-        max-width: 600px; /* Điều chỉnh độ rộng theo ý muốn */
-        margin: 0 auto;
+      .course-header h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
       }
       .course-header h2 {
         font-size: 2rem;
@@ -98,11 +97,9 @@
   <body>
     <!-- Banner / Course Header -->
     <div class="course-header">
-      <div class="banner-content">
-        <h2>Code Ninjas Interview Crash Course</h2>
-        <h2>Data Structures and Algorithms</h2>
-        <p class="price">$89.99</p>
-      </div>
+      <h2>Code Ninjas Interview Crash Course</h2>
+      <h2>Data Structures and Algorithms</h2>
+      <p class="price">$89.99</p>
     </div>
 
     <!-- Main Content -->

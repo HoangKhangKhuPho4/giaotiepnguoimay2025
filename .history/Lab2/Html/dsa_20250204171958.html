@@ -35,7 +35,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- Custom CSS: Áp dụng cho Navbar và Footer -->
+    <!-- Custom CSS: Chỉ áp dụng cho Navbar và Footer -->
     <style>
       /*====== CSS Variables ======*/
       :root {
@@ -45,7 +45,7 @@
         --footer-bg: #34495e;
         --transition-speed: 0.3s;
         --border-radius: 8px;
-        --font-family: sans-serif;
+        --font-family: sans-serif; /* Nếu có font khác, bạn có thể thay đổi ở đây */
       }
 
       /*====== Reset & Base Styles ======*/
@@ -295,43 +295,6 @@
         font-size: 16px;
         color: #bbb;
       }
-      /* Newsletter Form Styles */
-      .newsletter-form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      .newsletter-form input[type="email"] {
-        padding: 10px;
-        border: none;
-        border-radius: var(--border-radius);
-        margin-bottom: 10px;
-        font-size: 16px;
-        width: 100%;
-        max-width: 300px;
-        transition: box-shadow var(--transition-speed);
-      }
-      .newsletter-form input[type="email"]:focus {
-        outline: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      .newsletter-form button {
-        padding: 10px;
-        border: none;
-        border-radius: var(--border-radius);
-        background-color: var(--primary-color);
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color var(--transition-speed),
-          transform var(--transition-speed);
-        width: 100%;
-        max-width: 300px;
-      }
-      .newsletter-form button:hover {
-        background-color: var(--accent-color);
-        transform: scale(1.05);
-      }
     </style>
   </head>
   <body>
@@ -343,7 +306,7 @@
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
       </svg>
     </div>
 
@@ -430,18 +393,10 @@
           </p>
           <p>Phone: +1 234 567 890</p>
           <div class="social-links">
-            <a
-              href="https://www.linkedin.com/in/yourprofile"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
+            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a
-              href="https://github.com/yourusername"
-              target="_blank"
-              aria-label="GitHub"
-            >
+            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
               <i class="fab fa-github"></i>
             </a>
             <a href="mailto:youremail@example.com" aria-label="Email">
@@ -456,11 +411,7 @@
           <p>
             Subscribe to our newsletter to receive the latest updates and offers.
           </p>
-          <form
-            class="newsletter-form"
-            action="https://formspree.io/f/yourformid"
-            method="POST"
-          >
+          <form class="newsletter-form" action="https://formspree.io/f/yourformid" method="POST">
             <input
               type="email"
               name="_replyto"
@@ -485,11 +436,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Script xử lý chiều cao iframe -->
+    <!-- Script xử lý chiều cao iframe (giữ nguyên) -->
     <script>
       window.addEventListener(
         "message",
         function (event) {
+          // Kiểm tra nguồn tin nhắn để bảo mật
           if (event.origin !== window.location.origin) return;
           if (event.data.height) {
             const iframe = document.getElementById("test-iframe");
@@ -508,12 +460,14 @@
         const backToTop = document.querySelector(".back-to-top");
         const navbar = document.getElementById("navbar");
 
+        // Hiển thị nút Back to Top khi cuộn quá 300px
         if (window.pageYOffset > 300) {
           backToTop.style.display = "flex";
         } else {
           backToTop.style.display = "none";
         }
 
+        // Thêm class scrolled cho Navbar khi cuộn quá 100px
         if (window.pageYOffset > 100) {
           navbar.classList.add("scrolled");
         } else {
@@ -521,10 +475,12 @@
         }
       });
 
+      // Hàm cuộn mượt về đầu trang
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
+      // Hàm bật/tắt hamburger menu cho thiết bị di động
       function toggleHamburger() {
         const navLinks = document.querySelector(".nav-links");
         if (navLinks) {

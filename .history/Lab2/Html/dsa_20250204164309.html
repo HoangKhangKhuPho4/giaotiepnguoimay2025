@@ -35,7 +35,7 @@
       crossorigin="anonymous"
     />
 
-    <!-- Custom CSS: Áp dụng cho Navbar và Footer -->
+    <!-- Custom CSS: Chỉ áp dụng cho Navbar và Footer -->
     <style>
       /*====== CSS Variables ======*/
       :root {
@@ -45,7 +45,6 @@
         --footer-bg: #34495e;
         --transition-speed: 0.3s;
         --border-radius: 8px;
-        --font-family: sans-serif;
       }
 
       /*====== Reset & Base Styles ======*/
@@ -55,7 +54,7 @@
         box-sizing: border-box;
       }
       body {
-        font-family: var(--font-family);
+        font-family: sans-serif;
         background-color: #f4f6f8;
         color: #2c3e50;
         line-height: 1.6;
@@ -220,7 +219,7 @@
         background-color: var(--footer-bg);
         color: #fff;
         padding: 60px 20px;
-        font-family: var(--font-family);
+        font-family: sans-serif;
       }
       .footer-container {
         display: flex;
@@ -234,7 +233,6 @@
         margin: 20px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
       }
       .footer-section h3 {
         margin-bottom: 20px;
@@ -283,7 +281,8 @@
         color: #ddd;
         margin-right: 15px;
         font-size: 20px;
-        transition: color var(--transition-speed), transform var(--transition-speed);
+        transition: color var(--transition-speed),
+          transform var(--transition-speed);
       }
       .footer-section .social-links a:hover {
         color: var(--accent-color);
@@ -294,43 +293,6 @@
         margin-top: 40px;
         font-size: 16px;
         color: #bbb;
-      }
-      /* Newsletter Form Styles */
-      .newsletter-form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-      }
-      .newsletter-form input[type="email"] {
-        padding: 10px;
-        border: none;
-        border-radius: var(--border-radius);
-        margin-bottom: 10px;
-        font-size: 16px;
-        width: 100%;
-        max-width: 300px;
-        transition: box-shadow var(--transition-speed);
-      }
-      .newsletter-form input[type="email"]:focus {
-        outline: none;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-      .newsletter-form button {
-        padding: 10px;
-        border: none;
-        border-radius: var(--border-radius);
-        background-color: var(--primary-color);
-        color: #fff;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color var(--transition-speed),
-          transform var(--transition-speed);
-        width: 100%;
-        max-width: 300px;
-      }
-      .newsletter-form button:hover {
-        background-color: var(--accent-color);
-        transform: scale(1.05);
       }
     </style>
   </head>
@@ -343,7 +305,7 @@
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
       </svg>
     </div>
 
@@ -410,18 +372,15 @@
         <div class="footer-section links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#tutorials">Tutorials</a></li>
-            <li><a href="#dsa">DSA</a></li>
-            <li><a href="#data-science">Data Science</a></li>
-            <li><a href="#web-tech">Web Tech</a></li>
-            <li><a href="discuss.html">Discuss</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
 
-        <!-- Contact Info Section -->
+        <!-- Contact Information Section -->
         <div class="footer-section contact">
           <h3>Contact Info</h3>
           <p>
@@ -485,11 +444,12 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- Script xử lý chiều cao iframe -->
+    <!-- Script xử lý chiều cao iframe (giữ nguyên) -->
     <script>
       window.addEventListener(
         "message",
         function (event) {
+          // Kiểm tra nguồn tin nhắn để bảo mật
           if (event.origin !== window.location.origin) return;
           if (event.data.height) {
             const iframe = document.getElementById("test-iframe");
@@ -508,12 +468,14 @@
         const backToTop = document.querySelector(".back-to-top");
         const navbar = document.getElementById("navbar");
 
+        // Hiển thị nút Back to Top khi cuộn quá 300px
         if (window.pageYOffset > 300) {
           backToTop.style.display = "flex";
         } else {
           backToTop.style.display = "none";
         }
 
+        // Thêm class scrolled cho Navbar khi cuộn quá 100px
         if (window.pageYOffset > 100) {
           navbar.classList.add("scrolled");
         } else {
@@ -521,10 +483,12 @@
         }
       });
 
+      // Hàm cuộn mượt về đầu trang
       function scrollToTop() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
+      // Hàm bật/tắt hamburger menu cho thiết bị di động
       function toggleHamburger() {
         const navLinks = document.querySelector(".nav-links");
         if (navLinks) {
