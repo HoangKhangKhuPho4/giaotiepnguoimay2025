@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>C Programming</title>
+    <title>Search in a Rotated Array</title>
     <!-- Google Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome -->
@@ -19,7 +19,7 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../CSS/main.css" />
-    <link rel="stylesheet" href="../CSS/c_programming.css">
+    <link rel="stylesheet" href="../CSS/java_programming.css"/>
   </head>
   <body>
     <!-- Back to Top Button -->
@@ -35,26 +35,29 @@
       </svg>
     </div>
 
-    <!-- Navbar -->
+    <!-- Navigation Bar -->
     <nav>
       <div class="nav-logo">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/3/35/The_C_Programming_Language_logo.svg"
-          alt="C Logo"
+          src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg"
+          alt="Java Logo"
         />
-        <h1>C Programming Hub</h1>
+        <h1>Learn Java</h1>
       </div>
+
+      <!-- Hamburger Menu for Mobile -->
       <div class="hamburger" onclick="toggleMenu()">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <!-- Removed class="active" -->
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="ranking3.html">Ranking</a></li>
+        <li><a href="ranking2.html">Ranking</a></li>
         <li class="phone-number">
           <a href="tel:+1234567890">
             <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
@@ -77,17 +80,20 @@
       </ul>
     </nav>
 
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
       <div class="header-content">
-        <h1>Learn C Programming</h1>
-        <p>Explore C programming challenges and enhance your coding skills!</p>
-        <button onclick="scrollToContent()">Get Started</button>
+        <h1>Search in a Rotated Array</h1>
+        <p>
+          Enhance your algorithm skills by solving challenges related to rotated
+          arrays.
+        </p>
+        <button onclick="scrollToExercises()">Get Started</button>
       </div>
     </header>
 
     <!-- Difficulty Selection Buttons -->
-    <div class="difficulty-selector" id="difficulty-selector">
+    <div class="difficulty-selector">
       <button class="difficulty-button" onclick="showProblem('easy')">
         Easy
       </button>
@@ -106,22 +112,18 @@
         <li>Difficulty: <strong>Easy</strong></li>
         <li>Accuracy: <strong>50%</strong></li>
       </ul>
-      <hr />
+      <hr class="ProblemSections" />
       <p class="ProblemStatement">
         Given a sorted array that has been rotated, find the minimum element.
         The array does not contain duplicates.
       </p>
-      <hr />
+      <hr class="ProblemSections" />
+
       <h4>Example 1:</h4>
       <div class="Example">
         <p><strong>Input:</strong> nums = [3,4,5,1,2]</p>
         <p><strong>Output:</strong> 1</p>
       </div>
-      <hr />
-      <h4>Constraints:</h4>
-      <ul class="Constraints">
-        <li>1 ≤ n ≤ 10<sup>4</sup></li>
-      </ul>
     </section>
 
     <!-- Medium Problem -->
@@ -131,23 +133,19 @@
         <li>Difficulty: <strong>Medium</strong></li>
         <li>Accuracy: <strong>35.5%</strong></li>
       </ul>
-      <hr />
+      <hr class="ProblemSections" />
       <p class="ProblemStatement">
         There is an integer array nums sorted in ascending order (with distinct
         values) that is rotated at an unknown pivot. Find the target in this
         array using a binary search algorithm.
       </p>
-      <hr />
+      <hr class="ProblemSections" />
+
       <h4>Example 1:</h4>
       <div class="Example">
         <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0</p>
         <p><strong>Output:</strong> 4</p>
       </div>
-      <hr />
-      <h4>Constraints:</h4>
-      <ul class="Constraints">
-        <li>1 ≤ n ≤ 10<sup>6</sup></li>
-      </ul>
     </section>
 
     <!-- Hard Problem -->
@@ -157,37 +155,37 @@
         <li>Difficulty: <strong>Hard</strong></li>
         <li>Accuracy: <strong>25%</strong></li>
       </ul>
-      <hr />
+      <hr class="ProblemSections" />
       <p class="ProblemStatement">
         Given a sorted array that is rotated, write an algorithm to find the
         k-th smallest element in the array with O(log n) complexity.
       </p>
-      <hr />
+      <hr class="ProblemSections" />
+
       <h4>Example 1:</h4>
       <div class="Example">
         <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], k = 3</p>
         <p><strong>Output:</strong> 2</p>
       </div>
-      <hr />
-      <h4>Constraints:</h4>
-      <ul class="Constraints">
-        <li>1 ≤ N ≤ 10<sup>5</sup></li>
-      </ul>
     </section>
 
     <!-- Embedded IDE Section -->
     <div class="editor-container">
-      <h2>Chỉnh sửa mã của bạn</h2>
+      <h2>Edit Your Code</h2>
       <iframe
         src="https://www.online-ide.com/xFBUeQcXRi"
-        title="C IDE"
+        title="Java IDE"
       ></iframe>
       <div class="controls">
-        <button onclick="runCode()">Run Code</button>
-        <button onclick="clearCode()">Clear Code</button>
-        <button onclick="submitCode()">Submit</button>
+        <button onclick="runCode()" class="btn btn-primary">Run Code</button>
+        <button onclick="clearCode()" class="btn btn-secondary">
+          Clear Code
+        </button>
+        <button onclick="submitCode()" class="btn btn-success">Submit</button>
       </div>
-      <div class="output" id="output-result">Kết quả sẽ hiển thị ở đây...</div>
+      <div class="output" id="output-result">
+        Results will be displayed here...
+      </div>
     </div>
 
     <!-- Footer -->
@@ -220,7 +218,7 @@
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
-            <a href="mailto:22130116@st.hcmuaf.edu.vn">22130116@st.hcmuaf.edu.vn</a>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </p>
           <p>Phone: +1 234 567 890</p>
           <div class="social-links">
@@ -238,7 +236,7 @@
             >
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:22130116@st.hcmuaf.edu.vn" aria-label="Email">
+            <a href="mailto:youremail@example.com" aria-label="Email">
               <i class="fas fa-envelope"></i>
             </a>
           </div>
@@ -263,7 +261,7 @@
               required
               aria-label="Your Email"
             />
-            <button type="submit">Subscribe</button>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
           </form>
         </div>
       </div>
@@ -271,6 +269,6 @@
         &copy;  2025 by Hoang Khang. All Rights Reserved.
       </div>
     </footer>
-    <script src="../Js/c_programming.js"></script>
+    <script src="../Js/java_programming.js"></script>
   </body>
 </html>

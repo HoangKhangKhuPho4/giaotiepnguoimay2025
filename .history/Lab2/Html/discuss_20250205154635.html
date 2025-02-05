@@ -35,56 +35,37 @@
       crossorigin="anonymous"
     />
 
-    <!-- Custom CSS: Áp dụng cho Navbar và Footer -->
+    <!-- Custom CSS for Discuss page (nếu có) -->
+    <link rel="stylesheet" href="../CSS/discuss.css" />
+
+    <!-- Tích hợp Custom CSS cho Navbar, Footer & Back-to-Top Button -->
     <style>
-      /*====== CSS Variables ======*/
-      :root {
-        --primary-color: #3498db;
-        --secondary-color: #2c3e50;
-        --accent-color: #e74c3c;
-        --footer-bg: #34495e;
-        --transition-speed: 0.3s;
-        --border-radius: 8px;
-        --font-family: sans-serif;
-      }
-
-      /*====== Reset & Base Styles ======*/
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: var(--font-family);
-        background-color: #f4f6f8;
-        color: #2c3e50;
-        line-height: 1.6;
-        scroll-behavior: smooth;
-      }
-
-      /*====== Back to Top Button ======*/
+      /* ==============================
+         Back to Top Button
+      ============================== */
       .back-to-top {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        background-color: var(--primary-color);
+        background-color: #3498db; /* Màu chủ đạo */
         color: #fff;
         padding: 10px;
         border-radius: 50%;
-        cursor: pointer;
         display: none;
         align-items: center;
         justify-content: center;
-        transition: background-color var(--transition-speed),
-          transform var(--transition-speed);
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.3s;
         z-index: 1000;
       }
       .back-to-top:hover {
-        background-color: var(--accent-color);
+        background-color: #e74c3c; /* Màu accent */
         transform: scale(1.1);
       }
 
-      /*====== Navbar Styles ======*/
+      /* ==============================
+         Navbar Styles with Animated Underline
+      ============================== */
       nav {
         background-color: rgba(44, 62, 80, 0.95);
         color: #fff;
@@ -92,17 +73,15 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         position: fixed;
-        top: 0;
         width: 100%;
+        top: 0;
         z-index: 1000;
-        transition: background-color var(--transition-speed),
-          box-shadow var(--transition-speed);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
       }
       nav.scrolled {
-        background-color: var(--secondary-color);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        background-color: #2c3e50;
       }
       .nav-logo {
         display: flex;
@@ -115,36 +94,38 @@
       }
       .nav-logo h1 {
         font-size: 24px;
-        font-weight: bold;
         color: #fff;
+        font-weight: bold;
       }
       .nav-links {
         list-style: none;
         display: flex;
         align-items: center;
+        margin: 0;
+        padding: 0;
       }
       .nav-links li {
         margin-left: 20px;
         position: relative;
       }
       .nav-links li a {
+        color: #fff;
         text-decoration: none;
         font-size: 16px;
-        color: #fff;
         padding: 8px 0;
-        position: relative;
-        transition: color var(--transition-speed);
+        display: inline-block;
+        transition: color 0.3s;
       }
       .nav-links li a::after {
         content: "";
         position: absolute;
         width: 0;
         height: 2px;
-        background-color: var(--accent-color);
+        background-color: #e74c3c;
         left: 50%;
         bottom: -5px;
         transform: translateX(-50%);
-        transition: width var(--transition-speed) ease-in-out;
+        transition: width 0.3s ease-in-out;
       }
       .nav-links li a:hover::after,
       .nav-links li a.active::after {
@@ -152,75 +133,73 @@
       }
       .nav-links li a:hover,
       .nav-links li a.active {
-        color: var(--accent-color);
+        color: #e74c3c;
       }
-      /* Authentication Links */
-      .auth-links {
+      /* Đưa phần đăng ký/đăng nhập vào trong một thẻ li hợp lệ */
+      .nav-links li.auth-links {
         display: flex;
         align-items: center;
-        margin-left: 20px;
       }
-      .auth-links a {
+      .nav-links li.auth-links a {
         margin-left: 10px;
-        text-decoration: none;
-        font-size: 16px;
-        color: #fff;
         padding: 10px 20px;
         border-radius: 30px;
-        transition: background-color var(--transition-speed),
-          transform var(--transition-speed);
+        transition: background-color 0.3s, transform 0.3s;
       }
-      .auth-links .btn {
+      .nav-links li.auth-links a.btn {
         background-color: #f39c12;
         color: #fff;
         font-weight: bold;
-        padding: 10px 24px;
-        border-radius: 30px;
       }
-      /* Hamburger Menu */
       .nav-hamburger {
         display: none;
         font-size: 24px;
         cursor: pointer;
         color: #fff;
       }
-      /* Responsive Navbar */
+      @media (max-width: 1024px) {
+        nav {
+          padding: 10px 15px;
+        }
+        .nav-links li {
+          margin-left: 15px;
+        }
+      }
       @media (max-width: 768px) {
         .nav-hamburger {
           display: block;
         }
         .nav-links {
           flex-direction: column;
-          position: fixed;
-          top: 60px; /* Chiều cao của navbar */
-          right: -100%;
-          background-color: var(--secondary-color);
-          width: 200px;
-          height: calc(100% - 60px);
-          transition: right var(--transition-speed) ease-in-out;
-          padding-top: 20px;
+          align-items: flex-start;
+          width: 100%;
+          display: none;
+          background-color: rgba(44, 62, 80, 0.95);
+          padding: 10px 20px;
+          position: absolute;
+          top: 60px;
+          left: 0;
         }
         .nav-links.active {
-          right: 0;
+          display: flex;
         }
         .nav-links li {
-          margin: 15px 0;
-        }
-        .auth-links {
-          flex-direction: column;
-          margin-left: 0;
-        }
-        .auth-links a {
           margin: 10px 0;
+        }
+        .nav-links li.auth-links {
+          justify-content: center;
+          width: 100%;
         }
       }
 
-      /*====== Footer Styles ======*/
+      /* ==============================
+         Footer Styles
+      ============================== */
       footer {
-        background-color: var(--footer-bg);
+        background-color: #34495e;
         color: #fff;
         padding: 60px 20px;
-        font-family: var(--font-family);
+        font-family: sans-serif;
       }
       .footer-container {
         display: flex;
@@ -239,15 +218,15 @@
       .footer-section h3 {
         margin-bottom: 20px;
         font-size: 24px;
-        font-weight: 600;
         color: #fff;
+        font-weight: 600;
         position: relative;
       }
       .footer-section h3::after {
         content: "";
         width: 50px;
         height: 3px;
-        background-color: var(--accent-color);
+        background-color: #e74c3c;
         position: absolute;
         left: 0;
         bottom: -5px;
@@ -269,10 +248,10 @@
       .footer-section ul li a {
         color: #ddd;
         text-decoration: none;
-        transition: color var(--transition-speed);
+        transition: color 0.3s;
       }
       .footer-section ul li a:hover {
-        color: var(--accent-color);
+        color: #e74c3c;
       }
       .footer-section .social-links {
         margin-top: 15px;
@@ -283,10 +262,10 @@
         color: #ddd;
         margin-right: 15px;
         font-size: 20px;
-        transition: color var(--transition-speed), transform var(--transition-speed);
+        transition: color 0.3s, transform 0.3s;
       }
       .footer-section .social-links a:hover {
-        color: var(--accent-color);
+        color: #e74c3c;
         transform: translateY(-3px);
       }
       .footer-bottom {
@@ -295,41 +274,39 @@
         font-size: 16px;
         color: #bbb;
       }
-      /* Newsletter Form Styles */
-      .newsletter-form {
+      .footer-section.newsletter form {
         display: flex;
         flex-direction: column;
         width: 100%;
       }
-      .newsletter-form input[type="email"] {
+      .footer-section.newsletter form input[type="email"] {
         padding: 10px;
         border: none;
-        border-radius: var(--border-radius);
+        border-radius: 8px;
         margin-bottom: 10px;
         font-size: 16px;
         width: 100%;
         max-width: 300px;
-        transition: box-shadow var(--transition-speed);
+        transition: box-shadow 0.3s;
       }
-      .newsletter-form input[type="email"]:focus {
+      .footer-section.newsletter form input[type="email"]:focus {
         outline: none;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
-      .newsletter-form button {
+      .footer-section.newsletter form button {
         padding: 10px;
         border: none;
-        border-radius: var(--border-radius);
-        background-color: var(--primary-color);
+        border-radius: 8px;
+        background-color: #3498db;
         color: #fff;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color var(--transition-speed),
-          transform var(--transition-speed);
+        transition: background-color 0.3s, transform 0.3s;
         width: 100%;
         max-width: 300px;
       }
-      .newsletter-form button:hover {
-        background-color: var(--accent-color);
+      .footer-section.newsletter form button:hover {
+        background-color: #e74c3c;
         transform: scale(1.05);
       }
     </style>
@@ -341,20 +318,18 @@
         width="24"
         height="24"
         fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
+        xmlns="https://www.w3.org/2000/svg"
       >
-        <path d="M12 4l-8 8h5v8h6v-8h5z"></path>
+        <path d="M12 4l-8 8h5v8h6v-8h5z" />
       </svg>
     </div>
 
     <!-- Navbar -->
     <nav id="navbar">
-      <!-- Logo -->
       <div class="nav-logo">
         <img src="../img/logo2.png" alt="Logo" />
         <h1>Code Ninjas</h1>
       </div>
-      <!-- Navigation Links -->
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="contest.html">Contest</a></li>
@@ -363,13 +338,11 @@
         <li><a href="data_science.html">Data Science</a></li>
         <li><a href="forum.html">Web Tech</a></li>
         <li><a href="discuss.html">Discuss</a></li>
-        <!-- Authentication Links -->
-        <div class="auth-links">
+        <li class="auth-links">
           <a href="../SignUp/index.html">Đăng ký</a>
           <a href="../Login/index.html" class="btn">Đăng nhập</a>
-        </div>
+        </li>
       </ul>
-      <!-- Hamburger Menu (Mobile) -->
       <div
         class="nav-hamburger"
         onclick="toggleHamburger()"
@@ -379,16 +352,17 @@
       </div>
     </nav>
 
-    <!-- Main Content -->
-    <main>
+    <!-- Nội dung chính -->
+    <!-- Thêm margin-top để tránh bị che bởi navbar cố định -->
+    <main style="margin-top:80px;">
       <section id="main-content">
         <iframe
           id="test-iframe"
-          src="../include/data_structures_and_algorithms.html"
+          src="../include/discussion.html"
           width="100%"
           height="800px"
           frameborder="0"
-          style="border: none"
+          style="border:none;"
         ></iframe>
       </section>
     </main>
@@ -405,28 +379,23 @@
             learning and improvement.
           </p>
         </div>
-
-        <!-- Quick Links Section -->
+        <!-- Quick Links -->
         <div class="footer-section links">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#tutorials">Tutorials</a></li>
-            <li><a href="#dsa">DSA</a></li>
-            <li><a href="#data-science">Data Science</a></li>
-            <li><a href="#web-tech">Web Tech</a></li>
-            <li><a href="discuss.html">Discuss</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#Explore">Explore</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </div>
-
-        <!-- Contact Info Section -->
+        <!-- Contact Information -->
         <div class="footer-section contact">
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
-            <a href="mailto:22130116@st.hcmuaf.edu.vn">22130116@st.hcmuaf.edu.vn</a>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </p>
           <p>Phone: +1 234 567 890</p>
           <div class="social-links">
@@ -444,13 +413,12 @@
             >
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:22130116@st.hcmuaf.edu.vn" aria-label="Email">
+            <a href="mailto:youremail@example.com" aria-label="Email">
               <i class="fas fa-envelope"></i>
             </a>
           </div>
         </div>
-
-        <!-- Newsletter Section -->
+        <!-- Newsletter Subscription -->
         <div class="footer-section newsletter">
           <h3>Newsletter</h3>
           <p>
@@ -477,60 +445,51 @@
       </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts for AOS, Bootstrap, and Custom JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GJfUwTgYqygkFUzF2Q0r4rV1QKBS"
       crossorigin="anonymous"
     ></script>
-
-    <!-- Script xử lý chiều cao iframe -->
     <script>
-      window.addEventListener(
-        "message",
-        function (event) {
-          if (event.origin !== window.location.origin) return;
-          if (event.data.height) {
-            const iframe = document.getElementById("test-iframe");
-            if (iframe) {
-              iframe.style.height = event.data.height + "px";
-            }
-          }
-        },
-        false
-      );
-    </script>
-
-    <!-- Script cho Navbar, Back to Top và Hamburger Menu -->
-    <script>
+      // Hàm chuyển mượt lên đầu trang
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+      // Hàm bật/tắt hamburger menu trên mobile
+      function toggleHamburger() {
+        document.querySelector(".nav-links").classList.toggle("active");
+      }
+      // Sự kiện cuộn trang: thay đổi style của navbar và hiển thị nút Back to Top
       window.addEventListener("scroll", function () {
-        const backToTop = document.querySelector(".back-to-top");
         const navbar = document.getElementById("navbar");
-
-        if (window.pageYOffset > 300) {
-          backToTop.style.display = "flex";
-        } else {
-          backToTop.style.display = "none";
-        }
-
         if (window.pageYOffset > 100) {
           navbar.classList.add("scrolled");
         } else {
           navbar.classList.remove("scrolled");
         }
-      });
-
-      function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }
-
-      function toggleHamburger() {
-        const navLinks = document.querySelector(".nav-links");
-        if (navLinks) {
-          navLinks.classList.toggle("active");
+        const backToTop = document.querySelector(".back-to-top");
+        if (window.pageYOffset > 300) {
+          backToTop.style.display = "flex";
+        } else {
+          backToTop.style.display = "none";
         }
-      }
+      });
+      // Điều chỉnh chiều cao iframe nếu nhận được tin nhắn (nếu cần)
+      window.addEventListener(
+        "message",
+        function (event) {
+          if (event.origin !== window.location.origin) return;
+          if (event.data.height) {
+            document.getElementById("test-iframe").style.height =
+              event.data.height + "px";
+          }
+        },
+        false
+      );
+      // Khởi tạo AOS
+      AOS.init({ duration: 1000, once: true });
     </script>
   </body>
 </html>

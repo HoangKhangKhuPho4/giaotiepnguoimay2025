@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>C Programming</title>
+    <title>Python Programming</title>
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@700&display=swap"
       rel="stylesheet"
     />
-    <!-- Font Awesome -->
+    <!-- Font Awesome for Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
@@ -19,7 +22,7 @@
     />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../CSS/main.css" />
-    <link rel="stylesheet" href="../CSS/c_programming.css">
+    <link rel="stylesheet" href="../CSS/python_programming.css" />
   </head>
   <body>
     <!-- Back to Top Button -->
@@ -39,22 +42,25 @@
     <nav>
       <div class="nav-logo">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/3/35/The_C_Programming_Language_logo.svg"
-          alt="C Logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg"
+          alt="Python Logo"
         />
-        <h1>C Programming Hub</h1>
+        <h1>Python Hub</h1>
       </div>
+
+      <!-- Hamburger Menu for Mobile -->
       <div class="hamburger" onclick="toggleMenu()">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
+
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <!-- Removed class="active" -->
         <li><a href="profile.html">Profile</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="ranking3.html">Ranking</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
         <li class="phone-number">
           <a href="tel:+1234567890">
             <i class="fas fa-phone-alt"></i> Call us: +1 234 567 890
@@ -80,14 +86,16 @@
     <!-- Header -->
     <header>
       <div class="header-content">
-        <h1>Learn C Programming</h1>
-        <p>Explore C programming challenges and enhance your coding skills!</p>
+        <h1>Learn Python Programming</h1>
+        <p>
+          Explore Python tutorials and challenges to enhance your coding skills!
+        </p>
         <button onclick="scrollToContent()">Get Started</button>
       </div>
     </header>
 
     <!-- Difficulty Selection Buttons -->
-    <div class="difficulty-selector" id="difficulty-selector">
+    <div class="difficulty-selector">
       <button class="difficulty-button" onclick="showProblem('easy')">
         Easy
       </button>
@@ -100,22 +108,26 @@
     </div>
 
     <!-- Easy Problem -->
-    <section id="easy" class="ProblemSet active">
-      <h2 class="ProblemHeader">Easy Problem: Find Minimum in Rotated Array</h2>
+    <section id="easy" class="ProblemSet">
+      <h2 class="ProblemHeader">Fibonacci Sequence</h2>
       <ul class="Difficulty">
-        <li>Difficulty: <strong>Easy</strong></li>
-        <li>Accuracy: <strong>50%</strong></li>
+        <li>Difficulty: <strong> Easy</strong></li>
+        <li>Accuracy: <strong> 75%</strong></li>
       </ul>
       <hr />
       <p class="ProblemStatement">
-        Given a sorted array that has been rotated, find the minimum element.
-        The array does not contain duplicates.
+        Write a Python program that generates the first n Fibonacci numbers,
+        where n is provided by the user.
       </p>
       <hr />
-      <h4>Example 1:</h4>
+      <h4>Examples:</h4>
       <div class="Example">
-        <p><strong>Input:</strong> nums = [3,4,5,1,2]</p>
-        <p><strong>Output:</strong> 1</p>
+        <p><strong>Input:</strong> 5</p>
+        <p><strong>Output:</strong> [0, 1, 1, 2, 3]</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 10</p>
+        <p><strong>Output:</strong> [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]</p>
       </div>
       <hr />
       <h4>Constraints:</h4>
@@ -126,22 +138,25 @@
 
     <!-- Medium Problem -->
     <section id="medium" class="ProblemSet">
-      <h2 class="ProblemHeader">Medium Problem: Search in Rotated Array</h2>
+      <h2 class="ProblemHeader">Check Prime Numbers</h2>
       <ul class="Difficulty">
-        <li>Difficulty: <strong>Medium</strong></li>
-        <li>Accuracy: <strong>35.5%</strong></li>
+        <li>Difficulty: <strong> Medium</strong></li>
+        <li>Accuracy: <strong> 55%</strong></li>
       </ul>
       <hr />
       <p class="ProblemStatement">
-        There is an integer array nums sorted in ascending order (with distinct
-        values) that is rotated at an unknown pivot. Find the target in this
-        array using a binary search algorithm.
+        Write a Python program to check if a given number is prime. The program
+        should return True if the number is prime, and False otherwise.
       </p>
       <hr />
-      <h4>Example 1:</h4>
+      <h4>Examples:</h4>
       <div class="Example">
-        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], target = 0</p>
-        <p><strong>Output:</strong> 4</p>
+        <p><strong>Input:</strong> 29</p>
+        <p><strong>Output:</strong> True</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 15</p>
+        <p><strong>Output:</strong> False</p>
       </div>
       <hr />
       <h4>Constraints:</h4>
@@ -152,21 +167,25 @@
 
     <!-- Hard Problem -->
     <section id="hard" class="ProblemSet">
-      <h2 class="ProblemHeader">Hard Problem: Find Kth Smallest Element</h2>
+      <h2 class="ProblemHeader">Find the Nth Prime Number</h2>
       <ul class="Difficulty">
-        <li>Difficulty: <strong>Hard</strong></li>
-        <li>Accuracy: <strong>25%</strong></li>
+        <li>Difficulty: <strong> Hard</strong></li>
+        <li>Accuracy: <strong> 35%</strong></li>
       </ul>
       <hr />
       <p class="ProblemStatement">
-        Given a sorted array that is rotated, write an algorithm to find the
-        k-th smallest element in the array with O(log n) complexity.
+        Write a Python program to find the Nth prime number, where N is provided
+        by the user.
       </p>
       <hr />
-      <h4>Example 1:</h4>
+      <h4>Examples:</h4>
       <div class="Example">
-        <p><strong>Input:</strong> nums = [4,5,6,7,0,1,2], k = 3</p>
-        <p><strong>Output:</strong> 2</p>
+        <p><strong>Input:</strong> 10</p>
+        <p><strong>Output:</strong> 29</p>
+      </div>
+      <div class="Example">
+        <p><strong>Input:</strong> 5</p>
+        <p><strong>Output:</strong> 11</p>
       </div>
       <hr />
       <h4>Constraints:</h4>
@@ -175,12 +194,17 @@
       </ul>
     </section>
 
-    <!-- Embedded IDE Section -->
+    <!-- Embedded Python IDE (Trinket Embed) -->
     <div class="editor-container">
       <h2>Chỉnh sửa mã của bạn</h2>
       <iframe
-        src="https://www.online-ide.com/xFBUeQcXRi"
-        title="C IDE"
+        src="https://trinket.io/embed/python/47c704ccc556"
+        width="100%"
+        height="600"
+        frameborder="0"
+        marginwidth="0"
+        marginheight="0"
+        allowfullscreen
       ></iframe>
       <div class="controls">
         <button onclick="runCode()">Run Code</button>
@@ -220,7 +244,7 @@
           <h3>Contact Info</h3>
           <p>
             <i class="fas fa-envelope"></i>
-            <a href="mailto:22130116@st.hcmuaf.edu.vn">22130116@st.hcmuaf.edu.vn</a>
+            <a href="mailto:youremail@example.com">youremail@example.com</a>
           </p>
           <p>Phone: +1 234 567 890</p>
           <div class="social-links">
@@ -238,7 +262,7 @@
             >
               <i class="fab fa-github"></i>
             </a>
-            <a href="mailto:22130116@st.hcmuaf.edu.vn" aria-label="Email">
+            <a href="mailto:youremail@example.com" aria-label="Email">
               <i class="fas fa-envelope"></i>
             </a>
           </div>
@@ -271,6 +295,6 @@
         &copy;  2025 by Hoang Khang. All Rights Reserved.
       </div>
     </footer>
-    <script src="../Js/c_programming.js"></script>
+    <script src="../Js/python_programming.js"></script>
   </body>
 </html>
