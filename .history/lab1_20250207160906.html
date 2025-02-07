@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Lab 2 - Advanced Features</title>
+    <title>Lab 1 - User Interface</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
 
@@ -37,7 +37,7 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/Lab2.css" />
+    <link rel="stylesheet" href="assets/css/Lab1.css" />
   </head>
 
   <body class="index-page">
@@ -74,17 +74,17 @@
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
-        <h2 class="text-center mb-4">Lab 2 - Online Coding Platform</h2>
+        <h2 class="text-center mb-4">Lab 1 - User Interface</h2>
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button">
+          <a
+            href="lab1.html"
+            class="btn btn-primary-custom lab1 lab-button active"
+          >
             <i class="bi bi-book"></i> Lab 1
           </a>
-          <a
-            href="lab2.html"
-            class="btn btn-secondary-custom lab2 lab-button active"
-          >
+          <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
             <i class="bi bi-book"></i> Lab 2
           </a>
           <a href="lab3.html" class="btn btn-success-custom lab3 lab-button">
@@ -125,231 +125,130 @@
             <div id="requirement" class="tab-item active requirement-content">
               <h3>Chào các em,</h3>
               <p>
-                Cô gửi bài tập, các em làm xong, bỏ vào thư mục mang tên
-                MaSV_HoTen rồi nén .zip gửi lại cho cô nhé.
+                Cô gửi yêu cầu lab1, thiết kế giao diện cho chức năng user như
+                sau. Tới 11h59 phút ngày hôm nay, các em nộp lại đường link
+                github dạng: <em>XXX.github.com/lab1.html</em>
               </p>
-              <h4>1. Authentication</h4>
+              <h4>User Interface Design Requirements:</h4>
               <ul>
                 <li>
-                  Students should authenticate before accessing the system.
-                </li>
-                <li>
-                  Required fields:
+                  <strong>Text Input (Single-line):</strong> “Username”
                   <ul>
-                    <li>Username/Email</li>
-                    <li>Password</li>
+                    <li>Must be unique, maximum 255 characters.</li>
+                    <li>
+                      A text box with a hint (placeholder) like "Enter your
+                      username."
+                    </li>
                   </ul>
                 </li>
                 <li>
-                  Features:
+                  <strong
+                    >Password Input (Single-line with hidden text):</strong
+                  >
+                  “Password”
                   <ul>
-                    <li>Login button</li>
-                    <li>Forgot Password link</li>
-                    <li>Simple, clean, and secure login screen.</li>
+                    <li>
+                      Minimum password strength check, maximum 255 characters.
+                    </li>
+                    <li>
+                      A text box that hides the text input, with a “Show/Hide”
+                      toggle.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Email Input:</strong> “Email Address”
+                  <ul>
+                    <li>
+                      Must be a valid email format and unique, maximum 255
+                      characters.
+                    </li>
+                    <li>
+                      A text box with a placeholder like "Enter your email."
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Text Input (Single-line):</strong> “Full Name”
+                  <em>(optional)</em>
+                  <ul>
+                    <li>
+                      A regular text box, with a placeholder like "Enter your
+                      full name."
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Dropdown / Select Menu:</strong> “Role”
+                  <ul>
+                    <li>Required field.</li>
+                    <li>
+                      A dropdown menu listing the available roles fetched from
+                      the system (e.g., Admin, User, etc.).
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>File Upload or URL Input (for image URL):</strong>
+                  “Profile Picture”
+                  <ul>
+                    <li>
+                      An upload button or URL field that allows users to upload
+                      or enter a URL for their profile picture, with a preview
+                      box for the image.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Text or Date Display (Read-only):</strong> “Account
+                  Created At”
+                  <ul>
+                    <li>
+                      Automatically populated field, no input needed. Display
+                      this as a timestamp or date.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Text or Date Display (Read-only):</strong> “Last
+                  Updated At”
+                  <ul>
+                    <li>
+                      Automatically updated field when the user’s information is
+                      edited. Display this as a timestamp or date.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Button:</strong> “Create Account” / “Save Changes”
+                  (depending on context)
+                  <ul>
+                    <li>
+                      A primary action button that submits the form. Ensure it's
+                      disabled until all required fields are validated.
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <strong>Button <em>(Optional)</em>:</strong> “Cancel”
+                  <ul>
+                    <li>
+                      A secondary action button that cancels the form submission
+                      and returns the user to the previous page.
+                    </li>
                   </ul>
                 </li>
               </ul>
-
-              <h4>2. Dashboard</h4>
+              <h4>Additional Considerations:</h4>
               <ul>
                 <li>
-                  After login, students should land on a dashboard that displays
-                  available exercises to choose from.
+                  Use inline validation messages under each input field for
+                  errors like "Username is already taken" or "Invalid email
+                  format."
                 </li>
                 <li>
-                  Display exercises grouped by programming language (C, Python,
-                  Java).
-                  <ul>
-                    <li>
-                      Exercise attributes:
-                      <ul>
-                        <li>Exercise title</li>
-                        <li>Short description</li>
-                        <li>Difficulty level (Easy/Medium/Hard)</li>
-                        <li>Time limit (if any)</li>
-                        <li>Points or grades attached (optional)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>
-                      Allow students to filter exercises by programming
-                      language.
-                    </li>
-                    <li>To search for exercises based on keywords.</li>
-                    <li>
-                      Indicate whether an exercise has been completed, in
-                      progress, or not started.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>Select an exercise</li>
-                    <li>View exercise details</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>3. Coding Environment</h4>
-              <ul>
-                <li>
-                  Once an exercise is selected, students are taken to a coding
-                  environment to implement their solution.
-                </li>
-                <li>Display the exercise title and description at the top.</li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>Syntax highlighting for C, Python, Java</li>
-                    <li>Line numbers and auto-complete</li>
-                    <li>Language switcher (to select the language)</li>
-                    <li>
-                      Pre-loaded template (based on the selected language)
-                    </li>
-                    <li>
-                      Instructions and constraints provided for the exercise
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Test Cases:
-                  <ul>
-                    <li>
-                      Display predefined test cases with expected input/output
-                    </li>
-                    <li>
-                      Allow students to create and run their own test cases
-                      (optional)
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Buttons:
-                  <ul>
-                    <li>Run Code button to compile and run the code</li>
-                    <li>Clear Code button to reset the editor</li>
-                    <li>
-                      Submission button to submit the final solution for grading
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>Run the code (compile + execute)</li>
-                    <li>Submit the code</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>4. Submission and Results</h4>
-              <ul>
-                <li>
-                  After submission, students should see the results of their
-                  submission.
-                </li>
-                <li>
-                  Details:
-                  <ul>
-                    <li>
-                      Status (Success/Failed/Compilation Error/Time Limit
-                      Exceeded)
-                    </li>
-                    <li>
-                      Output: Show actual output versus expected output for each
-                      test case.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Test Case Details:
-                  <ul>
-                    <li>
-                      List all test cases with:
-                      <ul>
-                        <li>Input</li>
-                        <li>Expected output</li>
-                        <li>Actual output</li>
-                        <li>Status (Passed/Failed)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Scoring:
-                  <ul>
-                    <li>Show score based on test cases passed</li>
-                    <li>
-                      If there are multiple test cases, show how many passed
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Performance Metrics:
-                  <ul>
-                    <li>
-                      Display performance metrics like time taken and memory
-                      used (if applicable).
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>
-                      Try again button to return to the code editor for
-                      improvements
-                    </li>
-                    <li>Return to dashboard button</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>5. Additional Features</h4>
-              <ul>
-                <li>
-                  Show rankings based on student performance (optional, for
-                  competitive environments).
-                </li>
-                <li>
-                  Allow students to leave feedback on exercises or ask for help.
-                </li>
-                <li>
-                  Provide a hint button that can be used a limited number of
-                  times.
-                </li>
-                <li>
-                  Allow students to save their progress and return later to
-                  complete the exercise.
-                </li>
-              </ul>
-
-              <h4>6. General Requirements</h4>
-              <ul>
-                <li>
-                  Code execution should happen in isolated environments
-                  (containers or sandboxes) for security reasons.
-                </li>
-                <li>Limit execution time to prevent infinite loops.</li>
-                <li>
-                  Store previous attempts so students can review their
-                  submissions.
-                </li>
-                <li>
-                  Each screen should have a simple design with minimal
-                  distractions.
-                </li>
-                <li>
-                  Ensure the system is mobile-friendly so students can work from
-                  any device.
-                </li>
-                <li>
-                  Clearly communicate syntax and runtime errors to students.
+                  Ensure the form is responsive, working well on both desktop
+                  and mobile.
                 </li>
               </ul>
             </div>
@@ -362,13 +261,13 @@
                 <div class="design-area">
                   <h4>Design On Paper</h4>
                   <img
-                    src="Lab2/img/paperLab2.jpg"
+                    src="assets/img/DesignPaperUser.jpg"
                     alt="Design On Paper"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="Lab2/img/paperLab2.jpg"
+                      href="assets/img/DesignPaperUser.jpg"
                       download
                       class="download-btn"
                     >
@@ -381,20 +280,20 @@
                 <div class="design-area">
                   <h4>Design On Figma</h4>
                   <img
-                    src="Lab2/img/screencapture-127-0-0-1-5500-Lab2-Html-index-html-2024-10-08-20_12_54.png"
+                    src="assets/img/DesignUser.png"
                     alt="Design On Figma"
                     class="image-preview"
                   />
                   <div class="button-group">
                     <a
-                      href="Lab2/img/screencapture-127-0-0-1-5500-Lab2-Html-index-html-2024-10-08-20_12_54.png"
+                      href="assets/img/DesignUser.png"
                       download
                       class="download-btn"
                     >
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
-                      href="https://www.figma.com/design/NSYO8BZwCNUAC7ULE4y9zP/lab2.html?node-id=0-1&t=yp83cll184nVC0wN-1"
+                      href="https://www.figma.com/design/9ZbI2z9SIc5ouBDAX2aPn1/lab1.html?node-id=0-1&t=m5bpMzLL7evHxWFH-1"
                       target="_blank"
                       class="view-btn"
                     >
@@ -410,14 +309,14 @@
               <h3>Implement</h3>
               <div class="iframe-container">
                 <iframe
-                  src="Lab2/Html/index.html"
-                  title="advanced_features"
+                  src="Lab1/index.html"
+                  title="user_interface"
                   allowfullscreen
                 ></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
-                <a href="Lab2/Html/index.html" class="lab-button">
+                <a href="Lab1/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
                 </a>
               </div>
@@ -426,24 +325,6 @@
         </div>
       </div>
     </main>
-    <!-- <div id="implement" class="tab-item">
-      <h3>Implement</h3>
-      <div class="iframe-container">
-        <iframe
-          src="Lab2/Html/index.html"
-          title="advanced_features"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="button-group" style="margin-top: 20px">
-        <a
-          href="Lab2/Html/index.html"
-          class="btn btn-primary-custom lab9 lab-button"
-        >
-          <i class="bi bi-eye"></i> Review Pages
-        </a>
-      </div>
-    </div> -->
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -622,8 +503,77 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- Custom Device Detection Script -->
     <script>
-      // Hàm thay đổi tab trong Lab 2
+      // 1. Kiểm tra hỗ trợ cảm ứng sử dụng maxTouchPoints
+      function isTouchSupportedByMaxTouchPoints() {
+        return (
+          ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) ||
+          ("msMaxTouchPoints" in navigator && navigator.msMaxTouchPoints > 0)
+        );
+      }
+
+      // 2. Kiểm tra hỗ trợ cảm ứng sử dụng media query
+      function isTouchSupportedByMedia() {
+        return window.matchMedia("(pointer: coarse)").matches;
+      }
+
+      // 3. Lấy thông tin định hướng màn hình
+      function getScreenOrientation() {
+        if (screen.orientation && screen.orientation.type) {
+          return screen.orientation.type; // Ví dụ: "portrait-primary" hoặc "landscape-primary"
+        } else if (window.orientation !== undefined) {
+          return window.orientation;
+        }
+        return "unknown";
+      }
+
+      // 4. Nhận diện loại thiết bị dựa trên chuỗi User Agent
+      function getDeviceTypeByUserAgent() {
+        const ua = navigator.userAgent;
+        if (/Mobi|Android/i.test(ua)) {
+          return "mobile";
+        } else if (/Tablet|iPad/i.test(ua)) {
+          return "tablet";
+        } else {
+          return "desktop";
+        }
+      }
+
+      // 5. Hàm tổng hợp nhận diện thiết bị
+      function detectDevice() {
+        // Kiểm tra hỗ trợ cảm ứng
+        const isTouch =
+          isTouchSupportedByMaxTouchPoints() || isTouchSupportedByMedia();
+
+        // Nhận diện loại thiết bị dựa trên User Agent
+        let deviceType = getDeviceTypeByUserAgent();
+
+        // Nếu thiết bị hỗ trợ cảm ứng nhưng User Agent cho kết quả "desktop",
+        // có thể đây là máy tính cảm ứng. Tùy chỉnh nhãn nếu cần.
+        if (isTouch && deviceType === "desktop") {
+          deviceType = "touch-enabled-desktop";
+        }
+
+        return {
+          deviceType: deviceType,
+          isTouch: isTouch,
+          orientation: getScreenOrientation(),
+        };
+      }
+
+      // Khi DOM đã sẵn sàng, thêm class vào body theo loại thiết bị để CSS có thể điều chỉnh giao diện
+      document.addEventListener("DOMContentLoaded", function () {
+        const deviceInfo = detectDevice();
+        document.body.classList.add(deviceInfo.deviceType);
+        console.log("Thông tin thiết bị:", deviceInfo);
+
+        // Khởi tạo tab mặc định cho Lab 1
+        changeTab("requirement");
+      });
+
+      // Hàm thay đổi tab trong Lab 1
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
@@ -651,11 +601,6 @@
           activeTab.classList.add("active");
         }
       }
-
-      // Khởi tạo mặc định
-      document.addEventListener("DOMContentLoaded", function () {
-        changeTab("requirement"); // Hiển thị tab Requirement mặc định
-      });
 
       // Hiển thị nút Scroll Top khi cuộn xuống
       window.addEventListener("scroll", function () {
@@ -686,52 +631,6 @@
           alert.close();
         }, 3000);
       }
-      function getDeviceType() {
-        // Kiểm tra tính hỗ trợ cảm ứng
-        const hasTouchSupport =
-          ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) ||
-          window.matchMedia("(pointer: coarse)").matches;
-
-        // Lấy chuỗi tác nhân người dùng và chuyển thành chữ thường để so sánh
-        const ua = navigator.userAgent.toLowerCase();
-
-        // Sử dụng Media Queries để xác định kích thước màn hình
-        let deviceType = "Desktop"; // Mặc định là Desktop
-        if (window.matchMedia("(max-width: 480px)").matches) {
-          deviceType = "Mobile";
-        } else if (window.matchMedia("(max-width: 800px)").matches) {
-          deviceType = "Tablet";
-        } else if (window.matchMedia("(min-width: 801px)").matches) {
-          deviceType = "Desktop";
-        }
-
-        // Ưu tiên kiểm tra thông tin từ chuỗi tác nhân nếu có
-        if (/mobi|android|iphone|ipod/.test(ua)) {
-          deviceType = "Mobile";
-        } else if (/tablet|ipad|nexus 7|kindle/.test(ua)) {
-          deviceType = "Tablet";
-        }
-
-        // Nếu thiết bị có cảm ứng nhưng vẫn được xác định là Desktop theo Media Queries,
-        // kiểm tra lại kích thước cửa sổ để cập nhật đúng nếu cần
-        if (
-          hasTouchSupport &&
-          deviceType === "Desktop" &&
-          window.innerWidth <= 800
-        ) {
-          deviceType = "Tablet";
-        }
-
-        return deviceType;
-      }
-
-      // Ví dụ sử dụng:
-      console.log("Thiết bị hiện tại:", getDeviceType());
-
-      // Cập nhật khi kích thước cửa sổ thay đổi
-      window.addEventListener("resize", () => {
-        console.log("Thiết bị (resize):", getDeviceType());
-      });
     </script>
   </body>
 </html>

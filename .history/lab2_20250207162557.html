@@ -37,7 +37,7 @@
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/Lab2.css" />
+    <link rel="stylesheet" href="assets/css/Lab2.css"/>
   </head>
 
   <body class="index-page">
@@ -123,235 +123,14 @@
           <div class="tab-content">
             <!-- Tab Requirement -->
             <div id="requirement" class="tab-item active requirement-content">
+              <!-- Nội dung yêu cầu -->
               <h3>Chào các em,</h3>
               <p>
                 Cô gửi bài tập, các em làm xong, bỏ vào thư mục mang tên
                 MaSV_HoTen rồi nén .zip gửi lại cho cô nhé.
               </p>
-              <h4>1. Authentication</h4>
-              <ul>
-                <li>
-                  Students should authenticate before accessing the system.
-                </li>
-                <li>
-                  Required fields:
-                  <ul>
-                    <li>Username/Email</li>
-                    <li>Password</li>
-                  </ul>
-                </li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>Login button</li>
-                    <li>Forgot Password link</li>
-                    <li>Simple, clean, and secure login screen.</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>2. Dashboard</h4>
-              <ul>
-                <li>
-                  After login, students should land on a dashboard that displays
-                  available exercises to choose from.
-                </li>
-                <li>
-                  Display exercises grouped by programming language (C, Python,
-                  Java).
-                  <ul>
-                    <li>
-                      Exercise attributes:
-                      <ul>
-                        <li>Exercise title</li>
-                        <li>Short description</li>
-                        <li>Difficulty level (Easy/Medium/Hard)</li>
-                        <li>Time limit (if any)</li>
-                        <li>Points or grades attached (optional)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>
-                      Allow students to filter exercises by programming
-                      language.
-                    </li>
-                    <li>To search for exercises based on keywords.</li>
-                    <li>
-                      Indicate whether an exercise has been completed, in
-                      progress, or not started.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>Select an exercise</li>
-                    <li>View exercise details</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>3. Coding Environment</h4>
-              <ul>
-                <li>
-                  Once an exercise is selected, students are taken to a coding
-                  environment to implement their solution.
-                </li>
-                <li>Display the exercise title and description at the top.</li>
-                <li>
-                  Features:
-                  <ul>
-                    <li>Syntax highlighting for C, Python, Java</li>
-                    <li>Line numbers and auto-complete</li>
-                    <li>Language switcher (to select the language)</li>
-                    <li>
-                      Pre-loaded template (based on the selected language)
-                    </li>
-                    <li>
-                      Instructions and constraints provided for the exercise
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Test Cases:
-                  <ul>
-                    <li>
-                      Display predefined test cases with expected input/output
-                    </li>
-                    <li>
-                      Allow students to create and run their own test cases
-                      (optional)
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Buttons:
-                  <ul>
-                    <li>Run Code button to compile and run the code</li>
-                    <li>Clear Code button to reset the editor</li>
-                    <li>
-                      Submission button to submit the final solution for grading
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>Run the code (compile + execute)</li>
-                    <li>Submit the code</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>4. Submission and Results</h4>
-              <ul>
-                <li>
-                  After submission, students should see the results of their
-                  submission.
-                </li>
-                <li>
-                  Details:
-                  <ul>
-                    <li>
-                      Status (Success/Failed/Compilation Error/Time Limit
-                      Exceeded)
-                    </li>
-                    <li>
-                      Output: Show actual output versus expected output for each
-                      test case.
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Test Case Details:
-                  <ul>
-                    <li>
-                      List all test cases with:
-                      <ul>
-                        <li>Input</li>
-                        <li>Expected output</li>
-                        <li>Actual output</li>
-                        <li>Status (Passed/Failed)</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Scoring:
-                  <ul>
-                    <li>Show score based on test cases passed</li>
-                    <li>
-                      If there are multiple test cases, show how many passed
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Performance Metrics:
-                  <ul>
-                    <li>
-                      Display performance metrics like time taken and memory
-                      used (if applicable).
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  Actions:
-                  <ul>
-                    <li>
-                      Try again button to return to the code editor for
-                      improvements
-                    </li>
-                    <li>Return to dashboard button</li>
-                  </ul>
-                </li>
-              </ul>
-
-              <h4>5. Additional Features</h4>
-              <ul>
-                <li>
-                  Show rankings based on student performance (optional, for
-                  competitive environments).
-                </li>
-                <li>
-                  Allow students to leave feedback on exercises or ask for help.
-                </li>
-                <li>
-                  Provide a hint button that can be used a limited number of
-                  times.
-                </li>
-                <li>
-                  Allow students to save their progress and return later to
-                  complete the exercise.
-                </li>
-              </ul>
-
-              <h4>6. General Requirements</h4>
-              <ul>
-                <li>
-                  Code execution should happen in isolated environments
-                  (containers or sandboxes) for security reasons.
-                </li>
-                <li>Limit execution time to prevent infinite loops.</li>
-                <li>
-                  Store previous attempts so students can review their
-                  submissions.
-                </li>
-                <li>
-                  Each screen should have a simple design with minimal
-                  distractions.
-                </li>
-                <li>
-                  Ensure the system is mobile-friendly so students can work from
-                  any device.
-                </li>
-                <li>
-                  Clearly communicate syntax and runtime errors to students.
-                </li>
-              </ul>
+              <!-- Các nội dung chi tiết của bài tập -->
+              <!-- ... -->
             </div>
 
             <!-- Tab Design -->
@@ -415,7 +194,6 @@
                   allowfullscreen
                 ></iframe>
               </div>
-              <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
                 <a href="Lab2/Html/index.html" class="lab-button">
                   <i class="bi bi-eye"></i> Review Pages
@@ -426,24 +204,6 @@
         </div>
       </div>
     </main>
-    <!-- <div id="implement" class="tab-item">
-      <h3>Implement</h3>
-      <div class="iframe-container">
-        <iframe
-          src="Lab2/Html/index.html"
-          title="advanced_features"
-          allowfullscreen
-        ></iframe>
-      </div>
-      <div class="button-group" style="margin-top: 20px">
-        <a
-          href="Lab2/Html/index.html"
-          class="btn btn-primary-custom lab9 lab-button"
-        >
-          <i class="bi bi-eye"></i> Review Pages
-        </a>
-      </div>
-    </div> -->
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -475,7 +235,7 @@
                 ></a>
               </div>
             </div>
-
+  
             <!-- Liên Kết Nhanh -->
             <div
               class="col-lg-2 col-md-6 footer-links"
@@ -516,7 +276,7 @@
                 </li>
               </ul>
             </div>
-
+  
             <!-- Dịch Vụ -->
             <div
               class="col-lg-3 col-md-6 footer-services"
@@ -548,7 +308,7 @@
                 </li>
               </ul>
             </div>
-
+  
             <!-- Thông Tin Liên Hệ -->
             <div
               class="col-lg-4 col-md-6 footer-contact"
@@ -581,7 +341,7 @@
             </div>
           </div>
         </div>
-
+  
         <div class="footer-bottom">
           <div class="row">
             <div class="col-lg-6 text-center text-lg-start">
@@ -622,6 +382,69 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
+
+    <!-- JavaScript để nhận diện thiết bị dựa trên cảm ứng, định hướng và user agent -->
+    <script>
+      // Kiểm tra hỗ trợ cảm ứng dựa trên số điểm chạm tối đa
+      function isTouchSupportedByMaxTouchPoints() {
+        return ('maxTouchPoints' in navigator && navigator.maxTouchPoints > 0) ||
+               ('msMaxTouchPoints' in navigator && navigator.msMaxTouchPoints > 0);
+      }
+
+      // Kiểm tra hỗ trợ cảm ứng thông qua media query (pointer: coarse)
+      function isTouchSupportedByMedia() {
+        return window.matchMedia("(pointer: coarse)").matches;
+      }
+
+      // Lấy thông tin định hướng màn hình (portrait/landscape)
+      function getScreenOrientation() {
+        if (screen.orientation && screen.orientation.type) {
+          return screen.orientation.type; // Ví dụ: "portrait-primary" hoặc "landscape-primary"
+        } else if (window.orientation !== undefined) {
+          return window.orientation; // Có thể trả về 0, 90, -90, 180
+        }
+        return "unknown";
+      }
+
+      // Nhận diện loại thiết bị dựa trên chuỗi tác nhân người dùng (User Agent)
+      function getDeviceTypeByUserAgent() {
+        const ua = navigator.userAgent;
+        if (/Mobi|Android/i.test(ua)) {
+          return "mobile";
+        } else if (/Tablet|iPad/i.test(ua)) {
+          return "tablet";
+        } else {
+          return "desktop";
+        }
+      }
+
+      // Hàm tổng hợp nhận diện thiết bị
+      function detectDevice() {
+        const isTouch = isTouchSupportedByMaxTouchPoints() || isTouchSupportedByMedia();
+        let deviceType = getDeviceTypeByUserAgent();
+
+        // Nếu thiết bị hỗ trợ cảm ứng nhưng user agent trả về "desktop",
+        // có thể đây là desktop cảm ứng, bạn có thể tùy chỉnh thêm nếu cần.
+        if (isTouch && deviceType === "desktop") {
+          deviceType = "touch-enabled-desktop";
+        }
+
+        return {
+          deviceType: deviceType,
+          isTouch: isTouch,
+          orientation: getScreenOrientation()
+        };
+      }
+
+      // Khi DOM đã sẵn sàng, thực hiện nhận diện và thêm class vào <body>
+      document.addEventListener("DOMContentLoaded", function () {
+        const deviceInfo = detectDevice();
+        console.log("Device Info:", deviceInfo);
+        document.body.classList.add(deviceInfo.deviceType);
+        // Bạn có thể dùng thông tin này để tối ưu giao diện hoặc tải tài nguyên theo thiết bị
+      });
+    </script>
+
     <script>
       // Hàm thay đổi tab trong Lab 2
       function changeTab(tabId) {
@@ -686,52 +509,6 @@
           alert.close();
         }, 3000);
       }
-      function getDeviceType() {
-        // Kiểm tra tính hỗ trợ cảm ứng
-        const hasTouchSupport =
-          ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) ||
-          window.matchMedia("(pointer: coarse)").matches;
-
-        // Lấy chuỗi tác nhân người dùng và chuyển thành chữ thường để so sánh
-        const ua = navigator.userAgent.toLowerCase();
-
-        // Sử dụng Media Queries để xác định kích thước màn hình
-        let deviceType = "Desktop"; // Mặc định là Desktop
-        if (window.matchMedia("(max-width: 480px)").matches) {
-          deviceType = "Mobile";
-        } else if (window.matchMedia("(max-width: 800px)").matches) {
-          deviceType = "Tablet";
-        } else if (window.matchMedia("(min-width: 801px)").matches) {
-          deviceType = "Desktop";
-        }
-
-        // Ưu tiên kiểm tra thông tin từ chuỗi tác nhân nếu có
-        if (/mobi|android|iphone|ipod/.test(ua)) {
-          deviceType = "Mobile";
-        } else if (/tablet|ipad|nexus 7|kindle/.test(ua)) {
-          deviceType = "Tablet";
-        }
-
-        // Nếu thiết bị có cảm ứng nhưng vẫn được xác định là Desktop theo Media Queries,
-        // kiểm tra lại kích thước cửa sổ để cập nhật đúng nếu cần
-        if (
-          hasTouchSupport &&
-          deviceType === "Desktop" &&
-          window.innerWidth <= 800
-        ) {
-          deviceType = "Tablet";
-        }
-
-        return deviceType;
-      }
-
-      // Ví dụ sử dụng:
-      console.log("Thiết bị hiện tại:", getDeviceType());
-
-      // Cập nhật khi kích thước cửa sổ thay đổi
-      window.addEventListener("resize", () => {
-        console.log("Thiết bị (resize):", getDeviceType());
-      });
     </script>
   </body>
 </html>
