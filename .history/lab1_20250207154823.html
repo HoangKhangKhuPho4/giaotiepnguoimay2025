@@ -325,6 +325,24 @@
         </div>
       </div>
     </main>
+    <!-- <div id="implement" class="tab-item">
+      <h3>Implement</h3>
+      <div class="iframe-container">
+        <iframe
+          src="Lab1/index.html"
+          title="user_interface"
+          allowfullscreen
+        ></iframe>
+      </div> -->
+      <!-- Review Pages Button -->
+      <!-- <div class="button-group" style="margin-top: 20px">
+        <div class="button-group" style="margin-top: 20px">
+          <a href="Lab1/index.html" id="review-btn">
+            <i class="bi bi-eye"></i> Review Pages
+          </a>
+        </div>
+      </div> -->
+    </div>
 
     <!-- Footer -->
     <footer id="footer" class="footer">
@@ -503,76 +521,7 @@
 
     <!-- Main JS File -->
     <script src="assets/js/main.js"></script>
-
-    <!-- Custom Device Detection Script -->
     <script>
-      // 1. Kiểm tra hỗ trợ cảm ứng sử dụng maxTouchPoints
-      function isTouchSupportedByMaxTouchPoints() {
-        return (
-          ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) ||
-          ("msMaxTouchPoints" in navigator && navigator.msMaxTouchPoints > 0)
-        );
-      }
-
-      // 2. Kiểm tra hỗ trợ cảm ứng sử dụng media query
-      function isTouchSupportedByMedia() {
-        return window.matchMedia("(pointer: coarse)").matches;
-      }
-
-      // 3. Lấy thông tin định hướng màn hình
-      function getScreenOrientation() {
-        if (screen.orientation && screen.orientation.type) {
-          return screen.orientation.type; // Ví dụ: "portrait-primary" hoặc "landscape-primary"
-        } else if (window.orientation !== undefined) {
-          return window.orientation;
-        }
-        return "unknown";
-      }
-
-      // 4. Nhận diện loại thiết bị dựa trên chuỗi User Agent
-      function getDeviceTypeByUserAgent() {
-        const ua = navigator.userAgent;
-        if (/Mobi|Android/i.test(ua)) {
-          return "mobile";
-        } else if (/Tablet|iPad/i.test(ua)) {
-          return "tablet";
-        } else {
-          return "desktop";
-        }
-      }
-
-      // 5. Hàm tổng hợp nhận diện thiết bị
-      function detectDevice() {
-        // Kiểm tra hỗ trợ cảm ứng
-        const isTouch =
-          isTouchSupportedByMaxTouchPoints() || isTouchSupportedByMedia();
-
-        // Nhận diện loại thiết bị dựa trên User Agent
-        let deviceType = getDeviceTypeByUserAgent();
-
-        // Nếu thiết bị hỗ trợ cảm ứng nhưng User Agent cho kết quả "desktop",
-        // có thể đây là máy tính cảm ứng. Tùy chỉnh nhãn nếu cần.
-        if (isTouch && deviceType === "desktop") {
-          deviceType = "touch-enabled-desktop";
-        }
-
-        return {
-          deviceType: deviceType,
-          isTouch: isTouch,
-          orientation: getScreenOrientation(),
-        };
-      }
-
-      // Khi DOM đã sẵn sàng, thêm class vào body theo loại thiết bị để CSS có thể điều chỉnh giao diện
-      document.addEventListener("DOMContentLoaded", function () {
-        const deviceInfo = detectDevice();
-        document.body.classList.add(deviceInfo.deviceType);
-        console.log("Thông tin thiết bị:", deviceInfo);
-
-        // Khởi tạo tab mặc định cho Lab 1
-        changeTab("requirement");
-      });
-
       // Hàm thay đổi tab trong Lab 1
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
@@ -601,6 +550,11 @@
           activeTab.classList.add("active");
         }
       }
+
+      // Khởi tạo mặc định
+      document.addEventListener("DOMContentLoaded", function () {
+        changeTab("requirement"); // Hiển thị tab Requirement mặc định
+      });
 
       // Hiển thị nút Scroll Top khi cuộn xuống
       window.addEventListener("scroll", function () {

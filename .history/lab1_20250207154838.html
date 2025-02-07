@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Lab 1 - User Interface</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Lab 1 – Giao diện người dùng" />
+    <meta name="keywords" content="Lab, User Interface, Responsive, Mobile, Desktop" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -20,10 +20,7 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <link
       href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
       rel="stylesheet"
@@ -35,9 +32,25 @@
       rel="stylesheet"
     />
 
-    <!-- Main CSS File -->
+    <!-- Main CSS File (không thay đổi màu sắc đã xây dựng) -->
     <link href="assets/css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/Lab1.css" />
+
+    <!-- Chỉ thêm CSS cho phần thông báo thiết bị (không can thiệp màu sắc chung) -->
+    <style>
+      /* Style cho thông báo hiển thị thông tin thiết bị */
+      #device-detection {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        padding: 8px 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        border-radius: 4px;
+        z-index: 1000;
+        font-size: 0.9rem;
+      }
+    </style>
   </head>
 
   <body class="index-page">
@@ -70,6 +83,9 @@
         </nav>
       </div>
     </header>
+
+    <!-- Phần hiển thị thông tin thiết bị (không thay đổi giao diện tổng thể) -->
+    <div id="device-detection"></div>
 
     <!-- Main Content -->
     <main class="main">
@@ -501,99 +517,23 @@
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-    <!-- Main JS File -->
+    <!-- Main JS File and Custom Script -->
     <script src="assets/js/main.js"></script>
-
-    <!-- Custom Device Detection Script -->
     <script>
-      // 1. Kiểm tra hỗ trợ cảm ứng sử dụng maxTouchPoints
-      function isTouchSupportedByMaxTouchPoints() {
-        return (
-          ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) ||
-          ("msMaxTouchPoints" in navigator && navigator.msMaxTouchPoints > 0)
-        );
-      }
-
-      // 2. Kiểm tra hỗ trợ cảm ứng sử dụng media query
-      function isTouchSupportedByMedia() {
-        return window.matchMedia("(pointer: coarse)").matches;
-      }
-
-      // 3. Lấy thông tin định hướng màn hình
-      function getScreenOrientation() {
-        if (screen.orientation && screen.orientation.type) {
-          return screen.orientation.type; // Ví dụ: "portrait-primary" hoặc "landscape-primary"
-        } else if (window.orientation !== undefined) {
-          return window.orientation;
-        }
-        return "unknown";
-      }
-
-      // 4. Nhận diện loại thiết bị dựa trên chuỗi User Agent
-      function getDeviceTypeByUserAgent() {
-        const ua = navigator.userAgent;
-        if (/Mobi|Android/i.test(ua)) {
-          return "mobile";
-        } else if (/Tablet|iPad/i.test(ua)) {
-          return "tablet";
-        } else {
-          return "desktop";
-        }
-      }
-
-      // 5. Hàm tổng hợp nhận diện thiết bị
-      function detectDevice() {
-        // Kiểm tra hỗ trợ cảm ứng
-        const isTouch =
-          isTouchSupportedByMaxTouchPoints() || isTouchSupportedByMedia();
-
-        // Nhận diện loại thiết bị dựa trên User Agent
-        let deviceType = getDeviceTypeByUserAgent();
-
-        // Nếu thiết bị hỗ trợ cảm ứng nhưng User Agent cho kết quả "desktop",
-        // có thể đây là máy tính cảm ứng. Tùy chỉnh nhãn nếu cần.
-        if (isTouch && deviceType === "desktop") {
-          deviceType = "touch-enabled-desktop";
-        }
-
-        return {
-          deviceType: deviceType,
-          isTouch: isTouch,
-          orientation: getScreenOrientation(),
-        };
-      }
-
-      // Khi DOM đã sẵn sàng, thêm class vào body theo loại thiết bị để CSS có thể điều chỉnh giao diện
-      document.addEventListener("DOMContentLoaded", function () {
-        const deviceInfo = detectDevice();
-        document.body.classList.add(deviceInfo.deviceType);
-        console.log("Thông tin thiết bị:", deviceInfo);
-
-        // Khởi tạo tab mặc định cho Lab 1
-        changeTab("requirement");
-      });
-
-      // Hàm thay đổi tab trong Lab 1
+      // Hàm chuyển đổi tab
       function changeTab(tabId) {
-        // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
         tabItems.forEach((item) => {
           item.style.display = "none";
         });
-
-        // Hiển thị tab được chọn
         const selectedTab = document.getElementById(tabId);
         if (selectedTab) {
           selectedTab.style.display = "block";
         }
-
-        // Xóa class active khỏi tất cả các tab
         const tabs = document.querySelectorAll(".tab");
         tabs.forEach((tab) => {
           tab.classList.remove("active");
         });
-
-        // Thêm class active cho tab được chọn
         const activeTab = document.querySelector(
           `.tab[onclick="changeTab('${tabId}')"]`
         );
@@ -602,7 +542,38 @@
         }
       }
 
-      // Hiển thị nút Scroll Top khi cuộn xuống
+      // Hàm kiểm tra thiết bị hỗ trợ cảm ứng
+      function isTouchDevice() {
+        const hasTouchEvents = "ontouchstart" in window;
+        const hasTouchPoints =
+          navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+        return hasTouchEvents || hasTouchPoints || isCoarsePointer;
+      }
+
+      // Hàm kiểm tra thiết bị di động dựa trên user agent và cảm ứng
+      function isMobileDevice() {
+        const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+        return isTouchDevice() && mobileUA;
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Hiển thị tab "Requirement" mặc định
+        changeTab("requirement");
+
+        // Cập nhật thông tin thiết bị vào phần thông báo mà không thay đổi giao diện (màu sắc) đã xây dựng
+        const deviceInfoEl = document.getElementById("device-detection");
+        if (isMobileDevice()) {
+          console.log("Người dùng đang sử dụng thiết bị di động (Mobile/Tablet).");
+          deviceInfoEl.textContent = "Thiết bị: Di động";
+        } else {
+          console.log("Người dùng đang sử dụng máy tính để bàn.");
+          deviceInfoEl.textContent = "Thiết bị: Máy tính để bàn";
+        }
+      });
+
       window.addEventListener("scroll", function () {
         const scrollTop = document.getElementById("scroll-top");
         if (window.pageYOffset > 300) {
@@ -625,10 +596,10 @@
 
         // Tự động xóa thông báo sau 3 giây
         setTimeout(() => {
-          const alert = bootstrap.Alert.getOrCreateInstance(
+          const alertInstance = bootstrap.Alert.getOrCreateInstance(
             alertPlaceholder.firstChild
           );
-          alert.close();
+          alertInstance.close();
         }, 3000);
       }
     </script>

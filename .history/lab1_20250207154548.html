@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Lab 1 - User Interface</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="description" content="Lab 1 – Giao diện người dùng" />
+    <meta name="keywords" content="Lab, User Interface, Responsive, Mobile, Desktop" />
 
     <!-- Favicons -->
     <link href="assets/img/favicon.png" rel="icon" />
@@ -20,38 +20,46 @@
     />
 
     <!-- Vendor CSS Files -->
-    <link
-      href="assets/vendor/bootstrap/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
     <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
 
     <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/Lab1.css" />
+
+    <!-- Thêm một số CSS tùy chỉnh cho thiết bị -->
+    <style>
+      /* Ví dụ: thay đổi màu nền tùy theo thiết bị */
+      body.mobile-device {
+        background-color: #f0f8ff;
+      }
+      body.desktop-device {
+        background-color: #fff;
+      }
+      /* Thông báo hiển thị thiết bị (nếu cần) */
+      #device-detection {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        padding: 8px 12px;
+        background: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        border-radius: 4px;
+        z-index: 1000;
+        font-size: 0.9rem;
+      }
+    </style>
   </head>
 
   <body class="index-page">
     <!-- Header -->
     <header id="header" class="header d-flex align-items-center fixed-top">
-      <div
-        class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between"
-      >
+      <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
-          <img
-            src="assets/img/logoDt.png"
-            alt="Logo"
-            style="height: 50px; width: auto; margin-right: 10px"
-          />
+          <img src="assets/img/logoDt.png" alt="Logo" style="height: 50px; width: auto; margin-right: 10px" />
           <h1 class="sitename">Hoang Khang</h1>
         </a>
 
@@ -71,6 +79,9 @@
       </div>
     </header>
 
+    <!-- Hiển thị thông tin về thiết bị (Mobile hoặc Desktop) -->
+    <div id="device-detection"></div>
+
     <!-- Main Content -->
     <main class="main">
       <div class="container" style="margin-top: 100px">
@@ -78,10 +89,7 @@
 
         <!-- Lab Buttons -->
         <div class="lab-buttons">
-          <a
-            href="lab1.html"
-            class="btn btn-primary-custom lab1 lab-button active"
-          >
+          <a href="lab1.html" class="btn btn-primary-custom lab1 lab-button active">
             <i class="bi bi-book"></i> Lab 1
           </a>
           <a href="lab2.html" class="btn btn-secondary-custom lab2 lab-button">
@@ -135,121 +143,71 @@
                   <strong>Text Input (Single-line):</strong> “Username”
                   <ul>
                     <li>Must be unique, maximum 255 characters.</li>
-                    <li>
-                      A text box with a hint (placeholder) like "Enter your
-                      username."
-                    </li>
+                    <li>A text box with a hint (placeholder) like "Enter your username."</li>
                   </ul>
                 </li>
                 <li>
-                  <strong
-                    >Password Input (Single-line with hidden text):</strong
-                  >
-                  “Password”
+                  <strong>Password Input (Single-line with hidden text):</strong> “Password”
                   <ul>
-                    <li>
-                      Minimum password strength check, maximum 255 characters.
-                    </li>
-                    <li>
-                      A text box that hides the text input, with a “Show/Hide”
-                      toggle.
-                    </li>
+                    <li>Minimum password strength check, maximum 255 characters.</li>
+                    <li>A text box that hides the text input, with a “Show/Hide” toggle.</li>
                   </ul>
                 </li>
                 <li>
                   <strong>Email Input:</strong> “Email Address”
                   <ul>
-                    <li>
-                      Must be a valid email format and unique, maximum 255
-                      characters.
-                    </li>
-                    <li>
-                      A text box with a placeholder like "Enter your email."
-                    </li>
+                    <li>Must be a valid email format and unique, maximum 255 characters.</li>
+                    <li>A text box with a placeholder like "Enter your email."</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text Input (Single-line):</strong> “Full Name”
-                  <em>(optional)</em>
+                  <strong>Text Input (Single-line):</strong> “Full Name” <em>(optional)</em>
                   <ul>
-                    <li>
-                      A regular text box, with a placeholder like "Enter your
-                      full name."
-                    </li>
+                    <li>A regular text box, with a placeholder like "Enter your full name."</li>
                   </ul>
                 </li>
                 <li>
                   <strong>Dropdown / Select Menu:</strong> “Role”
                   <ul>
                     <li>Required field.</li>
-                    <li>
-                      A dropdown menu listing the available roles fetched from
-                      the system (e.g., Admin, User, etc.).
-                    </li>
+                    <li>A dropdown menu listing the available roles fetched from the system (e.g., Admin, User, etc.).</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>File Upload or URL Input (for image URL):</strong>
-                  “Profile Picture”
+                  <strong>File Upload or URL Input (for image URL):</strong> “Profile Picture”
                   <ul>
-                    <li>
-                      An upload button or URL field that allows users to upload
-                      or enter a URL for their profile picture, with a preview
-                      box for the image.
-                    </li>
+                    <li>An upload button or URL field that allows users to upload or enter a URL for their profile picture, with a preview box for the image.</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Account
-                  Created At”
+                  <strong>Text or Date Display (Read-only):</strong> “Account Created At”
                   <ul>
-                    <li>
-                      Automatically populated field, no input needed. Display
-                      this as a timestamp or date.
-                    </li>
+                    <li>Automatically populated field, no input needed. Display this as a timestamp or date.</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Text or Date Display (Read-only):</strong> “Last
-                  Updated At”
+                  <strong>Text or Date Display (Read-only):</strong> “Last Updated At”
                   <ul>
-                    <li>
-                      Automatically updated field when the user’s information is
-                      edited. Display this as a timestamp or date.
-                    </li>
+                    <li>Automatically updated field when the user’s information is edited. Display this as a timestamp or date.</li>
                   </ul>
                 </li>
                 <li>
-                  <strong>Button:</strong> “Create Account” / “Save Changes”
-                  (depending on context)
+                  <strong>Button:</strong> “Create Account” / “Save Changes” (depending on context)
                   <ul>
-                    <li>
-                      A primary action button that submits the form. Ensure it's
-                      disabled until all required fields are validated.
-                    </li>
+                    <li>A primary action button that submits the form. Ensure it's disabled until all required fields are validated.</li>
                   </ul>
                 </li>
                 <li>
                   <strong>Button <em>(Optional)</em>:</strong> “Cancel”
                   <ul>
-                    <li>
-                      A secondary action button that cancels the form submission
-                      and returns the user to the previous page.
-                    </li>
+                    <li>A secondary action button that cancels the form submission and returns the user to the previous page.</li>
                   </ul>
                 </li>
               </ul>
               <h4>Additional Considerations:</h4>
               <ul>
-                <li>
-                  Use inline validation messages under each input field for
-                  errors like "Username is already taken" or "Invalid email
-                  format."
-                </li>
-                <li>
-                  Ensure the form is responsive, working well on both desktop
-                  and mobile.
-                </li>
+                <li>Use inline validation messages under each input field for errors like "Username is already taken" or "Invalid email format."</li>
+                <li>Ensure the form is responsive, working well on both desktop and mobile.</li>
               </ul>
             </div>
 
@@ -260,17 +218,9 @@
                 <!-- Design On Paper -->
                 <div class="design-area">
                   <h4>Design On Paper</h4>
-                  <img
-                    src="assets/img/DesignPaperUser.jpg"
-                    alt="Design On Paper"
-                    class="image-preview"
-                  />
+                  <img src="assets/img/DesignPaperUser.jpg" alt="Design On Paper" class="image-preview" />
                   <div class="button-group">
-                    <a
-                      href="assets/img/DesignPaperUser.jpg"
-                      download
-                      class="download-btn"
-                    >
+                    <a href="assets/img/DesignPaperUser.jpg" download class="download-btn">
                       <i class="bi bi-download"></i> Download
                     </a>
                   </div>
@@ -279,17 +229,9 @@
                 <!-- Design On Figma -->
                 <div class="design-area">
                   <h4>Design On Figma</h4>
-                  <img
-                    src="assets/img/DesignUser.png"
-                    alt="Design On Figma"
-                    class="image-preview"
-                  />
+                  <img src="assets/img/DesignUser.png" alt="Design On Figma" class="image-preview" />
                   <div class="button-group">
-                    <a
-                      href="assets/img/DesignUser.png"
-                      download
-                      class="download-btn"
-                    >
+                    <a href="assets/img/DesignUser.png" download class="download-btn">
                       <i class="bi bi-download"></i> Download
                     </a>
                     <a
@@ -308,11 +250,7 @@
             <div id="implement" class="tab-item">
               <h3>Implement</h3>
               <div class="iframe-container">
-                <iframe
-                  src="Lab1/index.html"
-                  title="user_interface"
-                  allowfullscreen
-                ></iframe>
+                <iframe src="Lab1/index.html" title="user_interface" allowfullscreen></iframe>
               </div>
               <!-- Review Pages Button -->
               <div class="button-group" style="margin-top: 20px">
@@ -335,126 +273,56 @@
             <div class="col-lg-3 col-md-6 footer-about" data-aos="fade-up">
               <h4>Giới Thiệu</h4>
               <p>
-                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê
-                và sáng tạo. Hãy cùng nhau xây dựng điều tuyệt vời.
+                Được cam kết mang đến các dự án chất lượng cao với niềm đam mê và sáng tạo.
+                Hãy cùng nhau xây dựng điều tuyệt vời.
               </p>
               <div class="social-links">
-                <a href="#" aria-label="Twitter"
-                  ><i class="bi bi-twitter"></i
-                ></a>
-                <a
-                  href="https://www.facebook.com/profile.php?id=100088292157574"
-                  aria-label="Facebook"
-                  ><i class="bi bi-facebook"></i
-                ></a>
-                <a href="#" aria-label="Instagram"
-                  ><i class="bi bi-instagram"></i
-                ></a>
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100088292157574" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                 <a href="#" aria-label="Skype"><i class="bi bi-skype"></i></a>
-                <a href="#" aria-label="LinkedIn"
-                  ><i class="bi bi-linkedin"></i
-                ></a>
+                <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
 
             <!-- Liên Kết Nhanh -->
-            <div
-              class="col-lg-2 col-md-6 footer-links"
-              data-aos="fade-up"
-              data-aos-delay="100"
-            >
+            <div class="col-lg-2 col-md-6 footer-links" data-aos="fade-up" data-aos-delay="100">
               <h4>Liên Kết Nhanh</h4>
               <ul>
-                <li>
-                  <a href="index.html"
-                    ><i class="bi bi-chevron-right"></i> Trang Chủ</a
-                  >
-                </li>
-                <li>
-                  <a href="about.html"
-                    ><i class="bi bi-chevron-right"></i> Giới Thiệu</a
-                  >
-                </li>
-                <li>
-                  <a href="resume.html"
-                    ><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a
-                  >
-                </li>
-                <li>
-                  <a href="services.html"
-                    ><i class="bi bi-chevron-right"></i> Dịch Vụ</a
-                  >
-                </li>
-                <li>
-                  <a href="portfolio.html"
-                    ><i class="bi bi-chevron-right"></i> Portfolio</a
-                  >
-                </li>
-                <li>
-                  <a href="contact.html"
-                    ><i class="bi bi-chevron-right"></i> Liên Hệ</a
-                  >
-                </li>
+                <li><a href="index.html"><i class="bi bi-chevron-right"></i> Trang Chủ</a></li>
+                <li><a href="about.html"><i class="bi bi-chevron-right"></i> Giới Thiệu</a></li>
+                <li><a href="resume.html"><i class="bi bi-chevron-right"></i> Sơ Yếu Lý Lịch</a></li>
+                <li><a href="services.html"><i class="bi bi-chevron-right"></i> Dịch Vụ</a></li>
+                <li><a href="portfolio.html"><i class="bi bi-chevron-right"></i> Portfolio</a></li>
+                <li><a href="contact.html"><i class="bi bi-chevron-right"></i> Liên Hệ</a></li>
               </ul>
             </div>
 
             <!-- Dịch Vụ -->
-            <div
-              class="col-lg-3 col-md-6 footer-services"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
+            <div class="col-lg-3 col-md-6 footer-services" data-aos="fade-up" data-aos-delay="200">
               <h4>Dịch Vụ</h4>
               <ul>
-                <li>
-                  <a href="#"
-                    ><i class="bi bi-chevron-right"></i> Thiết Kế Web</a
-                  >
-                </li>
-                <li>
-                  <a href="#"
-                    ><i class="bi bi-chevron-right"></i> Phát Triển Web</a
-                  >
-                </li>
-                <li>
-                  <a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a>
-                </li>
-                <li>
-                  <a href="#"
-                    ><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a
-                  >
-                </li>
-                <li>
-                  <a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a>
-                </li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Thiết Kế Web</a></li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Phát Triển Web</a></li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Nhiếp Ảnh</a></li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Thiết Kế Đồ Họa</a></li>
+                <li><a href="#"><i class="bi bi-chevron-right"></i> Tối Ưu SEO</a></li>
               </ul>
             </div>
 
             <!-- Thông Tin Liên Hệ -->
-            <div
-              class="col-lg-4 col-md-6 footer-contact"
-              data-aos="fade-up"
-              data-aos-delay="300"
-            >
+            <div class="col-lg-4 col-md-6 footer-contact" data-aos="fade-up" data-aos-delay="300">
               <h4>Liên Hệ</h4>
               <p>
                 <strong>Email:</strong>
-                <a href="mailto:22130116@st.hcmuaf.edu.vn"
-                  >22130116@st.hcmuaf.edu.vn</a
-                ><br />
+                <a href="mailto:22130116@st.hcmuaf.edu.vn">22130116@st.hcmuaf.edu.vn</a><br />
                 <strong>Điện Thoại:</strong>
                 <a href="tel:+1234567890">+1 234 567 890</a><br />
                 <strong>Địa Chỉ:</strong> 1234 Đường Số, Thành Phố, Quốc Gia
               </p>
               <!-- Đăng Ký Newsletter -->
               <form action="#" method="post" class="newsletter-form">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email của bạn"
-                  aria-label="Email của bạn"
-                  required
-                />
+                <input type="email" name="email" placeholder="Email của bạn" aria-label="Email của bạn" required />
                 <button type="submit" aria-label="Đăng Ký">
                   <i class="bi bi-send"></i>
                 </button>
@@ -466,14 +334,11 @@
         <div class="footer-bottom">
           <div class="row">
             <div class="col-lg-6 text-center text-lg-start">
-              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu
-              Mọi Quyền
+              &copy; 2024 <strong class="sitename">Hoang Khang</strong>. Bảo Lưu Mọi Quyền
             </div>
             <div class="col-lg-6 footer-credits text-center text-lg-end">
               Thiết Kế Bởi
-              <a href="https://www.facebook.com/profile.php?id=100088292157574"
-                >Nguyễn Lê Hoàng Khang</a
-              >
+              <a href="https://www.facebook.com/profile.php?id=100088292157574">Nguyễn Lê Hoàng Khang</a>
             </div>
           </div>
         </div>
@@ -481,11 +346,7 @@
     </footer>
 
     <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-    >
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
       <i class="bi bi-arrow-up-short"></i>
     </a>
 
@@ -501,79 +362,10 @@
     <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
-    <!-- Main JS File -->
+    <!-- Main JS File and Custom Script -->
     <script src="assets/js/main.js"></script>
-
-    <!-- Custom Device Detection Script -->
     <script>
-      // 1. Kiểm tra hỗ trợ cảm ứng sử dụng maxTouchPoints
-      function isTouchSupportedByMaxTouchPoints() {
-        return (
-          ("maxTouchPoints" in navigator && navigator.maxTouchPoints > 0) ||
-          ("msMaxTouchPoints" in navigator && navigator.msMaxTouchPoints > 0)
-        );
-      }
-
-      // 2. Kiểm tra hỗ trợ cảm ứng sử dụng media query
-      function isTouchSupportedByMedia() {
-        return window.matchMedia("(pointer: coarse)").matches;
-      }
-
-      // 3. Lấy thông tin định hướng màn hình
-      function getScreenOrientation() {
-        if (screen.orientation && screen.orientation.type) {
-          return screen.orientation.type; // Ví dụ: "portrait-primary" hoặc "landscape-primary"
-        } else if (window.orientation !== undefined) {
-          return window.orientation;
-        }
-        return "unknown";
-      }
-
-      // 4. Nhận diện loại thiết bị dựa trên chuỗi User Agent
-      function getDeviceTypeByUserAgent() {
-        const ua = navigator.userAgent;
-        if (/Mobi|Android/i.test(ua)) {
-          return "mobile";
-        } else if (/Tablet|iPad/i.test(ua)) {
-          return "tablet";
-        } else {
-          return "desktop";
-        }
-      }
-
-      // 5. Hàm tổng hợp nhận diện thiết bị
-      function detectDevice() {
-        // Kiểm tra hỗ trợ cảm ứng
-        const isTouch =
-          isTouchSupportedByMaxTouchPoints() || isTouchSupportedByMedia();
-
-        // Nhận diện loại thiết bị dựa trên User Agent
-        let deviceType = getDeviceTypeByUserAgent();
-
-        // Nếu thiết bị hỗ trợ cảm ứng nhưng User Agent cho kết quả "desktop",
-        // có thể đây là máy tính cảm ứng. Tùy chỉnh nhãn nếu cần.
-        if (isTouch && deviceType === "desktop") {
-          deviceType = "touch-enabled-desktop";
-        }
-
-        return {
-          deviceType: deviceType,
-          isTouch: isTouch,
-          orientation: getScreenOrientation(),
-        };
-      }
-
-      // Khi DOM đã sẵn sàng, thêm class vào body theo loại thiết bị để CSS có thể điều chỉnh giao diện
-      document.addEventListener("DOMContentLoaded", function () {
-        const deviceInfo = detectDevice();
-        document.body.classList.add(deviceInfo.deviceType);
-        console.log("Thông tin thiết bị:", deviceInfo);
-
-        // Khởi tạo tab mặc định cho Lab 1
-        changeTab("requirement");
-      });
-
-      // Hàm thay đổi tab trong Lab 1
+      // Hàm chuyển đổi tab trong Lab 1
       function changeTab(tabId) {
         // Ẩn tất cả các tab-item
         const tabItems = document.querySelectorAll(".tab-item");
@@ -594,13 +386,44 @@
         });
 
         // Thêm class active cho tab được chọn
-        const activeTab = document.querySelector(
-          `.tab[onclick="changeTab('${tabId}')"]`
-        );
+        const activeTab = document.querySelector(`.tab[onclick="changeTab('${tabId}')"]`);
         if (activeTab) {
           activeTab.classList.add("active");
         }
       }
+
+      // Các hàm kiểm tra thiết bị hỗ trợ cảm ứng và phân biệt Mobile/ Desktop
+
+      // 1. Kiểm tra thiết bị hỗ trợ cảm ứng dựa trên sự kiện, số điểm chạm và media query
+      function isTouchDevice() {
+        const hasTouchEvents = "ontouchstart" in window;
+        const hasTouchPoints = navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
+        return hasTouchEvents || hasTouchPoints || isCoarsePointer;
+      }
+
+      // 2. Kiểm tra thiết bị di động dựa trên user agent kết hợp với tính năng cảm ứng
+      function isMobileDevice() {
+        const mobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        return isTouchDevice() && mobileUA;
+      }
+
+      // Khởi tạo mặc định khi DOM sẵn sàng
+      document.addEventListener("DOMContentLoaded", function () {
+        changeTab("requirement"); // Hiển thị tab Requirement mặc định
+
+        // Kiểm tra thiết bị và thay đổi giao diện/tải tài nguyên phù hợp
+        const deviceInfoEl = document.getElementById("device-detection");
+        if (isMobileDevice()) {
+          console.log("Người dùng đang sử dụng thiết bị di động (Mobile/Tablet).");
+          document.body.classList.add("mobile-device");
+          deviceInfoEl.textContent = "Thiết bị: Di động";
+        } else {
+          console.log("Người dùng đang sử dụng máy tính để bàn.");
+          document.body.classList.add("desktop-device");
+          deviceInfoEl.textContent = "Thiết bị: Máy tính để bàn";
+        }
+      });
 
       // Hiển thị nút Scroll Top khi cuộn xuống
       window.addEventListener("scroll", function () {
@@ -625,10 +448,8 @@
 
         // Tự động xóa thông báo sau 3 giây
         setTimeout(() => {
-          const alert = bootstrap.Alert.getOrCreateInstance(
-            alertPlaceholder.firstChild
-          );
-          alert.close();
+          const alertInstance = bootstrap.Alert.getOrCreateInstance(alertPlaceholder.firstChild);
+          alertInstance.close();
         }, 3000);
       }
     </script>
